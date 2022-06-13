@@ -1,6 +1,20 @@
+<<<<<<< HEAD
 /src/main/webapp/WEB-INF/classes/
 /src/main/resources/
 /src/main/webapp/upload/
 /.project
+=======
+<<<<<<< HEAD
+/src/main/webapp/WEB-INF/classes/
+/src/main/resources/
+/src/main/webapp/upload/
+/.project
+=======
+/src/main/webapp/WEB-INF/classes/
+/src/main/resources/
+/src/main/webapp/upload/
+/.project
+>>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
+>>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 /.classpath
 /.settings/

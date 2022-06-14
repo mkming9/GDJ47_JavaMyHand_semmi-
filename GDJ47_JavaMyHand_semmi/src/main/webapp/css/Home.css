@@ -6,23 +6,24 @@
 ul,li{
     list-style: none;
 }
-
-#wrap{
-    width:1900px;
-}
-#header{
-    width: 1200px;
+header{
+    width: 1900px;
     height:115px;
-    margin:0 auto;
     display: flex;
+
+}
+#wrap{
+    width: 1900px;
 }
 #logo{
     margin-top: 37px;
+    padding-left: 350px;
 }
 #menubox{
-    margin-left: 70px;
+    margin-left: 50px;
     height: 100%;
     width: 1200px;
+    
 }
 #menubox>ul>li{
     display:inline-block;
@@ -87,7 +88,3 @@ ul,li{
     height: 800px;
     background-color: yellowgreen;
 }
-
-
-
-

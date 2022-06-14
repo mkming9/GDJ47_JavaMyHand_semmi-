@@ -11,28 +11,26 @@
     <link href="css/Home.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <div id="wrap">
-        <div id="header">
-            <h1 id="logo">
-                <a href="#"><img src="./images/MainLogo.png"/></a>
-            </h1>
-            <div id="menubox">
-                <ul>
-                    <li><a href="">소개</a></li>
-                    <li><a href="">기부</a></li>
-                    <li><a href="">소모임</a></li>
-                    <li><a href="">아나바다</a></li>
-                </ul>
-            </div>
+    <header>
+        <h1 id="logo">
+            <a href="#"><img src="./images/MainLogo.png"/></a>
+        </h1>
+        <div id="menubox">
+            <ul>
+                <li><a href="">소개</a></li>
+                <li><a href="">기부</a></li>
+                <li><a href="">소모임</a></li>
+                <li><a href="">아나바다</a></li>
+            </ul>
         </div>
+    </header>
 
+    <div id="wrap">
         <div class="main">
             <div class="button">
                 <img src="images/main1_1.png">
             </div>
         </div>
-            
-        
         <div class="content1">
             <h1>우리의 이야기</h1>
             <p>자바마이핸드의 활동들을 만나보세요. 함께 이야기를 만들어가요! </p>
@@ -52,6 +50,6 @@
         <div class="content4">
             
         </div>
-	</div>
+    </div>
 </body>
 </html>

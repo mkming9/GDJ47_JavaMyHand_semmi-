@@ -27,11 +27,11 @@
         </div>
 
         <div class="main">
-            <!-- <div id="button"><img src="images/main1_1.png"></div> -->
             <div class="button">
                 <img src="images/main1_1.png">
             </div>
-        </div>    
+        </div>
+            
         
         <div class="content1">
             <h1>우리의 이야기</h1>
@@ -52,13 +52,6 @@
         <div class="content4">
             
         </div>
-
-        <style>
-            .main{
-                background-image: url("images/Main1.png");
-                width: 100%;
-                height: 800px;
-            }
-        </style>
+	</div>
 </body>
 </html>

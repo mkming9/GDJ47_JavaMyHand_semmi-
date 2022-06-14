@@ -1,4 +1,4 @@
-package com.jmh.controller;
+package com.member.controller;
 
 public class LoginServlet {
 

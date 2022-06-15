@@ -8,11 +8,12 @@ import lombok.Data;
 @Data
 @Builder
 public class Notice {
-	private String noticeNo;
+	private int noticeNo;
 	private String memberId;
-	private String noticeTitle;
+	private String  noticeTitle;
+	private String noticeContent;
 	private Date noticeDate;
 	private int noticeView;
-	private String noticeContent;
+	
 }
 

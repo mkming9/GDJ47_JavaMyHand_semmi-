@@ -1,5 +1,7 @@
 package com.jmh.common;
 
-public class JDBCTemplate {
+import java.sql.Connection;
 
+public class JDBCTemplate {
+	Connection conn;
 }

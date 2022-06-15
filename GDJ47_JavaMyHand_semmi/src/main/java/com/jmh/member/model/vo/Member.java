@@ -1,4 +1,4 @@
-package com.jmh.member.vo;
+package com.jmh.member.model.vo;
 
 import java.sql.Date;
 

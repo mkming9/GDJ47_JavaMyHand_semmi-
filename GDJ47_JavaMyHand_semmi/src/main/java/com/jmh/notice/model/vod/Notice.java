@@ -1,4 +1,4 @@
-package com.jmh.notice.vo;
+package com.jmh.notice.model.vod;
 
 import java.sql.Date;
 

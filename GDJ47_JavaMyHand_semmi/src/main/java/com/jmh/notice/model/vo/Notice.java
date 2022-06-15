@@ -2,8 +2,6 @@ package com.jmh.notice.model.vo;
 
 import java.sql.Date;
 
-
-
 public class Notice {
 	private String noticeCode;
 	private String memberId;

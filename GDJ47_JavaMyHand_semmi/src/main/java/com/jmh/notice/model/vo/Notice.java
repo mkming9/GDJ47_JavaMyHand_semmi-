@@ -15,3 +15,4 @@ public class Notice {
 	private int noticeView;
 	private String noticeContent;
 }
+

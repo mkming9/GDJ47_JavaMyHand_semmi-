@@ -1,6 +1,8 @@
-package com.jmh.notice.model.vod;
+package com.jmh.notice.model.vo;
 
 import java.sql.Date;
+
+
 
 public class Notice {
 	private String noticeCode;

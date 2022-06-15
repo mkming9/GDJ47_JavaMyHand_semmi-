@@ -11,10 +11,10 @@ public class Member {
 	private String memberId;
 	private String password;
 	private String memberName;
-	private String phone;
-	private int age;
 	private String gender;
+	private int age;
 	private String address;
+	private String phone;
+	private int point;
 	private Date enrollDate;
-	
 }

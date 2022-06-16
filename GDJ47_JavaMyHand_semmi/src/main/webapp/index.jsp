@@ -32,7 +32,7 @@
         <div id="slideShow">
             <ul class="slides">
                 <li>
-                    <div class="Main1"><img src="images/Main1.png" alt=""></div>
+                    <div class="Main1"><img src="images/main1.png" alt=""></div>
                     <div class="btn1"><a href=""><img src="images/main1_1.png"></a></div>
                 </li>
                 <!-- <li>
@@ -92,10 +92,10 @@
         </div>
         <div id="sns">
             <p>구독하기</p>
-            <img src="images/youtube.png">&nbsp
-            <img src="images/facebook.png">&nbsp
-            <img src="images/insta.png">&nbsp
-            <img src="images/twit.png">&nbsp
+            <img src="images/youtube.png">&nbsp;
+            <img src="images/facebook.png">&nbsp;
+            <img src="images/insta.png">&nbsp;
+            <img src="images/twit.png">&nbsp;
             <img src="images/google.png">
         </div>
     </footer>

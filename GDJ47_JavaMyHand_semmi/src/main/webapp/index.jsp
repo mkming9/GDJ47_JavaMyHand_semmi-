@@ -20,7 +20,7 @@
         </div>
         <div id="menubox">
             <ul>
-                <li><a href="">소개</a></li>
+                <li><a href="<%=request.getContextPath()%>/test.do">소개</a></li>
                 <li><a href="">후원하기</a></li>
                 <li><a href="">소모임</a></li>
                 <li><a href="">아나바다</a></li>

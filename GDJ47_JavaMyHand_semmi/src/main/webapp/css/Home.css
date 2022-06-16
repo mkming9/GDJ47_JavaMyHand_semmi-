@@ -12,7 +12,7 @@ header{
     display: flex;
     position: fixed;
     z-index: 9999;
-    background-image: url(../images/headerBack.png);
+    background-image: url(../images/headerback.png);
 }
 #wrap{
     width: 100%;

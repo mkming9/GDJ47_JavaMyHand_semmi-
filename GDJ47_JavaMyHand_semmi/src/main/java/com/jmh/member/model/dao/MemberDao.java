@@ -1,10 +1,8 @@
 package com.jmh.member.model.dao;
 
-<<<<<<< HEAD
-=======
 import static com.jmh.common.JDBCTemplate.close;
 
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
+//github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,29 +12,11 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.jmh.member.model.vo.Member;
-<<<<<<< HEAD
-import com.jmh.notice.model.dao.NoticeBoardDao;
-
-import static com.jmh.common.JDBCTemplate.close;
-=======
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 
 public class MemberDao {
 
 	private Properties prop = new Properties();
 	
-<<<<<<< HEAD
-	public  MemberDao() {
-		String path=NoticeBoardDao.class.
-			getResource("/sql/member_sql.properties").getPath();
-		try {
-			prop.load(new FileReader(path));
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-=======
 	public MemberDao() {
 		String path = MemberDao.class.getResource("/sql/member_sql.properties").getPath();
 		try {
@@ -45,7 +25,6 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 	}
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 	public Member loginMember(Connection conn, String memberId, String password) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

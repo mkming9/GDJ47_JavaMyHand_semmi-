@@ -1,5 +1,9 @@
 package com.jmh.member.model.dao;
 
+import static com.jmh.common.JDBCTemplate.close;
+
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,12 +11,19 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.jmh.member.model.vo.Member;
-import static com.jmh.common.JDBCTemplate.close;
 
 public class MemberDao {
 
 	private Properties prop = new Properties();
 	
+	public MemberDao() {
+		String path = MemberDao.class.getResource("/sql/member_sql.properties").getPath();
+		try {
+			prop.load(new FileReader(path));
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public Member loginMember(Connection conn, String memberId, String password) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -36,6 +47,7 @@ public class MemberDao {
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()
 								.memberId(rs.getString("member_id"))
+//								.password(rs.getString("password"))
 								.memberName(rs.getString("member_name"))
 								.gender(rs.getString("gender"))
 								.age(rs.getInt("age"))
@@ -44,5 +56,5 @@ public class MemberDao {
 								.point(rs.getInt("point"))
 								.enrollDate(rs.getDate("enroll_date"))
 								.build();
-	}
+				}
 }

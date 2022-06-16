@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import = "com.jmh.member.model.vo.Member" %>
+<%
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	Cookie[] cookies = request.getCookies();
+	String saveId = null;
+	if(cookies != null){
+		for(Cookie c : cookies){
+			if(c.getName().equals("saveId")){
+				saveId = c.getValue();
+			}
+		}
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +22,7 @@
     <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="css/Home.css" rel="stylesheet" type="text/css"/>
+    <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -24,12 +37,12 @@
                 <li><a href="">아나바다</a></li>
             </ul>
         </div>
-        
+        <%if(loginMember==null) {%>
         <form action="<%=request.getContextPath()%>/member/login.do">
         	<table>
         		<tr>
         			<td>
-        				<input type="text" name="id" id="id" placeholder="아이디">
+        				<input type="text" name="memberId" id="memberId" placeholder="아이디">
         			</td>
         		</tr>
         		<tr>
@@ -39,12 +52,36 @@
         			<td>
         				<input type="submit" value="로그인">
         			</td>
+        		</tr>	
+        		<tr>
+        			<td>
+        				<input type="checkbox" name="saveId" id="saveId">
+        				<%=saveId!=null?"checked" : "" %>
+        				<label for="saveId">아이디저장</label>
+        			</td>
         		</tr>
- 
-        		
         	</table>
         </form>
+        <%}else {%>
+        	<table>
+        		<tr>
+        			<td colspan="2">
+        				<%=loginMember.getMemberName() %>님, 반갑습니다.
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<input type="button" onclick="fn_logout()" value="로그아웃">
+        			</td>
+        		</tr>
+        	</table>
+        <%} %>
     </header>
+     <script>
+    	const fn_logout=()=>{
+    		location.replace("<%=request.getContextPath()%>/member/logout.do");
+    	}
+    </script>
 
     <div id="wrap">
         <div id="slideShow">
@@ -117,5 +154,6 @@
             <img src="images/google.png">
         </div>
     </footer>
+    
 </body>
 </html>

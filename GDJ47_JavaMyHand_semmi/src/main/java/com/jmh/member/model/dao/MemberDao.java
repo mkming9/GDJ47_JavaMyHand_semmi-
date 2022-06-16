@@ -2,6 +2,7 @@ package com.jmh.member.model.dao;
 
 import static com.jmh.common.JDBCTemplate.close;
 
+//github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -43,6 +44,34 @@ public class MemberDao {
 			close(pstmt);
 		}return m;
 	}
+	
+	
+	public int memberSignUp(Connection conn,Member m) { //회원가입
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("memberSignUp"));
+			pstmt.setString(1,m.getMemberId());
+			pstmt.setString(2,m.getPassword());
+			pstmt.setString(3,m.getMemberName());
+			pstmt.setString(4,m.getGender());
+			pstmt.setInt(5,m.getAge());
+			pstmt.setString(6,m.getAddress());
+			pstmt.setString(7,m.getPhone());
+			result =pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close(pstmt);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	
 	
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()

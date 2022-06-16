@@ -1,4 +1,4 @@
-package com.jmh.member.controller;
+package com.jmh.product.model.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class TestServlet
+ * Servlet implementation class ProductWriteServlet
  */
-@WebServlet("/test.do")
-public class TestServlet extends HttpServlet {
+@WebServlet("/ProductWriteServlet")
+public class ProductWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TestServlet() {
+    public ProductWriteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +27,7 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		//request.getRequestDispatcher("상품등록화면").forward(request, response);
 	}
 
 	/**

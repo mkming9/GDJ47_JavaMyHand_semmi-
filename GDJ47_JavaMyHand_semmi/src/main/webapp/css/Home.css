@@ -3,20 +3,24 @@
     margin:0;
     padding:0;
 }
+body{
+    width: 1903.3px;
+}
 ul{
     list-style: none;
 }
 header{
-    width: 1900px;
+    width: 100%;
     height:120px;
     display: flex;
     position: fixed;
     z-index: 9999;
-    background-image: url(../images/headerBack.png);
+    background-image: url(../images/headerback.png);
 }
 #wrap{
     width: 100%;
     padding-top: 120px;
+    overflow: hidden;
 }
 #logo{
     margin-top: 37px;
@@ -40,9 +44,21 @@ header{
     margin:40px;
     font-family: "Noto Sans KR";
 }
-.Main1{
+
+#slideShow{
     width: 100%;
+    height: 800px;
+    position: relative;
 }
+.slides{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out; 
+}
+
 .controller>span{
         position:absolute;
         background-color: white;
@@ -65,7 +81,7 @@ header{
 }      
 .btn1 {
     position: absolute;
-    top: 680px;
+    top: 550px;
     margin-left: 1280px;
     border: 0;
 }
@@ -131,14 +147,29 @@ header{
     font-family: "IBM Plex Sans KR";
     font-size: 28px;
 }
-#con1_back{
-    float: right;
+#fadein{
+    position: absolute;
+    margin-left: 1068px;
+    margin-top: 115px;
     width: 835px;
     height: 490px;
-    margin-top: 105px;
-    background-color: rgb(105, 150, 196);
-    z-index: -100px;
+    transition: 0.7s;
+    z-index: -9999;
+    opacity: 0;
 }
+#box1:hover + #fadein{
+    background: url(../images/hover1.png);
+    opacity: 1;
+}
+#box2:hover + #fadein{
+    background: url(../images/hover2.png);
+    opacity: 1;
+}
+#box3:hover + #fadein{
+    background: url(../images/hover3.png);
+    opacity: 1;
+}
+
 
 footer{
     width: 1900px;

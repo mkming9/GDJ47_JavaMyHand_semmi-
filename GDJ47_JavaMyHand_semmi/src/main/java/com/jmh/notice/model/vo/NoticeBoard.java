@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Notice {
+public class NoticeBoard {
 	private int noticeNo;
 	private String memberId;
 	private String  noticeTitle;

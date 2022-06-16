@@ -171,6 +171,5 @@
             <img src="images/google.png">
         </div>
     </footer>
-    
 </body>
 </html>

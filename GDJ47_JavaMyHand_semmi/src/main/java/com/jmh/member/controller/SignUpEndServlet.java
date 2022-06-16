@@ -40,25 +40,39 @@ public class SignUpEndServlet extends HttpServlet {
 		String address=request.getParameter("address");
 		String phone =request.getParameter("phone");
 		
-		System.out.println("아이디 : " +memberId+"\n비번 : "+password
-						+"\n이름 : "+memberName+"\n 나이: "+age+"\n 주소: "+address+"\n"+gender
-						+"\n 번호: "+phone);
 		
-	
-	Member m = Member.builder().memberId("member_id")
+		
+		System.out.println("아이디 : " +memberId+"\n비번 : "+password
+						+"\n이름 : "+memberName+"\n 성별: "+gender+"\n나이: "+age
+						+"\n 주소: "+address+"\n 번호: "+phone);
+
+		Member m = Member.builder().memberId("member_id")
 						.password("password")
 						.memberName("member_name")
 						.gender("gender")
 						.age(age)
 						.address("address")
 						.phone("phone")
+						.point(0)
+						.enrollDate(null)
 						.build();
 	
 		int result =new MemberService().memberSignUp(m); 
 		System.out.println(result);
 		
+		String msg="" ,loc="";
+		if(result>0) {
+			msg="회원가입을 축하합니다";
+			loc="/";
+		}else {
+			msg="회원가입을 실패했습니다 다시 시도하세요";
+			loc="/signup.do";
+		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("loc", loc);
 		
-	
+		request.getRequestDispatcher("/views/common/msg.jsp")
+		.forward(request, response);
 	}
 
 	/**

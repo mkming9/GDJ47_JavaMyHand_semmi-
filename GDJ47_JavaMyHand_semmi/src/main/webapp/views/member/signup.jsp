@@ -15,6 +15,7 @@
 				<th>아이디</th>
 				<td>
 					<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
+					<input type="button" value="중복확인">
 				</td>
 			</tr>
 			<tr>
@@ -27,6 +28,7 @@
 				<th>패스워드확인</th>
 				<td>	
 					<input type="password" id="password_2" ><br>
+					<span id="pwcheck"></span>
 				</td>
 			</tr>  
 			<tr>
@@ -56,7 +58,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th>휴대폰</th>
+				<th>휴대전화</th>
 				<td>	
 					<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required><br>
 				</td>

@@ -35,11 +35,9 @@
         <div id="menubox">
             <ul>
                 <li><a href="<%=request.getContextPath()%>/test.do">소개</a></li>
-
                 <li><a href="<%=request.getContextPath()%>/noticeList.do">후원하기</a></li>
                 <li><a href="<%=request.getContextPath()%>/groupsList.do">소모임</a></li>
-                <li><a href="<%=request.getContextPath()%>/signup.do">아나바다</a></li>
-
+                <li><a href="">아나바다</a></li>
             </ul>
         </div>
         <%if(loginMember==null) {%>
@@ -56,6 +54,7 @@
         			</td>
         			<td>
         				<input type="submit" value="로그인">
+        				
         			</td>
         		</tr>	
         		<tr>
@@ -63,6 +62,9 @@
         				<input type="checkbox" name="saveId" id="saveId">
         				<%=saveId!=null?"checked" : "" %>
         				<label for="saveId">아이디저장</label>
+        				&nbsp;&nbsp;
+						<input type="button" value="회원가입"
+						onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         			</td>
         		</tr>
         	</table>

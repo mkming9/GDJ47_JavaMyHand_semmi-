@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/views/common/header.jsp" %>
-
+<%@ page import = "com.jmh.member.model.vo.Member" %>
+<%
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	Cookie[] cookies = request.getCookies();
+	String saveId = null;
+	if(cookies != null){
+		for(Cookie c : cookies){
+			if(c.getName().equals("saveId")){
+				saveId = c.getValue();
+			}
+		}
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +22,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+
     <script src="js/jquery-3.6.0.min.js"></script>
-    <link href="css/Home.css" rel="stylesheet" type="text/css"/>
+	<link href="css/Home.css" rel="stylesheet" type="text/css"/>
+    <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -21,13 +34,57 @@
         </div>
         <div id="menubox">
             <ul>
-                <li><a href="">소개</a></li>
-                <li><a href="">후원하기</a></li>
-                <li><a href="">소모임</a></li>
-                <li><a href="">아나바다</a></li>
+                <li><a href="<%=request.getContextPath()%>/test.do">소개</a></li>
+                <li><a href="<%=request.getContextPath()%>/noticeList.do">후원하기</a></li>
+                <li><a href="<%=request.getContextPath()%>/groupsList.do">소모임</a></li>
+                <li><a href="<%=request.getContextPath()%>/signup.do">아나바다</a></li>
             </ul>
         </div>
+        <%if(loginMember==null) {%>
+        <form action="<%=request.getContextPath()%>/member/login.do">
+        	<table>
+        		<tr>
+        			<td>
+        				<input type="text" name="memberId" id="memberId" placeholder="아이디">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<input type="password" name="password" id="password" placeholder="패스워드">
+        			</td>
+        			<td>
+        				<input type="submit" value="로그인">
+        			</td>
+        		</tr>	
+        		<tr>
+        			<td>
+        				<input type="checkbox" name="saveId" id="saveId">
+        				<%=saveId!=null?"checked" : "" %>
+        				<label for="saveId">아이디저장</label>
+        			</td>
+        		</tr>
+        	</table>
+        </form>
+        <%}else {%>
+        	<table>
+        		<tr>
+        			<td colspan="2">
+        				<%=loginMember.getMemberName() %>님, 반갑습니다.
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<input type="button" onclick="fn_logout()" value="로그아웃">
+        			</td>
+        		</tr>
+        	</table>
+        <%} %>
     </header>
+     <script>
+    	const fn_logout=()=>{
+    		location.replace("<%=request.getContextPath()%>/member/logout.do");
+    	}
+    </script>
 
     <div id="wrap">
         <div id="slideShow">

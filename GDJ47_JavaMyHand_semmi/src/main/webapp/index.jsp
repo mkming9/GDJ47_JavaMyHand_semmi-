@@ -24,6 +24,26 @@
                 <li><a href="<%=request.getContextPath()%>/signup.do">아나바다</a></li>
             </ul>
         </div>
+        
+        <form action="<%=request.getContextPath()%>/member/login.do">
+        	<table>
+        		<tr>
+        			<td>
+        				<input type="text" name="id" id="id" placeholder="아이디">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<input type="password" name="password" id="password" placeholder="패스워드">
+        			</td>
+        			<td>
+        				<input type="submit" value="로그인">
+        			</td>
+        		</tr>
+ 
+        		
+        	</table>
+        </form>
     </header>
 
     <div id="wrap">

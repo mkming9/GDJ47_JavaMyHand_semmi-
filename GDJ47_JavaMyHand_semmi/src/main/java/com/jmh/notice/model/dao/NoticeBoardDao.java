@@ -49,7 +49,7 @@ public class NoticeBoardDao {
 		return result;
 		
 	}
-	private NoticeBoard getNoticeBoard(ResultSet rs)throws SQLException{
+	private NoticeBoard getNoticeBoard(ResultSet rs) throws SQLException{
 		return NoticeBoard.builder()
 				.noticeNo(rs.getInt("notice_no"))
 				.memberId(rs.getString("member_id"))

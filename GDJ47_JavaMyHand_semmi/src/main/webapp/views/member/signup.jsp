@@ -9,7 +9,7 @@
 <body>
 	<section id=enroll-container>
         <h2>회원 가입 정보 입력</h2>
-        <form action="<%=request.getContextPath() %>/member/signupend.do" method="post" onsubmit="" >
+        <form action="<%=request.getContextPath() %>/signupend.do" method="post" onsubmit="" >
         <table>
 			<tr>
 				<th>아이디</th>
@@ -20,7 +20,7 @@
 			<tr>
 				<th>패스워드</th>
 				<td>
-					<input type="password" name="memberPassword" id="memberPassword_" ><br>
+					<input type="password" name="password" id="password_" ><br>
 				</td>
 			</tr>
 			<tr>
@@ -38,9 +38,9 @@
 			<tr>
 				<th>성별 </th>
 				<td>
-					<input type="radio" name="gender" id="gender0"  >
+					<input type="radio" name="gender" id="gender0" value="남">
 					<label for="gender0">남</label>
-					<input type="radio" name="gender" id="gender1">
+					<input type="radio" name="gender" id="gender1" value="여">
 					<label for="gender1">여</label>
 				</td>
 			</tr>

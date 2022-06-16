@@ -1,6 +1,6 @@
 package com.jmh.member.model.service;
 
-import static com.jmh.common.JDBCTemplate.close;
+import static com.jmh.common.JDBCTemplate.*;
 import static com.jmh.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -18,4 +18,16 @@ public class MemberService {
 		return m;
 	}
 
+	public int memberSignUp(Member m) { //회원가입
+		Connection conn =getConnection();
+		int result =dao.memberSignUp(conn,m);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 }

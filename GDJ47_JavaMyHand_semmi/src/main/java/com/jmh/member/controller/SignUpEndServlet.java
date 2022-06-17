@@ -42,9 +42,9 @@ public class SignUpEndServlet extends HttpServlet {
 		
 		
 		
-		System.out.println("아이디 : " +memberId+"\n비번 : "+password
-						+"\n이름 : "+memberName+"\n 성별: "+gender+"\n나이: "+age
-						+"\n 주소: "+address+"\n 번호: "+phone);
+		System.out.println("아이디 : "+memberId+"\n비번 : "+password
+						+"\n이름 : "+memberName+"\n성별 : "+gender+"\n나이 : "+age
+						+"\n주소 : "+address+"\n번호 : "+phone);
 
 		Member m = Member.builder().memberId(memberId)
 						.password(password)

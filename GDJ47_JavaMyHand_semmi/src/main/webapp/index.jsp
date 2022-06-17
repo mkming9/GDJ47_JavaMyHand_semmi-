@@ -33,9 +33,9 @@
         </div>
         <div id="menubox">
             <ul>
-                <li><a href="<%=request.getContextPath()%>/test.do">소개</a></li>
+                <li><a href="<%=request.getContextPath()%>/introduceList.do">소개</a></li>
                 <li><a href="<%=request.getContextPath()%>/noticeList.do">후원하기</a></li>
-                <li><a href="<%=request.getContextPath()%>/groupsList.do">소모임</a></li>
+                <li><a href="<%=request.getContextPath()%>/groups/groupsList.do">소모임</a></li>
                 <li><a href="">아나바다</a></li>
             </ul>
         </div>
@@ -78,6 +78,9 @@
         		<tr>
         			<td>
         				<input type="button" onclick="fn_logout()" value="로그아웃">
+        			</td>
+        			<td>
+        				<input type="button" value="내정보보기">
         			</td>
         		</tr>
         	</table>

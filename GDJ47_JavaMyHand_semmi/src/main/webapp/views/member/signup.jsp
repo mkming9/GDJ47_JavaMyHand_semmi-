@@ -40,10 +40,11 @@
 			<tr>
 				<th>성별 </th>
 				<td>
-					<input type="radio" name="gender" id="gender0" value="남">
-					<label for="gender0">남</label>
-					<input type="radio" name="gender" id="gender1" value="여">
-					<label for="gender1">여</label>
+					<select>
+						<option value="">성별</option>
+						<option name="gender" id="gender0" value="남">남</option>
+						<option name="gender" id="gender1" value="여">여</option>
+					</select>
 				</td>
 			</tr>
 			<tr>

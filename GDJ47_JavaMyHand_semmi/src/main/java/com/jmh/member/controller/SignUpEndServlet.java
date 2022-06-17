@@ -62,7 +62,7 @@ public class SignUpEndServlet extends HttpServlet {
 		
 		String msg="" ,loc="";
 		if(result>0) {
-			msg="회원가입을 축하합니다";
+			msg="회원가입을 성공하셨습니다";
 			loc="/";
 		}else {
 			msg="회원가입을 실패했습니다 다시 시도하세요";

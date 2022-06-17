@@ -51,14 +51,15 @@ public class MemberDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("memberSignUp"));
-			pstmt.setString(1,m.getMemberId());
-			pstmt.setString(2,m.getPassword());
-			pstmt.setString(3,m.getMemberName());
-			pstmt.setString(4,m.getGender());
-			pstmt.setInt(5,m.getAge());
-			pstmt.setString(6,m.getAddress());
-			pstmt.setString(7,m.getPhone());
+			pstmt.setString(1, m.getMemberId());
+			pstmt.setString(2, m.getPassword());
+			pstmt.setString(3, m.getMemberName());
+			pstmt.setString(4, m.getGender());
+			pstmt.setInt(5, m.getAge());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, m.getPhone());
 			result =pstmt.executeUpdate();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -76,7 +77,7 @@ public class MemberDao {
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()
 								.memberId(rs.getString("member_id"))
-//								.password(rs.getString("password"))
+								.password(rs.getString("password"))
 								.memberName(rs.getString("member_name"))
 								.gender(rs.getString("gender"))
 								.age(rs.getInt("age"))

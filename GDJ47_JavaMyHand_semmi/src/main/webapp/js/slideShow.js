@@ -22,7 +22,7 @@ right.addEventListener('click', function () {
     moveSlide((currentIdx + 1)%4);
   }
   console.log(currentIdx);
-});
+}); 
 
 
 

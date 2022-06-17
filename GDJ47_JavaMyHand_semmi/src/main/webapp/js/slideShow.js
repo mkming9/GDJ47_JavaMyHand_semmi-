@@ -19,7 +19,10 @@ left.addEventListener('click', function () {
 
 right.addEventListener('click', function () {
   if (true) {
-    moveSlide(currentIdx + 1);
+    moveSlide((currentIdx + 1)%4);
   }
   console.log(currentIdx);
 });
+
+
+

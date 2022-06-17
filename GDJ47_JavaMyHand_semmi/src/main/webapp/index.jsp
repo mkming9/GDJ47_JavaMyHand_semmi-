@@ -16,8 +16,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- test -->
-    <!-- test2 -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,11 +40,11 @@
             </ul>
         </div>
         <%if(loginMember==null) {%>
-        <form action="<%=request.getContextPath()%>/member/login.do">
+        <form action="<%=request.getContextPath()%>/member/login.do" method="post">
         	<table>
         		<tr>
         			<td>
-        				<input type="text" name="memberId" id="memberId" placeholder="아이디">
+        				<input type="text" name="memberId" id="memberId" placeholder="아이디" value="<%=saveId!=null?saveId:""%>">
         			</td>
         		</tr>
         		<tr>
@@ -60,8 +58,7 @@
         		</tr>	
         		<tr>
         			<td>
-        				<input type="checkbox" name="saveId" id="saveId">
-        				<%=saveId!=null?"checked" : "" %>
+        				<input type="checkbox" name="saveId" id="saveId" <%=saveId!=null?"checked" : ""%>>
         				<label for="saveId">아이디저장</label>
         				&nbsp;&nbsp;
 						<input type="button" value="회원가입"
@@ -73,7 +70,7 @@
         <%}else {%>
         	<table>
         		<tr>
-        			<td colspan="2">
+        			<td>
         				<%=loginMember.getMemberName() %>님, 반갑습니다.
         			</td>
         		</tr>

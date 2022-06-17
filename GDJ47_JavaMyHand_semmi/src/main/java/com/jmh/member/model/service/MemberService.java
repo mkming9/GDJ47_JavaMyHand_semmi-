@@ -1,7 +1,9 @@
 package com.jmh.member.model.service;
 
-import static com.jmh.common.JDBCTemplate.*;
+import static com.jmh.common.JDBCTemplate.close;
+import static com.jmh.common.JDBCTemplate.commit;
 import static com.jmh.common.JDBCTemplate.getConnection;
+import static com.jmh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
@@ -28,6 +30,15 @@ public class MemberService {
 		}
 		close(conn);
 		return result;
+	}
+	
+	
+	public Member memberIdCheck(String memberId ) {
+		Connection conn=getConnection();
+		Member m =dao.memberIdCheck(conn,memberId);
+		close(conn);
+		return m;
+		
 	}
 	
 }

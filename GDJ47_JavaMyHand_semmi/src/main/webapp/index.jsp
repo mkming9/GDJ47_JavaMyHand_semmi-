@@ -33,10 +33,12 @@
         </div>
         <div id="menubox">
             <ul>
-                <li><a href="<%=request.getContextPath()%>/test.do">소개</a></li>
+                <li><a href="<%=request.getContextPath()%>/introduceList.do">소개</a></li>
                 <li><a href="<%=request.getContextPath()%>/noticeList.do">후원하기</a></li>
+
                 <li><a href="<%=request.getContextPath()%>/groupsList.do">소모임</a></li>
                 <li><a href="<%=request.getContextPath()%>/productview.do">아나바다</a></li>
+
             </ul>
         </div>
         <%if(loginMember==null) {%>
@@ -52,7 +54,8 @@
         				<input type="password" name="password" id="password" placeholder="패스워드">
         			</td>
         			<td>
-        				<input type="submit" value="로그인">
+        			
+        				<input type="submit" value="로그인" >
         				
         			</td>
         		</tr>	
@@ -77,6 +80,9 @@
         		<tr>
         			<td>
         				<input type="button" onclick="fn_logout()" value="로그아웃">
+        			</td>
+        			<td>
+        				<input type="button" value="내정보보기">
         			</td>
         		</tr>
         	</table>

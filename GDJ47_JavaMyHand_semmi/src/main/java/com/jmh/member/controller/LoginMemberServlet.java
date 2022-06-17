@@ -16,7 +16,7 @@ import com.jmh.member.model.vo.Member;
 /**
  * Servlet implementation class LoginMemberServlet
  */
-@WebServlet(name="loginServlet",urlPatterns="/member/login.do")
+@WebServlet(name="loginMemberServlet", urlPatterns = {"/member/login.do"})
 public class LoginMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,16 +34,23 @@ public class LoginMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
-		String saveId = request.getParameter("saveId");
+		
+		String saveId=request.getParameter("saveId");
+		
+		
+		System.out.println("saveId :: "+saveId);
 		
 		if(saveId!=null) {
-			Cookie c = new Cookie("saveId", memberId);
+			Cookie c=new Cookie("saveId",memberId);
 			c.setMaxAge(24*60*60*7);
+			c.setPath("/");
 			response.addCookie(c);
 		}else {
-			Cookie c = new Cookie("saveId","");
+			Cookie c=new Cookie("saveId",null);
 			c.setMaxAge(0);
+			c.setPath("/");
 			response.addCookie(c);
+			System.out.println("출력안댐");
 		}
 		
 		Member m = new MemberService().loginMember(memberId, password);
@@ -53,6 +60,7 @@ public class LoginMemberServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", m);
 		}
+		
 		response.sendRedirect(request.getContextPath());
 	}
 

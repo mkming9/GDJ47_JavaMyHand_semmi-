@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import static com.jmh.common.JDBCTemplate.*;
@@ -29,6 +30,25 @@ public class ProductDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public  List<Product> selectProductList(Connection conn){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Product>list=new ArrayList();
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("selectProduct"));
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(getProduct(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return list;
+	}
+	
 	
 	public int insertProduct(Connection conn, Product p){
 		PreparedStatement pstmt=null;

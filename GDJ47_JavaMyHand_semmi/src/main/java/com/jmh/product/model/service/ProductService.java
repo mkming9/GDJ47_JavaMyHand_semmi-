@@ -4,10 +4,20 @@ import java.sql.Connection;
 import static com.jmh.common.JDBCTemplate.*;
 import com.jmh.product.model.dao.ProductDao;
 import com.jmh.product.model.vo.Product;
+import java.util.List;
 
 public class ProductService {
 	
 	private ProductDao dao=new ProductDao();
+	
+	public List<Product> selectProductList(){
+		Connection conn=getConnection();
+		List<Product>list=dao.selectProductList(conn);
+		close(conn);
+		return list;
+	}
+	
+	
 	
 	public int insertProduct(Product p) {
 		Connection conn=getConnection();

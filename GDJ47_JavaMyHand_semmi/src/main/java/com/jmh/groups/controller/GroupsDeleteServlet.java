@@ -1,28 +1,23 @@
 package com.jmh.groups.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jmh.groups.model.service.GroupsService;
-import com.jmh.groups.model.vo.Groups;
-
 /**
- * Servlet implementation class GroupsListServlet
+ * Servlet implementation class GroupsDeleteServlet
  */
-@WebServlet("/groups/groupsList.do")
-public class GroupsListServlet extends HttpServlet {
+@WebServlet("/groups/groupsDelete.do")
+public class GroupsDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GroupsListServlet() {
+    public GroupsDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +27,7 @@ public class GroupsListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Groups> groups=new GroupsService().selectGroupsAll();
-		
-		request.setAttribute("groups", groups);
-		
-		request.getRequestDispatcher("/views/groups/groupsView.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/groups/groupsDelete.jsp").forward(request, response);
 	}
 
 	/**

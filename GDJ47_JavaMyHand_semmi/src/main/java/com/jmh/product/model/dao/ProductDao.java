@@ -106,6 +106,8 @@ public class ProductDao {
 	private Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
 				.ANA_NO(rs.getInt("ANA_NO"))
+				.MEMBER_ID(rs.getString("MEMBER_ID"))
+				.A_CODE(rs.getString("A_CODE"))
 				.ANA_NAME(rs.getString("ANA_NAME"))
 				.ANA_PRICE(rs.getInt("ANA_PRICE"))
 				.ANA_CONTENT(rs.getString("ANA_CONTENT"))

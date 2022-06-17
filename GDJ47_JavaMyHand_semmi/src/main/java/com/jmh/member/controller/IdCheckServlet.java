@@ -1,7 +1,6 @@
-package com.jmh.groups.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jmh.groups.model.service.GroupsService;
-import com.jmh.groups.model.vo.Groups;
+import com.jmh.member.model.service.MemberService;
+import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class GroupsListServlet
+ * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/groups/groupsList.do")
-public class GroupsListServlet extends HttpServlet {
+@WebServlet("/idCheck.do")
+public class IdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GroupsListServlet() {
+    public IdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,12 +30,13 @@ public class GroupsListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		List<Groups> groups=new GroupsService().selectGroupsAll();
+		String memberId =request.getParameter("memberId");
+		Member m =new MemberService().memberIdCheck(memberId);
+		System.out.println(m);
 		
-		request.setAttribute("groups", groups);
-		
-		request.getRequestDispatcher("/views/groups/groupsView.jsp").forward(request, response);
+		request.setAttribute("m", m);
+		request.getRequestDispatcher("/views/member/idCheck.jsp")
+		.forward(request, response);
 	}
 
 	/**

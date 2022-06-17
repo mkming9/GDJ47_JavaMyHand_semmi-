@@ -45,6 +45,40 @@ public class GroupsDao {
 		} return groups;
 	}
 	
+	public int insertGroups(Connection conn, Groups g) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("insertGroups"));
+			pstmt.setString(1, "admin1");
+			pstmt.setString(2, g.getGCode());
+			pstmt.setString(3, g.getGroupTitle());
+			pstmt.setString(4, g.getGroupContent());
+			pstmt.setInt(5, g.getGroupLimit());
+			pstmt.setString(6, g.getGroupGender());
+			pstmt.setString(7, g.getGroupLocation());
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		} return result;
+	}
+	
+	public int deleteGroups(Connection conn, String groupTitle) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("deleteGroupsByTitle"));
+			pstmt.setString(1, groupTitle);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		} return result;
+	}
+	
 	private Groups getGroups(ResultSet rs) throws SQLException{
 		return Groups.builder()
 				.groupNo(rs.getInt("group_no"))

@@ -35,7 +35,7 @@
             <ul>
                 <li><a href="<%=request.getContextPath()%>/introduceList.do">소개</a></li>
                 <li><a href="<%=request.getContextPath()%>/noticeList.do">후원하기</a></li>
-                <li><a href="<%=request.getContextPath()%>/groupsList.do">소모임</a></li>
+                <li><a href="<%=request.getContextPath()%>/groups/groupsList.do">소모임</a></li>
                 <li><a href="">아나바다</a></li>
             </ul>
         </div>

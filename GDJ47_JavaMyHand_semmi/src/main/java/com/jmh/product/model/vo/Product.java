@@ -9,6 +9,8 @@ import lombok.Data;
 @Builder
 public class Product {
 	private int ANA_NO;
+	private String memberId;
+	private String A_CODE;
 	private String ANA_NAME;
 	private int ANA_PRICE;
 	private String ANA_CONTENT;

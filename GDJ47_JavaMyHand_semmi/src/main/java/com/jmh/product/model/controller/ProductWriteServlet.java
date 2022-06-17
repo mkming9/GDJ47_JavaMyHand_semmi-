@@ -28,6 +28,8 @@ public class ProductWriteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//request.getRequestDispatcher("상품등록화면").forward(request, response);
+		
+		
 	}
 
 	/**

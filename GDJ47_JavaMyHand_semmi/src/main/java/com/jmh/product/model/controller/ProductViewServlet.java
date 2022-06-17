@@ -1,7 +1,6 @@
 package com.jmh.product.model.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jmh.member.model.service.MemberService;
+import com.jmh.member.model.vo.Member;
 import com.jmh.product.model.service.ProductService;
 import com.jmh.product.model.vo.Product;
 
 /**
- * Servlet implementation class ProductWriteEndServlet
+ * Servlet implementation class ProductViewServlet
  */
-@WebServlet("/ProductWriteEndServlet")
-public class ProductWriteEndServlet extends HttpServlet {
+@WebServlet("/productview.do")
+public class ProductViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductWriteEndServlet() {
+    public ProductViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +34,17 @@ public class ProductWriteEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
+		
+		
+					
+		List<Product> product=new ProductService().selectProductList();
+		System.out.println(product);
+		request.setAttribute("product", product);
+		
+		
 		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
+		
+		
 	}
 
 	/**

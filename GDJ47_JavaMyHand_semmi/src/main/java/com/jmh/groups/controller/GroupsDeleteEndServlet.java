@@ -1,8 +1,6 @@
-package com.jmh.product.model.controller;
+package com.jmh.groups.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jmh.product.model.service.ProductService;
-import com.jmh.product.model.vo.Product;
+import com.jmh.groups.model.service.GroupsService;
 
 /**
- * Servlet implementation class ProductWriteEndServlet
+ * Servlet implementation class GroupsDeleteEndServlet
  */
-@WebServlet("/ProductWriteEndServlet")
-public class ProductWriteEndServlet extends HttpServlet {
+@WebServlet("/groups/groupsDeleteEnd.do")
+public class GroupsDeleteEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductWriteEndServlet() {
+    public GroupsDeleteEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +30,11 @@ public class ProductWriteEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
+		String groupTitle=request.getParameter("groupTitle");
+		
+		int result=new GroupsService().deleteGroups(groupTitle);
+		
+		System.out.println(result);
 	}
 
 	/**

@@ -34,7 +34,7 @@ public class IdCheckServlet extends HttpServlet {
 		Member m =new MemberService().memberIdCheck(memberId);
 		System.out.println(m);
 		
-		request.setAttribute("m", m);
+		request.setAttribute("result", m==null?true:false);
 		request.getRequestDispatcher("/views/member/idCheck.jsp")
 		.forward(request, response);
 	}

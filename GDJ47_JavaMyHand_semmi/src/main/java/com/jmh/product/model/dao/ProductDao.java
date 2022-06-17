@@ -56,9 +56,12 @@ public class ProductDao {
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("insertProduct"));
 			
-			pstmt.setString(1,p.getANA_NAME());
-			pstmt.setInt(2, p.getANA_PRICE());
-			pstmt.setString(3, p.getANA_CONTENT());
+			
+			pstmt.setString(1,p.getMEMBER_ID());
+			pstmt.setString(2, p.getA_CODE());
+			pstmt.setString(3, p.getANA_NAME());
+			pstmt.setInt(4, p.getANA_PRICE());
+			pstmt.setString(5, p.getANA_CONTENT());
 			result=pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();

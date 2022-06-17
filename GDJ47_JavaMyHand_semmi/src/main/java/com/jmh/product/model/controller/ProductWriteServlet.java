@@ -31,7 +31,7 @@ public class ProductWriteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		
+		request.getRequestDispatcher("/views/Product/productWrite.jsp").forward(request, response);
 		
 	}
 

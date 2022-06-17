@@ -28,15 +28,23 @@
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="#"><img src="./images/MainLogo.png"/></a>
+        <div class="logo">
+            <a href="Home.html"><img src="./images/MainLogo.png"/></a>
         </div>
-        <div id="menubox">
+        <div class="menubox">
             <ul>
-                <li><a href="<%=request.getContextPath()%>/test.do">소개</a></li>
-                <li><a href="<%=request.getContextPath()%>/noticeList.do">후원하기</a></li>
-                <li><a href="<%=request.getContextPath()%>/groupsList.do">소모임</a></li>
-                <li><a href="">아나바다</a></li>
+                <a href="<%=request.getContextPath()%>/test.do">
+                    <div id="menuintext"><li>소개</li></div>
+                </a>
+                <a href="<%=request.getContextPath()%>/noticeList.do">
+                    <div id="menuintext"><li>후원하기</li></div>
+                </a>
+                <a href="<%=request.getContextPath()%>/groupsList.do">
+                    <div id="menuintext"><li>소모임</li></div>
+                </a>
+                <a href="<%=request.getContextPath()%>/signup.do">
+                    <div id="menuintext"><li>아나바다</li></div>
+                </a>
             </ul>
         </div>
         <%if(loginMember==null) {%>
@@ -53,16 +61,12 @@
         			</td>
         			<td>
         				<input type="submit" value="로그인">
-        				
         			</td>
         		</tr>	
         		<tr>
         			<td>
         				<input type="checkbox" name="saveId" id="saveId" <%=saveId!=null?"checked" : ""%>>
         				<label for="saveId">아이디저장</label>
-        				&nbsp;&nbsp;
-						<input type="button" value="회원가입"
-						onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         			</td>
         		</tr>
         	</table>

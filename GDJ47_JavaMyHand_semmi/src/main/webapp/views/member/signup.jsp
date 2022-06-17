@@ -5,29 +5,31 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<section id=enroll-container>
         <h2>회원 가입 정보 입력</h2>
-        <form action="<%=request.getContextPath() %>/signupend.do" method="post" onsubmit="" >
+        <form action="<%=request.getContextPath()%>/signupend.do" method="post" 
+        onsubmit="return fn_enrollmemberValidate();" >
         <table>
 			<tr>
 				<th>아이디</th>
 				<td>
 					<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
-					<input type="button" value="중복확인">
+					<input type="button" value="중복확인" id="idCheck">
 				</td>
 			</tr>
 			<tr>
 				<th>패스워드</th>
 				<td>
-					<input type="password" name="password" id="password_" ><br>
+					<input type="password" name="password" id="password1" ><br>
 				</td>
 			</tr>
 			<tr>
 				<th>패스워드확인</th>
 				<td>	
-					<input type="password" id="password_2" ><br>
+					<input type="password" id="password2" ><br>
 					<span id="pwcheck"></span>
 				</td>
 			</tr>  
@@ -66,12 +68,63 @@
 			</tr>
 			
 		</table>
-		<input type="submit" value="가입" >
-		<input type="reset" value="취소">
+		<input type="submit" value="가입"  id="signUp">
+		<input type="reset" value="취소" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
         </form>
     </section>
-
-
+    
+    <script>
+   
+			$('#signUp').click(function(){
+				const memberId=$('#memberId_').val();
+				const password =$('#password1').val();
+				const password2 =$('#password2').val();
+				const memberName=$("#memberName").val();
+				const gender0=$("#gender0").val();
+				const gender1=$("#gender1").val();
+				const age = $("#age").val()
+				const address=$("#address").val();
+				const phone=$("#phone").val();
+				if(memberId.trim().length<4){
+					alert('아이디를 4글자 이상 입력해주세요');
+					return false
+				} 
+				if(password!=password2){
+					alert('비밀번호가 같은지 확인해주세요');
+					return false
+				}if(password.trim().length<6){
+					alert('비밀번호를 6글자 이상으로 입력해주세요');
+					return false
+				}if(memberName.length<2||memberName==null){
+					alert('이름을 입력해주세요');
+					return false
+				}if(gender0==null||gender1==null){
+					alert('성별을 선택해주세요');
+					return false
+				}if(age==null){
+					alert('나이를 입력해주세요');
+					return false
+				}if(address==null){
+					aleret('주소를 입력해주세요');
+					return false
+					
+				}if(phone==null||phone.length<10){
+					alert('휴대전화 번호를 입력해주세요');
+					return false
+				}
+					
+				return true;
+		});
+			
+			
+			
+   			<%-- $('#idCheck').click(function (){
+   				open("<%=request.getContextPath()%>/idCheck.do"
+   						,"_blanck","width=200","height=200";)
+   			});  --%>
+			
+			
+	</script>
 <style>
 
     /* 회원가입페이지 */

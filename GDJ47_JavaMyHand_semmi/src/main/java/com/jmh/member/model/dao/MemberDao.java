@@ -73,6 +73,26 @@ public class MemberDao {
 	}
 	
 	
+	public Member memberIdCheck(Connection conn ,String memberId) {
+		PreparedStatement pstmt= null;
+		ResultSet rs =null;
+		Member m =null;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("memberIdCheck"));
+			pstmt.setString(1, memberId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) m=getMember(rs);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return m;
+	}
+	
+	
+	
 	
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()

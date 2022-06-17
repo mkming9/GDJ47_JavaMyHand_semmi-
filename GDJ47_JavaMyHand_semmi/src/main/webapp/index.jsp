@@ -52,7 +52,8 @@
         				<input type="password" name="password" id="password" placeholder="패스워드">
         			</td>
         			<td>
-        				<input type="submit" value="로그인">
+        			<%if(loginMember==null) %>
+        				<input type="submit" value="로그인" >
         				
         			</td>
         		</tr>	

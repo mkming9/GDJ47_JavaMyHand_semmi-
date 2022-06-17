@@ -13,7 +13,7 @@ function moveSlide(num) {
 }
 
 left.addEventListener('click', function () {
-  if (true) moveSlide(currentIdx - 1);
+  if (currentIdx !== 0) moveSlide(currentIdx - 1);
   console.log(currentIdx);
 });
 

@@ -46,13 +46,13 @@ public class SignUpEndServlet extends HttpServlet {
 						+"\n이름 : "+memberName+"\n 성별: "+gender+"\n나이: "+age
 						+"\n 주소: "+address+"\n 번호: "+phone);
 
-		Member m = Member.builder().memberId("member_id")
-						.password("password")
-						.memberName("member_name")
-						.gender("gender")
+		Member m = Member.builder().memberId(memberId)
+						.password(password)
+						.memberName(memberName)
+						.gender(gender)
 						.age(age)
-						.address("address")
-						.phone("phone")
+						.address(address)
+						.phone(phone)
 						.point(0)
 						.enrollDate(null)
 						.build();

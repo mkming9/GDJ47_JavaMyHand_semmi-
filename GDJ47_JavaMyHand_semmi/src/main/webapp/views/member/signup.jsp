@@ -40,10 +40,10 @@
 			<tr>
 				<th>성별 </th>
 				<td>
-					<select>
+					<select name="gender">
 						<option value="">성별</option>
-						<option name="gender" id="gender0" value="남">남</option>
-						<option name="gender" id="gender1" value="여">여</option>
+						<option id="gender0" value="남">남</option>
+						<option  id="gender1" value="여">여</option>
 					</select>
 				</td>
 			</tr>

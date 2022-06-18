@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import static com.jmh.common.JDBCTemplate.*;
@@ -30,15 +31,37 @@ public class ProductDao {
 		}
 	}
 	
+	public  List<Product> selectProductList(Connection conn){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Product>list=new ArrayList();
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("selectProduct"));
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(getProduct(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return list;
+	}
+	
+	
 	public int insertProduct(Connection conn, Product p){
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("insertProduct"));
 			
-			pstmt.setString(1,p.getANA_NAME());
-			pstmt.setInt(2, p.getANA_PRICE());
-			pstmt.setString(3, p.getANA_CONTENT());
+			
+			pstmt.setString(1,p.getMEMBER_ID());
+			pstmt.setString(2, p.getA_CODE());
+			pstmt.setString(3, p.getANA_NAME());
+			pstmt.setInt(4, p.getANA_PRICE());
+			pstmt.setString(5, p.getANA_CONTENT());
 			result=pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -86,6 +109,8 @@ public class ProductDao {
 	private Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
 				.ANA_NO(rs.getInt("ANA_NO"))
+				.MEMBER_ID(rs.getString("MEMBER_ID"))
+				.A_CODE(rs.getString("A_CODE"))
 				.ANA_NAME(rs.getString("ANA_NAME"))
 				.ANA_PRICE(rs.getInt("ANA_PRICE"))
 				.ANA_CONTENT(rs.getString("ANA_CONTENT"))

@@ -51,14 +51,15 @@ public class MemberDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("memberSignUp"));
-			pstmt.setString(1,m.getMemberId());
-			pstmt.setString(2,m.getPassword());
-			pstmt.setString(3,m.getMemberName());
-			pstmt.setString(4,m.getGender());
-			pstmt.setInt(5,m.getAge());
-			pstmt.setString(6,m.getAddress());
-			pstmt.setString(7,m.getPhone());
+			pstmt.setString(1, m.getMemberId());
+			pstmt.setString(2, m.getPassword());
+			pstmt.setString(3, m.getMemberName());
+			pstmt.setString(4, m.getGender());
+			pstmt.setInt(5, m.getAge());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, m.getPhone());
 			result =pstmt.executeUpdate();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -72,11 +73,31 @@ public class MemberDao {
 	}
 	
 	
+	public Member memberIdCheck(Connection conn ,String memberId) {
+		PreparedStatement pstmt= null;
+		ResultSet rs =null;
+		Member m =null;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("memberIdCheck"));
+			pstmt.setString(1, memberId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) m=getMember(rs);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return m;
+	}
+	
+	
+	
 	
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()
 								.memberId(rs.getString("member_id"))
-//								.password(rs.getString("password"))
+								.password(rs.getString("password"))
 								.memberName(rs.getString("member_name"))
 								.gender(rs.getString("gender"))
 								.age(rs.getInt("age"))

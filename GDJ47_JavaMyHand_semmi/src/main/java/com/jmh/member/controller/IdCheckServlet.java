@@ -1,8 +1,6 @@
-package com.jmh.product.model.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jmh.product.model.service.ProductService;
-import com.jmh.product.model.vo.Product;
+import com.jmh.member.model.service.MemberService;
+import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class ProductWriteEndServlet
+ * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/ProductWriteEndServlet")
-public class ProductWriteEndServlet extends HttpServlet {
+@WebServlet("/idCheck.do")
+public class IdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductWriteEndServlet() {
+    public IdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,9 +30,13 @@ public class ProductWriteEndServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	
-		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
+		String memberId =request.getParameter("memberId");
+		Member m =new MemberService().memberIdCheck(memberId);
+		System.out.println(m);
+		
+		request.setAttribute("result", m==null?true:false);
+		request.getRequestDispatcher("/views/member/idCheck.jsp")
+		.forward(request, response);
 	}
 
 	/**

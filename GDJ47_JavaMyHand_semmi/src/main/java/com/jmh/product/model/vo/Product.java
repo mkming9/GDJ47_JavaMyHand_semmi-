@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 @Builder
 public class Product {
+	
 	private int ANA_NO;
 	private String ANA_NAME;
 	private int ANA_PRICE;

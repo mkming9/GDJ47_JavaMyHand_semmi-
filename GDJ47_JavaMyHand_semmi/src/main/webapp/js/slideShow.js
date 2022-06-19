@@ -13,7 +13,9 @@ function moveSlide(num) {
 }
 
 left.addEventListener('click', function () {
-  if (currentIdx !== 0) moveSlide(currentIdx - 1);
+  if (currentIdx !== 0) {
+	moveSlide(currentIdx - 1);
+	}
   console.log(currentIdx);
 });
 
@@ -23,6 +25,3 @@ right.addEventListener('click', function () {
   }
   console.log(currentIdx);
 }); 
-
-
-

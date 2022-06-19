@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
-<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+<%@ include file="/views/common/header.jsp" %>
+
 	<section id=enroll-container>
+		<div class="banner"></div>
+		
         <h2>회원 가입 정보 입력</h2>
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
         onsubmit="" >
@@ -128,8 +124,8 @@
 	   			 
 			
 	</script>
-<style>
-
+	
+	<style>
     /* 회원가입페이지 */
     section#enroll-container {text-align:center;}
     section#enroll-container input{margin:3px;}
@@ -137,5 +133,5 @@
     section#enroll-container table th {padding:0 10px; text-align:right;}
     section#enroll-container table td {padding:0 10px; text-align:left;}
 	</style>
-</body>
-</html>
+	
+<%@ include file="/views/common/footer.jsp" %>

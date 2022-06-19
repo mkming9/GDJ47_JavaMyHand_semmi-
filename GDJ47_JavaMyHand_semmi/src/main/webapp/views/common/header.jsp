@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaMyHand</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
-
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="js/jquery-3.6.0.min.js"></script>
     
 	<link href="css/Home.css" rel="stylesheet" type="text/css"/>
@@ -45,7 +45,7 @@
                 <a href="<%=request.getContextPath()%>/groupsList.do">
                     <div id="menuintext"><li>소모임</li></div>
                 </a>
-                <a href="<%=request.getContextPath()%>">
+                <a href="<%=request.getContextPath()%>/productview.do">
                     <div id="menuintext"><li>아나바다</li></div>
                 </a>
             </ul>

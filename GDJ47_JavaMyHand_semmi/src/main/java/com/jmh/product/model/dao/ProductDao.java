@@ -92,9 +92,12 @@ public class ProductDao {
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
-			pstmt=conn.prepareStatement(prop.getProperty("updatePrice"));
-			pstmt.setInt(1, p.getANA_PRICE());
-			pstmt.setInt(2, p.getANA_NO());
+			pstmt=conn.prepareStatement(prop.getProperty("updateProduct"));
+			pstmt.setString(1, p.getA_CODE());
+			pstmt.setString(2, p.getANA_NAME());
+			pstmt.setInt(3,p.getANA_PRICE());
+			pstmt.setString(4, p.getANA_CONTENT());
+			pstmt.setInt(5, p.getANA_NO());
 			result=pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -103,6 +106,24 @@ public class ProductDao {
 		}
 		return result;
 	}
+	
+	//조회수증가
+	public int updateCount(Connection conn,Product p) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("updateCount"));
+			pstmt.setInt(1, p.getANA_VIEW());
+			result=pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	
 	
 	
 	

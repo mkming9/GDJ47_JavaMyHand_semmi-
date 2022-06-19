@@ -44,7 +44,14 @@ public class ProductService {
 		else rollback(conn);
 		return result;
 	}
-
+	
+	public int updateCount(Product p) {
+		Connection conn=getConnection();
+		int result=dao.updateCount(conn, p);
+		if(result>0)commit(conn);
+		else rollback(conn);
+		return result;
+	}
 
 
 	

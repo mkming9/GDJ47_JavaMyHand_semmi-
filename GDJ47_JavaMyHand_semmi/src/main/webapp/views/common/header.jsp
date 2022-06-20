@@ -43,7 +43,7 @@
                 <a href="<%=request.getContextPath()%>/noticeList.do">
                     <div id="menuintext"><li>후원하기</li></div>
                 </a>
-                <a href="<%=request.getContextPath()%>/groupsList.do">
+                <a href="<%=request.getContextPath()%>/groups/groupsList.do">
                     <div id="menuintext"><li>소모임</li></div>
                 </a>
                 <a href="<%=request.getContextPath()%>/productview.do">

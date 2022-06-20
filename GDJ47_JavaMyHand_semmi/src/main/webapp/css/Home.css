@@ -68,6 +68,9 @@ header{
 	border-radius: 9px;
 	padding-left: 15px;
 }
+input:focus{
+	outline: 1px solid rgb(67, 126, 185);
+}
 #saveId{
 	margin-left: 14px;
 }
@@ -262,3 +265,4 @@ footer{
 #sns>img{
     margin-top: 10px;
 }
+

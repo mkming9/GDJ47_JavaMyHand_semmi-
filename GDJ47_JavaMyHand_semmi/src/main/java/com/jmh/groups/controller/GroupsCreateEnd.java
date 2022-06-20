@@ -38,7 +38,7 @@ public class GroupsCreateEnd extends HttpServlet {
 		String groupGender=request.getParameter("groupGender");
 		String groupLocation=request.getParameter("groupLocation");
 		
-		// System.out.println(groupTitle+" "+groupContent+" "+groupGender+" "+groupLimit+" "+groupLocation);
+		System.out.println(groupTitle+" "+groupContent+" "+groupGender+" "+groupLimit+" "+groupLocation);
 		Groups g=Groups.builder().gCode(gCode)
 				.groupTitle(groupTitle)
 				.groupContent(groupContent)

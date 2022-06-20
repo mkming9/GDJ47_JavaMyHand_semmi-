@@ -32,16 +32,17 @@ public class UpdateProductServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		Product p = new Product();
-//		p.setA_CODE(request.getParameter("A_CODE"));
-//		p.setANA_NAME(request.getParameter("ANA_NAME"));
-//		p.setANA_PRICE(Integer.parseInt(request.getParameter("ANA_PRICE")));
-//		p.setANA_CONTENT(request.getParameter("ANA_CONTENT"));
-//		System.out.println(p);
-//		int result=new ProductService().updataProduct(p);
-//		System.out.println(p);
-//		
-//		request.getRequestDispatcher("/views/Product/productupdate.jsp").forward(request, response);
+		Product p = new Product();
+		
+		p.setA_CODE(request.getParameter("A_CODE"));
+		p.setANA_NAME(request.getParameter("ANA_NAME"));
+		p.setANA_PRICE(Integer.parseInt(request.getParameter("ANA_PRICE")));
+		p.setANA_CONTENT(request.getParameter("ANA_CONTENT"));
+		System.out.println(p);
+		int result=new ProductService().updataProduct(p);
+		System.out.println(p);
+		
+		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
 	}
 
 	/**

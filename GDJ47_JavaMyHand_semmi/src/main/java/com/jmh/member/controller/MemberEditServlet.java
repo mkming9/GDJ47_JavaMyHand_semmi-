@@ -12,16 +12,16 @@ import com.jmh.member.model.service.MemberService;
 import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class LogincheckServlet
+ * Servlet implementation class MemberEditServlet
  */
-@WebServlet(name = "LoginCheckServlet", urlPatterns = {"/member/loginCheck.do" })
-public class LogincheckServlet extends HttpServlet {
+@WebServlet("/memberEdit.do")
+public class MemberEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogincheckServlet() {
+    public MemberEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +31,12 @@ public class LogincheckServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
-		String password=request.getParameter("password");
-		Member m =new MemberService().loginMember(memberId,password);
-
-		String msg="" ,loc="";
-		if(m!=null){
-			msg="로그인의 성공했습니다";
-			loc="/";
-		}else{
-			msg="아이디와 비밀번호를 확인해주세요";
-//			loc="/index.jsp";
-		}
-		request.setAttribute("msg", msg);
-		request.setAttribute("loc", loc);
-		request.getRequestDispatcher("/views/common/msg.jsp")
+		
+		Member m = new MemberService().memberIdCheck(memberId);
+		
+		request.setAttribute("member", m);
+		
+		request.getRequestDispatcher("/views/member/memberedit.jsp")
 		.forward(request, response);
 	}
 

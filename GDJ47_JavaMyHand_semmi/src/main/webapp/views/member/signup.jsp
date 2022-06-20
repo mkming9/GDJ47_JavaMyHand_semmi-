@@ -103,22 +103,25 @@
 			return true;
 		});
 			//아이디 중복확인 창
-	   	const idCheck=()=>{
-	   	const memberId=$('#memberId_').val().trim();
+	   	/* const idCheck=()=> */
+	   		$("#idCheck").on("click",function(){
+	   			
+	   		const memberId=$('#memberId_').val().trim();
    			if(memberId.length<4){
 	   			alert("아이디를 4글자 이상 입력해주세요");
 	   			$("#memberId").focus();
-	   			}else{
-	   				const url= "<%=request.getContextPath()%>/idCheck.do";
-	   				const title="idCheck";
-	   				open("",title,"width=400,height=400");
-	   				signs.memberId.value=memberId;
-	   				signs.method="post";
-	   				signs.action=url;
-	   				signs.target=title;
-	   				signs.submit();
+   			}else{
+	   			const url= "<%=request.getContextPath()%>/idCheck.do";
+   				const title="idCheck";
+   				open("",title,"width=400,height=400");
+   				signs.memberId.value=memberId;
+   				signs.method="post";
+   				signs.action=url;
+   				signs.target=title;
+   				signs.submit();
 	   			}
-   			}
+	   		});
+   			
 	</script>
 	
 <%@ include file="/views/common/footer.jsp" %>

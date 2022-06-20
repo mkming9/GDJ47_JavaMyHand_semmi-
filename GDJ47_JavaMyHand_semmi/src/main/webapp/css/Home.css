@@ -1,0 +1,268 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width: 1903.3px;
+}
+ul{
+    list-style: none;
+}
+header{
+    width: 100%;
+    height:120px;
+    position: fixed;
+    z-index: 9999;
+    background-image: url(../images/headerback.png);
+    display: flex;
+}
+#wrap{
+    width: 100%;
+    padding-top: 120px;
+    overflow: hidden;
+}
+
+.logo{
+    margin-left: 335px;
+    margin-top: 37px;
+}
+#menuintext{
+    text-align: center;
+    float: left;
+    width: 100px;
+    height: 116px;
+    margin-left: 70px;
+}
+#menuintext>li{
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+    font-size:20px;
+    color: rgb(61, 61, 61);
+    margin-top: 40px;
+    transition: all 0.3s;
+}
+
+#menuintext:hover{
+    background: url(../images/menuhover.png);
+}
+#menuintext:hover > li{
+    color: rgb(67, 126, 185);
+}
+.logintable1{
+	margin-top: 15px;
+	margin-left: 90px;
+	border-spacing: 0 5px;
+	float: left;
+}
+.logintable2{
+	margin-top: 20px;
+	margin-left: 10px;
+	border-spacing: 0 5px;
+	float: left;
+}
+#memberId, #password{
+	background-color: white;
+	width: 145px;
+	height: 27px;
+	border: 1px solid rgb(170,170,170);
+	border-radius: 9px;
+	padding-left: 15px;
+}
+input:focus{
+	outline: 1px solid rgb(67, 126, 185);
+}
+#saveId{
+	margin-left: 14px;
+}
+label{
+	font-size:12px;
+	color: rgb(105,105,105);
+}
+#submit{
+	width: 60px;
+	height: 60px;
+	border: none;
+	cursor: pointer;
+	background-image: url(../images/login.png);
+}
+#signup{
+	width: 60px;
+	height: 60px;
+	border: none;
+	cursor: pointer;
+	background-image: url(../images/signup.png);
+}
+#submit:hover{
+	background-image: url(../images/loginhover.png);
+}
+#signup:hover{
+	background-image: url(../images/signuphover.png);
+}
+.hello{
+	margin-left:90px;
+}
+
+#slideShow{
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+.slides{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out; 
+}
+
+.controller>span{
+        position:absolute;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 50%;
+        padding: 10px 20px;
+        top: 50%;
+        font-size: 1.0em;
+        cursor: pointer;
+}
+.left{
+    margin-left: 10px;
+}      
+.right{
+    margin-left: 1845px;
+}
+.controller>span:hover{
+    background-color: rgba(128, 128, 128, 0.11);
+}      
+.btn1 {
+    position: absolute;
+    top: 550px;
+    margin-left: 1280px;
+    border: 0;
+}
+.content1{
+    width: 1900px;
+    height: 720px;
+}
+#textbox{
+    position: absolute;
+    font-family: "IBM Plex Sans KR";
+    margin-top: 300px;
+    margin-left: 350px;
+}
+#textbox>h1{
+    font-weight: 700;
+    color: rgb(44, 44, 44);
+
+}
+#textbox p{
+    font-weight: 500;
+    font-size: 17px;
+    margin-top: 10px;
+    color: rgb(85, 85, 85);
+
+}
+#box1,#box2,#box3{
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 100px;
+    width: 250px;
+    height: 280px;
+    box-shadow: 0 5px 17px -8px rgb(85, 85, 85);
+    text-align: center;
+    background-color: white;
+}
+#box1{
+    margin-left: 640px;
+}
+#box1>img{
+    margin-top: 60px;
+
+}
+#box2{
+    margin-left: 940px;
+}
+#box2>img{
+    margin-top: 45px;
+}
+#box3{
+    margin-left: 1240px;
+}
+#box3>img{
+    margin-top: 62px;
+}
+#box1>h4,#box2>h4,#box3>h4{
+    padding-top: 18px;
+    font-family: "IBM Plex Sans KR";
+    color: rgb(67, 126, 185);
+    font-weight: 500;
+}
+#box1>h3,#box2>h3,#box3>h3{
+    color: rgb(43, 65, 87);
+    font-family: "IBM Plex Sans KR";
+    font-size: 28px;
+}
+#fadein{
+    position: absolute;
+    margin-left: 1068px;
+    margin-top: 115px;
+    width: 835px;
+    height: 490px;
+    z-index: -9999;
+    opacity: 0;
+    transition: all 0.3s;
+}
+#box1:hover + #fadein{
+    background: url(../images/hover1.png);
+    opacity: 1;
+}
+#box2:hover + #fadein{
+    background: url(../images/hover2.png);
+    opacity: 1;
+}
+#box3:hover + #fadein{
+    background: url(../images/hover3.png);
+    opacity: 1;
+}
+
+footer{
+    width: 1900px;
+    height: 135px;
+    background-color: rgb(58,58,58);
+    display: flex;
+}
+#footerlogo>img{
+    margin: 33px 0 0 480px;
+}
+#footertext{
+    width: 500px;
+    height: 30px;
+    margin-top: 37px;
+    margin-left: 50px;
+    font-family: "Noto Sans KR";
+}
+#footertext>h5{
+    font-weight:700;
+    color: white;
+}
+#footertext>p{
+    margin-top: 10px;
+    color: rgb(153, 153, 153);
+    font-weight: 300;
+    font-size: 12px;
+}
+#sns{
+    margin-top: 42px;
+}
+#sns>p{
+    font-family: "Noto Sans KR";
+    font-weight:500;
+    color: rgb(192, 192, 192);
+    font-size: 13px;
+}
+#sns>img{
+    margin-top: 10px;
+}
+

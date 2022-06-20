@@ -31,11 +31,12 @@ public class NoticeBoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<NoticeBoard> result = new NoticeBoardListService().noticeBoardList();
-		request.setAttribute("result", result);
-		System.out.println(result);
+//		List<NoticeBoard> result = new NoticeBoardListService().noticeBoardList();
+//		request.setAttribute("result", result);
+//		System.out.println(result);
 //		request.getRequestDispatcher("/views/noticeboard/noticeBoardList.jsp")
 //		.forward(request,response);
+		request.getRequestDispatcher("/views/notice/notice.jsp").forward(request, response);
 	}
 
 		

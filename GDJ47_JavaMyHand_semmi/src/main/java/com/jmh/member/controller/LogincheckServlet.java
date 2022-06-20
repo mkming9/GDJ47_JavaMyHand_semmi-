@@ -1,4 +1,4 @@
-package com.jmh.product.model.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
 
@@ -7,22 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.jmh.product.model.service.ProductService;
-import com.jmh.product.model.vo.Product;
+import com.jmh.member.model.service.MemberService;
+import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class UpdateProductServlet
+ * Servlet implementation class LogincheckServlet
  */
-@WebServlet("/UpdateProductServlet.do")
-public class UpdateProductServlet extends HttpServlet {
+@WebServlet(name = "LoginCheckServlet", urlPatterns = {"/member/loginCheck.do" })
+public class LogincheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateProductServlet() {
+    public LogincheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +30,22 @@ public class UpdateProductServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		Product p = new Product();
-//		p.setA_CODE(request.getParameter("A_CODE"));
-//		p.setANA_NAME(request.getParameter("ANA_NAME"));
-//		p.setANA_PRICE(Integer.parseInt(request.getParameter("ANA_PRICE")));
-//		p.setANA_CONTENT(request.getParameter("ANA_CONTENT"));
-//		System.out.println(p);
-//		int result=new ProductService().updataProduct(p);
-//		System.out.println(p);
-//		
-//		request.getRequestDispatcher("/views/Product/productupdate.jsp").forward(request, response);
+		String memberId = request.getParameter("memberId");
+		String password=request.getParameter("password");
+		Member m =new MemberService().loginMember(memberId,password);
+
+		String msg="" ,loc="";
+		if(m!=null){
+			msg="로그인의 성공했습니다";
+			loc="/";
+		}else{
+			msg="아이디와 비밀번호를 확인해주세요";
+//			loc="/index.jsp";
+		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("loc", loc);
+		request.getRequestDispatcher("/views/common/msg.jsp")
+		.forward(request, response);
 	}
 
 	/**

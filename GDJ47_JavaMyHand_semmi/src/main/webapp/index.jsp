@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/header.jsp" %>
 <section>
+
     <div id="wrap">
         <div id="slideShow">
             <ul class="slides">
@@ -36,17 +38,17 @@
                    따뜻하게 만들기 위한<br>
                    다양한 활동을 지원합니다.</p>
             </div>
-            <div>
+            <div id="target1">
                 
-                <a href="">
+                <a href="<%=request.getContextPath()%>/noticeList.do">
                     <div id="box1">
                         <img id="picto1" src="images/picto1.png">
                         <h4>세상을 따뜻하게</h4>
-                        <h3>후원하기</h3>
+                        <h3>후원</h3>
                     </div>
                     <div id="fadein"></div>
                 </a>
-                <a href="">
+                <a href="<%=request.getContextPath()%>/groups/groupsList.do">
                     <div id="box2">
                         <img src="images/picto2.png">
                         <h4>세상을 만나기</h4>
@@ -54,7 +56,7 @@
                     </div>
                     <div id="fadein"></div>
                 </a>
-                <a href="">
+                <a href="<%=request.getContextPath()%>/productview.do">
                     <div id="box3">
                         <img src="images/picto3.png">
                         <h4>세상을 지키기</h4>

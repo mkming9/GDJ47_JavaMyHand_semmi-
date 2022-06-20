@@ -1,9 +1,6 @@
 package com.jmh.product.model.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,16 +12,16 @@ import com.jmh.product.model.service.ProductService;
 import com.jmh.product.model.vo.Product;
 
 /**
- * Servlet implementation class ProductWriteEndServlet
+ * Servlet implementation class ProductUpdateEndServlet
  */
-@WebServlet("/ProductWriteEndServlet")
-public class ProductWriteEndServlet extends HttpServlet {
+@WebServlet("/productupdateEndServlet.do")
+public class ProductUpdateEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductWriteEndServlet() {
+    public ProductUpdateEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +31,7 @@ public class ProductWriteEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String MEMBER_ID=request.getParameter("MEMBER_ID");
+		int ANA_NO=Integer.parseInt(request.getParameter("ANA_NO"));
 		String A_CODE=request.getParameter("A_CODE");
 		String ANA_NAME=request.getParameter("ANA_NAME");
 		int ANA_PRICE=Integer.parseInt(request.getParameter("ANA_PRICE"));
@@ -44,23 +40,23 @@ public class ProductWriteEndServlet extends HttpServlet {
 		
 //		System.out.println(ANA_NO+" "+MEMBER_ID+" "+A_CODE+" "+ANA_NAME+" "+ANA_PRICE+" "+ANA_CONTENT);
 		
-		Product p=Product.builder().MEMBER_ID(MEMBER_ID)
+		Product p=Product.builder().ANA_NO(ANA_NO)
 				.A_CODE(A_CODE)
 				.ANA_NAME(ANA_NAME)
 				.ANA_PRICE(ANA_PRICE)				
 				.ANA_CONTENT(ANA_CONTENT)
 				.build();
-		int result=new ProductService().insertProduct(p);
-		//System.out.println(result);
+		int result=new ProductService().updataProduct(p);
+		System.out.println(result);
 			
 		String msg="";
 		String loc="";
 		if(result>0) {
-			msg="상품등록완료";
+			msg="상품수정완료";
 			loc="/product/productlist.do";
 		}else {
-			msg="상품등록실패";
-			loc="/ProductWriteServlet.do";
+			msg="상품수정실패";
+			loc="/productUpdateServlet.do"+ANA_NO;
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);

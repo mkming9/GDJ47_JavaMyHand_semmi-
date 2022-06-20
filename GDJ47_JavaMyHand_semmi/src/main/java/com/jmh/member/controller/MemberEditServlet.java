@@ -1,7 +1,6 @@
-package com.jmh.notice.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jmh.notice.model.service.NoticeBoardListService;
-import com.jmh.notice.model.vo.NoticeBoard;
+import com.jmh.member.model.service.MemberService;
+import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class NoticeListServlet1
+ * Servlet implementation class MemberEditServlet
  */
-@WebServlet("/noticeList.do")
-public class NoticeBoardListServlet extends HttpServlet {
+@WebServlet("/memberEdit.do")
+public class MemberEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeBoardListServlet() {
+    public MemberEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +30,15 @@ public class NoticeBoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		List<NoticeBoard> result = new NoticeBoardListService().noticeBoardList();
-//		request.setAttribute("result", result);
-//		System.out.println(result);
-//		request.getRequestDispatcher("/views/noticeboard/noticeBoardList.jsp")
-//		.forward(request,response);
-		request.getRequestDispatcher("/views/notice/notice.jsp").forward(request, response);
-	}
-
+		String memberId = request.getParameter("memberId");
 		
-	
+		Member m = new MemberService().memberIdCheck(memberId);
+		
+		request.setAttribute("member", m);
+		
+		request.getRequestDispatcher("/views/member/memberedit.jsp")
+		.forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

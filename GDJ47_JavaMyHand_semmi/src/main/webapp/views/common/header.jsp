@@ -20,12 +20,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaMyHand</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+
     <script src="js/jquery-3.6.0.min.js"></script>
     
-	<link href="css/Home.css" rel="stylesheet" type="text/css"/>
+	<link href="./css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="css/signup.css" rel="stylesheet" type="text/css"/>
+	<link href="css/notice.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -35,17 +37,17 @@
             <a href="index.jsp"><img src="./images/MainLogo.png"/></a>
         </div>
         <div class="menubox">
-            <ul>
-                <a href="<%=request.getContextPath()%>/test.do">
-                    <div id="menuintext"><li>소개</li></div>
+            <ul >
+                <a href="#target1" id="scroll">
+                <div id="menuintext"><li>소개</li></div>
                 </a>
                 <a href="<%=request.getContextPath()%>/noticeList.do">
-                    <div id="menuintext"><li>후원하기</li></div>
-                </a>
-                <a href="<%=request.getContextPath()%>/groupsList.do">
+                    <div id="menuintext"><li>후원</li></div>
+                </a>  
+                <a href="<%=request.getContextPath()%>/groups/groupsList.do">
                     <div id="menuintext"><li>소모임</li></div>
                 </a>
-                <a href="<%=request.getContextPath()%>/productview.do">
+                <a href="<%=request.getContextPath()%>/product/productlist.do">
                     <div id="menuintext"><li>아나바다</li></div>
                 </a>
             </ul>
@@ -70,8 +72,8 @@
         			</td>
         		</tr>
         	</table>
-        	<div class="logintable2">
-        			<input type="submit" id="submit" value="">
+        	<div class="logintable2" >
+        			<input type="submit" id="submit" value="" name="로그인">
         			<input type="button" id="signup" value=""
                		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         	</div>
@@ -80,11 +82,12 @@
         <table class="hello">
         	<tr>
         		<td>
-        				<%=loginMember.getMemberName() %>님, 반갑습니다.
+        			<span id="userName"><%=loginMember.getMemberName() %></span>님, 반갑습니다.
         		</td>
         	</tr>
         	<tr>
         		<td>
+					<input type="button" value="내정보보기" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         			<input type="button" onclick="fn_logout()" value="로그아웃">
         		</td>
         	</tr>
@@ -93,6 +96,17 @@
      <script>
        const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
+    		alert("로그아웃이 정삭적으로 되었습니다.");
        }
+       
+       
+       jQuery(document).ready(function($){
+    	   $(".scroll").click(function(event){
+    	    event.preventDefault();
+    	   $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+    	   });
+    	   });
+       
+       
     </script>
-</header>
+    </header>

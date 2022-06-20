@@ -37,32 +37,34 @@ public class ProductViewServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		int ANA_NO=Integer.parseInt(request.getParameter("no"));
-
-//		boolean isRead=false;
-//		String preProduct="";
-//		Cookie[] cookies=request.getCookies();
-//		if(cookies!=null) {
-//			for(Cookie c:cookies) {
-//				String name=c.getName();
-//				String value=c.getValue();
-//				if(name.equals("readproduct")) {
-//					preProduct=value;
-//					if(preProduct.contains("|"+ANA_NO+"|")) {
-//						isRead=true;
-//						break;
-//					}
-//				}
-//			}
-//		}
-//		if(!isRead) {
-//			Cookie c =new Cookie("readproduct",preProduct+"|"+ANA_NO+"|");
-//			c.setMaxAge(24*60*60);
-//			response.addCookie(c);
-//		}
-		request.setAttribute("product", new ProductService().selectProduct(ANA_NO));
 		
-		//request.setAttribute("product", new ProductService().selectProduct(ANA_NO));
-		//System.out.println(ANA_NO);
+		boolean isRead=false;
+		String preProduct="";
+		Cookie[] cookies=request.getCookies();
+		if(cookies!=null) {
+			for(Cookie c :cookies) {
+				String name=c.getName();
+				String value=c.getValue();
+				if(name.equals("readproduct")) {
+					preProduct=value;
+					if(preProduct.contains("|"+ANA_NO+"|")) {
+						isRead=true;
+						break;
+					}
+				}
+			}
+		}
+		if(!isRead) {
+			Cookie c=new Cookie("readproduct",preProduct+"|"+ANA_NO+"|");
+			c.setMaxAge(24*60*60);
+			response.addCookie(c);
+		}
+		
+		
+		//System.out.println(ANA_NO);				
+		request.setAttribute("product", new ProductService().selectProduct(ANA_NO,isRead));
+		
+		
 		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
 		
 	}

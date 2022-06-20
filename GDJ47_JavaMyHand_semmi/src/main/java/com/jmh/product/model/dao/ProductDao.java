@@ -14,7 +14,7 @@ import static com.jmh.common.JDBCTemplate.*;
 
 import com.jmh.product.model.vo.Product;
 
-import oracle.jdbc.proxy.annotation.Pre;
+
 
 public class ProductDao {
 	
@@ -30,6 +30,24 @@ public class ProductDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public int upDateReadCount(Connection conn,int ANA_NO) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("upDateReadCount"));
+			pstmt.setInt(1, ANA_NO);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
+	}
+	
+	
+	
+	
 	
 	public  List<Product> selectProductList(Connection conn,int cPage, int numPerpage){
 		PreparedStatement pstmt = null;
@@ -65,7 +83,7 @@ public class ProductDao {
 			e.printStackTrace();
 		}finally {
 			close(rs);
-			close(conn);
+			close(pstmt);
 		}
 		return p;
 	}

@@ -60,7 +60,7 @@
                     <div id="box3">
                         <img src="images/picto3.png">
                         <h4>세상을 지키기</h4>
-                        <h3>아나바다</h3>
+                        <h3>아나바다..</h3>
                     </div>
                     <div id="fadein"></div>
                 </a>

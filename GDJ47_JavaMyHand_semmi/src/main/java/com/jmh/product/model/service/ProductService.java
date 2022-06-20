@@ -6,17 +6,32 @@ import com.jmh.product.model.dao.ProductDao;
 import com.jmh.product.model.vo.Product;
 import java.util.List;
 
+
+
 public class ProductService {
 	
 	private ProductDao dao=new ProductDao();
 	
-	public List<Product> selectProductList(){
+	public List<Product> selectProductList(int cPage, int numPerpage){
 		Connection conn=getConnection();
-		List<Product>list=dao.selectProductList(conn);
+		List<Product>list=dao.selectProductList(conn,cPage,numPerpage);
 		close(conn);
 		return list;
 	}
 	
+	public int selectProductCount() {
+		Connection conn=getConnection();
+		int result=dao.selectProducCount(conn);
+		close(conn);
+		return result;
+	}
+	
+	public Product selectProduct(int ANA_NO) {
+		Connection conn=getConnection();
+		Product p=dao.selectProduct(conn,ANA_NO);
+		close(conn);
+		return p;
+	}
 	
 	
 	public int insertProduct(Product p) {
@@ -28,11 +43,9 @@ public class ProductService {
 		return result;
 	}
 	
-	public int deleteProduct(Product p) {
+	public int deleteProduct(int ANA_NO) {
 		Connection conn=getConnection();
-		int result=dao.deleteProduct(conn,p);
-		if(result>0)commit(conn);
-		else rollback(conn);
+		int result=dao.deleteProduct(conn,ANA_NO);		
 		close(conn);
 		return result;
 	}
@@ -45,12 +58,14 @@ public class ProductService {
 		return result;
 	}
 	
-	public int updateCount(Product p) {
+	public Product viewCount(int ANA_NO,boolean isRead) {
 		Connection conn=getConnection();
-		int result=dao.updateCount(conn, p);
-		if(result>0)commit(conn);
-		else rollback(conn);
-		return result;
+		Product p=dao.selectProduct(conn, ANA_NO);
+		if(p!=null&&!isRead) {
+			commit(conn);
+			p.setANA_VIEW(p.getANA_VIEW()+1);
+		}else rollback(conn);
+		return p;
 	}
 
 

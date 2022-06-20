@@ -1,31 +1,26 @@
 package com.jmh.product.model.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
 
 import com.jmh.product.model.service.ProductService;
 import com.jmh.product.model.vo.Product;
 
 /**
- * Servlet implementation class ProductViewServlet
+ * Servlet implementation class ProductUpdateServlet
  */
-@WebServlet("/product/productview.do")
-public class ProductViewServlet extends HttpServlet {
+@WebServlet("/productUpdateServlet.do")
+public class ProductUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductViewServlet() {
+    public ProductUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,37 +30,15 @@ public class ProductViewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		
 		int ANA_NO=Integer.parseInt(request.getParameter("no"));
-
-//		boolean isRead=false;
-//		String preProduct="";
-//		Cookie[] cookies=request.getCookies();
-//		if(cookies!=null) {
-//			for(Cookie c:cookies) {
-//				String name=c.getName();
-//				String value=c.getValue();
-//				if(name.equals("readproduct")) {
-//					preProduct=value;
-//					if(preProduct.contains("|"+ANA_NO+"|")) {
-//						isRead=true;
-//						break;
-//					}
-//				}
-//			}
-//		}
-//		if(!isRead) {
-//			Cookie c =new Cookie("readproduct",preProduct+"|"+ANA_NO+"|");
-//			c.setMaxAge(24*60*60);
-//			response.addCookie(c);
-//		}
+		
 		request.setAttribute("product", new ProductService().selectProduct(ANA_NO));
 		
-		//request.setAttribute("product", new ProductService().selectProduct(ANA_NO));
-		//System.out.println(ANA_NO);
-		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
-		
-	}
+		request.getRequestDispatcher("/views/Product/productupdate.jsp").forward(request, response);
+	}	
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

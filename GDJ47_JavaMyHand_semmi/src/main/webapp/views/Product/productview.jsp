@@ -3,8 +3,8 @@
     <%@ page import="com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
     <%
     
-     List<Product> product=(List<Product>)request.getAttribute("product"); 
- 
+     Product p=(Product)request.getAttribute("product"); 
+     String pageBar=(String)request.getAttribute("pageBar");
    
     Member loginMember = (Member)session.getAttribute("loginMember");
 	Cookie[] cookies = request.getCookies();
@@ -17,53 +17,66 @@
 		}
 	}
     %>
-
-
+<!DOCTYPE html>
+<html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<meta charset="UTF-8">
+<title><%=p.getANA_NAME() %></title>
 </head>
 <body>
-	<table class="table">
-	
-  <thead>
-    <tr>
-      <th scope="col">상품번호</th>
-      <th scope="col">회원이름</th>
-      <th scope="col">카테고리</th>
-      <th scope="col">상품이름</th>
-      <th scope="col">가격</th>
-      <th scope="col">내용</th>
-      <th scope="col">작성일</th>
-      <th scope="col">조회수</th>
-    </tr>
-  </thead>
-  <tbody>
-   <tr>
- 
-     <%if(!product.isEmpty()) {
-		for(Product p : product) {%>
-		<tr>
-			<td><a href=""><%=p.getANA_NO()%></a></td>			
-			<td><%=p.getMEMBER_ID()%></td> 			
-			<td><%=p.getA_CODE()%></td>			
-			<td><%=p.getANA_NAME()%></td>
-			<td><%=p.getANA_PRICE()%></td>
-			<td><%=p.getANA_CONTENT()%></td>
-			<td><%=p.getANA_DATE()%></td>
-			<td><%=p.getANA_VIEW()%></td>
-		</tr>
-	  <%} 
-	  } %>  
-  </tbody>
-</table>  
-
- <%if(loginMember!=null) {%>
-<button id="addProduct"
-	onclick="location.assign('<%=request.getContextPath() %>/ProductWriteServlet')" >상품등록</button>
-	
-	<button id="alterProduct" onclick="location.assign('<%=request.getContextPath() %>/UpdateProductServlet.do')">상품수정</button>
-	<button id="alterProduct">상품삭제</button>	
-	<%}%>
+	<style>
+    section#board-container{width:600px; margin:0 auto; text-align:center;}
+    section#board-container h2{margin:10px 0;}
+    table#tbl-board{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
+    table#tbl-board th {width: 125px; border:1px solid; padding: 5px 0; text-align:center;} 
+    table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
+    </style>
+   
+		<section id="board-container">
+		<h2>상품 게시판</h2>
+		<table id="tbl-board">
+			<tr>
+				<th>상품번호</th>
+				<td><%=p.getANA_NO() %></td>
+			</tr>
+			<tr>
+				<th>상품이름</th>
+				<td><%=p.getANA_NAME() %></td>
+			</tr>
+			<tr>
+				<th>작성자</th>
+				<td><%=p.getMEMBER_ID() %></td>
+			</tr>
+			<tr>
+				<th>조회수</th>
+				<td><%=p.getANA_VIEW() %></td>
+			</tr>
+			<tr>
+				<th>가격</th>
+				<td><%=p.getANA_PRICE() %></td>
+			</tr>
+			<tr>
+				<th>내 용</th>
+				<td><%=p.getANA_CONTENT() %></td>
+			</tr>
+			<%--글작성자/관리자인경우 수정삭제 가능 --%>
+			<%if(loginMember!=null &&
+			(loginMember.getMemberId().equals(p.getMEMBER_ID())
+				||loginMember.getMemberId().equals("admin1"))) {%>
+			<tr>
+				<th colspan="2">					
+					<button id="deleteProduct" onclick="location.assign('<%=request.getContextPath() %>/product/productdelete.do?no=<%=p.getANA_NO()%>')">상품삭제</button>
+					<%}else%>
+					 <% if(loginMember.getMemberId().equals(p.getMEMBER_ID())) {%>
+					<button id="alterProduct" onclick="location.assign('<%=request.getContextPath() %>/productUpdateServlet.do?no=<%=p.getANA_NO()%>')">상품수정</button>
+					<%} %>
+				</th>
+			</tr>
+			
+		
+			
+		</table>
+   
+    </section>
 </body>
 </html>

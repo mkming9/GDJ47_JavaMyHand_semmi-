@@ -20,11 +20,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaMyHand</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 
     <script src="js/jquery-3.6.0.min.js"></script>
     
-	<link href="css/Home.css" rel="stylesheet" type="text/css"/>
+	<link href="./css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="css/signup.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>

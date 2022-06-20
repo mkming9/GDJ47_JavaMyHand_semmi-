@@ -46,7 +46,7 @@
                 <a href="<%=request.getContextPath()%>/groupsList.do">
                     <div id="menuintext"><li>소모임</li></div>
                 </a>
-                <a href="<%=request.getContextPath()%>/productview.do">
+                <a href="<%=request.getContextPath()%>/product/productlist.do">
                     <div id="menuintext"><li>아나바다</li></div>
                 </a>
             </ul>

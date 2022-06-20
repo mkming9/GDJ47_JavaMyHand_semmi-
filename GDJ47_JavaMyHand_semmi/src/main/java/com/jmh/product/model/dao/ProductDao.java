@@ -31,12 +31,14 @@ public class ProductDao {
 		}
 	}
 	
-	public  List<Product> selectProductList(Connection conn){
+	public  List<Product> selectProductList(Connection conn,int cPage, int numPerpage){
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		List<Product>list=new ArrayList();
+		ResultSet rs = null;
 		try {
-			pstmt=conn.prepareStatement(prop.getProperty("selectProduct"));
+			pstmt=conn.prepareStatement(prop.getProperty("SELECTPRODUCT"));
+			pstmt.setInt(1, (cPage-1)*numPerpage+1);
+			pstmt.setInt(2, cPage*numPerpage);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(getProduct(rs));
@@ -49,6 +51,40 @@ public class ProductDao {
 		}return list;
 	}
 	
+	
+	public Product selectProduct(Connection conn,int ANA_NO) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Product p=null;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("selectProduct"));
+			pstmt.setInt(1, ANA_NO);
+			rs=pstmt.executeQuery();
+			if(rs.next()) p=getProduct(rs);
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(conn);
+		}
+		return p;
+	}
+	
+	public int selectProducCount(Connection conn) {
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("selectproductCount"));
+			rs=pstmt.executeQuery();
+			if(rs.next())result=rs.getInt(1);
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+	}
 	
 	public int insertProduct(Connection conn, Product p){
 		PreparedStatement pstmt=null;
@@ -71,18 +107,21 @@ public class ProductDao {
 		return result;
 	}
 	
-	public int deleteProduct(Connection conn,Product p) {
+	public int deleteProduct(Connection conn,int ANA_NO) {
 		PreparedStatement pstmt =null;
-		int result=0;
+		
+		 int result =0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("deleteProduct"));
-			
-			pstmt.setInt(1,p.getANA_NO());
+			pstmt.setInt(1, ANA_NO);
 			result=pstmt.executeUpdate();
+			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
+			
 			close(pstmt);
+			
 		}
 		return result;
 	}
@@ -108,20 +147,21 @@ public class ProductDao {
 	}
 	
 	//조회수증가
-	public int updateCount(Connection conn,Product p) {
-		PreparedStatement pstmt=null;
-		int result=0;
-		try {
-			pstmt=conn.prepareStatement(prop.getProperty("updateCount"));
-			pstmt.setInt(1, p.getANA_VIEW());
-			result=pstmt.executeUpdate();
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(pstmt);
-		}
-		return result;
-	}
+//	public int viewCount(Connection conn,int ANA_NO) {
+//		PreparedStatement pstmt=null;
+//		int result=0;
+//		try {
+//			pstmt=conn.prepareStatement(prop.getProperty("viewCount"));
+//			pstmt.setInt(1, ANA_NO);
+//			
+//			result=pstmt.executeUpdate();
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close(pstmt);
+//		}
+//		return result;
+//	}
 	
 	
 	

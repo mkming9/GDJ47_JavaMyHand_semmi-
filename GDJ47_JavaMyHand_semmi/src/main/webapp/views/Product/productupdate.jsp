@@ -5,7 +5,7 @@
     %>
     
     <%
-    Product p =(Product)request.getAttribute("product"); 
+    Product p =(Product)session.getAttribute("product"); 
     Member loginMember = (Member)session.getAttribute("loginMember");
 	Cookie[] cookies = request.getCookies();
 	String saveId = null;
@@ -27,7 +27,7 @@ crossorigin="anonymous">
 <title>상품등록중.....</title>
 </head>
 <body>
-	<form action="<%=request.getContextPath() %>/ProductWriteEndServlet" method="post">
+	<form action="<%=request.getContextPath() %>/UpdateProductServlet.do" method="post">
 	<table class="table">
 	
   <thead>
@@ -46,12 +46,12 @@ crossorigin="anonymous">
    <tr>
    
      
-      <td><input type="text" name="ANA_NO" readonly></td>
-      <td><input type="text" name="MEMBER_ID" value="<%=loginMember.getMemberId() %>" readonly></td>
-      <td><input type="text" name="A_CODE"></td>
-      <td><input type="text" name="ANA_NAME"></td>
-      <td><input type="text" name="ANA_PRICE"></td>
-      <td><input type="text" name="ANA_CONTENT"></td>
+     <td><input type="text" name="ANA_NO" readonly><%=p.getANA_NO() %></td>
+      <td><input type="text" name="MEMBER_ID" readonly><%=p.getMEMBER_ID() %></td>
+      <td><input type="text" name="A_CODE"><%=p.getA_CODE() %></td>
+      <td><input type="text" name="ANA_NAME"><%=p.getANA_NAME() %></td>
+      <td><input type="text" name="ANA_PRICE"><%=p.getANA_PRICE() %></td>
+      <td><input type="text" name="ANA_CONTENT"><%=p.getANA_CONTENT() %></td>
       
       
   </tbody>
@@ -61,11 +61,10 @@ crossorigin="anonymous">
 			<input type="reset" value="취소">
  	</th>
 </table>
- <%-- <button id="addProduct"
-	onclick="location.assign('<%=request.getContextPath() %>/ProductWriteServlet')" >상품등록</button>
+
 	
-	<button id="alterProduct" >상품수정</button>
-	<button id="alterProduct">상품삭제</button>	  --%>
+	
+	
 		
 </form>	
 </body>

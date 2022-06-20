@@ -59,9 +59,11 @@ public class LoginMemberServlet extends HttpServlet {
 		if(m!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", m);
+			session.setAttribute("saveId", memberId);
+			response.sendRedirect(request.getContextPath()+"/views/common/success.jsp")	;
 		}
 		
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect(request.getContextPath()+"/loginCheck.do");
 	}
 
 	/**

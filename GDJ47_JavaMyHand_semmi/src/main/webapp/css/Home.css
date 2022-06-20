@@ -6,6 +6,7 @@ body{
     width: 1903.3px;
 }
 ul{
+	width:690px;
     list-style: none;
 }
 header{
@@ -55,10 +56,11 @@ header{
 	float: left;
 }
 .logintable2{
-	margin-top: 20px;
+	width:1000px;
+	margin-top : 20px;
 	margin-left: 10px;
 	border-spacing: 0 5px;
-	float: left;
+	/* float: left; */
 }
 #memberId, #password{
 	background-color: white;

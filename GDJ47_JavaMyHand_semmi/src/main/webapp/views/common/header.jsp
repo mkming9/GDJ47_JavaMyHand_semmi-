@@ -36,14 +36,17 @@
             <a href="index.jsp"><img src="./images/MainLogo.png"/></a>
         </div>
         <div class="menubox">
-            <ul>
-                <a href="<%=request.getContextPath()%>/test.do">
-                    <div id="menuintext"><li>소개</li></div>
+            <ul >
+                <a href="#target1" id="scroll">
+                <div id="menuintext"><li>소개</li></div>
                 </a>
+                
                 <a href="<%=request.getContextPath()%>/noticeList.do">
-                    <div id="menuintext"><li>후원하기</li></div>
+                 <div id="menuintext"><li>후원하기</li></div>
+                </a>  
+                    
                 </a>
-                <a href="<%=request.getContextPath()%>/groupsList.do">
+                <a href="<%=request.getContextPath()%>/groups/groupsList.do">
                     <div id="menuintext"><li>소모임</li></div>
                 </a>
                 <a href="<%=request.getContextPath()%>/product/productlist.do">
@@ -71,8 +74,8 @@
         			</td>
         		</tr>
         	</table>
-        	<div class="logintable2">
-        			<input type="submit" id="submit" value="">
+        	<div class="logintable2" >
+        			<input type="submit" id="submit" value="" name="로그인">
         			<input type="button" id="signup" value=""
                		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         	</div>
@@ -86,6 +89,7 @@
         	</tr>
         	<tr>
         		<td>
+					<input type="button" value="내정보보기" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         			<input type="button" onclick="fn_logout()" value="로그아웃">
         		</td>
         	</tr>
@@ -94,6 +98,17 @@
      <script>
        const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
+    		alert("로그아웃이 정삭적으로 되었습니다.");
        }
+       
+       
+       jQuery(document).ready(function($){
+    	   $(".scroll").click(function(event){
+    	    event.preventDefault();
+    	   $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+    	   });
+    	   });
+       
+       
     </script>
-</header>
+    </header>

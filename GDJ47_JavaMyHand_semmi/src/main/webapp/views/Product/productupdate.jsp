@@ -5,7 +5,7 @@
     %>
     
     <%
-    Product p =(Product)session.getAttribute("product"); 
+    Product p =(Product)request.getAttribute("product"); 
     Member loginMember = (Member)session.getAttribute("loginMember");
 	Cookie[] cookies = request.getCookies();
 	String saveId = null;
@@ -46,7 +46,7 @@ crossorigin="anonymous">
    <tr>
    
      
-     <td><input type="text" name="ANA_NO" readonly><%=p.getANA_NO() %></td>
+      <td><input type="text" name="ANA_NO" readonly><%=p.getANA_NO() %></td>
       <td><input type="text" name="MEMBER_ID" readonly><%=p.getMEMBER_ID() %></td>
       <td><input type="text" name="A_CODE"><%=p.getA_CODE() %></td>
       <td><input type="text" name="ANA_NAME"><%=p.getANA_NAME() %></td>

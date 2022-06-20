@@ -5,17 +5,8 @@
     %>
     
     <%
-    Product p =(Product)session.getAttribute("product"); 
-    Member loginMember = (Member)session.getAttribute("loginMember");
-	Cookie[] cookies = request.getCookies();
-	String saveId = null;
-	if(cookies != null){
-		for(Cookie c : cookies){
-			if(c.getName().equals("saveId")){
-				saveId = c.getValue();
-			}
-		}
-	}
+    Product p =(Product)request.getAttribute("product"); 
+    
     %>
 <!DOCTYPE html>
 <html>
@@ -46,12 +37,12 @@ crossorigin="anonymous">
    <tr>
    
      
-     <td><input type="text" name="ANA_NO" readonly><%=p.getANA_NO() %></td>
-      <td><input type="text" name="MEMBER_ID" readonly><%=p.getMEMBER_ID() %></td>
-      <td><input type="text" name="A_CODE"><%=p.getA_CODE() %></td>
-      <td><input type="text" name="ANA_NAME"><%=p.getANA_NAME() %></td>
-      <td><input type="text" name="ANA_PRICE"><%=p.getANA_PRICE() %></td>
-      <td><input type="text" name="ANA_CONTENT"><%=p.getANA_CONTENT() %></td>
+     <td><input type="text" name="ANA_NO" value="" readonly></td>
+      <td><input type="text" name="MEMBER_ID" value="" readonly></td>
+      <td><input type="text" name="A_CODE" value="<%=p.getA_CODE() %>"></td>
+      <td><input type="text" name="ANA_NAME" value="<%=p.getANA_NAME() %>"></td>
+      <td><input type="text" name="ANA_PRICE" value="<%=p.getANA_PRICE() %>"></td>
+      <td><input type="text" name="ANA_CONTENT" value="<%=p.getANA_CONTENT() %>"></td>
       
       
   </tbody>

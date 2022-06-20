@@ -1,8 +1,7 @@
-.banner{
+.signupbanner{
 	height: 650px;
 	background-image: url(../images/signupbanner.png);
 }
-
 .text{
 	text-align: center;
 	color: rgb(80,80,80);

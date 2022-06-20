@@ -1,25 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>공지사항</title>
-<!-- iamport.payment.js -->
-<script src="js/jquery-3.6.0.min.js"></script>
+<%@ include file="/views/common/header.jsp" %>
+
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script></head>
 
 <body>
-<table>
-	<tr>
-		<td>
-			<input type="text" id="payment_txt_amount">
-			<button id="iamportPayment" type="button" >결제</button>
-		</td>
-	</tr>
-</table>
+	<section>
+	<div class="donatebanner"></div>
+	<div id="discription">
+		<h1>여러분이 자바마이핸드에 보내주신 소중한 후원은 아래 기관에 전달됩니다</h1>
+	</div>
+	<div class="organ">
+		<div id="org1"></div>
+		<div id="org2"></div>
+		<div id="org3"></div>
+		<div id="org4"></div>
+	</div>
+	<div class="donatewrap">
+		<div class="donatebox">
+			<img src="images/don1.png">
+			<h1>우크라이나 전쟁 지원 캠페인<br>
+				<span>유엔난민기구</span>와 평화를 지켜요
+			</h1>
+			<input type='button' id="donbtn" value='기부하기'/>
+			<input type='button' id="newsbtn" value='소식보기'/>
+		</div>
+		<div class="crolling1">
+		
+		</div>
+		<div class="donatebox">
+			<img src="images/don2.png">
+			<h1>코로나 마스크 지원 캠페인<br>
+				<span>대한적십자사</span>와 일상을 되찾아요
+			</h1>
+			<input type='button' id="donbtn" value='기부하기'/>
+			<input type='button' id="newsbtn" value='소식보기'/>
+		</div>
+		<div class="crolling2">
+		
+		</div>
+		<div class="donatebox">
+			<img src="images/don3.png">
+			<h1>유기견 구조 지원 캠페인<br>
+				<span>동물자유연대</span>와 유기견의 상처를 치유해요
+			</h1>
+			<input type='button' id="donbtn" value='기부하기'/>
+			<input type='button' id="newsbtn" value='소식보기'/>
+		</div>
+		<div class="crolling3">
+		
+		</div>
+		<div class="donatebox">
+			<img src="images/don4.png">
+			<h1>가뭄 지원 캠페인<br>
+				<span>한국수자원공사</span>와 우리의 땅에 희망을 줘요
+			</h1>
+			<input type='button' id="donbtn" value='기부하기'/>
+			<input type='button' id="newsbtn" value='소식보기'/>
+		</div>
+		<div class="crolling4">
+		
+		</div>
+	</div>
+	<table>
+		<tr>
+			<td>
+				<input type="text" id="payment_txt_amount">
+				<button id="iamportPayment" type="button" >결제</button>
+			</td>
+		</tr>
+	</table>
+	</section>
+	
+
 </body>
+
 <script>
 	$(document).ready(function(){
 		$("#iamportPayment").click(function(){
@@ -63,4 +118,5 @@
 	  })
 	}
 </script>
-</html>
+
+<%@ include file="/views/common/footer.jsp" %>

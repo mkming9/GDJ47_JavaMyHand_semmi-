@@ -98,6 +98,16 @@ label{
 #signup:hover{
 	background-image: url(../images/signuphover.png);
 }
+
+.hello{
+	font-family: "Noto Sans KR";
+	font-weight: 300;
+}
+#userName{
+	color: url(8,89,169);
+	font-weight: 700;
+}
+
 .hello{
 	margin-left:90px;
 }
@@ -148,20 +158,21 @@ label{
 }
 #textbox{
     position: absolute;
-    font-family: "IBM Plex Sans KR";
+    
     margin-top: 300px;
     margin-left: 350px;
 }
 #textbox>h1{
     font-weight: 700;
     color: rgb(44, 44, 44);
-
+    font-family: "Noto Sans KR";
 }
 #textbox p{
     font-weight: 500;
     font-size: 17px;
     margin-top: 10px;
     color: rgb(85, 85, 85);
+    font-family: "Noto Sans KR";
 
 }
 #box1,#box2,#box3{

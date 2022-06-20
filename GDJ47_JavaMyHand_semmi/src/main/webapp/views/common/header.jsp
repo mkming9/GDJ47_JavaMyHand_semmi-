@@ -27,6 +27,7 @@
     
 	<link href="./css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="css/signup.css" rel="stylesheet" type="text/css"/>
+	<link href="css/notice.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -41,7 +42,7 @@
                     <div id="menuintext"><li>소개</li></div>
                 </a>
                 <a href="<%=request.getContextPath()%>/noticeList.do">
-                    <div id="menuintext"><li>후원하기</li></div>
+                    <div id="menuintext"><li>후원</li></div>
                 </a>
                 <a href="<%=request.getContextPath()%>/groups/groupsList.do">
                     <div id="menuintext"><li>소모임</li></div>
@@ -81,7 +82,7 @@
         <table class="hello">
         	<tr>
         		<td>
-        				<%=loginMember.getMemberName() %>님, 반갑습니다.
+        			<span id="userName"><%=loginMember.getMemberName() %></span>님, 반갑습니다.
         		</td>
         	</tr>
         	<tr>

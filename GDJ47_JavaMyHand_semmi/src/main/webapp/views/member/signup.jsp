@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/header.jsp" %>
+<body>
 	<section id=enroll-container>
-		<div class="banner"></div>
-		
-
+		<div class="signupbanner"></div>	
         
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
         onsubmit="" >
@@ -120,5 +119,5 @@
 	   			}
    			}
 	</script>
-	
+</body>
 <%@ include file="/views/common/footer.jsp" %>

@@ -44,7 +44,7 @@
                     <div id="box1">
                         <img id="picto1" src="images/picto1.png">
                         <h4>세상을 따뜻하게</h4>
-                        <h3>후원하기</h3>
+                        <h3>후원</h3>
                     </div>
                     <div id="fadein"></div>
                 </a>

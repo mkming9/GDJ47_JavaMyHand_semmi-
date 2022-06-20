@@ -46,7 +46,7 @@ public class LoginMemberServlet extends HttpServlet {
 			c.setPath("/");
 			response.addCookie(c);
 		}else {
-			Cookie c=new Cookie("saveId",null);
+			Cookie c=new Cookie("saveId",memberId);
 			c.setMaxAge(0);
 			c.setPath("/");
 			response.addCookie(c);
@@ -59,9 +59,13 @@ public class LoginMemberServlet extends HttpServlet {
 		if(m!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", m);
+			session.setAttribute("saveId", memberId);
+			response.sendRedirect(request.getContextPath()+"/views/member/loginsuccess.jsp")	;
+		}else {
+			
+			response.sendRedirect(request.getContextPath()+"/member/loginCheck.do");
 		}
 		
-		response.sendRedirect(request.getContextPath());
 	}
 
 	/**

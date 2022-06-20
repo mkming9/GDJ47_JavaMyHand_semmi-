@@ -72,8 +72,10 @@ input:focus{
 	margin-top: 40px;
 	margin-left: 732px;	
 	background-color: rgb(39, 113, 173);
+	cursor: pointer;
 }
 #cancel{
 	margin-left: 7px;
 	background-color: rgb(137, 178, 211);
+	cursor: pointer;
 }

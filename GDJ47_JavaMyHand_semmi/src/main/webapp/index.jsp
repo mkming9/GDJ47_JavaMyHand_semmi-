@@ -69,3 +69,25 @@
     </div>
 </section>
 <%@ include file="/views/common/footer.jsp" %>
+
+ <!-- <div id="slideShow">
+            <ul class="slides"> -->
+
+<script>
+ 
+/* setInterval( function(){             //setInterval(); 함수 반복 실행
+	  $("#slideShow").delay("2300");        //너무 급하게 변화는것 같아서 시간을 조금 바꿔보았습니다.
+	  $("#slideShow").animate({marginLeft:  "-2200px" },"700");    //0.7초동안 애니메이션
+	  $("#slideShow").delay("2300");
+	  $("#slideShow").animate({marginLeft:  "-2400px" },"700");
+	  $("#slideShow").delay("2300");
+	  $("#slideShow").animate({marginLeft:  "0" },"700");
+	}); */
+
+
+
+		
+
+
+
+</script>

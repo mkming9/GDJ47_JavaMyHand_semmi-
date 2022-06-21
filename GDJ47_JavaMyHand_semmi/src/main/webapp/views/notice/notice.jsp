@@ -63,14 +63,14 @@
 		
 		</div>
 	</div>
-	<table>
+	<!-- <table>
 		<tr>
 			<td>
 				<input type="text" id="payment_txt_amount">
 				<button id="iamportPayment" type="button" >결제</button>
 			</td>
 		</tr>
-	</table>
+	</table> -->
 	</section>
 	
 <div class="">
@@ -126,10 +126,11 @@
                 msg += '결제 금액 : ' + rsp.paid_amount;
                 msg += '카드 승인번호 : ' + rsp.apply_num;
                 $.ajax({
-                    type: "GET", 
+                    type: "POST", 
                     url: "/notice/chargePoints.do", //충전 금액값을 보낼 url 설정
                     data: {
-                        "amount" : rsp.paid_amount
+                        "amount" : rsp.paid_amount,	//pg사에 요청할 실제 금액
+                        "merchant_uid" : rsp.marchant_uid //주문번호
                     },
                 });
             } else {

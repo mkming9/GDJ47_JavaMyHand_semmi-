@@ -13,9 +13,9 @@ public class MemberService {
 	
 	private MemberDao dao = new MemberDao();
 	
-	public Member loginMember(String memberId, String password) {
+	public Member loginMember(String memberId, String password, int point) {
 		Connection conn = getConnection();
-		Member m = dao.loginMember(conn, memberId, password);
+		Member m = dao.loginMember(conn, memberId, password, point);
 		close(conn);
 		return m;
 	}
@@ -40,5 +40,6 @@ public class MemberService {
 		return m;
 		
 	}
+	
 	
 }

@@ -34,6 +34,7 @@ public class LoginMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
+		int point = Integer.parseInt(request.getParameter("point"));
 		
 		String saveId=request.getParameter("saveId");
 		
@@ -53,13 +54,14 @@ public class LoginMemberServlet extends HttpServlet {
 			System.out.println("출력안댐");
 		}
 		
-		Member m = new MemberService().loginMember(memberId, password);
+		Member m = new MemberService().loginMember(memberId, password, point);
 		
 		System.out.println(m);
 		if(m!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", m);
 			session.setAttribute("saveId", memberId);
+			session.setAttribute("point", point);
 			response.sendRedirect(request.getContextPath()+"/views/member/loginsuccess.jsp")	;
 		}else {
 			

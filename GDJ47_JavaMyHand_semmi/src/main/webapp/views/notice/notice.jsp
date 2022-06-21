@@ -96,7 +96,9 @@
 		</td>
 	</tr>
 </table> -->
-</body>
+<!-- 	 var IMP = window.IMP;
+     IMP.init("{imp90081232}");
+</body> -->
 
 <script>
     $('#payment_txt_amount').click(function () {
@@ -127,10 +129,12 @@
                 msg += '카드 승인번호 : ' + rsp.apply_num;
                 $.ajax({
                     type: "POST", 
-                    url: "/notice/chargePoints.do", //충전 금액값을 보낼 url 설정
+                    url: "<%=request.getContextPath()%>/notice/chargePoints.do", //충전 금액값을 보낼 url 설정
                     data: {
-                        "amount" : rsp.paid_amount,	//pg사에 요청할 실제 금액
+                        "imp_uid" : rsp.imp_uid,
+                    	"amount" : rsp.paid_amount,	//pg사에 요청할 실제 금액
                         "merchant_uid" : rsp.marchant_uid //주문번호
+                        
                     },
                 });
             } else {

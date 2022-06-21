@@ -7,8 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.jmh.member.model.vo.Member;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ChargePointsServlet
@@ -29,8 +28,22 @@ public class ChargePointsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub	
-//		Member m = Member.builder().point(paid_amount).memberId("merchant_uid"))
+	
+		HttpSession session = request.getSession();
+		String saveId = (String) session.getAttribute("saveId");
+		String point = (String) session.getAttribute("point");
+		
+	
+	String imp_uid = request.getParameter("imp_uid");
+	String amount = request.getParameter("amount");
+	String merchant_uid = request.getParameter("merchant_uid");
+	System.out.println("amount : "+ amount);
+	System.out.println("merchant_uid : " + merchant_uid);
+	System.out.println("imp_uid : " + imp_uid);
+	System.out.println("saveId : " + saveId);
+	System.out.println("point : " + point);
+	
+	
 	}
 
 	/**

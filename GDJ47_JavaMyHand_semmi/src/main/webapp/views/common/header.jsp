@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "com.jmh.member.model.vo.Member" %>
+<%@ page import = "com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
 <%
+	List<Product> products=(List<Product>)request.getAttribute("products"); 
+	String pageBar=(String)request.getAttribute("pageBar");
 	Member loginMember = (Member)session.getAttribute("loginMember");
 	Cookie[] cookies = request.getCookies();
 	String saveId = null;
@@ -24,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 
     <script src="js/jquery-3.6.0.min.js"></script>
-    
+  
 	<link href="./css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="css/signup.css" rel="stylesheet" type="text/css"/>
 	<link href="css/notice.css" rel="stylesheet" type="text/css"/>

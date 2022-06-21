@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+
 import static com.jmh.common.JDBCTemplate.*;
 
 
@@ -166,29 +168,10 @@ public class ProductDao {
 	
 
 	
-	public List<String> searchProduct(Connection conn, String keyword){
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		List<String> result=new ArrayList();
-		try {
-			pstmt=conn.prepareStatement("SELECT ANA_NAME FROM MEMBER WHERE ANA_NAME LIKE '%"+keyword+"%'");
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				result.add(rs.getString(1));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(rs);
-			close(pstmt);
-		}return result;
-	}
 	
 	
 	
-	
-	
-	private Product getProduct(ResultSet rs)throws SQLException{
+	private static Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
 				.ANA_NO(rs.getInt("ANA_NO"))
 				.MEMBER_ID(rs.getString("MEMBER_ID"))

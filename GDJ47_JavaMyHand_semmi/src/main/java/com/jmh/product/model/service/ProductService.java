@@ -1,6 +1,8 @@
 package com.jmh.product.model.service;
 
 import java.sql.Connection;
+
+
 import static com.jmh.common.JDBCTemplate.*;
 import com.jmh.product.model.dao.ProductDao;
 import com.jmh.product.model.vo.Product;
@@ -26,7 +28,7 @@ public class ProductService {
 		return result;
 	}
 	
-	public Product selectProduct(int ANA_NO,boolean isRead) {
+	public Product selectProductview(int ANA_NO,boolean isRead) {
 		Connection conn=getConnection();
 		Product p=dao.selectProduct(conn,ANA_NO);
 		if(p!=null&&!isRead) {
@@ -76,14 +78,6 @@ public class ProductService {
 	}
 	
 	
-	public List<String> searchProduct(String keyword){
-		Connection conn =getConnection();
-		List<String> result=dao.searchProduct(conn,keyword);
-		close(conn);
-		return result;
-	}
 	
-
-
 	
 }

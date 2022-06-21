@@ -59,19 +59,22 @@
 				<th>내 용</th>
 				<td><%=p.getANA_CONTENT() %></td>
 			</tr>
-			<%--글작성자/관리자인경우 수정삭제 가능 --%>
-			<%if(loginMember!=null &&
+			<%-- <%--글작성자/관리자인경우 삭제 가능 --%>
+		 <%if(loginMember!=null &&
 			(loginMember.getMemberId().equals(p.getMEMBER_ID())
-				||loginMember.getMemberId().equals("admin1"))) {%>
+				||loginMember.getMemberId().equals("admin1"))) {%> 
 			<tr>
-				<th colspan="2">					
+				 <th colspan="3">					
 					<button id="deleteProduct" onclick="location.assign('<%=request.getContextPath() %>/product/productdelete.do?no=<%=p.getANA_NO()%>')">상품삭제</button>
-					<%}else%>
-					 <% if(loginMember.getMemberId().equals(p.getMEMBER_ID())) {%>
+					<%}%>
+					<!-- 글작성자만 수정만가능 -->
+					  <% if(loginMember!=null &&loginMember.getMemberId().equals(p.getMEMBER_ID())) {%>
 					<button id="alterProduct" onclick="location.assign('<%=request.getContextPath() %>/productUpdateServlet.do?no=<%=p.getANA_NO()%>')">상품수정</button>
-					<%} %>
-				</th>
-			</tr>
+					<%} else {%>
+					<td>수정불가</td>
+					<%} %> 
+				</th> 
+			</tr> 
 			
 		
 			

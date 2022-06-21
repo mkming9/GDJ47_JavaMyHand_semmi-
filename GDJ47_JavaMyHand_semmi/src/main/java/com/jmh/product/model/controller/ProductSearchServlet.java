@@ -39,8 +39,8 @@ public class ProductSearchServlet extends HttpServlet {
 		}
 		int numPerpage=5;
 		
-		List<Product>list=new ProductService().selectProductList(cPage, numPerpage);
-		request.setAttribute("list", list);
+		List<Product>products=new ProductService().selectProductList(cPage, numPerpage);
+		request.setAttribute("products", products);
 		
 		int totalData=new ProductService().selectProductCount();
 		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
@@ -82,7 +82,7 @@ public class ProductSearchServlet extends HttpServlet {
 		
 		
 		
-		request.getRequestDispatcher("/views/Product/productList.jsp")
+		request.getRequestDispatcher("/views/Product/productlist.jsp")
 		.forward(request, response);
 	}
 

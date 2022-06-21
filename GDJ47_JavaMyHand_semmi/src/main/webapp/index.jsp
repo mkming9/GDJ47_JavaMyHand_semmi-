@@ -67,5 +67,8 @@
             </div>
         </div>
     </div>
+    <!-- <div class="messenger">
+    	<img src="./images/messenger.png">
+    </div> -->
 </section>
 <%@ include file="/views/common/footer.jsp" %>

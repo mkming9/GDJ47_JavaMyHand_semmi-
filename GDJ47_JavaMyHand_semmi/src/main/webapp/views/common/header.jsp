@@ -97,15 +97,16 @@
      <script>
        const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
-    		alert("로그아웃이 정삭적으로 되었습니다.");
+    		alert("로그아웃이 되었습니다.");
        }
        
-       
+       //소개 탭 이동
        jQuery(document).ready(function($){
     	   $(".scroll").click(function(event){
     	    event.preventDefault();
     	   $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
     	   });
     	   });
+    
     </script>
-    </header>
+</header>

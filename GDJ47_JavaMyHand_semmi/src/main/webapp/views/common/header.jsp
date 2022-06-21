@@ -96,7 +96,7 @@
      <script>
        const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
-    		alert("로그아웃이 정삭적으로 되었습니다.");
+    		alert("로그아웃이 되었습니다.");
        }
        
        

@@ -14,7 +14,7 @@
 <body>
 <script>
 		
-		alert("로그인의 성공했습니다");
+		alert("로그인 성공");
 		location.replace("<%=request.getContextPath()%><%="/"%>");
 	</script>
 </body>

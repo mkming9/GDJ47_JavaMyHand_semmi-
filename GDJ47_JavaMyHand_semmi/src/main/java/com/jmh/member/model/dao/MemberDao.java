@@ -25,7 +25,9 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 	}
-	public Member loginMember(Connection conn, String memberId, String password, int point) {
+	
+	//public Member loginMember(Connection conn, String memberId, String password, int point) {
+	public Member loginMember(Connection conn, String memberId, String password) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Member m = null;
@@ -33,7 +35,7 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(prop.getProperty("loginMember"));
 			pstmt.setString(1, memberId);
 			pstmt.setString(2,password);
-			pstmt.setInt(3, point);
+			// pstmt.setInt(3, point);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				m = getMember(rs);

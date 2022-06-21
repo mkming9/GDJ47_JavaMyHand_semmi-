@@ -33,7 +33,7 @@ public class LogincheckServlet extends HttpServlet {
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		
-		Member m =new MemberService().loginMember(memberId,password, 0);
+		Member m =new MemberService().loginMember(memberId,password);
 
 		String msg="" ,loc="";
 		if(m!=null){

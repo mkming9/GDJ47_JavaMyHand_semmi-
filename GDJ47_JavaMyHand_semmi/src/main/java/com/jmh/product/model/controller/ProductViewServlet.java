@@ -62,9 +62,9 @@ public class ProductViewServlet extends HttpServlet {
 		
 		
 		//System.out.println(ANA_NO);				
-		request.setAttribute("product", new ProductService().selectProduct(ANA_NO,isRead));
+		request.setAttribute("product", new ProductService().selectProductview(ANA_NO,isRead));
 		
-		
+		System.out.println(isRead);
 		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
 		
 	}

@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+
 import static com.jmh.common.JDBCTemplate.*;
 
 
@@ -164,28 +166,12 @@ public class ProductDao {
 		return result;
 	}
 	
-	//조회수증가
-//	public int viewCount(Connection conn,int ANA_NO) {
-//		PreparedStatement pstmt=null;
-//		int result=0;
-//		try {
-//			pstmt=conn.prepareStatement(prop.getProperty("viewCount"));
-//			pstmt.setInt(1, ANA_NO);
-//			
-//			result=pstmt.executeUpdate();
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			close(pstmt);
-//		}
-//		return result;
-//	}
+
 	
 	
 	
 	
-	
-	private Product getProduct(ResultSet rs)throws SQLException{
+	private static Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
 				.ANA_NO(rs.getInt("ANA_NO"))
 				.MEMBER_ID(rs.getString("MEMBER_ID"))

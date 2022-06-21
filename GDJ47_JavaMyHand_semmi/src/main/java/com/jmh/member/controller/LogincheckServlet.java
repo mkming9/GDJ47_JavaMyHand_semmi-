@@ -31,8 +31,9 @@ public class LogincheckServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
-		String password=request.getParameter("password");
-		Member m =new MemberService().loginMember(memberId,password);
+		String password = request.getParameter("password");
+		
+		Member m =new MemberService().loginMember(memberId,password, 0);
 
 		String msg="" ,loc="";
 		if(m!=null){

@@ -48,7 +48,7 @@ crossorigin="anonymous">
      
 
   <td><input type="text" name="ANA_NO" value="<%=p.getANA_NO() %>" readonly></td>
-   <td><input type="text" name="MEMBER_ID" value="<%=loginMember.getMemberId() %>" readonly></td>
+   <td><input type="text" name="MEMBER_ID" value="<%=p.getMEMBER_ID() %>" readonly></td>
    <td><input type="text" name="A_CODE" value="<%=p.getA_CODE() %>"></td>
    <td><input type="text" name="ANA_NAME" value="<%=p.getANA_NAME() %>"></td>
    <td><input type="text" name="ANA_PRICE" value="<%=p.getANA_PRICE() %>"></td>

@@ -23,7 +23,6 @@
 <meta charset="UTF-8">
 <title>아나바다</title>
 <style>
-
 div#pageBar{margin-top:10px; text-align:center;}
 </style>
 

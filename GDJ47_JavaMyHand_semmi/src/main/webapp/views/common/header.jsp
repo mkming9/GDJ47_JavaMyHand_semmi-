@@ -79,34 +79,34 @@
         	</div>
         </form>
         <%}else {%>
-        <table class="hello">
-        	<tr>
-        		<td>
-        			<span id="userName"><%=loginMember.getMemberName() %></span>님, 반갑습니다.
-        		</td>
-        	</tr>
-        	<tr>
-        		<td>
-					<input type="button" value="내정보보기" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
-        			<input type="button" onclick="fn_logout()" value="로그아웃">
-        		</td>
-        	</tr>
-         </table>
+        <div class="hello">
+        	<div class="nametable">
+        		<span id="userName"><%=loginMember.getMemberName() %></span> 회원님, 반갑습니다!
+        	</div>
+        	<div class="cashtable">
+      			<img id="cash" src="images/javacash.png">
+ 	    		<p><span id="userName">10000</span> 잡아</p>
+        		<input type="button" id="chargebtn" value="충전하기">
+        	</div>
+        	<div class="buttontable">
+				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
+        		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
+        	</div>
+         </div>
      <%} %>
      <script>
        const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
-    		alert("로그아웃이 정삭적으로 되었습니다.");
+    		alert("로그아웃이 되었습니다.");
        }
        
-       
+       //소개 탭 이동
        jQuery(document).ready(function($){
     	   $(".scroll").click(function(event){
     	    event.preventDefault();
     	   $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
     	   });
     	   });
-       
-       
+    
     </script>
-    </header>
+</header>

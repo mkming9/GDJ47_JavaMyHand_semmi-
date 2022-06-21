@@ -73,6 +73,9 @@
         	<input type="hidden" name="memberId">
         </form>	
 		</div>
+		<!-- <div class="messenger">
+    		<img src="./images/messenger.png">
+    	</div> -->
     </section>
     
     <script>

@@ -78,8 +78,9 @@
 	</table> -->
 	</section>
 	
-<div class="">
+<div id="payResult">
 	<p style="font-weight: bold">KG이니시스 현재 사용가능</p>
+	<label class="box-radio-input"><input type="radio" name="cp_item" value="1000"><span>1,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label>
@@ -112,12 +113,13 @@
         IMP.init('imp90081232');
         var money = $('input[name="cp_item"]:checked').val();
         console.log(money);
+        var saveId = "<%=request.getParameter("saveId")%>"
 
         IMP.request_pay({
             pg: 'html5_inicis',
             merchant_uid: 'merchant_' + new Date().getTime(),
 
-            name: '포인트',
+            name: saveId,
             amount: money,
             buyer_email: 'iamport@siot.do',
             buyer_name: '구매자이름',
@@ -141,6 +143,14 @@
                         "merchant_uid" : rsp.marchant_uid //주문번호
                         
                     },
+                    success: (data)=>{
+                    	$("#payResult").html(data);
+                    },
+                     error:(a,b,c)=>{
+						console.log(a);
+						console.log(b);
+						console.log(c);
+	  				}
                 });
             } else {
                 var msg = '결제에 실패하였습니다.';

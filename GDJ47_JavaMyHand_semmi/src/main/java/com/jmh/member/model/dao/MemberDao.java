@@ -93,6 +93,22 @@ public class MemberDao {
 		}
 		return m;
 	}
+	
+	public int UpdateMemberPoint(Connection conn, String saveId, int updatePoint) {
+		PreparedStatement pstmt = null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("UpdateMemberPoint"));
+			pstmt.setInt(1, updatePoint);
+			pstmt.setString(2, saveId);
+			result=pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 		
 	
 	

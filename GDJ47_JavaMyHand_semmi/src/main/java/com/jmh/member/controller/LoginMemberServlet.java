@@ -65,7 +65,6 @@ public class LoginMemberServlet extends HttpServlet {
 			// session.setAttribute("point", point);
 			response.sendRedirect(request.getContextPath()+"/views/member/loginsuccess.jsp")	;
 		}else {
-			
 			response.sendRedirect(request.getContextPath()+"/member/loginCheck.do");
 		}
 		

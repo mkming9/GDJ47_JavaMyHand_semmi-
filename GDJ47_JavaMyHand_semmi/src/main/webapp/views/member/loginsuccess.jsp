@@ -12,7 +12,7 @@
 <title>로그인 성공</title>
 </head>
 <body>
-<script>
+	<script>
 		
 		alert("로그인 성공");
 		location.replace("<%=request.getContextPath()%><%="/"%>");

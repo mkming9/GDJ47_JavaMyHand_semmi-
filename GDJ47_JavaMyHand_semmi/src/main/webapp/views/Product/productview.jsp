@@ -17,13 +17,9 @@
 		}
 	}
     %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title><%=p.getANA_NAME() %></title>
-</head>
+
 <body>
+
 	<style>
     section#board-container{width:600px; margin:0 auto; text-align:center;}
     section#board-container h2{margin:10px 0;}
@@ -31,8 +27,10 @@
     table#tbl-board th {width: 125px; border:1px solid; padding: 5px 0; text-align:center;} 
     table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
     </style>
-   
+
 		<section id="board-container">
+		<div class="anabadabanner"></div>
+		
 		<h2>상품 게시판</h2>
 		<table id="tbl-board">
 			<tr>
@@ -79,7 +77,6 @@
 		
 			
 		</table>
-   
     </section>
 </body>
 </html>

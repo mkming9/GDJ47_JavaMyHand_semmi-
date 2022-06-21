@@ -196,7 +196,7 @@
 	}
 </script>
  -->
- 
+ </body>
  <%@ include file="/views/common/footer.jsp" %>
 
 

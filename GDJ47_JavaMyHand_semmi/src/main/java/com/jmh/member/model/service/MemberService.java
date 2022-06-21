@@ -40,8 +40,15 @@ public class MemberService {
 		Member m =dao.memberIdCheck(conn,memberId);
 		close(conn);
 		return m;
-		
 	}
 	
+	public int UpdateMemberPoint(String saveId, int updatePoint) {
+		Connection conn = getConnection();
+		int result = dao.UpdateMemberPoint(conn, saveId, updatePoint);
+		if(result>0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+	}
 	
 }

@@ -5,16 +5,7 @@
 	List<Groups> groups=(List<Groups>)request.getAttribute("groups");
 %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
-
-<!-- iamport.payment.js -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-</head>
+<%@ include file="/views/common/header.jsp" %>
 <body>
 	<table>
 	<%if(!groups.isEmpty()) {
@@ -80,9 +71,7 @@
       });
     }
   </script>
-  
-</body>
-<script>
+  <script>
 	$("#btn_createGroups").click(e=>{
 		open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=600,height=200");
 	});
@@ -90,7 +79,6 @@
 	$("#btn_deleteGroups").click(e=>{
 		open("<%=request.getContextPath()%>/groups/groupsDelete.do","_blank","width=300,height=200");
 	});
-    
-	
 </script>
-</html>
+</body>
+<%@ include file="/views/common/footer.jsp" %>

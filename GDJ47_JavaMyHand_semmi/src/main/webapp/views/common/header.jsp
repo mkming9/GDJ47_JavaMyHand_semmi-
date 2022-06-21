@@ -20,18 +20,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaMyHand</title>
+    <link rel="shortcut icon" href="images/javacash.png">
 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 
     <script src="js/jquery-3.6.0.min.js"></script>
-    
-	<link href="./css/Home.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="css/signup.css" rel="stylesheet" type="text/css"/>
 	<link href="css/notice.css" rel="stylesheet" type="text/css"/>
+
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
     <header>
         <div class="logo">
             <a href="index.jsp"><img src="./images/MainLogo.png"/></a>
@@ -109,4 +109,4 @@
     	   });
     
     </script>
-</header>
+	</header>

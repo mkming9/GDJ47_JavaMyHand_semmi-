@@ -40,8 +40,10 @@ public class MemberService {
 		Member m =dao.memberIdCheck(conn,memberId);
 		close(conn);
 		return m;
-		
 	}
 	
+//	public int UpdateMemberPoint(String saveId, int updatePoint) {
+//		
+//	}
 	
 }

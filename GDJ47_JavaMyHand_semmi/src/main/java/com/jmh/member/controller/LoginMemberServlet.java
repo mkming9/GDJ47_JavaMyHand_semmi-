@@ -39,7 +39,7 @@ public class LoginMemberServlet extends HttpServlet {
 		String saveId=request.getParameter("saveId");
 		
 		
-		System.out.println("saveId :: "+saveId);
+		System.out.println("saveId : "+saveId);
 		
 		if(saveId!=null) {
 			Cookie c=new Cookie("saveId",memberId);
@@ -54,8 +54,8 @@ public class LoginMemberServlet extends HttpServlet {
 			System.out.println("출력안댐");
 		}
 		
-		Member m = new MemberService().loginMember(memberId, password);
 		// Member m = new MemberService().loginMember(memberId, password, point);
+		Member m = new MemberService().loginMember(memberId, password);
 		
 		System.out.println(m);
 		if(m!=null) {

@@ -25,11 +25,13 @@
                 </li>
             </ul>  
             <p class="controller">
-                <span class="left">&lang;</span>  
-                <span class="right">&rang;</span>
+   			 <button type="button" class="left">&lang;</button>
+             <button type="button" class="right">&rang;</button>
+               <!--  <span class="left">&lang;</span>  
+                <span class="right">&rang;</span> -->
             </p>
-        </div>
         <script src="js/slideShow.js"></script>
+        </div>
 
         <div class="content1">
             <div id="textbox">
@@ -70,13 +72,69 @@
 </section>
 <%@ include file="/views/common/footer.jsp" %>
 
-<div id="sliderWrap">
-  <ul id="slider">
+<!-- <div id="slideShow">
+ <ul class="slides">
+ <p class="controller">
+  <span class="left">&lang;</span>  
+ <span class="right">&rang;</span>
+            </p> -->
 <script>
  
- 
- 
- 
- 
- 
+
+$(document).ready(function() {
+	//사용할 배너
+	var $banner = $("#slideShow").find("ul");
+	var $bannerWidth = $banner.children().outerWidth();//배너 이미지의 폭
+	var $bannerHeight = $banner.children().outerHeight(); // 높이
+	var $bannerLength = $banner.children().length;//배너 이미지의 갯수
+	var rollingId;
+
+	//정해진 초마다 함수 실행
+	rollingId = setInterval(function() { rollingStart(); }, 6500);
+	
+	//마우스 오버시 롤링을 멈춘다.
+	$banner.mouseover(function(){
+		//중지
+		clearInterval(rollingId);
+		$(this).css("cursor", "pointer");
+	});
+	//마우스 아웃되면 다시 시작
+	$banner.mouseout(function(){
+		rollingId = setInterval(function() { rollingStart(); }, 5000);
+		$(this).css("cursor", "default");
+	});
+	
+	
+	function rollingStart() {
+		$banner.css("width", $bannerWidth * $bannerLength + "px");
+		$banner.css("height", $bannerHeight + "px");
+		//배너의 좌측 위치를 옮겨 준다.
+		$banner.animate({left: - $bannerWidth + "px"}, 5000, function() { //숫자는 롤링 진행되는 시간
+			$(this).append("<li>" + $(this).find("li:first").html() + "</li>");
+			//뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
+			$(this).find("li:first").remove();
+			//다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
+			$(this).css("left", 0);
+			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
+		});
+	}
+});
+/* let curPos= 0; // 현재 보고 있는 이미지의 인덱스 번호!
+let position = 0; // 현재 .images 의 위치값!
+const prevBtn = document.querySelector(".left")
+const nextBtn = document.querySelector(".right")
+var $banner = $("#slideShow").find("ul");
+var $bannerWidth = $banner.children().outerWidth();//배너 이미지의 폭
+var $bannerHeight = $banner.children().outerHeight(); // 높이
+var $bannerLength = $banner.children().length;//배너 이미지의 갯수
+
+function left(){
+	if(curPos>0){
+		nextBtn.removeAttribute("disabled");
+		
+		
+	}
+}
+ */
+
 </script>

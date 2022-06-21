@@ -9,19 +9,19 @@
             <ul class="slides">
                 <li>
                     <img src="images/main1.png" alt="">
-                    <div class="btn1"><a href=""><img src="images/btn1.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li>
                     <img src="images/main2.png" alt="">
-                    <div class="btn1"><a href=""><img src="images/btn1.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li>
                     <img src="images/main3.png" alt="">
-                    <div class="btn1"><a href=""><img src="images/btn2.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn2.png"></a></div>
                 </li>
                 <li>
                     <img src="images/main4.png" alt="">
-                    <div class="btn1"><a href=""><img src="images/btn2.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn2.png"></a></div>
                 </li>
             </ul>  
             <p class="controller">

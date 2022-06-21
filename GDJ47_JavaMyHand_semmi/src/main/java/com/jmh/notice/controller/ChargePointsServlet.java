@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jmh.member.model.service.MemberService;
+import com.jmh.member.model.vo.Member;
+
 /**
  * Servlet implementation class ChargePointsServlet
  */
@@ -30,18 +33,22 @@ public class ChargePointsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		HttpSession session = request.getSession();
-		String saveId = (String) session.getAttribute("saveId");
-		String point = (String) session.getAttribute("point");
+		// String saveId = (String) session.getAttribute("saveId");
+		// String point = (String) session.getAttribute("point");
 		
-	
-	String imp_uid = request.getParameter("imp_uid");
-	String amount = request.getParameter("amount");
-	String merchant_uid = request.getParameter("merchant_uid");
-	System.out.println("amount : "+ amount);
-	System.out.println("merchant_uid : " + merchant_uid);
-	System.out.println("imp_uid : " + imp_uid);
-	System.out.println("saveId : " + saveId);
-	System.out.println("point : " + point);
+		String saveId = (String) session.getAttribute("saveId");
+		Member m = new MemberService().memberIdCheck(saveId);
+		
+		System.out.println(m);
+			
+		String imp_uid = request.getParameter("imp_uid");
+		String amount = request.getParameter("amount");
+		String merchant_uid = request.getParameter("merchant_uid");
+		System.out.println("amount : "+ amount);
+		System.out.println("merchant_uid : " + merchant_uid);
+		System.out.println("imp_uid : " + imp_uid);
+		System.out.println("saveId : " + saveId);
+		//System.out.println("point : " + point);
 	
 	
 	}

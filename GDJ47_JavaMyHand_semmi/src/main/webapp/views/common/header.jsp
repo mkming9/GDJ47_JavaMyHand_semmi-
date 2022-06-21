@@ -85,7 +85,7 @@
         	</div>
         	<div class="cashtable">
       			<img id="cash" src="images/javacash.png">
- 	    		<p><span id="userName">10000</span> 잡아</p>
+ 	    		<p><span id="userName"><%=loginMember.getPoint() %></span> 잡아</p>
         		<input type="button" id="chargebtn" value="충전하기">
         	</div>
         	<div class="buttontable">

@@ -164,22 +164,25 @@ public class ProductDao {
 		return result;
 	}
 	
-	//조회수증가
-//	public int viewCount(Connection conn,int ANA_NO) {
-//		PreparedStatement pstmt=null;
-//		int result=0;
-//		try {
-//			pstmt=conn.prepareStatement(prop.getProperty("viewCount"));
-//			pstmt.setInt(1, ANA_NO);
-//			
-//			result=pstmt.executeUpdate();
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			close(pstmt);
-//		}
-//		return result;
-//	}
+
+	
+	public List<String> searchProduct(Connection conn, String keyword){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<String> result=new ArrayList();
+		try {
+			pstmt=conn.prepareStatement("SELECT ANA_NAME FROM MEMBER WHERE ANA_NAME LIKE '%"+keyword+"%'");
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				result.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+	}
 	
 	
 	

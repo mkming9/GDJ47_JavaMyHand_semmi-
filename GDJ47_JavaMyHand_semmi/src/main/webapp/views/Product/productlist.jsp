@@ -5,7 +5,9 @@
     
      List<Product> products=(List<Product>)request.getAttribute("products"); 
      String pageBar=(String)request.getAttribute("pageBar");
-   
+   	List<Product> list=(List<Product>)request.getAttribute("list");
+   	String searchType=request.getParameter("searchType");
+   	String keyword=request.getParameter("searchkeyword");
     Member loginMember = (Member)session.getAttribute("loginMember");
 	Cookie[] cookies = request.getCookies();
 	String saveId = null;
@@ -32,14 +34,70 @@ div#pageBar{margin-top:10px; text-align:center;}
 
 </head>
 <body>
-
+ <div id="search-container">
+ 		<h2>상세검색</h2>
+        	검색타입 : 
+        	<select id="searchType">
+        		<option value="MEMBER_ID" <%=searchType!=null&&searchType.equals("MEMBER_ID")?"SELECT":""%>>아이디</option>
+        		<option value="A_CODE" <%=searchType!=null&&searchType.equals("A_CODE")?"SELECT":""%>>카테고리</option>
+        		<option value="ANA_NAME" <%=searchType!=null&&searchType.equals("ANA_NAME")?"SELECT":""%>>상품이름</option>
+        	</select>
+        	<div id="search-userId">
+        		<form action="<%=request.getContextPath()%>/productsearch.do">
+        			<input type="hidden" name="searchType" value="MEMBER_ID" >
+        			<input type="text" name="searchKeyword" size="25" 
+        			placeholder="검색할 아이디를 입력하세요" list="prs">
+        			<datalist id="prs">
+        			</datalist>
+        			<button type="submit">검색</button>
+        		</form>
+        		<script>
+        		$("input[placeholder*=아이디]").keyup(e=>{
+    				$.ajax({
+    					url:"<%=request.getContextPath()%>/ajaxautocomplete",
+    					data:{"keyword":e.target.value},
+    					success:data=>{
+    						$("#prs").html("");
+    						/* console.log(data); */
+    						data.forEach(v=>{
+    							const op=$("<option>").attr("value",v).text(v);
+    							$("#prs").append(op);
+    						});
+    					}
+    				});
+    			});
+        		</script>
+        	</div>
+        	<div id="search-userName">
+        		<form action="<%=request.getContextPath()%>/productsearch.do">
+        			<input type="hidden" name="searchType" value="A_CODE">
+        			<input type="text" name="searchKeyword" size="25" 
+        			placeholder="검색할 카테고리를 입력하세요">
+        			<button type="submit">검색</button>
+        		</form>
+        	</div>
+        	<div id="search-gender">
+        		<form action="<%=request.getContextPath()%>/productsearch.do">
+        			<input type="hidden" name="searchType" value="ANA_NAME">
+        			<input type="text" name="searchKeyword" size="25" 
+        			placeholder="검색할 상품이름 입력하세요">
+        			<button type="submit">검색</button>
+        		</form>
+        		</form>
+        	</div>
+        </div>
+        <div id="numPerpage-container">
+        	페이지당 회원수 : 
+        	<form id="numPerFrm" action="">
+        		<select name="numPerpage" id="numPerpage">
+        			<option value="10">10</option>
+        			<option value="5" >5</option>
+        			<option value="3" >3</option>
+        		</select>
+        	</form>
+        </div>
 	<table class="table">
-	
-	
-	
-	
-	
-  <thead>
+<thead>
   <tr>
   <%if(loginMember!=null) {%>
 	

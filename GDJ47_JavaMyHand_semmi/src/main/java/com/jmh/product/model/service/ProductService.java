@@ -76,6 +76,13 @@ public class ProductService {
 	}
 	
 	
+	public List<String> searchProduct(String keyword){
+		Connection conn =getConnection();
+		List<String> result=dao.searchProduct(conn,keyword);
+		close(conn);
+		return result;
+	}
+	
 
 
 	

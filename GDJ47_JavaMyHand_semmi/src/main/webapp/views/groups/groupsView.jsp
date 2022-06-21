@@ -30,7 +30,9 @@
 	  <button id="btn_createGroups">소모임 등록</button>
 	  <button id="btn_deleteGroups">소모임 삭제</button>
 	  
-	  <button onclick="requestPay()">포인트 충전</button>
+	  <button onclick="requestPay();">포인트 충전</button>
+	  
+	  <div id="payResult"></div>
 	  
   <script>
   
@@ -52,8 +54,28 @@
       }, function (rsp) { // callback
           if (rsp.success) {
               alert("결제성공");
+              console.dir(rsp);
+              console.log(rsp.paid_amount);
+              $.ajax({
+              	  url: "<%=request.getContextPath()%>/groupsPayment.do", // 예: https://www.myservice.com/payments/complete
+                  method: "POST",
+                  // headers: { "Content-Type": "application/json" },
+                  data: {
+                      imp_uid: rsp.imp_uid,
+                      merchant_uid: rsp.merchant_uid,
+                      charge_amount: rsp.paid_amount
+                  },
+                  success:(data)=>{
+  					$("#payResult").html(data);
+  				  },
+	  				error:(a,b,c)=>{
+						console.log(a);
+						console.log(b);
+						console.log(c);
+	  				}
+              });
           } else {
-        	  alert("결제실패");
+        	  alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
           }
       });
     }

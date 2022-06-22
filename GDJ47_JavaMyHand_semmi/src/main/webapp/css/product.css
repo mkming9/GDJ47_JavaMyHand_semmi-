@@ -1,0 +1,5 @@
+div#pageBar{margin-top:10px; text-align:center;}
+.productbanner{
+	height: 650px;
+	background-image: url(../images/productbanner.png);
+}

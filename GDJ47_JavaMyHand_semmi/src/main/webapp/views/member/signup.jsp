@@ -44,7 +44,7 @@
 						<select name="gender" id="gender" required >
 							<option value="" >성별</option>
 							<option id="gender0" value="남" >남</option>
-							<option  id="gender1" value="여" >여</option>
+							<option id="gender1" value="여" >여</option>
 						</select>
 					</td>
 				</tr>

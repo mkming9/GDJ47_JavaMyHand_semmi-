@@ -37,7 +37,7 @@ public class LogincheckServlet extends HttpServlet {
 
 		String msg="" ,loc="";
 		if(m!=null){
-			msg="로그인의 성공했습니다";
+			msg="로그인을 성공했습니다";
 			loc="/";
 		}else{
 			msg="아이디와 비밀번호를 확인해주세요";

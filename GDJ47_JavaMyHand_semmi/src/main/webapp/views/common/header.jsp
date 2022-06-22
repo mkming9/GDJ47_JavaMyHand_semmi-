@@ -31,7 +31,9 @@
     <link href="<%=request.getContextPath() %>/css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/signup.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>
-
+	<link href="<%=request.getContextPath() %>/css/groups.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/product.css" rel="stylesheet" type="text/css"/>
+	
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -40,9 +42,9 @@
             <a href="<%=request.getContextPath() %>/index.jsp"><img src="<%=request.getContextPath() %>/images/MainLogo.png"/></a>
         </div>
         <div class="menubox">
-            <ul >
-                <a href="#target1" id="scroll">
-                <div id="menuintext"><li>소개</li></div>
+            <ul>
+                <a href="<%=request.getContextPath() %>/index.jsp#location1" id="scroll">
+                	<div id="menuintext"><li>소개</li></div>
                 </a>
                 <a href="<%=request.getContextPath()%>/noticeList.do">
                     <div id="menuintext"><li>후원</li></div>
@@ -98,23 +100,22 @@
          </div>
      <%} %>
      <script>
-       const fn_logout=()=>{
+     const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
     		alert("로그아웃이 되었습니다.");
-       }
+     }
        
-       //소개 탭 이동
-       jQuery(document).ready(function($){
-    	   $("#scroll").click(function(event){
-    	    event.preventDefault();
-    	   $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-    	   });
-    	   });
-    /* ------------- */
+     //소개 탭 이동
+     /* jQuery(document).ready(function($){
+    	$("#scroll").click(function(event){
+    		event.preventDefault();
+    		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+  		});
+	}); */
 	
     
     
     
     
-    </script>
-	</header>
+	</script>
+</header>

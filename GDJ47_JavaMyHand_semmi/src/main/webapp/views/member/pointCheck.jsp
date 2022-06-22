@@ -4,6 +4,7 @@
 <%@ include file="/views/common/header.jsp" %>
 
 <br>
+
 <table>
 	<tr>
 		<td>
@@ -15,10 +16,15 @@
  <button onclick="cencelPay();">환불하기</button>
  
  <script>
+/*  $(document).ready(function(){
+	 $("#cancel_txt_pay").click(function(){
+		 cancelPay();
+	 });
+ }) */
+ 	//환불요청
  	function cancelPay(){
- 		
  		jQuery.ajax({
- 			url : "<%=request.getContextPath()%>/member.cancelPay.do",
+ 			url : "<%=request.getContextPath()%>",
  			type : "POST",
  			contentType : "application/json",
  			data : JSON.stringify({
@@ -32,4 +38,9 @@
  			"dataType" : "json"
  		});
  	}
+ 	//결제경보조회
+ 	var mongoose = require('mongoose');
+ 	var Schema = mongoose.Schema;
+ 	
+ 	
  </script>

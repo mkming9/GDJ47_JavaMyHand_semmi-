@@ -6,8 +6,6 @@
     <div id="wrap">
         <div id="slideShow">
             <ul class="slides">
-        <div id="slideShow">
-            <ul class="slides">
                 <li class="slidesPhoto">
                     <img src="images/main1.png" alt="">
                     <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
@@ -79,96 +77,90 @@
              <button type="button" class="right">&rang;</button> -->
  
 <script>
+const SlideWidth=window.innerWidth; //브라우저 가로 길이
+const SlideImg=document.getElementsByClassName('slidesPhoto');
+const SlideImgWrap=document.getElementsByClassName('slideShow');
+const SlideImgLength=document.getElementsByClassName('slidesPhoto').length; //리스트&버튼 갯수
+const SlideImgWrapWidth= SlideWidth * SlideImgLength; //브라우저 가로길이 x 리스트 갯수
+const SlideNavBtn=document.getElementsByClassName('SlideNavBtn');
+const Control=document.getElementsByClassName('control');
+let moveSlide=true; //일시정지 유무 체크
+let SlideIndex=0; //현재 슬라이드 위치
+let timer;
 
-/* let sliderWrapper = document.getElementById("#slideShow");//클래스명 container
-let sliderContainer = document.querySelector(".slides");//클래스명 slider-container
-let slides =document.querySelectorAll(".slidePhoto"); //클래스명 slide
-let slideCount =slides.length; //슬라이드의 개수 지정. 
-let currentIndex = 0; //시작과 끝을 구분하기 위해.
-let topHeight = 0; //슬라이더의 높이.
-let navPrev = document.querySelector(".right"); //이전 버튼
-let navNext = document.querySelector(".left"); //다음 버튼
+setWidth();
+startmove();
 
-function calculateTallestSlide(){
-    for(let i=0; i<slideCount; ++i){
-        if(slides[i].offsetHeight > topHeight){
-            topHeight = slides[i].offsetHeight; 
+window.onresize= function(){
+    setWidth();
+}
+
+function setWidth(){
+    console.log("갯수: "+SlideImgLength);
+    console.log("가로길이: "+SlideWidth);
+    console.log("총 가로길이: "+SlideImgWrapWidth);
+
+    for(let i=0;i<SlideImgLength;i++){
+        SlideImg[i].style.width = SlideWidth + 'px';
+        console.log(i);
+    };
+    
+    SlideImgWrap[0].style.width = SlideImgWrapWidth + 'px';
+}
+
+function btnSlide(n){
+    SlideImgWrap[0].style.marginLeft = '-'+ ( SlideWidth * n ) +'px';
+
+    for(let e=0;e<SlideImgLength;e++){
+        SlideNavBtn[e].className = SlideNavBtn[e].className.replace(" active", "");
+    }
+
+    SlideNavBtn[n].className +=" active";    
+    SlideIndex=n; 
+    console.log("인덱스: "+SlideIndex);
+}
+
+
+function prev(){
+    if( SlideIndex > 0 ){
+        SlideIndex--;
+        btnSlide(SlideIndex);
+    }else{
+        SlideIndex = SlideImgLength-1;
+        btnSlide(SlideIndex);
+    }
+    console.log("취소 누른 인덱스: " + SlideIndex);
+    console.log("ddd: " + (SlideImgLength-1) );
+}
+
+function next(){
+    if( SlideIndex < SlideImgLength-1 ){
+        SlideIndex++;
+        btnSlide(SlideIndex);
+    }else if( SlideIndex = SlideImgLength-1){
+        SlideIndex=0;
+        btnSlide(SlideIndex);
+    }
+}
+
+function startmove(){
+    timer = setInterval( function(){
+        if( SlideIndex < SlideImgLength-1 ){
+            SlideIndex++;
+            btnSlide(SlideIndex);
+            console.log("돌아가는중, index: " + SlideIndex + ", 갯수: " + SlideImgLength);
+        } else {
+            SlideIndex=0;
+            btnSlide(SlideIndex);
         }
-         
-    }
-
-    sliderWrapper[0].style.height = topHeight + 'px'; 
-    sliderContainer[0].style.height = topHeight + 'px';
- 
+    }, 4000);
 }
 
-calculateTallestSlide();
 
-for(let i=0; i<slideCount; i++){
-	 slides[i].style.left = i*100 + '%'; 
-}
-	
-function goToSlide(idx){
-    sliderContainer[0].style.left = idx * -100 + '%';
-    sliderContainer.classList.add('animated');
-    currentIndex = idx;  //currentIndex도 맞춰서 바뀔 수 있도록 해야한다.
 
-    updateNav();
-}
-
-function updateNav(){ 
-    //처음일 때
-    if(currentIndex === 0){
-        navPrev.classList.add('disabled');
-    } else {
-        navPrev.classList.remove('disabled')
-    }
-    //마지막일 때
-    if(currentIndex === slideCount - 1){
-        navNext.classList.add('disabled');
-    } else {
-        navNext.classList.remove('disabled');
-    }
-}
-
-navPrev.addEventListener("click", function(event){
-    event.preventDefault();
-    goToSlide(currentIndex-1);
-});
-navNext.addEventListener("click", function(event){
-    event.preventDefault();
-    goToSlide(currentIndex+1)
-});
-
-//첫번째 슬라이드 먼저 보이도록 하기
-goToSlide(0);  */
 
 	 
-    $(document).ready(function() {
-	//사용할 배너
-	var $banner = $("#slideShow").find("ul");
-	var $bannerWidth = $banner.children().outerWidth();//배너 이미지의 폭
-	var $bannerHeight = $banner.children().outerHeight(); // 높이
-	var $bannerLength = $banner.children().length;//배너 이미지의 갯수
-	var rollingId;
-
-	//정해진 초마다 함수 실행
-	rollingId = setInterval(function() { rollingStart(); }, 3500);
-	
-	
-	function rollingStart() {
-		$banner.css("width", $bannerWidth * $bannerLength + "px");
-		$banner.css("height", $bannerHeight + "px");
-		//배너의 좌측 위치를 옮겨 준다.
-		$banner.animate({left: - $bannerWidth + "px"}, 700, function() { //숫자는 롤링 진행되는 시간
-			$(this).append("<li>" + $(this).find("li:first").html() + "</li>");
-			//뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
-			$(this).find("li:first").remove();
-			//다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
-			$(this).css("left", 0);
-			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
-		});
-	}
-}); 
+	 
+   
  
 	</script>

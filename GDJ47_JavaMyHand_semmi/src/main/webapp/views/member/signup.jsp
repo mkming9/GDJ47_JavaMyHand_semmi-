@@ -14,32 +14,32 @@
         	</div>
 	        <table class="signuptable">
 				<tr>
-					<th>아이디</th>
+					<th>아이디(*)</th>
 					<td>
 						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
 						<input type="button" value="중복확인" id="idCheck" onclick="idCheck();">
 					</td>
 				</tr>
 				<tr>
-					<th>패스워드</th>
+					<th>패스워드(*)</th>
 					<td>
 						<input type="password" placeholder="6글자이상" name="password" id="password1" ><br>
 					</td>
 				</tr>
 				<tr>
-					<th>패스워드확인</th>
+					<th>패스워드확인(*)</th>
 					<td>	
 						<input type="password" id="password2" ><br>
 					</td>
 				</tr>  
 				<tr>
-					<th>이름</th>
+					<th>이름(*)</th>
 					<td>	
 					<input type="text"  name="memberName" id="memberName" ><br>
 					</td>
 				</tr>
 				<tr>
-					<th>성별 </th>
+					<th>성별(*)</th>
 					<td>
 						<select name="gender" id="gender" required >
 							<option value="" >성별</option>
@@ -49,20 +49,27 @@
 					</td>
 				</tr>
 				<tr>
-					<th>나이</th>
+					<th>나이(*)</th>
 					<td>	
 					<input type="number" name="age" id="age" required><br>
 					</td>
 				</tr> 
-					<th>주소</th>
+					<th>주소(*)</th>
 					<td>	
 						<input type="text" placeholder="" name="address" id="address" required><br>
 					</td>
 				</tr>
 				<tr>
-					<th>휴대전화</th>
+					<th>휴대전화(*)</th>
 					<td>	
 						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required><br>
+					</td>
+				</tr>
+				<tr>
+					<th>이메일(*)</th>
+					<td>	
+						<input type="email" placeholder="admin1@admin1.com" name="email" id="email"  required>
+						<input type="button" value="이메일 인증" id="emailCheck" >
 					</td>
 				</tr>
 			</table>
@@ -80,15 +87,22 @@
     
     <script>
 	const signUp=()=>{
-		const memberId=$('#memberId_').val();
 		const password1 =$('#password1').val();
 		const password2 =$('#password2').val();
 		const memberName=$("#memberName").val();
 			
 		if(memberId.trim().length<4){
+		const memberId=$('#memberId_').val();
 			alert('아이디를 4글자 이상 입력해주세요');
 			$('#memberId').val("");
 			$('#memberId').focus();
+			return false
+		}
+		if(email==""){
+			const email =$('#email').val();
+			alert ("이메일을 입력해주세요");
+			$('#email').val("");
+			$('#email').focus();
 			return false
 		}
 		
@@ -114,7 +128,7 @@
 	   		$("#idCheck").on("click",function(){
 	   			
 	   		const memberId=$('#memberId_').val().trim();
-   			if(memberId.length<4){
+   			if(memberId.length<4||memberId==""){
 	   			alert("아이디를 4글자 이상 입력해주세요");
 	   			$("#memberId").focus();
    			}else{

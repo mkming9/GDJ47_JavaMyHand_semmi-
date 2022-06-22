@@ -6,7 +6,17 @@
 <%
 	Member m=(Member)request.getAttribute("member");
 %>    
-<section id=enroll-container>
+<section class="mypage">
+		<div id="mypagemenu">
+	        <ul id="pagebox">
+	            <li>내 정보</li>
+	            <li>후원 내역</li>
+	            <li>소모임 내역</li>
+	            <li>아나바다 내역</li>
+	            <li>탈퇴하기</li>
+	        </ul>
+    </div>
+
 		<h2>회원 정보 수정</h2>
 		<form id="update" action="<%=request.getContextPath()%>/memberUpdate.do" method="post" >
 			<table>

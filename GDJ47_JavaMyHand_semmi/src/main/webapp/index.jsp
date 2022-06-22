@@ -38,7 +38,7 @@
                    따뜻하게 만들기 위한<br>
                    다양한 활동을 지원합니다.</p>
             </div>
-            <div id="target1">
+            <div id="location1">
                 
                 <a href="<%=request.getContextPath()%>/noticeList.do">
                     <div id="box1">

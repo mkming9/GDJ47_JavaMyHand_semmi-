@@ -14,10 +14,10 @@
 		<h1>여러분이 자바마이핸드에 보내주신 소중한 후원은 아래 기관에 전달됩니다</h1>
 	</div>
 	<div class="organ">
-		<div id="org1"></div>
-		<div id="org2"></div>
-		<div id="org3"></div>
-		<div id="org4"></div>
+		<a href="https://www.unhcr.or.kr/unhcr/main/index.jsp"><div id="org1"></div></a>
+		<a href="https://www.redcross.or.kr/main/main.do"><div id="org2"></div></a>
+		<a href="https://www.animals.or.kr"><div id="org3"></div></a>
+		<a href="https://www.kwater.or.kr/main.do?s_mid=1"><div id="org4"></div></a>
 	</div>
 	<div class="donatewrap">
 		<div class="donatebox">
@@ -230,7 +230,7 @@
 	}
 </script>
  -->
- </body>
- <%@ include file="/views/common/footer.jsp" %>
+</body>
+<%@ include file="/views/common/footer.jsp" %>
 
 

@@ -10,19 +10,19 @@
             <ul class="slides">
                 <li class="slidesPhoto">
                     <img src="images/main1.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li class="slidesPhoto">
                     <img src="images/main2.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li class="slidesPhoto">
                     <img src="images/main3.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn2.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn2.png"></a></div>
                 </li>
                 <li class="slidesPhoto">
                     <img src="images/main4.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn2.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn2.png"></a></div>
                 </li>
             </ul>  
             <p class="controller">
@@ -38,9 +38,9 @@
                    따뜻하게 만들기 위한<br>
                    다양한 활동을 지원합니다.</p>
             </div>
-            <div id="target1">
+            <div id="location1">
                 
-                <a href="<%=request.getContextPath()%>/noticeList.do">
+                <a href="<%=request.getContextPath()%>/donate/donateList.do">
                     <div id="box1">
                         <img id="picto1" src="images/picto1.png">
                         <h4>세상을 따뜻하게</h4>
@@ -73,7 +73,7 @@
 <script>
 
 
- let slides = document.querySelector('.slides');
+let slides = document.querySelector('.slides');
 let slideImg = document.querySelectorAll('.slides li');
 currentIdx = 0;
 slideCount = slideImg.length;
@@ -98,14 +98,14 @@ next.addEventListener('click', function () {
   if (currentIdx <= slideCount - 1) {
     //슬라이드이동
     slides.style.left = -(currentIdx + 2) * (slideWidth + slideMargin) + 'px';
-    slides.style.transition;// = `${0.5}s ease-in`;  //이동 속도 */
+    slides.style.transition = `${0.5}s ease-out`;  //이동 속도 */
   }
   if (currentIdx === slideCount - 1) {
     //마지막 슬라이드 일때
     setTimeout(function () {
       //0.5초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
       slides.style.left = -(slideWidth + slideMargin) + 'px';
-       slides.style.transition; //= `${0}s ease-in`;
+       slides.style.transition= `${0}s ease-out`;
     }, 500);
     currentIdx = -1;
   }
@@ -116,12 +116,12 @@ prev.addEventListener('click', function () {
   console.log(currentIdx);
   if (currentIdx >= 0) {
     slides.style.left = -currentIdx * (slideWidth + slideMargin) + 'px';
-    slides.style.transition;// = `${0.5}s ease-in`;
+    slides.style.transition = `${0.5}s ease-out`;
   }
   if (currentIdx === 0) {
     setTimeout(function () {
       slides.style.left = -slideCount * (slideWidth + slideMargin) + 'px';
-       slides.style.transition;// = `${0}s ease-in`; 
+       slides.style.transition= `${0}s ease-out`; 
     }, 500);
     currentIdx = slideCount;
   }
@@ -202,7 +202,7 @@ goToSlide(0);  */
 	var rollingId;
 
 	//정해진 초마다 함수 실행
-	rollingId = setInterval(function() { rollingStart(); }, 2200);
+	rollingId = setInterval(function() { rollingStart(); }, 3000);
 	
 	
 	function rollingStart() {
@@ -218,6 +218,6 @@ goToSlide(0);  */
 			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
 		});
 	}
-});  
+});   
   
 	</script>

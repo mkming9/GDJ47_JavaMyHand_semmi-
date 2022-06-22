@@ -6,10 +6,51 @@
 
 
 <body>
-	<div>
 
-	<div class="productbanner"></div>
+<div class="productbanner"></div>
 	
+	<table class="producttable">
+		<thead>
+			<tr>
+		    	<%if(loginMember!=null) {%>
+			    	<td colspan="8">
+			    		<button id="addProduct" onclick="location.assign('<%=request.getContextPath() %>/ProductWriteServlet')" >글쓰기</button>
+			    	</td>
+		    	<%}%>
+	    	</tr>
+	    <tr>
+	        <th scope="col">상품번호</th>
+	        <!-- <th scope="col">회원이름</th> -->
+	        <th scope="col">카테고리</th>
+	        <th scope="col">상품이름</th>
+	        <th scope="col">가격</th>
+	        <!-- <th scope="col">내용</th> -->
+	        <th scope="col">작성일</th>
+	        <th scope="col">조회수</th>
+	    </tr>
+	    </thead>
+	    
+	    <tbody>
+	    <tr>
+	    	<%if(!products.isEmpty()) {
+	    	for(Product p : products) {%>
+	    <tr>
+	    	<td><%=p.getANA_NO()%></td>         
+	        <%-- <td><%=p.getMEMBER_ID()%></td>        --%>   
+	        <td><%=p.getA_CODE()%></td>         
+	        <td><a href="<%=request.getContextPath()%>/product/productview.do?no=<%=p.getANA_NO()%>"><%=p.getANA_NAME()%></a></td>
+	        <td><%=p.getANA_PRICE()%></td>
+	        <%-- <td><%=p.getANA_CONTENT()%></td> --%>
+	        <td><%=p.getANA_DATE()%></td>
+	        <td><%=p.getANA_VIEW()%></td>
+	    </tr>
+	    <%} 
+	    } %>  
+	    </tbody>
+	</table>
+
+	
+
 <div id="search-container">
         	검색 : 
         	<select id="searchType">
@@ -90,20 +131,27 @@
 </table>  
 <div id="pageBar">
 			<%=request.getAttribute("pageBar") %>
+
 		</div>
- </div>
+	</div>
+
+	<div id="pageBar">
+		<%=pageBar %>
+	</div>
 </body>
- <script>
-        $(()=>{
-        	$("#searchType").change(e=>{
-        		 /* alert("type이 변경됨");  */
-        		const type=$(e.target).val();
-        	 console.log(type); 
-        		$("#search-container>div[id!=search-]").hide();
-        		
-        		$("#search-"+type).css("display","inline-block");
-        	});
-        	$("#searchType").change();
-        })      
-        </script>
-</html>
+
+
+<script>
+	$(()=>{
+        $("#searchType").change(e=>{
+            /* alert("type이 변경됨");  */
+            const type=$(e.target).val();
+            /* console.log(type); */
+            $("#search-container>div[id!=search-]").hide();
+              
+        	$("#search-"+type).css("display","inline-block");
+    	});
+        $("#searchType").change();
+	})      
+</script>
+<%@ include file="/views/common/footer.jsp" %>

@@ -9,6 +9,7 @@ import lombok.Data;
 @Builder
 public class Member {
 	private String memberId;
+	private String email;
 	private String password;
 	private String memberName;
 	private String gender;

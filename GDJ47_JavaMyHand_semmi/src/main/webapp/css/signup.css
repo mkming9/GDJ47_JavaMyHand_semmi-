@@ -33,14 +33,14 @@ h5{
 	font-family: "IBM Plex Sans KR";
 	color: rgb(80,80,80);
 }
-#memberId_, #password1, #password2, #memberName, #age, #address, #phone{
+#memberId_, #email, #password1, #password2, #memberName, #age, #address, #phone{
 	background-color: white;
 	width: 190px;
 	height: 40px;
 	border: 1px solid rgb(170,170,170);
 	padding-left: 15px;
 }
-#idCheck{
+#idCheck,#emailCheck{
 	margin-left: 5px;
 	border: 0;
 	width: 100px;

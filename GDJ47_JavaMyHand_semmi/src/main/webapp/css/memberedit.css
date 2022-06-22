@@ -1,0 +1,15 @@
+.mypage{
+	width: 1903.3px;
+}
+#mypagemenu{
+	width: 1903.3px;
+	height: 800px;
+	background-color: red;
+
+}
+#pagebox li{
+	width: 150px;
+	height: 40px;
+	border: 1px solid black;
+	background-color: aqua;
+}

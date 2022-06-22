@@ -9,8 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import static com.jmh.common.JDBCTemplate.*;
+
 import com.jmh.notice.model.vo.NoticeBoard;
+
+import static com.jmh.common.JDBCTemplate.*;
 
 public class NoticeBoardDao {
 	

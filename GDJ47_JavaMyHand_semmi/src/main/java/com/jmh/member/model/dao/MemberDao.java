@@ -26,7 +26,6 @@ public class MemberDao {
 		}
 	}
 	
-	//public Member loginMember(Connection conn, String memberId, String password, int point) {
 	public Member loginMember(Connection conn, String memberId, String password) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -35,7 +34,6 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(prop.getProperty("loginMember"));
 			pstmt.setString(1, memberId);
 			pstmt.setString(2,password);
-			// pstmt.setInt(3, point);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				m = getMember(rs);
@@ -61,6 +59,7 @@ public class MemberDao {
 			pstmt.setInt(5, m.getAge());
 			pstmt.setString(6, m.getAddress());
 			pstmt.setString(7, m.getPhone());
+			pstmt.setString(8, m.getEmail());
 			result =pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -123,6 +122,7 @@ public class MemberDao {
 								.phone(rs.getString("phone"))
 								.point(rs.getInt("point"))
 								.enrollDate(rs.getDate("enroll_date"))
+								.email(rs.getString("email"))
 								.build();
 				}
 	

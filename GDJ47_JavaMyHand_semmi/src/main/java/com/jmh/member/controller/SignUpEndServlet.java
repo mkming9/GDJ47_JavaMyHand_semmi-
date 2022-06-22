@@ -39,12 +39,13 @@ public class SignUpEndServlet extends HttpServlet {
 		int age =Integer.parseInt(request.getParameter("age"));
 		String address= request.getParameter("address");
 		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
 		
 		
 		
 		System.out.println("아이디 : "+memberId+"\n비번 : "+password
 						+"\n이름 : "+memberName+"\n성별 : "+gender+"\n나이 : "+age
-						+"\n주소 : "+address+"\n번호 : "+phone);
+						+"\n주소 : "+address+"\n번호 : "+phone+"\n이메일 : "+email);
 
 		Member m = Member.builder().memberId(memberId)
 						.password(password)
@@ -55,6 +56,7 @@ public class SignUpEndServlet extends HttpServlet {
 						.phone(phone)
 						.point(0)
 						.enrollDate(null)
+						.email(email)
 						.build();
 	
 		int result =new MemberService().memberSignUp(m); 

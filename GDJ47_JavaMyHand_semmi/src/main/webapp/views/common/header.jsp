@@ -34,6 +34,7 @@ String keyword=request.getParameter("searchKeyword");
 	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/groups.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/product.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/memberedit.css" rel="stylesheet" type="text/css"/>
 	
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
@@ -47,7 +48,7 @@ String keyword=request.getParameter("searchKeyword");
                 <a href="<%=request.getContextPath() %>/index.jsp#location1" id="scroll">
                 	<div id="menuintext"><li>소개</li></div>
                 </a>
-                <a href="<%=request.getContextPath()%>/noticeList.do">
+                <a href="<%=request.getContextPath()%>/donate/donateList.do">
                     <div id="menuintext"><li>후원</li></div>
                 </a>  
                 <a href="<%=request.getContextPath()%>/groups/groupsList.do">
@@ -92,20 +93,24 @@ String keyword=request.getParameter("searchKeyword");
         	<div class="cashtable">
       			<img id="cash" src="<%=request.getContextPath() %>/images/javacash.png">
  	    		<p><span id="userName"><%=loginMember.getPoint() %></span> 잡아</p>
-        		<input type="button" id="chargebtn" value="충전하기">
+        		<input type="button" id="chargebtn" value="충전하기" onclick="fn_pointChard()">
         	</div>
         	<div class="buttontable">
-				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
+				<input type="button" id="mypage" value="마이페이지" onclick="open=('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
-        	</div>
-         </div>
+            </div>
+        </div>
      <%} %>
      <script>
      const fn_logout=()=>{
           location.replace("<%=request.getContextPath()%>/member/logout.do");
     		alert("로그아웃이 되었습니다.");
      }
-       
+      
+   	  $("#chargebtn").click(e=>{
+   		  open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793");
+   	  });
+     
      //소개 탭 이동
      /* jQuery(document).ready(function($){
     	$("#scroll").click(function(event){
@@ -114,9 +119,5 @@ String keyword=request.getParameter("searchKeyword");
   		});
 	}); */
 	
-    
-    
-    
-    
 	</script>
 </header>

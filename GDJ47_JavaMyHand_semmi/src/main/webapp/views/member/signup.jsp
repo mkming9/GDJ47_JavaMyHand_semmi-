@@ -114,7 +114,7 @@
 	   		$("#idCheck").on("click",function(){
 	   			
 	   		const memberId=$('#memberId_').val().trim();
-   			if(memberId.length<4){
+   			if(memberId.length<4||memberId==""){
 	   			alert("아이디를 4글자 이상 입력해주세요");
 	   			$("#memberId").focus();
    			}else{

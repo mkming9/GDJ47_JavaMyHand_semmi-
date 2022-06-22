@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
 <%
+String searchType=request.getParameter("searchType");
+String keyword=request.getParameter("searchKeyword");
 	List<Product> products=(List<Product>)request.getAttribute("products"); 
 	String pageBar=(String)request.getAttribute("pageBar");
 	Member loginMember = (Member)session.getAttribute("loginMember");
@@ -14,6 +16,7 @@
 			}
 		}
 	}
+	
 %>
 <!DOCTYPE html>
 <html lang="en">

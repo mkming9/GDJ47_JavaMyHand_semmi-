@@ -37,6 +37,7 @@ public class ProductSearchServlet extends HttpServlet {
 		
 //		System.out.println(type);
 //		System.out.println(keyword);
+		
 		int cPage;
 		int numPerpage=5;
 		try {
@@ -83,6 +84,7 @@ public class ProductSearchServlet extends HttpServlet {
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("products", result);
 		
+		System.out.println(result);
 		request.getRequestDispatcher("/views/Product/productlist.jsp")
 		.forward(request, response);
 	

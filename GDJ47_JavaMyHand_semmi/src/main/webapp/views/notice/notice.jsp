@@ -23,7 +23,7 @@
 			<h1>우크라이나 전쟁 지원 캠페인<br>
 				<span>유엔난민기구</span>와 평화를 지켜요
 			</h1>
-			<input type='button' id="donbtn" value='기부하기'/>
+			<input type='button' id="donbtn" value='기부하기' onclick="location.assign('<%=request.getContextPath()%>/donate/donate.do')">
 			<input type='button' id="newsbtn" value='소식보기'/>
 		</div>
 		<div class="crolling1">

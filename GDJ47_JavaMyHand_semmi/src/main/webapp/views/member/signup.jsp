@@ -6,7 +6,7 @@
 		<div class="signupbanner"></div>	
         
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
-        onsubmit="" >
+        onsubmit="return signUp();" >
         <div class="tablecontainer">
         	<div class="text">
         		<h3>회원가입을 위해 아래 정보를 입력해주세요.</h3>
@@ -79,31 +79,36 @@
     </section>
     
     <script>
-	$('#signUp').click(function(){
+	const signUp=()=>{
 		const memberId=$('#memberId_').val();
 		const password1 =$('#password1').val();
 		const password2 =$('#password2').val();
 		const memberName=$("#memberName").val();
-		const age = $("#age").val()
-				
+			
 		if(memberId.trim().length<4){
 			alert('아이디를 4글자 이상 입력해주세요');
+			$('#memberId').val("");
 			$('#memberId').focus();
 			return false
-					
-		}if(password1.trim().length<6){
-			alert('비밀번호를 6글자 이상으로 입력해주세요');
+		}
+		
+		const exr = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;			
+		
+		if(password1.trim().length<8||exr.test(password1)){
+			alert('패스워드는8자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
 			return false
-			}else if(password1!=password2){
+			}
+			if(password1!=password2){
 			alert('비밀번호가 같은지 확인해주세요');
 			$('#password1').focus();
-					
-			}else if(memberName.length<2||memberName==null){
+			return false		
+			}
+			if(memberName.length<2||memberName==null){
 				alert('이름을 입력해주세요');
 				return false
-			}
+			} 
 			return true;
-		});
+	}
 			//아이디 중복확인 창
 	   	/* const idCheck=()=> */
 	   		$("#idCheck").on("click",function(){

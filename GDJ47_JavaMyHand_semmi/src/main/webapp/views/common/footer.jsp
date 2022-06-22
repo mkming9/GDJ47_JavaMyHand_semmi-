@@ -12,11 +12,11 @@
     </div>
     <div id="sns">
         <p>구독하기</p>
-        <img src="images/youtube.png">&nbsp;
-        <img src="images/facebook.png">&nbsp;
-        <img src="images/insta.png">&nbsp;
-        <img src="images/twit.png">&nbsp;
-        <img src="images/google.png">
+        <img src="<%=request.getContextPath() %>/images/youtube.png">&nbsp;
+        <img src="<%=request.getContextPath() %>/images/facebook.png">&nbsp;
+        <img src="<%=request.getContextPath() %>/images/insta.png">&nbsp;
+        <img src="<%=request.getContextPath() %>/images/twit.png">&nbsp;
+        <img src="<%=request.getContextPath() %>/images/google.png">
     </div>
 </footer>
 </body>

@@ -28,16 +28,16 @@
 
     <script src="js/jquery-3.6.0.min.js"></script>
 
-    <link href="./css/Home.css" rel="stylesheet" type="text/css"/>
-	<link href="css/signup.css" rel="stylesheet" type="text/css"/>
-	<link href="css/notice.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath() %>/css/Home.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/signup.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>
 
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.jsp"><img src="./images/MainLogo.png"/></a>
+            <a href="<%=request.getContextPath() %>/index.jsp"><img src="<%=request.getContextPath() %>/images/MainLogo.png"/></a>
         </div>
         <div class="menubox">
             <ul >
@@ -87,7 +87,7 @@
         		<span id="userName"><%=loginMember.getMemberName() %></span> 회원님, 반갑습니다!
         	</div>
         	<div class="cashtable">
-      			<img id="cash" src="images/javacash.png">
+      			<img id="cash" src="<%=request.getContextPath() %>/images/javacash.png">
  	    		<p><span id="userName"><%=loginMember.getPoint() %></span> 잡아</p>
         		<input type="button" id="chargebtn" value="충전하기">
         	</div>

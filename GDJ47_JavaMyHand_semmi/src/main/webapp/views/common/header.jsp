@@ -89,10 +89,10 @@
         	<div class="cashtable">
       			<img id="cash" src="<%=request.getContextPath() %>/images/javacash.png">
  	    		<p><span id="userName"><%=loginMember.getPoint() %></span> 잡아</p>
-        		<input type="button" id="chargebtn" value="충전하기" onclick="location.assign('<%=request.getContextPath()%>/memberPointCharge.do<%=loginMember.getMemberId()%>')">
+        		<input type="button" id="chargebtn" value="충전하기" onclick="fn_pointChard()">
         	</div>
         	<div class="buttontable">
-				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
+				<input type="button" id="mypage" value="마이페이지" onclick="open=('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
         	</div>
          </div>
@@ -102,7 +102,11 @@
           location.replace("<%=request.getContextPath()%>/member/logout.do");
     		alert("로그아웃이 되었습니다.");
      }
-       
+      
+   	  $("#chargebtn").click(e=>{
+   		  open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793");
+   	  });
+     
      //소개 탭 이동
      /* jQuery(document).ready(function($){
     	$("#scroll").click(function(event){
@@ -111,9 +115,5 @@
   		});
 	}); */
 	
-    
-    
-    
-    
 	</script>
 </header>

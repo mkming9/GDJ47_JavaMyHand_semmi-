@@ -43,9 +43,13 @@ public class ChargePointsServlet extends HttpServlet {
 		System.out.println("amount : "+ amount + " merchant_uid : " + merchant_uid + " imp_uid : " + imp_uid);
 		
 		String saveId = (String) session.getAttribute("saveId");
+		
+		System.out.println(saveId);
+		
 		Member m = new MemberService().memberIdCheck(saveId);
 		
 		System.out.println(m);
+
 		int updatePoint = m.getPoint() + Integer.parseInt(amount);
 		
 		System.out.println(updatePoint);
@@ -56,7 +60,7 @@ public class ChargePointsServlet extends HttpServlet {
 		if(m!=null) {
 			session = request.getSession();
 			session.setAttribute("loginMember", m);
-			response.sendRedirect(request.getContextPath()+"/views/member/chargesuccess.jsp")	;
+			response.sendRedirect(request.getContextPath()+"/views/member/chargesuccess.jsp");
 		}
 		
 	}

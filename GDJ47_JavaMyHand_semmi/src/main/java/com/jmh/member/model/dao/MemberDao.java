@@ -26,7 +26,6 @@ public class MemberDao {
 		}
 	}
 	
-	//public Member loginMember(Connection conn, String memberId, String password, int point) {
 	public Member loginMember(Connection conn, String memberId, String password) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -35,7 +34,6 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(prop.getProperty("loginMember"));
 			pstmt.setString(1, memberId);
 			pstmt.setString(2,password);
-			// pstmt.setInt(3, point);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				m = getMember(rs);

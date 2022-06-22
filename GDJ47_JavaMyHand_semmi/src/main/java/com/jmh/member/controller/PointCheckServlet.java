@@ -1,27 +1,23 @@
 package com.jmh.member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jmh.member.model.service.MemberService;
-import com.jmh.member.model.vo.Member;
-
 /**
- * Servlet implementation class LogincheckServlet
+ * Servlet implementation class PointCheckServlet
  */
-@WebServlet(name = "LoginCheckServlet", urlPatterns = {"/member/loginCheck.do" })
-public class LogincheckServlet extends HttpServlet {
+@WebServlet("/member/pointCheck.do")
+public class PointCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogincheckServlet() {
+    public PointCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +26,9 @@ public class LogincheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberId = request.getParameter("memberId");
-		String password = request.getParameter("password");
 		
-		Member m =new MemberService().loginMember(memberId,password);
-
-		String msg="" ,loc="";
-		if(m!=null){
-			msg="로그인을 성공했습니다";
-			loc="/";
-		}else{
-			msg="아이디와 비밀번호를 확인해주세요";
-//			loc="/index.jsp";
-		}
-		request.setAttribute("msg", msg);
-		request.setAttribute("loc", loc);
-		request.getRequestDispatcher("/views/common/msg.jsp")
-		.forward(request, response);
+		request.getRequestDispatcher("/views/member/pointCheck.jsp").forward(request, response);
+		
 	}
 
 	/**

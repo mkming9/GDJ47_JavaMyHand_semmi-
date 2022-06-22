@@ -118,7 +118,6 @@
         IMP.request_pay({
             pg: 'html5_inicis',
             merchant_uid: 'merchant_' + new Date().getTime(),
-
             name: saveId,
             amount: money,
             buyer_email: 'iamport@siot.do',

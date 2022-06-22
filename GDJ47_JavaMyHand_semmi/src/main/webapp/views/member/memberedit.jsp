@@ -61,6 +61,7 @@
 			</table>
 			<input type="button" onclick="update();" value="정보수정"/>
 			<input type="button" value="탈퇴"/>
+			<button onclick="pointCheck();">포인트확인</button>
 		</form>
 	</section>
 	<script>
@@ -73,6 +74,10 @@
 		const updatePw = ()=>{
 			open("<%=request.getContextPath()%>/member/updatePassword.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=210 ,left=500, top=200");
 			
+		}
+		
+		const pointCheck=()=>{
+			open("<%=request.getContextPath()%>/member/pointCheck.do");
 		}
 	</script>
 		

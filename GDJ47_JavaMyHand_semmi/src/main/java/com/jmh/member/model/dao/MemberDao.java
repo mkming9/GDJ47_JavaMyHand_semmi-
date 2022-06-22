@@ -61,6 +61,7 @@ public class MemberDao {
 			pstmt.setInt(5, m.getAge());
 			pstmt.setString(6, m.getAddress());
 			pstmt.setString(7, m.getPhone());
+			pstmt.setString(8, m.getEmail());
 			result =pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -123,6 +124,7 @@ public class MemberDao {
 								.phone(rs.getString("phone"))
 								.point(rs.getInt("point"))
 								.enrollDate(rs.getDate("enroll_date"))
+								.email(rs.getString("email"))
 								.build();
 				}
 	

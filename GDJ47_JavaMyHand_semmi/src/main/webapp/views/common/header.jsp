@@ -26,8 +26,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-
     <link href="<%=request.getContextPath() %>/css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/signup.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>

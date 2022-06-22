@@ -5,6 +5,8 @@
 
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 
+<script src="<%=request.getContextPath() %>/js/newsSlide.js"></script>
+
 <body>
 	<section>
 	<div class="donatebanner"></div>
@@ -23,21 +25,21 @@
 			<h1>우크라이나 전쟁 지원 캠페인<br>
 				<span>유엔난민기구</span>와 평화를 지켜요
 			</h1>
-			<input type='button' id="donbtn" value='기부하기'/>
-			<input type='button' id="newsbtn" value='소식보기'/>
+			<input type='button' class="donbtn" value='기부하기'/>
+			<input type='button' class="newsbtn" id="newsbtn1" value='소식보기'/>
 		</div>
-		<div class="crolling1">
-		
+		<div class="newsSlide" id="crolling1">
+
 		</div>
 		<div class="donatebox">
 			<img src="images/don2.png">
 			<h1>코로나 마스크 지원 캠페인<br>
 				<span>대한적십자사</span>와 일상을 되찾아요
 			</h1>
-			<input type='button' id="donbtn" value='기부하기'/>
-			<input type='button' id="newsbtn" value='소식보기'/>
+			<input type='button' class="donbtn" value='기부하기'/>
+			<input type='button' class="newsbtn" id="newsbtn2" value='소식보기'/>
 		</div>
-		<div class="crolling2">
+		<div class="newsSlide" id="crolling2">
 		
 		</div>
 		<div class="donatebox">
@@ -45,10 +47,10 @@
 			<h1>유기견 구조 지원 캠페인<br>
 				<span>동물자유연대</span>와 유기견의 상처를 치유해요
 			</h1>
-			<input type='button' id="donbtn" value='기부하기'/>
-			<input type='button' id="newsbtn" value='소식보기'/>
+			<input type='button' class="donbtn" value='기부하기'/>
+			<input type='button' class="newsbtn" id="newsbtn3" value='소식보기'/>
 		</div>
-		<div class="crolling3">
+		<div class="newsSlide" id="crolling3">
 		
 		</div>
 		<div class="donatebox">
@@ -56,10 +58,10 @@
 			<h1>가뭄 지원 캠페인<br>
 				<span>한국수자원공사</span>와 우리의 땅에 희망을 줘요
 			</h1>
-			<input type='button' id="donbtn" value='기부하기'/>
-			<input type='button' id="newsbtn" value='소식보기'/>
+			<input type='button' class="donbtn" value='기부하기'/>
+			<input type='button' class="newsbtn" id="newsbtn4" value='소식보기'/>
 		</div>
-		<div class="crolling4">
+		<div class="newsSlide" id="crolling4">
 		
 		</div>
 	</div>
@@ -159,6 +161,27 @@
             document.location.href="/GDJ47_JavaMyHand_semmi/"; //alert창 확인 후 이동할 url 설정
         });
     });
+    
+    $("#newsbtn1").click(e=>{
+		console.log("클릭함");
+		 $(e.target).parent().next().slideToggle(1000);
+	});
+    
+    $("#newsbtn2").click(e=>{
+		console.log("클릭함");
+		 $(e.target).parent().next().slideToggle(1000);
+	});
+    
+    $("#newsbtn3").click(e=>{
+		console.log("클릭함");
+		 $(e.target).parent().next().slideToggle(1000);
+	});
+    
+    $("#newsbtn4").click(e=>{
+		console.log("클릭함");
+		 $(e.target).parent().next().slideToggle(1000);
+	});
+		
 </script>
 
 <!--  <script>

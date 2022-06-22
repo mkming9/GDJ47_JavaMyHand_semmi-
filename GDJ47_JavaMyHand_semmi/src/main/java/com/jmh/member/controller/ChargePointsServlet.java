@@ -1,4 +1,4 @@
-package com.jmh.notice.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
 

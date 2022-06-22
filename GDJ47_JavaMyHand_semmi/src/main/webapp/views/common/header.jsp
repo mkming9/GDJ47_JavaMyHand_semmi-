@@ -89,7 +89,7 @@
         	<div class="cashtable">
       			<img id="cash" src="<%=request.getContextPath() %>/images/javacash.png">
  	    		<p><span id="userName"><%=loginMember.getPoint() %></span> 잡아</p>
-        		<input type="button" id="chargebtn" value="충전하기">
+        		<input type="button" id="chargebtn" value="충전하기" onclick="location.assign('<%=request.getContextPath()%>/memberPointCharge.do<%=loginMember.getMemberId()%>')">
         	</div>
         	<div class="buttontable">
 				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">

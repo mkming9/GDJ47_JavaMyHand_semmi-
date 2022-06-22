@@ -167,7 +167,48 @@ public class ProductDao {
 	}
 	
 
-	
+	public List<Product> searchProduct(Connection conn,String type, String  keyword,
+			int cPage, int numPerpage){
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	List<Product> result=new ArrayList();
+	String sql=prop.getProperty("searchProduct");
+	sql=sql.replace("$COL", type);
+	try {
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, type.equals("A_CODE")?"%"+keyword+"%":keyword);
+		pstmt.setInt(2, (cPage-1)*numPerpage+1);
+		pstmt.setInt(3, cPage*numPerpage);
+		rs=pstmt.executeQuery();
+		while(rs.next()) {
+			result.add(ProductDao.getProduct(rs));
+		}
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}finally {
+		close(rs);
+		close(pstmt);
+	}return result;
+}
+	public int searchProductCount(Connection conn, String type, String keyword) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("searchProductCount").replace("$COL",type);
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, type.equals("A_CODE")?"%"+keyword+"%":keyword);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
 	
 	
 	

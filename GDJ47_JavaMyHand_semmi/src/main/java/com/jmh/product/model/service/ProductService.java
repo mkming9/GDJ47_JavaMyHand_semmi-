@@ -44,6 +44,18 @@ public class ProductService {
 		return p;
 	}
 	
+	public List<Product>searchProduct(String type,String keyword,int cPage,int numPerpage) {
+		Connection conn = getConnection();
+		List<Product>result=dao.searchProduct(conn,type,keyword,cPage,numPerpage);
+		close(conn);
+		return result;
+	}
+	public int searchProductCount(String type, String keyword) {
+		Connection conn=getConnection();
+		int result=dao.searchProductCount(conn,type,keyword);
+		close(conn);
+		return result;
+	}
 	
 	public Product selectProduct(int ANA_NO) {
 		Connection conn = getConnection();

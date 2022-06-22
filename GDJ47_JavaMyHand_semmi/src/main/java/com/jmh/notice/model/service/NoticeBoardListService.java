@@ -1,6 +1,7 @@
 package com.jmh.notice.model.service;
 
-import static com.jmh.common.JDBCTemplate.*;
+import static com.jmh.common.JDBCTemplate.close;
+import static com.jmh.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.List;

@@ -3,3 +3,12 @@ div#pageBar{margin-top:10px; text-align:center;}
 	height: 650px;
 	background-image: url(../images/productbanner.png);
 }
+
+
+ div#search-container {margin:0 0 10px 0; padding:3px; 
+    }
+    div#search-A_CODE{display:inline-block;}
+    div#search-ANA_NAME{display:none;}
+    
+    div#numPerpage-container{float:right;}
+    form#numperPageFrm{display:inline;}

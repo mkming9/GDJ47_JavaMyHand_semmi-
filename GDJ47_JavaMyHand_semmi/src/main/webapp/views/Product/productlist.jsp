@@ -7,7 +7,14 @@
 
 <body>
 
-	<div id="search-container">
+	
+        
+
+	<div>
+
+	<div class="productbanner"></div>
+	
+<div id="search-container">
         	검색 : 
         	<select id="searchType">
         		<option value="A_CODE" >카테고리</option>
@@ -33,12 +40,7 @@
         	
         </div>
        
-        
-
-	<div>
-
-	<div class="productbanner"></div>
-
+       
 	<table class="table">
 
 	
@@ -92,10 +94,11 @@
  <script>
         $(()=>{
         	$("#searchType").change(e=>{
-        		/* alert("type이 변경됨"); */
+        		 /* alert("type이 변경됨");  */
         		const type=$(e.target).val();
-        		console.log(type);
+        		/* console.log(type); */
         		$("#search-container>div[id!=search-]").hide();
+        		
         		$("#search-"+type).css("display","inline-block");
         	});
         })      

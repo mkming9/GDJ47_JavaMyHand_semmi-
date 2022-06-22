@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <footer>
-    <div id="footerlogo"><img src="images/footerlogo.png"></div>
+    <div id="footerlogo"><img src="<%=request.getContextPath() %>/images/footerlogo.png"></div>
     <div id="footertext">
         <h5>(주)자바마이핸드</h5>
         <p>

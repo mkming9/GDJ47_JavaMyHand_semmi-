@@ -7,6 +7,8 @@
 
 <%@ include file="/views/common/header.jsp" %>
 <body>
+	<section>
+	<div class="groupsbanner"></div>
 	<table>
 	<%if(!groups.isEmpty()) {
 		for(Groups g : groups) {%>
@@ -24,8 +26,9 @@
 	  <button onclick="requestPay();">포인트 충전</button>
 	  
 	  <div id="payResult"></div>
-	  
-  <script>
+	</section>
+	
+  	<script>
   
     function requestPay() {
       // IMP.request_pay(param, callback) 결제창 호출

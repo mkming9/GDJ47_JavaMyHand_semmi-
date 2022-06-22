@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ include file="/views/common/header.jsp" %>
 
 <%
@@ -61,7 +62,7 @@
 			</table>
 			<input type="button" onclick="update();" value="정보수정"/>
 			<input type="button" value="탈퇴"/>
-			<button onclick="pointCheck();">포인트확인</button>
+			<button type="button" onclick="pointCheck();">포인트확인</button>
 		</form>
 	</section>
 	<script>

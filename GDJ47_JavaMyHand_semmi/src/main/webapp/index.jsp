@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/header.jsp" %>
-<<<<<<< HEAD
+
 <section>
 
-=======
-<section>
 
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
     <div id="wrap">
         <div id="slideShow">
             <ul class="slides">

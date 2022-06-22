@@ -31,6 +31,7 @@
 	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/groups.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/product.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/memberedit.css" rel="stylesheet" type="text/css"/>
 	
     <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
@@ -94,8 +95,8 @@
         	<div class="buttontable">
 				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
-        	</div>
-         </div>
+            </div>
+        </div>
      <%} %>
      <script>
      const fn_logout=()=>{

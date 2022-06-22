@@ -68,9 +68,10 @@
 					<!-- 글작성자만 수정만가능 -->
 					  <% if(loginMember!=null &&loginMember.getMemberId().equals(p.getMEMBER_ID())) {%>
 					<button id="alterProduct" onclick="location.assign('<%=request.getContextPath() %>/productUpdateServlet.do?no=<%=p.getANA_NO()%>')">상품수정</button>
-					<%} else {%>
-					<td>수정불가</td>
-					<%} %> 
+					<%} %>
+					
+					
+					<td style="text-align:center;">상품사진</td>
 				</th> 
 			</tr> 
 			

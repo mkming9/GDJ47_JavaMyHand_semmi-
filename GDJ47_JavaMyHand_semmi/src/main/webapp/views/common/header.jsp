@@ -45,7 +45,7 @@
                 <a href="<%=request.getContextPath() %>/index.jsp#location1" id="scroll">
                 	<div id="menuintext"><li>소개</li></div>
                 </a>
-                <a href="<%=request.getContextPath()%>/noticeList.do">
+                <a href="<%=request.getContextPath()%>/donate/donateList.do">
                     <div id="menuintext"><li>후원</li></div>
                 </a>  
                 <a href="<%=request.getContextPath()%>/groups/groupsList.do">

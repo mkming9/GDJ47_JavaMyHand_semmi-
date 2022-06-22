@@ -21,7 +21,7 @@
 	</div>
 	<div class="donatewrap">
 		<div class="donatebox">
-			<img src="images/don1.png">
+			<img src="<%=request.getContextPath() %>/images/don1.png">
 			<h1>우크라이나 전쟁 지원 캠페인<br>
 				<span>유엔난민기구</span>와 평화를 지켜요
 			</h1>
@@ -34,7 +34,7 @@
 
 		</div>
 		<div class="donatebox">
-			<img src="images/don2.png">
+			<img src="<%=request.getContextPath() %>/images/don2.png">
 			<h1>코로나 마스크 지원 캠페인<br>
 				<span>대한적십자사</span>와 일상을 되찾아요
 			</h1>
@@ -45,7 +45,7 @@
 		
 		</div>
 		<div class="donatebox">
-			<img src="images/don3.png">
+			<img src="<%=request.getContextPath() %>/images/don3.png">
 			<h1>유기견 구조 지원 캠페인<br>
 				<span>동물자유연대</span>와 유기견의 상처를 치유해요
 			</h1>
@@ -56,7 +56,7 @@
 		
 		</div>
 		<div class="donatebox">
-			<img src="images/don4.png">
+			<img src="<%=request.getContextPath() %>/images/don4.png">
 			<h1>가뭄 지원 캠페인<br>
 				<span>한국수자원공사</span>와 우리의 땅에 희망을 줘요
 			</h1>

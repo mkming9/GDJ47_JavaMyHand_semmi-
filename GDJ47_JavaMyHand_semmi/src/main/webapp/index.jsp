@@ -10,19 +10,19 @@
             <ul class="slides">
                 <li class="slidesPhoto">
                     <img src="images/main1.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li class="slidesPhoto">
                     <img src="images/main2.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn1.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li class="slidesPhoto">
                     <img src="images/main3.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn2.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn2.png"></a></div>
                 </li>
                 <li class="slidesPhoto">
                     <img src="images/main4.png" alt="">
-                    <div class="btn1"><a href="<%=request.getContextPath()%>/noticeList.do"><img src="images/btn2.png"></a></div>
+                    <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn2.png"></a></div>
                 </li>
             </ul>  
             <p class="controller">
@@ -40,7 +40,7 @@
             </div>
             <div id="location1">
                 
-                <a href="<%=request.getContextPath()%>/noticeList.do">
+                <a href="<%=request.getContextPath()%>/donate/donateList.do">
                     <div id="box1">
                         <img id="picto1" src="images/picto1.png">
                         <h4>세상을 따뜻하게</h4>

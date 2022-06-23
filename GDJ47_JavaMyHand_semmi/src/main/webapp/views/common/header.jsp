@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
 <%
-String searchType=request.getParameter("searchType");
-String keyword=request.getParameter("searchKeyword");
+	String searchType=request.getParameter("searchType");
+	String keyword=request.getParameter("searchKeyword");
 	List<Product> products=(List<Product>)request.getAttribute("products"); 
 	String pageBar=(String)request.getAttribute("pageBar");
 	Member loginMember = (Member)session.getAttribute("loginMember");
@@ -16,7 +16,6 @@ String keyword=request.getParameter("searchKeyword");
 			}
 		}
 	}
-	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +30,7 @@ String keyword=request.getParameter("searchKeyword");
 
     <link href="<%=request.getContextPath() %>/css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/signup.css" rel="stylesheet" type="text/css"/>
-	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/donate.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/groups.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/product.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/memberedit.css" rel="stylesheet" type="text/css"/>
@@ -96,7 +95,7 @@ String keyword=request.getParameter("searchKeyword");
         		<input type="button" id="chargebtn" value="충전하기" onclick="fn_pointChard()">
         	</div>
         	<div class="buttontable">
-				<input type="button" id="mypage" value="마이페이지" onclick="open=('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
+				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/mypage/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
             </div>
         </div>
@@ -108,7 +107,7 @@ String keyword=request.getParameter("searchKeyword");
      }
       
    	  $("#chargebtn").click(e=>{
-   		  open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793");
+   		  window.open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793, left=430");
    	  });
      
      //소개 탭 이동

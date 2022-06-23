@@ -1,15 +1,45 @@
 .mypage{
 	width: 1903.3px;
 }
+.mypage{
+	padding-top: 209px;
+}
 #mypagemenu{
-	width: 1903.3px;
-	height: 800px;
-	background-color: red;
-
+	width: 1190px;
+	height: 670px;
+	font-family: "Noto Sans KR";
+	margin-left: 320px;
+	background-color: yellow;
+}
+#profile{
+	width: 200px;
+	height: 170px;
+	background-color: rgb(132, 139, 145);
+}
+#pagebox{
+	width: 200px;
+	height: 100px;
+	background-color: rgb(250, 250, 250);
+	font-weight: 300;
+}
+ul{
+	text-align: center;
+}
+li{
+	display: inline-block;
+}
+#profilename{
+	font-size: 20px;
+	font-weight: 700;
+}
+#profile li{
+	margin-top: 58px;
+	color: white;
+}
+#profileid{
+	font-size: 12px;
+	font-weight: 300;
 }
 #pagebox li{
-	width: 150px;
-	height: 40px;
-	border: 1px solid black;
-	background-color: aqua;
+	margin-top: 38px;
 }

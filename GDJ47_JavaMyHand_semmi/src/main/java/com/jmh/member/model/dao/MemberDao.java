@@ -113,17 +113,17 @@ public class MemberDao {
 	
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()
-								.memberId(rs.getString("member_id"))
-								.password(rs.getString("password"))
-								.memberName(rs.getString("member_name"))
-								.gender(rs.getString("gender"))
-								.age(rs.getInt("age"))
-								.address(rs.getString("address"))
-								.phone(rs.getString("phone"))
-								.point(rs.getInt("point"))
-								.enrollDate(rs.getDate("enroll_date"))
-								.email(rs.getString("email"))
-								.build();
+					.memberId(rs.getString("member_id"))
+					.password(rs.getString("password"))
+					.memberName(rs.getString("member_name"))
+					.gender(rs.getString("gender"))
+					.age(rs.getInt("age"))
+					.address(rs.getString("address"))
+					.phone(rs.getString("phone"))
+					.point(rs.getInt("point"))
+					.enrollDate(rs.getDate("enroll_date"))
+					.email(rs.getString("email"))
+					.build();
 				}
 	
 }

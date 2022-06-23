@@ -3,6 +3,8 @@
     
 <%@ include file="/views/common/header.jsp" %>
 
+
+
 <%
 	Member m=(Member)request.getAttribute("member");
 %>    
@@ -72,7 +74,9 @@
 			</table>
 			<input type="button" onclick="update();" value="정보수정"/>
 			<input type="button" value="탈퇴"/>
-			<button type="button" onclick="pointCheck();">포인트확인</button>
+			<div class="pck">
+				<input type="button" id="pointCheck" value="환불">
+			</div>
 		</form>
 	</section>
 	<script>
@@ -87,9 +91,11 @@
 			
 		}
 		
-		const pointCheck=()=>{
-			open("<%=request.getContextPath()%>/member/pointCheck.do");
-		}
+		$("#pointCheck").click(function(e){
+			$.ajax({
+				
+			})
+		})
 	</script>
 		
 

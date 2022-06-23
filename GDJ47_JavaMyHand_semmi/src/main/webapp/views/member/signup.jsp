@@ -6,7 +6,7 @@
 		<div class="signupbanner"></div>	
         
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
-        onsubmit="return signUp();" >
+        onsubmit="return signUps();" >
         <div class="tablecontainer">
         	<div class="text">
         		<h3>회원가입을 위해 아래 정보를 입력해주세요.</h3>
@@ -73,7 +73,7 @@
 					</td>
 				</tr>
 			</table>
-		<input type="submit" value="가입" id="signUp" onclick="signUp();">
+		<input type="button" value="가입" id="signUp" onclick="signUp();">
 		<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
         </form>
         <form name="signs">
@@ -86,28 +86,39 @@
     </section>
 <script>
 	function signUp() {
-    	var id =$("#memberId_");
-    	var pw1 =$("#password1");
-    	var pw2 =$("#password2");
-    	var name =$("#memberName");
-    	var email =$("#email");
-    
+    	var id =document.getElementById("memberId_");
+    	var pw1 =document.getElementById("pw1");
+    	var pw2 =document.getElementById("pw2");
+    	var mail =document.getElementById("mail");
+    	
     	if(id.value ==""){
     		alert("아이디를 입력하세요");
     		id.focus();
     		return false;
     	};
-		if(pw1.value==""){
+		if(pw1.value ==""){
 			alert("비밀번호를 입력하세요");
 			pw1.focus();
 			return false;
 		}
-		if(pw1.value==""){
-			alert("비밀번호를 입력하세요");
+		//최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자 정규식
+		var pwCh = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/";
+		if(!pwCheck.test(pw.value)){
+			alert("최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자를 입력하세요");
 			pw1.focus();
 			return false;
 		}
 		
+		if(pw2.value !== pwd.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			pw2.focus();
+			return false;
+		}
+		
+		if(uname.value==""{
+			alert("이름을 입력하세요");
+			
+		}
 	}
 		
 		

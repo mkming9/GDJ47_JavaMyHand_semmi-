@@ -95,7 +95,7 @@
         		<input type="button" id="chargebtn" value="충전하기" onclick="fn_pointChard()">
         	</div>
         	<div class="buttontable">
-				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
+				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/mypage/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
         		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
             </div>
         </div>

@@ -14,7 +14,7 @@ import com.jmh.member.model.vo.Member;
 /**
  * Servlet implementation class MemberEditServlet
  */
-@WebServlet("/memberEdit.do")
+@WebServlet("/mypage/memberEdit.do")
 public class MemberEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,7 +36,7 @@ public class MemberEditServlet extends HttpServlet {
 		
 		request.setAttribute("member", m);
 		
-		request.getRequestDispatcher("/views/member/memberedit.jsp")
+		request.getRequestDispatcher("/views/mypage/memberedit.jsp")
 		.forward(request, response);
 	}
 

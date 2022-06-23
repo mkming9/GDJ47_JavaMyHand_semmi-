@@ -17,13 +17,13 @@
 					<th>아이디(*)</th>
 					<td>
 						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
-						<input type="button" value="중복확인" id="idCheck" class="idCh" >
+						<input type="button" value="중복확인" id="idCheck" name="idCh" >
 					</td>
 				</tr>
 				<tr>
 					<th>패스워드(*)</th>
 					<td>
-						<input type="password" placeholder="6글자이상" name="password1" id="password1" ><br>
+						<input type="password" placeholder="최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자로 입력해주세요" name="password" id="password1" ><br>
 					</td>
 				</tr>
 				<tr>
@@ -68,7 +68,7 @@
 				<tr>
 					<th>이메일</th>
 					<td>	
-						<input type="email" placeholder="admin1@admin1.com" name="email" id="email"  >
+						<input type="email" placeholder="admin1@admin1.com" name="email" id="email" >
 						<input type="button" value="이메일 인증" id="emailCheck" >
 					</td>
 				</tr>
@@ -92,8 +92,8 @@
     	var name =document.getElementById("memberName");
     	var age =document.getElementById("age");
     	var address =document.getElementById("address");
-    	var mail =document.getElementById("email");
     	var phone =document.getElementById("phone");
+    	var mail =document.getElementById("email");
     	
     	 if(id.value.trim().length<4||id.value==""){
     		alert("아이디를 4자 이상 입력하세요");
@@ -149,12 +149,18 @@
 			phone.focus();
 			return false;
 		};
-		if(email.value== ""){
+		if(mail.value== ""){
 			alert("이메일 주소를 입력하세요");
-			email.focus();
+			mail.focus();
 			return false;
 		} 
-			document.signUp.submit();
+		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		if(!regExp.test(mail.value)){
+			alert("이메일 양식에 맞춰서 입력해주세요");
+			mail.focus();
+			return false;
+		}  
+			document.sign.submit();
 	}
 		
 		

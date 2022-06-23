@@ -3,8 +3,6 @@
 <%@ include file="/views/common/header.jsp" %>
 
 <section>
-
-
     <div id="wrap">
         <div id="slideShow">
             <ul class="slides">
@@ -149,7 +147,7 @@ prev.addEventListener('click', function () {
 			//뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
 			$(this).find("li:first").remove();
 			//다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
-			$(this).css("left", 0);
+			$(this).css("left", 0); 
 			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
 		});
 	}

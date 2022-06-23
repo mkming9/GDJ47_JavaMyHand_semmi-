@@ -1,5 +1,6 @@
 package com.jmh.product.model.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,8 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.jmh.Files.model.vo.Files;
+import com.jmh.Files.model.vo.Files.FilesBuilder;
+
 import com.jmh.product.model.service.ProductService;
 import com.jmh.product.model.vo.Product;
+import com.oreilly.servlet.MultipartRequest;
 
 /**
  * Servlet implementation class ProductWriteEndServlet
@@ -35,6 +42,9 @@ public class ProductWriteEndServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
+		 
+		
 		String MEMBER_ID=request.getParameter("MEMBER_ID");
 		String A_CODE=request.getParameter("A_CODE");
 		String ANA_NAME=request.getParameter("ANA_NAME");
@@ -44,11 +54,11 @@ public class ProductWriteEndServlet extends HttpServlet {
 		
 //		System.out.println(ANA_NO+" "+MEMBER_ID+" "+A_CODE+" "+ANA_NAME+" "+ANA_PRICE+" "+ANA_CONTENT);
 		
-		Product p=Product.builder().MEMBER_ID(MEMBER_ID)
-				.A_CODE(A_CODE)
-				.ANA_NAME(ANA_NAME)
-				.ANA_PRICE(ANA_PRICE)				
-				.ANA_CONTENT(ANA_CONTENT)
+		Product p=Product.builder().member_Id(MEMBER_ID)
+				.a_Code(A_CODE)
+				.ana_Name(ANA_NAME)
+				.ana_Price(ANA_PRICE)				
+				.ana_Content(ANA_CONTENT)
 				.build();
 		int result=new ProductService().insertProduct(p);
 		//System.out.println(result);

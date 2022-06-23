@@ -18,9 +18,9 @@
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="45000"><span>45,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-	<p style="color: #ac2925; margin-top: 30px">KG이니시스의 최소 충전금액은 5000원이며, <br/>최대 충전금액은 50,000원 입니다.</p>
+	<p style="color: #ac2925; margin-top: 30px">KG이니시스의 최소 충전금액은 1000원이며, <br/>최대 충전금액은 50,000원 입니다.</p>
 	<button type="button" class="btn btn-lg btn-block btn-custom" id="payment_txt_amount">충 전 하 기</button>
-	<button type="button" id="check2">환불</button>
+	<button type="button" id="check2" onclick="location.assign('<%=request.getContextPath()%>/member/outPoint.do');">환불</button>
 </div>
 
 <script>
@@ -73,14 +73,12 @@
                 msg += '에러내용 : ' + rsp.error_msg;
             }
             alert(msg);
-            document.location.href="/GDJ47_JavaMyHand_semmi/"; //alert창 확인 후 이동할 url 설정
+            window.open()
+            //document.location.href="/GDJ47_JavaMyHand_semmi/"; //alert창 확인 후 이동할 url 설정
         });
     });
     //환불test
-   <%--  $("#check2").click(function(e){
-	      console.log("남은포인트"+$("<%=loginMember.getPoint()%>").text());
-	      //if($('#pay_coupon').text() >= ){
-	  } --%>
+  	
 </script>
 
 

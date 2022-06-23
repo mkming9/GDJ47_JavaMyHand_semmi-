@@ -108,7 +108,7 @@ String keyword=request.getParameter("searchKeyword");
      }
       
    	  $("#chargebtn").click(e=>{
-   		  open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793");
+   		  window.open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793, left=430");
    	  });
      
      //소개 탭 이동

@@ -14,24 +14,24 @@
 		<div id="search-container">
         	검색 : 
         	<select id="searchType">
-        		<option value="ANA_NAME" <%=searchType!=null&&searchType.equals("ANA_NAME")?"selected":"" %> >상품이름</option>
-        		<option value="A_CODE"<%=searchType!=null&&searchType.equals("A_CODE")?"selected":"" %>>카테고리</option>
+        		<option value="ana_Name" <%=searchType!=null&&searchType.equals("ana_Name")?"selected":"" %> >상품이름</option>
+        		<option value="a_Code"<%=searchType!=null&&searchType.equals("a_Code")?"selected":"" %>>카테고리</option>
         		
         		
         		
         	</select>
-        	<div id="search-ANA_NAME">
+        	<div id="search-ana_Name">
         		<form action="<%=request.getContextPath()%>/productsearch.do">
-        			<input type="hidden" name="searchType" value="ANA_NAME">
+        			<input type="hidden" name="searchType" value="ana_Name">
         			<input type="text" name="searchKeyword" size="25" 
         			placeholder="검색할 상품이름을 입력하세요">
         			<button type="submit">검색</button>
         		</form>
         	</div>
         	
-        	<div id="search-A_CODE">
+        	<div id="search-a_Code">
         		<form action="<%=request.getContextPath()%>/productsearch.do">
-        			<input type="hidden" name="searchType" value="A_CODE" >
+        			<input type="hidden" name="searchType" value="a_Code" >
         			<input type="text" name="searchKeyword" size="25" 
         			placeholder="검색할 카테고리를 입력하세요" >
         			<button type="submit">검색</button>
@@ -62,15 +62,16 @@
 	    	<%if(!products.isEmpty()) {
 	    	for(Product p : products) {%>
 	    <tr>
-	    	<td><%=p.getANA_NO()%></td>         
+	    	<td><%=p.getAna_No()%></td>         
 	        <%-- <td><%=p.getMEMBER_ID()%></td>        --%>   
-	        <td><%=p.getA_CODE()%></td>         
-	        <td><a href="<%=request.getContextPath()%>/product/productview.do?no=<%=p.getANA_NO()%>"><%=p.getANA_NAME()%></a></td>
-	        <td><%=p.getANA_PRICE()%></td>
+	        <td><%=p.getA_Code()%></td>         
+	        <td><a href="<%=request.getContextPath()%>/product/productview.do?no=<%=p.getAna_No()%>"><%=p.getAna_No()%></a></td>
+	        <td><%=p.getAna_Price()%></td>
 	        <%-- <td><%=p.getANA_CONTENT()%></td> --%>
-	        <td><%=p.getANA_DATE()%></td>
-	        <td><%=p.getANA_VIEW()%></td>
+	        <td><%=p.getAna_Date()%></td>
+	        <td><%=p.getAna_View()%></td>
 	    </tr>
+	    
 	    <%} 
 	    } %>  
 	    </tbody>

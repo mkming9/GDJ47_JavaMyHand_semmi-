@@ -33,7 +33,7 @@ public class ProductService {
 			int result=dao.upDateReadCount(conn,ANA_NO);
 			if(result>0) {
 				commit(conn);
-				p.setANA_VIEW(p.getANA_VIEW()+1);
+				p.setAna_View(p.getAna_View()+1);
 			}else 
 				rollback(conn);
 			

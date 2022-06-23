@@ -71,7 +71,7 @@
 					<%} %>
 					
 					
-					<td style="text-align:center;">상품사진</td>
+					<!-- <td><img src="/productImg/LostArk.png"></td> -->
 				</th> 
 			</tr> 
 			

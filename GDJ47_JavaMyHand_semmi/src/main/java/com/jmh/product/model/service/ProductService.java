@@ -43,7 +43,7 @@ public class ProductService {
 		close(conn);
 		return p;
 	}
-	
+	//검색
 	public List<Product>searchProduct(String type,String keyword,int cPage,int numPerpage) {
 		Connection conn = getConnection();
 		List<Product>result=dao.searchProduct(conn,type,keyword,cPage,numPerpage);
@@ -56,7 +56,7 @@ public class ProductService {
 		close(conn);
 		return result;
 	}
-	
+	//
 	public Product selectProduct(int ANA_NO) {
 		Connection conn = getConnection();
 		Product p =dao.selectProduct(conn,ANA_NO);

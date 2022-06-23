@@ -1,4 +1,4 @@
-package com.jmh.notice.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import com.jmh.member.model.vo.Member;
 /**
  * Servlet implementation class ChargePointsServlet
  */
-@WebServlet("/notice/chargePoints.do")
+@WebServlet("/member/chargePoints.do")
 public class ChargePointsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,9 +43,13 @@ public class ChargePointsServlet extends HttpServlet {
 		System.out.println("amount : "+ amount + " merchant_uid : " + merchant_uid + " imp_uid : " + imp_uid);
 		
 		String saveId = (String) session.getAttribute("saveId");
+		
+		System.out.println(saveId);
+		
 		Member m = new MemberService().memberIdCheck(saveId);
 		
 		System.out.println(m);
+
 		int updatePoint = m.getPoint() + Integer.parseInt(amount);
 		
 		System.out.println(updatePoint);
@@ -56,7 +60,7 @@ public class ChargePointsServlet extends HttpServlet {
 		if(m!=null) {
 			session = request.getSession();
 			session.setAttribute("loginMember", m);
-			response.sendRedirect(request.getContextPath()+"/views/member/chargesuccess.jsp")	;
+			response.sendRedirect(request.getContextPath()+"/views/member/chargesuccess.jsp");
 		}
 		
 	}

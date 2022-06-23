@@ -34,7 +34,6 @@ public class MemberService {
 		return result;
 	}
 	
-	
 	public Member memberIdCheck(String memberId) {
 		Connection conn=getConnection();
 		Member m =dao.memberIdCheck(conn,memberId);

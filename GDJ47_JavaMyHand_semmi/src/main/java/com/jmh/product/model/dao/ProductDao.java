@@ -166,7 +166,7 @@ public class ProductDao {
 		return result;
 	}
 	
-
+	//검색
 	public List<Product> searchProduct(Connection conn,String type, String  keyword,
 			int cPage, int numPerpage){
 	PreparedStatement pstmt=null;
@@ -176,7 +176,7 @@ public class ProductDao {
 	sql=sql.replace("$COL", type);
 	try {
 		pstmt=conn.prepareStatement(sql);
-		pstmt.setString(1, type.equals("A_CODE")?"%"+keyword+"%":keyword);
+		pstmt.setString(1, type.equals("ANA_NAME")?"%"+keyword+"%":keyword);
 		pstmt.setInt(2, (cPage-1)*numPerpage+1);
 		pstmt.setInt(3, cPage*numPerpage);
 		rs=pstmt.executeQuery();
@@ -193,11 +193,11 @@ public class ProductDao {
 	public int searchProductCount(Connection conn, String type, String keyword) {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql=prop.getProperty("searchProductCount").replace("$COL",type);
+		String sql=prop.getProperty("searchProductCount").replace("$COL",type);		
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, type.equals("A_CODE")?"%"+keyword+"%":keyword);
+			pstmt.setString(1, type.equals("ANA_NAME")?"%"+keyword+"%":keyword);
 			rs=pstmt.executeQuery();
 			if(rs.next()) result=rs.getInt(1);
 			
@@ -209,7 +209,7 @@ public class ProductDao {
 		}return result;
 		
 	}
-	
+	//
 	
 	
 	private static Product getProduct(ResultSet rs)throws SQLException{

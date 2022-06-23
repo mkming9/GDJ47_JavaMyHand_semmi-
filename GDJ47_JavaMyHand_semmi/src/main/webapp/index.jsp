@@ -98,14 +98,14 @@ next.addEventListener('click', function () {
   if (currentIdx <= slideCount - 1) {
     //슬라이드이동
     slides.style.left = -(currentIdx + 2) * (slideWidth + slideMargin) + 'px';
-    slides.style.transition = `${0.5}s ease-out`;  //이동 속도 */
+    slides.style.transition = `${0.5}s ease-out`; //이동 속도
   }
   if (currentIdx === slideCount - 1) {
     //마지막 슬라이드 일때
     setTimeout(function () {
       //0.5초동안 복사한 첫번째 이미지에서, 진짜 첫번째 위치로 이동
       slides.style.left = -(slideWidth + slideMargin) + 'px';
-       slides.style.transition= `${0}s ease-out`;
+      slides.style.transition = `${0}s ease-out`;
     }, 500);
     currentIdx = -1;
   }
@@ -121,79 +121,14 @@ prev.addEventListener('click', function () {
   if (currentIdx === 0) {
     setTimeout(function () {
       slides.style.left = -slideCount * (slideWidth + slideMargin) + 'px';
-       slides.style.transition= `${0}s ease-out`; 
+      slides.style.transition = `${0}s ease-out`;
     }, 500);
     currentIdx = slideCount;
   }
   currentIdx -= 1;
 });
-
-
-/* let sliderWrapper = document.getElementById("#slideShow");//클래스명 container
-let sliderContainer = document.querySelector(".slides");//클래스명 slider-container
-let slides =document.querySelectorAll(".slidePhoto"); //클래스명 slide
-let slideCount =slides.length; //슬라이드의 개수 지정. 
-let currentIndex = 0; //시작과 끝을 구분하기 위해.
-let topHeight = 0; //슬라이더의 높이.
-let navPrev = document.querySelector(".right"); //이전 버튼
-let navNext = document.querySelector(".left"); //다음 버튼
-
-function calculateTallestSlide(){
-    for(let i=0; i<slideCount; ++i){
-        if(slides[i].offsetHeight > topHeight){
-            topHeight = slides[i].offsetHeight; 
-        }
-         
-    }
-
-    sliderWrapper[0].style.height = topHeight + 'px'; 
-    sliderContainer[0].style.height = topHeight + 'px';
- 
-}
-
-calculateTallestSlide();
-
-for(let i=0; i<slideCount; i++){
-	 slides[i].style.left = i*100 + '%'; 
-}
-	
-function goToSlide(idx){
-    sliderContainer[0].style.left = idx * -100 + '%';
-    sliderContainer.classList.add('animated');
-    currentIndex = idx;  //currentIndex도 맞춰서 바뀔 수 있도록 해야한다.
-
-    updateNav();
-}
-
-function updateNav(){ 
-    //처음일 때
-    if(currentIndex === 0){
-        navPrev.classList.add('disabled');
-    } else {
-        navPrev.classList.remove('disabled')
-    }
-    //마지막일 때
-    if(currentIndex === slideCount - 1){
-        navNext.classList.add('disabled');
-    } else {
-        navNext.classList.remove('disabled');
-    }
-}
-
-navPrev.addEventListener("click", function(event){
-    event.preventDefault();
-    goToSlide(currentIndex-1);
-});
-navNext.addEventListener("click", function(event){
-    event.preventDefault();
-    goToSlide(currentIndex+1)
-});
-
-//첫번째 슬라이드 먼저 보이도록 하기
-goToSlide(0);  */
-
 	 
-    $(document).ready(function() {
+     $(document).ready(function() {
 	//사용할 배너
 	var $banner = $("#slideShow").find("ul");
 	var $bannerWidth = $banner.children().outerWidth();//배너 이미지의 폭
@@ -218,6 +153,6 @@ goToSlide(0);  */
 			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
 		});
 	}
-});   
+});  
   
 	</script>

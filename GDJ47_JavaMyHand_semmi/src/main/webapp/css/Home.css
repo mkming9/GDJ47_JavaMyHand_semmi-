@@ -203,8 +203,6 @@ label{
     left: 0;
     top: 0;
     overflow:hidden;
-    
-     /* transition: left 0.5s ease-out;  */
 }
 
 .controller>span{

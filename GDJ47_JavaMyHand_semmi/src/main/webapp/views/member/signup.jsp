@@ -23,13 +23,13 @@
 				<tr>
 					<th>패스워드(*)</th>
 					<td>
-						<input type="password" placeholder="6글자이상" name="password" id="password1" ><br>
+						<input type="password" placeholder="6글자이상" name="password1" id="password1" ><br>
 					</td>
 				</tr>
 				<tr>
 					<th>패스워드확인(*)</th>
 					<td>	
-						<input type="password" id="password2" ><br>
+						<input type="password" name="password2" id="password2" ><br>
 					</td>
 				</tr>  
 				<tr>
@@ -41,7 +41,7 @@
 				<tr>
 					<th>성별(*)</th>
 					<td>
-						<select name="gender" id="gender" required >
+						<select name="gender" id="gender" >
 							<option value="" >성별</option>
 							<option id="gender0" value="남" >남</option>
 							<option id="gender1" value="여" >여</option>
@@ -51,29 +51,29 @@
 				<tr>
 					<th>나이(*)</th>
 					<td>	
-					<input type="number" name="age" id="age" required><br>
+					<input type="number" name="age" id="age" ><br>
 					</td>
 				</tr> 
 					<th>주소(*)</th>
 					<td>	
-						<input type="text" placeholder="" name="address" id="address" required><br>
+						<input type="text" placeholder="" name="address" id="address" ><br>
 					</td>
 				</tr>
 				<tr>
 					<th>휴대전화(*)</th>
 					<td>	
-						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" required><br>
+						<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" ><br>
 					</td>
 				</tr>
 				<tr>
-					<th>이메일(*)</th>
+					<th>이메일</th>
 					<td>	
-						<input type="email" placeholder="admin1@admin1.com" name="email" id="email"  required>
+						<input type="email" placeholder="admin1@admin1.com" name="email" id="email"  >
 						<input type="button" value="이메일 인증" id="emailCheck" >
 					</td>
 				</tr>
 			</table>
-		<input type="submit" value="가입" id="signUp">
+		<input type="submit" value="가입" id="signUp" onclick="signUp();">
 		<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
         </form>
         <form name="signs">
@@ -84,47 +84,34 @@
     		<img src="./images/messenger.png">
     	</div> -->
     </section>
+<script>
+	function signUp() {
+    	var id =$("#memberId_");
+    	var pw1 =$("#password1");
+    	var pw2 =$("#password2");
+    	var name =$("#memberName");
+    	var email =$("#email");
     
-    <script>
-	const signUp=()=>{
-		const password1 =$('#password1').val();
-		const password2 =$('#password2').val();
-		const memberName=$("#memberName").val();
-			
-		if(memberId.trim().length<4){
-		const memberId=$('#memberId_').val();
-			alert('아이디를 4글자 이상 입력해주세요');
-			$('#memberId').val("");
-			$('#memberId').focus();
-			return false
+    	if(id.value ==""){
+    		alert("아이디를 입력하세요");
+    		id.focus();
+    		return false;
+    	};
+		if(pw1.value==""){
+			alert("비밀번호를 입력하세요");
+			pw1.focus();
+			return false;
 		}
-		if(email==""){
-			const email =$('#email').val();
-			alert ("이메일을 입력해주세요");
-			$('#email').val("");
-			$('#email').focus();
-			return false
+		if(pw1.value==""){
+			alert("비밀번호를 입력하세요");
+			pw1.focus();
+			return false;
 		}
 		
-		const exr = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;			
-		
-		if(password1.trim().length<8||exr.test(password1)){
-			alert('패스워드는8자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
-			return false
-			}
-			if(password1!=password2){
-			alert('비밀번호가 같은지 확인해주세요');
-			$('#password1').focus();
-			return false		
-			}
-			if(memberName.length<2||memberName==null){
-				alert('이름을 입력해주세요');
-				return false
-			} 
-			return true;
 	}
+		
+		
 			//아이디 중복확인 창
-	   	/* const idCheck=()=> */
 	   		$("#idCheck").on("click",function(){
 	   			
 	   		const memberId=$('#memberId_').val().trim();

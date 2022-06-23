@@ -9,7 +9,7 @@
 	<div id="mypagemenu">
 		<ul>
 			<div id=profile><li><span id=profilename><%=loginMember.getMemberName() %></span> 님<br><span id="profileid"><%=loginMember.getMemberId() %></span></li></div>
-	    	<div id=pagebox><li>내 정보</li></div>
+	    	<div id=pagebox1><li>내 정보</li></div>
 	        <div id=pagebox><li>후원 내역</li></div>
 	        <div id=pagebox><li>참여중인 소모임</li></div>
 	        <div id=pagebox><li>판매 구매 내역</li></div>

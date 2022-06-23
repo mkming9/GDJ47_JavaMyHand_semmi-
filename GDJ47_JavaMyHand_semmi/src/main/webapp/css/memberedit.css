@@ -1,5 +1,5 @@
 .mypage{
-	width: 1903.3px;
+	width: 100%;
 }
 .mypage{
 	padding-top: 209px;
@@ -27,6 +27,14 @@
 	color: rgb(8, 89, 168);
 	font-weight: 500;
 }
+#pagebox1{
+	width: 200px;
+	height: 100px;
+	background-image: url(../images/pagemenuback.png);
+	font-weight: 500;
+	color: rgb(8, 89, 168);
+	cursor: pointer;
+}
 ul{
 	text-align: center;
 }
@@ -45,6 +53,6 @@ li{
 	font-size: 12px;
 	font-weight: 300;
 }
-#pagebox li{
+#pagebox li, #pagebox1 li{
 	margin-top: 38px;
 }

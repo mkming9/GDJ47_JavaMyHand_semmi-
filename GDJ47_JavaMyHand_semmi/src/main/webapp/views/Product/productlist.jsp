@@ -10,16 +10,14 @@
 <div class="productbanner"></div>
 	
 	<table class="producttable">
-		<thead>
-		<div id="search-container">
+		<thead>		
+		<div id="search-container">				
         	검색 : 
-        	<select id="searchType">
+        	<select id="searchType">        		
         		<option value="ana_Name" <%=searchType!=null&&searchType.equals("ana_Name")?"selected":"" %> >상품이름</option>
-        		<option value="a_Code"<%=searchType!=null&&searchType.equals("a_Code")?"selected":"" %>>카테고리</option>
-        		
-        		
-        		
+        		<option value="a_Code"<%=searchType!=null&&searchType.equals("a_Code")?"selected":"" %>>카테고리</option>		
         	</select>
+        	
         	<div id="search-ana_Name">
         		<form action="<%=request.getContextPath()%>/productsearch.do">
         			<input type="hidden" name="searchType" value="ana_Name">
@@ -27,16 +25,15 @@
         			placeholder="검색할 상품이름을 입력하세요">
         			<button type="submit">검색</button>
         		</form>
-        	</div>
-        	
-        	<div id="search-a_Code">
-        		<form action="<%=request.getContextPath()%>/productsearch.do">
+        	</div>       	  	
+        	  	<div id="search-a_Code">
+        		<form action="<%=request.getContextPath()%>/productsearch.do">      			
         			<input type="hidden" name="searchType" value="a_Code">
         			<input type="text" name="searchKeyword" size="25" 
         			placeholder="검색할 카테고리를 입력하세요">
         			<button type="submit">검색</button>
         		</form>
-        	</div>       	
+        	</div>
         </div>
 			<tr>
 		    	<%if(loginMember!=null) {%>
@@ -58,14 +55,14 @@
 	    </thead>
 	    
 	    <tbody>
-	    <tr>
+	    
 	    	<%if(!products.isEmpty()) {
 	    	for(Product p : products) {%>
 	    <tr>
 	    	<td><%=p.getAna_No()%></td>         
 	        <%-- <td><%=p.getMEMBER_ID()%></td>        --%>   
 	        <td><%=p.getA_Code()%></td>         
-	        <td><a href="<%=request.getContextPath()%>/product/productview.do?no=<%=p.getAna_No()%>"><%=p.getAna_No()%></a></td>
+	        <td><a href="<%=request.getContextPath()%>/product/productview.do?no=<%=p.getAna_No()%>"><%=p.getAna_Name()%></a></td>
 	        <td><%=p.getAna_Price()%></td>
 	        <%-- <td><%=p.getANA_CONTENT()%></td> --%>
 	        <td><%=p.getAna_Date()%></td>
@@ -135,7 +132,7 @@
 			<%=request.getAttribute("pageBar") %>
 
 		</div>
-	</div>	
+	
 </body>
 
 
@@ -144,7 +141,7 @@
         $("#searchType").change(e=>{
             /* alert("type이 변경됨");  */
             const type=$(e.target).val();
-            /* console.log(type); */
+             /* console.log(type); */
             $("#search-container>div[id!=search-]").hide();
               
         	$("#search-"+type).css("display","inline-block");

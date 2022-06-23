@@ -40,11 +40,11 @@ public class ProductUpdateEndServlet extends HttpServlet {
 		
 //		System.out.println(ANA_NO+" "+MEMBER_ID+" "+A_CODE+" "+ANA_NAME+" "+ANA_PRICE+" "+ANA_CONTENT);
 		
-		Product p=Product.builder().ANA_NO(ANA_NO)
-				.A_CODE(A_CODE)
-				.ANA_NAME(ANA_NAME)
-				.ANA_PRICE(ANA_PRICE)				
-				.ANA_CONTENT(ANA_CONTENT)
+		Product p=Product.builder().ana_No(ANA_NO)
+				.a_Code(A_CODE)
+				.ana_Name(ANA_NAME)
+				.ana_Price(ANA_PRICE)				
+				.ana_Content(ANA_CONTENT)
 				.build();
 		int result=new ProductService().updataProduct(p);
 		System.out.println(result);

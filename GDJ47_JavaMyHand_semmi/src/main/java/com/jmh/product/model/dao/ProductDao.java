@@ -214,14 +214,14 @@ public class ProductDao {
 	
 	private static Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
-				.ANA_NO(rs.getInt("ANA_NO"))
-				.MEMBER_ID(rs.getString("MEMBER_ID"))
-				.A_CODE(rs.getString("A_CODE"))
-				.ANA_NAME(rs.getString("ANA_NAME"))
-				.ANA_PRICE(rs.getInt("ANA_PRICE"))
-				.ANA_CONTENT(rs.getString("ANA_CONTENT"))
-				.ANA_DATE(rs.getDate("ANA_DATE"))
-				.ANA_VIEW(rs.getInt("ANA_VIEW"))
+				.ana_No(rs.getInt("ANA_NO"))
+				.member_Id(rs.getString("MEMBER_ID"))
+				.a_Code(rs.getString("A_CODE"))
+				.ana_Name(rs.getString("ANA_NAME"))
+				.ana_Price(rs.getInt("ANA_PRICE"))
+				.ana_Content(rs.getString("ANA_CONTENT"))
+				.ana_Date(rs.getDate("ANA_DATE"))
+				.ana_View(rs.getInt("ANA_VIEW"))
 				.build();
 	}
 	

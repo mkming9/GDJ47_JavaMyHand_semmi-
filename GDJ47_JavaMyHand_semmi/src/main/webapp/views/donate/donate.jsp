@@ -10,7 +10,7 @@
 <body>
 	<section>
 		<div class="donatebanner"></div>
-		<div id="discription">
+		<div id="description">
 			<h1>여러분이 자바마이핸드에 보내주신 소중한 후원은 아래 기관에 전달됩니다</h1>
 		</div>
 		<div class="organ">

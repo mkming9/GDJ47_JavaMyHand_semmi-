@@ -9,7 +9,7 @@
 	height: 670px;
 	font-family: "Noto Sans KR";
 	margin-left: 320px;
-	background-color: yellow;
+	border: 4px solid rgb(200, 200, 200);
 }
 #profile{
 	width: 200px;
@@ -19,8 +19,13 @@
 #pagebox{
 	width: 200px;
 	height: 100px;
-	background-color: rgb(250, 250, 250);
+	background-image: url(../images/pagemenuback.png);
 	font-weight: 300;
+	cursor: pointer;
+}
+#pagebox:hover {
+	color: rgb(8, 89, 168);
+	font-weight: 500;
 }
 ul{
 	text-align: center;

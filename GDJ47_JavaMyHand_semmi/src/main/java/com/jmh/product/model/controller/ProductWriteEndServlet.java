@@ -11,8 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.jmh.files.model.vo.Files;
 import com.jmh.product.model.service.ProductService;
 import com.jmh.product.model.vo.Product;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
  * Servlet implementation class ProductWriteEndServlet
@@ -34,6 +39,28 @@ public class ProductWriteEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		if(!ServletFileUpload.isMultipartContent(request)) {
+			request.setAttribute("msg","상품등록 오류");
+			request.setAttribute("loc", "/ProductWriteEndServlet");
+			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+			
+		}else {
+			String path=request.getServletContext().getRealPath("/upload/product/");
+			
+			int maxSize=1024*1024*10;
+			
+			String encoding="UTF-8";
+			
+			DefaultFileRenamePolicy dfp=new DefaultFileRenamePolicy();
+			
+			MultipartRequest mr = new MultipartRequest(request, path,maxSize,encoding,dfp);
+			
+			
+		}
+		
+		
+		
 		
 		String MEMBER_ID=request.getParameter("MEMBER_ID");
 		String A_CODE=request.getParameter("A_CODE");

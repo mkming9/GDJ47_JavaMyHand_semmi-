@@ -8,8 +8,6 @@ import com.jmh.product.model.dao.ProductDao;
 import com.jmh.product.model.vo.Product;
 import java.util.List;
 
-
-
 public class ProductService {
 	
 	private ProductDao dao=new ProductDao();

@@ -31,12 +31,12 @@
         	
         	<div id="search-a_Code">
         		<form action="<%=request.getContextPath()%>/productsearch.do">
-        			<input type="hidden" name="searchType" value="a_Code" >
+        			<input type="hidden" name="searchType" value="a_Code">
         			<input type="text" name="searchKeyword" size="25" 
-        			placeholder="검색할 카테고리를 입력하세요" >
+        			placeholder="검색할 카테고리를 입력하세요">
         			<button type="submit">검색</button>
         		</form>
-        	</div>        	
+        	</div>       	
         </div>
 			<tr>
 		    	<%if(loginMember!=null) {%>

@@ -135,7 +135,7 @@ prev.addEventListener('click', function () {
 	var rollingId;
 
 	//정해진 초마다 함수 실행
-	rollingId = setInterval(function() { rollingStart(); }, 3000);
+	/* rollingId = setInterval(function() { rollingStart(); }, 3000); */
 	
 	
 	function rollingStart() {

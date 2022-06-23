@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
 <%
-String searchType=request.getParameter("searchType");
-String keyword=request.getParameter("searchKeyword");
+	String searchType=request.getParameter("searchType");
+	String keyword=request.getParameter("searchKeyword");
 	List<Product> products=(List<Product>)request.getAttribute("products"); 
 	String pageBar=(String)request.getAttribute("pageBar");
 	Member loginMember = (Member)session.getAttribute("loginMember");
@@ -16,7 +16,6 @@ String keyword=request.getParameter("searchKeyword");
 			}
 		}
 	}
-	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +30,7 @@ String keyword=request.getParameter("searchKeyword");
 
     <link href="<%=request.getContextPath() %>/css/Home.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/signup.css" rel="stylesheet" type="text/css"/>
-	<link href="<%=request.getContextPath() %>/css/notice.css" rel="stylesheet" type="text/css"/>
+	<link href="<%=request.getContextPath() %>/css/donate.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/groups.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/product.css" rel="stylesheet" type="text/css"/>
 	<link href="<%=request.getContextPath() %>/css/memberedit.css" rel="stylesheet" type="text/css"/>

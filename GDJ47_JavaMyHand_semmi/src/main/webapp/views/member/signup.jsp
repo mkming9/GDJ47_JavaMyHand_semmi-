@@ -6,7 +6,7 @@
 		<div class="signupbanner"></div>	
         
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
-        onsubmit="return signUps();" >
+        onsubmit="return signUp();" >
         <div class="tablecontainer">
         	<div class="text">
         		<h3>회원가입을 위해 아래 정보를 입력해주세요.</h3>
@@ -17,7 +17,7 @@
 					<th>아이디(*)</th>
 					<td>
 						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
-						<input type="button" value="중복확인" id="idCheck" onclick="idCheck();">
+						<input type="button" value="중복확인" id="idCheck" class="idCh" >
 					</td>
 				</tr>
 				<tr>
@@ -73,7 +73,7 @@
 					</td>
 				</tr>
 			</table>
-		<input type="button" value="가입" id="signUp" onclick="signUp();">
+		<input type="button" value="가입" id="signUp" onclick="signUps();" >
 		<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
         </form>
         <form name="signs">
@@ -85,50 +85,86 @@
     	</div> -->
     </section>
 <script>
-	function signUp() {
+	function signUps() {
     	var id =document.getElementById("memberId_");
-    	var pw1 =document.getElementById("pw1");
-    	var pw2 =document.getElementById("pw2");
-    	var mail =document.getElementById("mail");
+    	var pw1 =document.getElementById("password1");
+    	var pw2 =document.getElementById("password2");
+    	var name =document.getElementById("memberName");
+    	var age =document.getElementById("age");
+    	var address =document.getElementById("address");
+    	var mail =document.getElementById("email");
+    	var phone =document.getElementById("phone");
     	
-    	if(id.value ==""){
-    		alert("아이디를 입력하세요");
+    	 if(id.value.trim().length<4||id.value==""){
+    		alert("아이디를 4자 이상 입력하세요");
     		id.focus();
     		return false;
-    	};
-		if(pw1.value ==""){
+    	} /*else {
+    		alert("아이디 중복확인해주세요");
+    		$(".idCh").focus();
+    		return false;
+    	} */
+    	
+		if(pw1.value==""){
 			alert("비밀번호를 입력하세요");
 			pw1.focus();
 			return false;
-		}
+		};
 		//최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자 정규식
-		var pwCh = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/";
-		if(!pwCheck.test(pw.value)){
-			alert("최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자를 입력하세요");
+		var pwCh = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+		if(!pwCh.test(pw1.value)){
+			alert("비밀번호를 최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자로 입력해주세요");
 			pw1.focus();
 			return false;
-		}
-		
-		if(pw2.value !== pwd.value){
+		};
+		if(pw2.value !==pw1.value){
 			alert("비밀번호가 일치하지 않습니다.");
 			pw2.focus();
 			return false;
-		}
+		};
 		
-		if(uname.value==""{
+		if(name.value==""){
 			alert("이름을 입력하세요");
-			
-		}
+			name.focus();
+			return false;
+		};
+		if(age.value==""){
+			alert("나이를 입력하세요");
+			age.focus();
+			return false;
+		};
+		if(address.value==""){
+			alert("주소를 입력하세요");
+			address.focus();
+			return false;
+		};
+		if(phone.value==''){
+			alert("전화번호를 입력하세요.");
+			phone.focus();
+			return false;
+		};
+		var reg=/^[0-9]+/g //숫자만 입력하는 정규식
+		if(!reg.test(phone.value)){
+			alert("전화번호는 숫자만 입력할 수 있습니다.");
+			phone.focus();
+			return false;
+		};
+		if(email.value== ""){
+			alert("이메일 주소를 입력하세요");
+			email.focus();
+			return false;
+		} 
+			document.signUp.submit();
 	}
 		
 		
-			//아이디 중복확인 창
+			 //아이디 중복확인 창
 	   		$("#idCheck").on("click",function(){
 	   			
 	   		const memberId=$('#memberId_').val().trim();
    			if(memberId.length<4||memberId==""){
 	   			alert("아이디를 4글자 이상 입력해주세요");
-	   			$("#memberId").focus();
+	   			$("#memberId_").focus();
    			}else{
 	   			const url= "<%=request.getContextPath()%>/idCheck.do";
    				const title="idCheck";
@@ -139,7 +175,7 @@
    				signs.target=title;
    				signs.submit();
 	   			}
-	   		});
+	   		}); 
    			
 	</script>
 </body>

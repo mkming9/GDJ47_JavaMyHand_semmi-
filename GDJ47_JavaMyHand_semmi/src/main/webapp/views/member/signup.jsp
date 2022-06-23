@@ -73,7 +73,7 @@
 					</td>
 				</tr>
 			</table>
-		<button type="button" value="가입" onclick="signUp();">
+		<input type="submit" value="가입" id="signUp" onclick="signUp();">
 		<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
         </form>
         <form name="signs">

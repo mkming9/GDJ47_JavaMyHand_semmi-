@@ -2,19 +2,19 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file="/views/common/header.jsp" %>
-
 <%
 	Member m=(Member)request.getAttribute("member");
 %>    
 <section class="mypage">
-		<div id="mypagemenu">
-	        <ul id="pagebox">
-	            <li>내 정보</li>
-	            <li>후원 내역</li>
-	            <li>소모임 내역</li>
-	            <li>아나바다 내역</li>
-	            <li>탈퇴하기</li>
-	        </ul>
+	<div id="mypagemenu">
+		<ul>
+			<div id=profile><li><span id=profilename><%=loginMember.getMemberName() %></span> 님<br><span id="profileid"><%=loginMember.getMemberId() %></span></li></div>
+	    	<div id=pagebox1><li>내 정보</li></div>
+	        <div id=pagebox><li>후원 내역</li></div>
+	        <div id=pagebox><li>참여중인 소모임</li></div>
+	        <div id=pagebox><li>판매 구매 내역</li></div>
+	        <div id=pagebox><li>탈퇴하기</li></div>
+	    </ul>
     </div>
 
 		<h2>회원 정보 수정</h2>
@@ -72,7 +72,9 @@
 			</table>
 			<input type="button" onclick="update();" value="정보수정"/>
 			<input type="button" value="탈퇴"/>
-			<button type="button" onclick="pointCheck();">포인트확인</button>
+			<div class="pck">
+				<input type="button" id="pointCheck" value="환불">
+			</div>
 		</form>
 	</section>
 	<script>
@@ -87,9 +89,11 @@
 			
 		}
 		
-		const pointCheck=()=>{
-			open("<%=request.getContextPath()%>/member/pointCheck.do");
-		}
+		$("#pointCheck").click(function(e){
+			$.ajax({
+				
+			})
+		})
 	</script>
 		
 

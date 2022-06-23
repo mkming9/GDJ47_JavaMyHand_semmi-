@@ -113,11 +113,11 @@ public class ProductDao {
 			pstmt=conn.prepareStatement(prop.getProperty("insertProduct"));
 			
 			
-			pstmt.setString(1,p.getMEMBER_ID());
-			pstmt.setString(2, p.getA_CODE());
-			pstmt.setString(3, p.getANA_NAME());
-			pstmt.setInt(4, p.getANA_PRICE());
-			pstmt.setString(5, p.getANA_CONTENT());
+			pstmt.setString(1,p.getMember_Id());
+			pstmt.setString(2, p.getA_Code());
+			pstmt.setString(3, p.getAna_Name());
+			pstmt.setInt(4, p.getAna_Price());
+			pstmt.setString(5, p.getAna_Content());
 			result=pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -152,11 +152,11 @@ public class ProductDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("updateProduct"));
-			pstmt.setString(1, p.getA_CODE());
-			pstmt.setString(2, p.getANA_NAME());
-			pstmt.setInt(3,p.getANA_PRICE());
-			pstmt.setString(4, p.getANA_CONTENT());
-			pstmt.setInt(5, p.getANA_NO());
+			pstmt.setString(1, p.getA_Code());
+			pstmt.setString(2, p.getAna_Name());
+			pstmt.setInt(3,p.getAna_Price());
+			pstmt.setString(4, p.getAna_Content());
+			pstmt.setInt(5, p.getAna_No());
 			result=pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -176,7 +176,7 @@ public class ProductDao {
 	sql=sql.replace("$COL", type);
 	try {
 		pstmt=conn.prepareStatement(sql);
-		pstmt.setString(1, type.equals("ANA_NAME")?"%"+keyword+"%":keyword);
+		pstmt.setString(1, type.equals("ana_Name")?"%"+keyword+"%":keyword);
 		pstmt.setInt(2, (cPage-1)*numPerpage+1);
 		pstmt.setInt(3, cPage*numPerpage);
 		rs=pstmt.executeQuery();
@@ -197,7 +197,7 @@ public class ProductDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, type.equals("ANA_NAME")?"%"+keyword+"%":keyword);
+			pstmt.setString(1, type.equals("ana_Name")?"%"+keyword+"%":keyword);
 			rs=pstmt.executeQuery();
 			if(rs.next()) result=rs.getInt(1);
 			
@@ -214,14 +214,14 @@ public class ProductDao {
 	
 	private static Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
-				.ANA_NO(rs.getInt("ANA_NO"))
-				.MEMBER_ID(rs.getString("MEMBER_ID"))
-				.A_CODE(rs.getString("A_CODE"))
-				.ANA_NAME(rs.getString("ANA_NAME"))
-				.ANA_PRICE(rs.getInt("ANA_PRICE"))
-				.ANA_CONTENT(rs.getString("ANA_CONTENT"))
-				.ANA_DATE(rs.getDate("ANA_DATE"))
-				.ANA_VIEW(rs.getInt("ANA_VIEW"))
+				.ana_No(rs.getInt("ana_No"))
+				.member_Id(rs.getString("member_Id"))
+				.a_Code(rs.getString("a_Code"))
+				.ana_Name(rs.getString("ana_Name"))
+				.ana_Price(rs.getInt("ana_Price"))
+				.ana_Content(rs.getString("ana_Content"))
+				.ana_Date(rs.getDate("ana_Date"))
+				.ana_View(rs.getInt("ana_View"))
 				.build();
 	}
 	

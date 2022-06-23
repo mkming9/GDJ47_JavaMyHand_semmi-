@@ -1,15 +1,58 @@
 .mypage{
-	width: 1903.3px;
+	width: 100%;
+}
+.mypage{
+	padding-top: 209px;
 }
 #mypagemenu{
-	width: 1903.3px;
-	height: 800px;
-	background-color: red;
-
+	width: 1190px;
+	height: 670px;
+	font-family: "Noto Sans KR";
+	margin-left: 320px;
+	border: 4px solid rgb(200, 200, 200);
 }
-#pagebox li{
-	width: 150px;
-	height: 40px;
-	border: 1px solid black;
-	background-color: aqua;
+#profile{
+	width: 200px;
+	height: 170px;
+	background-color: rgb(132, 139, 145);
+}
+#pagebox{
+	width: 200px;
+	height: 100px;
+	background-image: url(../images/pagemenuback.png);
+	font-weight: 300;
+	cursor: pointer;
+}
+#pagebox:hover {
+	color: rgb(8, 89, 168);
+	font-weight: 500;
+}
+#pagebox1{
+	width: 200px;
+	height: 100px;
+	background-image: url(../images/pagemenuback.png);
+	font-weight: 500;
+	color: rgb(8, 89, 168);
+	cursor: pointer;
+}
+ul{
+	text-align: center;
+}
+li{
+	display: inline-block;
+}
+#profilename{
+	font-size: 20px;
+	font-weight: 700;
+}
+#profile li{
+	margin-top: 58px;
+	color: white;
+}
+#profileid{
+	font-size: 12px;
+	font-weight: 300;
+}
+#pagebox li, #pagebox1 li{
+	margin-top: 38px;
 }

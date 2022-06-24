@@ -161,6 +161,10 @@
 		}  
 			document.sign.submit();
 	}
+	
+	
+	
+	
 		
 		
 			 //아이디 중복확인 창

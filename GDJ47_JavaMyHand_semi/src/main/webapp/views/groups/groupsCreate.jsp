@@ -53,7 +53,7 @@
 								                    키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
 								                    <button type="button" onclick="searchPlaces();">검색하기</button> 
 								                    <input type="button" id="registration" value="등록">
-								                    <input type="button" id="cancel" value="취소">
+								                    <input type="button" id="close" value="취소">
 								                <!-- </form> -->
 				    						</div>
 				    					</div>

@@ -35,43 +35,43 @@
 		<table id="tbl-board">
 			<tr>
 				<th>상품번호</th>
-				<td><%=p.getANA_NO() %></td>
+				<td><%=p.getAna_No() %></td>
 			</tr>
 			<tr>
 				<th>상품이름</th>
-				<td><%=p.getANA_NAME() %></td>
+				<td><%=p.getAna_Name() %></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><%=p.getMEMBER_ID() %></td>
+				<td><%=p.getMember_Id() %></td>
 			</tr>
 			<tr>
 				<th>조회수</th>
-				<td><%=p.getANA_VIEW() %></td>
+				<td><%=p.getAna_View() %></td>
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td><%=p.getANA_PRICE() %></td>
+				<td><%=p.getAna_Price() %></td>
 			</tr>
 			<tr>
 				<th>내 용</th>
-				<td><%=p.getANA_CONTENT() %></td>
+				<td><%=p.getAna_Content() %></td>
 			</tr>
 			<%-- <%--글작성자/관리자인경우 삭제 가능 --%>
 		 <%if(loginMember!=null &&
-			(loginMember.getMemberId().equals(p.getMEMBER_ID())
+			(loginMember.getMemberId().equals(p.getMember_Id())
 				||loginMember.getMemberId().equals("admin1"))) {%> 
 			<tr>
 				 <th colspan="3">					
-					<button id="deleteProduct" onclick="location.assign('<%=request.getContextPath() %>/product/productdelete.do?no=<%=p.getANA_NO()%>')">상품삭제</button>
+					<button id="deleteProduct" onclick="location.assign('<%=request.getContextPath() %>/product/productdelete.do?no=<%=p.getAna_No()%>')">상품삭제</button>
 					<%}%>
 					<!-- 글작성자만 수정만가능 -->
-					  <% if(loginMember!=null &&loginMember.getMemberId().equals(p.getMEMBER_ID())) {%>
-					<button id="alterProduct" onclick="location.assign('<%=request.getContextPath() %>/productUpdateServlet.do?no=<%=p.getANA_NO()%>')">상품수정</button>
+					  <% if(loginMember!=null &&loginMember.getMemberId().equals(p.getMember_Id())) {%>
+					<button id="alterProduct" onclick="location.assign('<%=request.getContextPath() %>/productUpdateServlet.do?no=<%=p.getAna_No()%>')">상품수정</button>
 					<%} %>
 					
 					
-					<td style="text-align:center;">상품사진</td>
+					<!-- <td><img src="/productImg/LostArk.png"></td> -->
 				</th> 
 			</tr> 
 			

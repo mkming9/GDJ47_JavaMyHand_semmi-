@@ -127,7 +127,7 @@ prev.addEventListener('click', function () {
   currentIdx -= 1;
 });
 	 
-     $(document).ready(function() {
+    /*  $(document).ready(function() {
 	//사용할 배너
 	var $banner = $("#slideShow").find("ul");
 	var $bannerWidth = $banner.children().outerWidth();//배너 이미지의 폭
@@ -136,7 +136,7 @@ prev.addEventListener('click', function () {
 	var rollingId;
 
 	//정해진 초마다 함수 실행
-	/* rollingId = setInterval(function() { rollingStart(); }, 3000); */
+	 rollingId = setInterval(function() { rollingStart(); }, 3000); 
 	
 	
 	function rollingStart() {
@@ -152,6 +152,6 @@ prev.addEventListener('click', function () {
 			//이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
 		});
 	}
-});  
+});   */ 
   
 	</script>

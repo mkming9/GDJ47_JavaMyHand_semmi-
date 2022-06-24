@@ -60,6 +60,31 @@
         </div>
         <%if(loginMember==null) {%>
         <form action="<%=request.getContextPath()%>/member/login.do" method="post">
+<<<<<<< HEAD
+        	<table class="logintable1">
+        		<tr>
+        			<td>
+        				<input type="text" name="memberId" id="memberId" placeholder="아이디" value="<%=saveId!=null?saveId:""%>">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				<input type="password" name="password" id="password" placeholder="패스워드">
+        			</td>
+        		</tr>	
+        		<tr>
+        			<td>
+        				<input type="checkbox" name="saveId" id="saveId" <%=saveId!=null?"checked" : ""%>>
+        				<label for="saveId">아이디저장</label>
+        			</td>
+        		</tr>
+        	</table>
+        	<div class="logintable2" >
+        			<input type="submit" id="submit" value="" name="로그인">
+        			<input type="button" id="signup" value=""
+               		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
+        	</div>
+=======
         <div class="logintable">
         	<table class="logintable1">
         		<tr>
@@ -85,6 +110,7 @@
                		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         	</div>
         </div>
+>>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
         </form>
         <%}else {%>
         <div class="hello">

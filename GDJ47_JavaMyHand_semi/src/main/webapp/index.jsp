@@ -30,6 +30,39 @@
         </div>
 
         <div class="content1">
+            <div id="textbox">
+                <h1>자바마이핸드는</h1>
+                <p>세상을 변화시키고<br>
+                   따뜻하게 만들기 위한<br>
+                   다양한 활동을 지원합니다.</p>
+            </div>
+            <div id="location1">
+                
+                <a href="<%=request.getContextPath()%>/donate/donateList.do">
+                    <div id="box1">
+                        <img id="picto1" src="images/picto1.png">
+                        <h4>세상을 따뜻하게</h4>
+                        <h3>후원</h3>
+                    </div>
+                    <div id="fadein"></div>
+                </a>
+                <a href="<%=request.getContextPath()%>/groups/groupsList.do">
+                    <div id="box2">
+                        <img src="images/picto2.png">
+                        <h4>세상을 만나기</h4>
+                        <h3>소모임</h3>
+                    </div>
+                    <div id="fadein"></div>
+                </a>
+                <a href="<%=request.getContextPath()%>/productview.do">
+                    <div id="box3">
+                        <img src="images/picto3.png">
+                        <h4>세상을 지키기</h4>
+                        <h3>아나바다</h3>
+                    </div>
+                    <div id="fadein"></div>
+                </a>
+            </div>
         	<div id="conwrap">
 		        <div id="textbox">
 		            <h1>자바마이핸드는</h1>

@@ -53,7 +53,7 @@
 								                    키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
 								                    <button type="button" onclick="searchPlaces();">검색하기</button> 
 								                    <input type="button" id="registration" value="등록">
-								                    <input type="button" id="cancel" value="취소">
+								                    <!-- <input type="button" class="close" id="closeModal" value="X"> -->
 								                <!-- </form> -->
 				    						</div>
 				    					</div>
@@ -111,12 +111,9 @@
 </body>
 <script>
 	var locationMap = document.getElementById("locationMap"); 
-	
+	var closeModal = document.getElementById("closeModal");
 	// modal 창을 감춤
-	var closeRtn = function(){
-	  var modal = document.getElementById('modal');
-	  modal.style.display = 'none';
-	}
+	
 	// 마커를 담을 배열입니다
 	var markers = [];
 	var curlat, curlong;
@@ -125,13 +122,19 @@
 	  var modal = document.getElementById('modal');
 	  modal.style.display = 'block';
 	
-		
 		navigator.geolocation.getCurrentPosition(po=>{
 				curlat=po.coords.latitude;
 				curlong=po.coords.longitude;
 				createMap();
 			});
 	}
+	
+	//시간낭비 close
+	/* closeModal.onclick = function(){
+		  var modal = document.getElementById('modal');
+		  modal.style.display = 'hidden';
+		} */
+
 	var ps,map,inforwindow;
 	function createMap(){
 		console.log(curlat,curlong);

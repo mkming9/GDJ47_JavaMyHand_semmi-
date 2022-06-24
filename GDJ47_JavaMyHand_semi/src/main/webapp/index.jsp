@@ -7,7 +7,7 @@
         <div id="slideShow">
             <ul class="slides">
                 <li class="slidesPhoto">
-                    <img src="images/main1.png" alt="">
+                    <img src="images/main1.png" alt=""> 
                     <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn1.png"></a></div>
                 </li>
                 <li class="slidesPhoto">

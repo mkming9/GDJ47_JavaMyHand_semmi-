@@ -4,8 +4,10 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 
+<link href="<%=request.getContextPath() %>/css/chargepoint.css" rel="stylesheet" type="text/css"/>
+
 <div id="payResult">
-	<p style="font-weight: bold; font-size: 50px"; align="center">KG이니시스 현재 사용가능</p>
+	<p>KG이니시스 현재 사용가능</p>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="1000"><span>1,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
@@ -17,7 +19,7 @@
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="45000"><span>45,000원</span></label>
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-	<p style="color: #ac2925; margin-top: 30px">KG이니시스의 최소 충전금액은 1000원이며, <br/>최대 충전금액은 50,000원 입니다.</p>
+	<p>KG이니시스의 최소 충전금액은 1000원이며, 최대 충전금액은 50,000원 입니다.</p>
 	<button type="button" class="btn btn-lg btn-block btn-custom" id="payment_txt_amount">충 전 하 기</button>
 	<!-- <button onclick="cancelPay()">환불</button> -->
 </div>

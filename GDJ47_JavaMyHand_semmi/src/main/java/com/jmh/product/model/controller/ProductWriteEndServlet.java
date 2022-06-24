@@ -15,7 +15,6 @@ import javax.servlet.http.Part;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
-import com.jmh.files.model.vo.Files;
 import com.jmh.product.model.service.ProductService;
 import com.jmh.product.model.vo.Product;
 import com.oreilly.servlet.MultipartRequest;

@@ -76,7 +76,7 @@
   </script>
   <script>
 	$("#btn_createGroups").click(e=>{
-		open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=400,height=430");
+		open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");
 	});
 
 	$("#btn_deleteGroups").click(e=>{

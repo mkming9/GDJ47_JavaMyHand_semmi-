@@ -127,13 +127,13 @@ public class ProductDao {
 		return result;
 	}
 	
-	public int deleteProduct(Connection conn,int ANA_NO) {
+	public int deleteProduct(Connection conn,int ana_No) {
 		PreparedStatement pstmt =null;
 		
 		 int result =0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("deleteProduct"));
-			pstmt.setInt(1, ANA_NO);
+			pstmt.setInt(1, ana_No);
 			result=pstmt.executeUpdate();
 			
 		}catch(SQLException e) {
@@ -174,9 +174,10 @@ public class ProductDao {
 	List<Product> result=new ArrayList();
 	String sql=prop.getProperty("searchProduct");
 	sql=sql.replace("$COL", type);
+	
 	try {
 		pstmt=conn.prepareStatement(sql);
-		pstmt.setString(1, type.equals("ana_Name")?"%"+keyword+"%":keyword);
+		pstmt.setString(1,"%"+keyword+"%");		
 		pstmt.setInt(2, (cPage-1)*numPerpage+1);
 		pstmt.setInt(3, cPage*numPerpage);
 		rs=pstmt.executeQuery();
@@ -187,7 +188,7 @@ public class ProductDao {
 		e.printStackTrace();
 	}finally {
 		close(rs);
-		close(pstmt);
+		close(pstmt); 
 	}return result;
 }
 	public int searchProductCount(Connection conn, String type, String keyword) {
@@ -195,9 +196,10 @@ public class ProductDao {
 		ResultSet rs=null;
 		String sql=prop.getProperty("searchProductCount").replace("$COL",type);		
 		int result=0;
+		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, type.equals("ana_Name")?"%"+keyword+"%":keyword);
+			pstmt.setString(1,"%"+keyword+"%");
 			rs=pstmt.executeQuery();
 			if(rs.next()) result=rs.getInt(1);
 			
@@ -210,6 +212,7 @@ public class ProductDao {
 		
 	}
 	//
+	
 	
 	
 	private static Product getProduct(ResultSet rs)throws SQLException{

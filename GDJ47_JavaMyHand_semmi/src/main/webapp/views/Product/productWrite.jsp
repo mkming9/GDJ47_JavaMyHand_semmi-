@@ -5,6 +5,7 @@
     %>
     
     <%
+    
     Product p =(Product)request.getAttribute("product"); 
     Member loginMember = (Member)session.getAttribute("loginMember");
 	Cookie[] cookies = request.getCookies();
@@ -27,8 +28,10 @@ crossorigin="anonymous">
 <title>상품등록중.....</title>
 </head>
 <body>
+
 	<form action="<%=request.getContextPath() %>/ProductWriteEndServlet" 
 	method="post" enctype="multipart/form-data">
+
 	<table class="table">
 	
   <thead>
@@ -39,8 +42,10 @@ crossorigin="anonymous">
       <th scope="col">상품이름</th>
       <th scope="col">가격</th>
       <th scope="col">내용</th>
+
       <th>사진</th>
      
+
     </tr>
   </thead>
   <tbody>
@@ -53,8 +58,10 @@ crossorigin="anonymous">
       <td><input type="text" name="ANA_NAME"></td>
       <td><input type="text" name="ANA_PRICE"></td>
       <td><input type="text" name="ANA_CONTENT"></td>
+
       <td><input type="file" name="file"></td>
       
+
   </tbody>
  	<tr>
  	<th colspan="2">

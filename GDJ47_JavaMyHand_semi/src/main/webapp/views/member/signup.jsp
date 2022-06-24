@@ -73,6 +73,7 @@
 					</td>
 				</tr>
 			</table>
+<<<<<<< HEAD
 		<input type="button" value="가입" id="signUp" onclick="signUps();" >
 		<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
         </form>
@@ -80,6 +81,19 @@
         	<input type="hidden" name="memberId">
         </form>	
 		</div>
+=======
+			
+	        </form>
+	        <form name="signs">
+	        	<input type="hidden" name="memberId">
+	        </form>
+	        <div class="btn">
+				<input type="button" value="가입" id="signUp" onclick="signUps();" >
+				<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
+	    	</div>
+		</div>
+		
+>>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 		<!-- <div class="messenger">
     		<img src="./images/messenger.png">
     	</div> -->

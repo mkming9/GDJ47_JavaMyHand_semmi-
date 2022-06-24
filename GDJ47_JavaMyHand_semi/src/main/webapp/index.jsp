@@ -23,7 +23,7 @@
                     <div class="btn1"><a href="<%=request.getContextPath()%>/donate/donateList.do"><img src="images/btn2.png"></a></div>
                 </li>
             </ul>  
-            <p class="controller">
+            <p class="controller"> 
                 <span class="left">&lang;</span>  
                 <span class="right">&rang;</span>
             </p>

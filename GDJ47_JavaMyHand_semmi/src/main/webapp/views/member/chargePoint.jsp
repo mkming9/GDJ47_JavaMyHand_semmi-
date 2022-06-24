@@ -19,7 +19,7 @@
 	<label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
 	<p style="color: #ac2925; margin-top: 30px">KG이니시스의 최소 충전금액은 1000원이며, <br/>최대 충전금액은 50,000원 입니다.</p>
 	<button type="button" class="btn btn-lg btn-block btn-custom" id="payment_txt_amount">충 전 하 기</button>
-	<button onclick="cancelPay()">환불</button>
+	<!-- <button onclick="cancelPay()">환불</button> -->
 </div>
 
 <script>
@@ -76,6 +76,22 @@
         });
     });
     //환불test
+    <%-- function cancelPay(){
+    	jQuery.ajax({
+    		url : "<%=request.getContextPath()%>/member/outPoint.do",
+    		type : "POST",
+    		contentType : "application/json",
+    		data : JSON.stringify({
+    			merchant_uid : 'merchant_' + new Date().getTime(),
+    			cancel_request_amount : 2000,	//환불금액
+    			reason : "테스트 환불",		//환불사유
+    			refund_holder : "JMH",	//환불수령자
+    			refund_bank : "88",
+    			refund_account : "56211105948400"
+    		}),
+    		dataType : "json" 	}
+   		 });
+    } --%>
   	
 </script>
 

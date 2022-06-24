@@ -1,4 +1,4 @@
-package com.jmh.groups.controller;
+ package com.jmh.groups.controller;
 
 import java.io.IOException;
 import java.util.List;

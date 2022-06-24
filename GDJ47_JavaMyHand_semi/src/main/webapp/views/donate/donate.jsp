@@ -31,6 +31,9 @@
 			<div class="newsSlide" id="crolling1">
 				<iframe width="100%" height="100%" src="https://search.daum.net/search?w=news&q=우크라이나+전쟁"></iframe>
 			</div>
+			<div class="newsSlide" id="crolling5">
+			
+			</div>
 			<div class="donatebox">
 				<img src="<%=request.getContextPath() %>/images/don2.png">
 				<h1>코로나 마스크 지원 캠페인<br>
@@ -66,12 +69,35 @@
 			</div>
 		</div>
 	</section>
-	
+	<style>
+		#crolling5 {
+			background-color : white;
+		}
+	</style>
 	<script>
 	    $("#newsbtn1").click(e=>{
 			console.log("클릭함");
-			 $(e.target).parent().next().slideToggle(1000);
-		});
+			// $(e.target).parent().next().slideToggle(1000);
+			 $(e.target).parent().next().next().slideToggle(1000);
+			 $.ajax({
+					url:"<%=request.getContextPath()%>/donate/donateNews.do",
+					dataType:"json",
+					success:data=>{
+						console.log(data);
+						const table=$("<table>");
+						data.forEach(v=>{
+							const tr=$("<tr>");
+							const title=$("<td>").text(v["title"]);
+							const link=$("<td>").text(v["link"]);
+							const imgTd=$("<td>");
+							const img=$("<img>").attr({"src":v["img"]});
+							tr.append(title).append(link).append(imgTd).append(img);
+							table.append(tr);
+						})
+						$("#crolling5").append(table);
+					}
+			});
+	    });
 	    
 	    $("#newsbtn2").click(e=>{
 			console.log("클릭함");
@@ -87,6 +113,8 @@
 			console.log("클릭함");
 			 $(e.target).parent().next().slideToggle(1000);
 		});
+	    
+	    
 	</script>
  </body>
  <%@ include file="/views/common/footer.jsp" %>

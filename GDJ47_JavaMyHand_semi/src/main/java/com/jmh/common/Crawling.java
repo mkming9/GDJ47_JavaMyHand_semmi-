@@ -19,11 +19,20 @@ public class Crawling {
 		// 뉴스 제목가져오기
 		Elements nameElements=doc.getElementsByAttributeValue("class", "news_tit");
 		Elements aElements=nameElements.select("a");
-		for(Element e : aElements) {
-			System.out.println(e);
+		// System.out.println(aElements);
+		
+		Elements imgElements=doc.getElementsByAttributeValue("class", "dsc_thumb");
+		Elements imgs=imgElements.select("img");
+		
+		for(int i=0; i<8; i++) {
+			Element e = aElements.get(i);
+			Element eimg = imgs.get(i);
+			String newsTitle=e.attr("title");
+			String newsLink=e.attr("href");
+			String imgLink=eimg.attr("src");
+			
+			System.out.println((i+1)+". 제목 : "+newsTitle+", 링크 : " + newsLink+", 사진링크 : "+imgLink);
 		}
-		String newsTitle=aElements.attr("title");
-		String newsLink=aElements.attr("href");
 		// System.out.println("제목 : " + newsTitle + " + 링크 : " + newsLink);
 		
 //		// 종목명
@@ -36,8 +45,6 @@ public class Crawling {
 //		Element e2=e1.get(0);
 //		Elements e3=e2.select("span");
 //		System.out.println("현재가 : " + e3.get(0).text());
-//		
-		System.out.println();
 	}
 
 }

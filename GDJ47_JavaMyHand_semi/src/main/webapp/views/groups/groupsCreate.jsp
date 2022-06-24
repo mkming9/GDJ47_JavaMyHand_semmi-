@@ -10,148 +10,148 @@
   <link href="<%=request.getContextPath() %>/css/location.css" rel="stylesheet" type="text/css"/> 
 </head>
 <body>
-   <form action="<%=request.getContextPath()%>/groups/groupsCreateEnd.do" method="post">
-      <table id="groupsFrm">
-                  <table class="tg">
-            <thead>
-              <tr>
-                <th class="tg-0lax" colspan="9" ><input type="text" name="groupTitle"  size="40" placeholder="그 룹 명"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="tg-0lax" colspan="5" rowspan="9">
-                
-                <img src="https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927">
-              <!--  <input type="file" name="file"> -->
-                </td>
-                <td class="tg-0lax" colspan="4" rowspan="2">소모임테마 
-               <select name="gCode">
-                  <option value="G1">환경</option>
-                  <option value="G2">지역사회</option>
-                  <option value="G3">금,물품</option>
-                  <option value="G4">헌혈</option>
-                  <option value="G5">기타</option>
-               </select></td>
-              </tr>
-              <tr>
-              </tr>
-              <tr>
-                <!-- <td class="tg-0lax" colspan="4" rowspan="3"><input type="text" name="groupLocation" size="40" placeholder="위치정보"></td> -->
-                <td>
-                   <input type="button" class="location" id="locationMap" value="위치등록하기">
-            
-                   <div id="modal">
-                      <div id="content">
-                         <div class="map_wrap" style="width:410px;height:438px;">
-                            <div id="map" style="width:520px;height:438px;position:relative;overflow:hidden;"></div>
-                            
-                            <div id="menu_wrap" class="bg_white">
-                               <div class="option">
-                                  <div>
-                                     <!-- <form onsubmit="searchPlaces(); return false;"> -->
-                                            키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
-                                            <button type="button" onclick="searchPlaces();">검색하기</button> 
-                                            <input type="button" id="registration" value="등록">
-                                            <input type="button" id="cancel" value="취소">
-                                        <!-- </form> -->
-                                  </div>
-                               </div>
-                               <hr>
-                                <ul id="placesList"></ul>
-                                <div id="pagination"></div>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </td>
-              </tr>
-              <tr>
-              </tr>
-              <tr>
-              </tr>
-              <tr>
-                <td class="tg-0lax" colspan="4" rowspan="2">제한인원수 
-               <select name="groupLimit">
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-               </select></td>
-              </tr>
-              <tr>
-              </tr>
-              <tr>
-                <td class="tg-0lax" colspan="4" rowspan="2">성별제한
-               <select name="groupGender">
-                  <option value="남자만">남자만</option>
-                  <option value="여자만">여자만</option>
-                  <option value="성별무관">성별무관</option>
-               </select></td>
-              </tr>
-              <tr>
-              </tr>
-            </tbody>
-            <tr>
-            <th colspan="9">
-            <textarea style="resize:none;" name="groupContent" cols="50" rows="5" placeholder="내용입력"></textarea>
-            </th>
-            </tr>
-            
-            
-         <tr>
-            <th id="tg-0lax" colspan="9">
-            <input type="submit" value="등록">
-            <input type="reset" value="취소"></th>
-         </tr>
-            </table>
-         
-               
-            
-   </form>
+	<form action="<%=request.getContextPath()%>/groups/groupsCreateEnd.do" method="post">
+		<table id="groupsFrm">
+						<table class="tg">
+				<thead>
+				  <tr>
+				    <th class="tg-0lax" colspan="9" ><input type="text" name="groupTitle"  size="40" placeholder="그 룹 명"></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+				    <td class="tg-0lax" colspan="5" rowspan="9">
+				    
+				    <img src="https://t1.daumcdn.net/cfile/tistory/2513B53E55DB206927">
+				  <!--  <input type="file" name="file"> -->
+				    </td>
+				    <td class="tg-0lax" colspan="4" rowspan="2">소모임테마 
+					<select name="gCode">
+						<option value="G1">환경</option>
+						<option value="G2">지역사회</option>
+						<option value="G3">금,물품</option>
+						<option value="G4">헌혈</option>
+						<option value="G5">기타</option>
+					</select></td>
+				  </tr>
+				  <tr>
+				  </tr>
+				  <tr>
+				    <!-- <td class="tg-0lax" colspan="4" rowspan="3"><input type="text" name="groupLocation" size="40" placeholder="위치정보"></td> -->
+				    <td>
+				    	<input type="button" class="location" id="locationMap" value="위치등록하기">
+				
+				    	<div id="modal">
+				    		<div id="content">
+				    			<div class="map_wrap" style="width:410px;height:438px;">
+				    				<div id="map" style="width:520px;height:438px;position:relative;overflow:hidden;"></div>
+				    				
+				    				<div id="menu_wrap" class="bg_white">
+				    					<div class="option">
+				    						<div>
+				    							<!-- <form onsubmit="searchPlaces(); return false;"> -->
+								                    키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
+								                    <button type="button" onclick="searchPlaces();">검색하기</button> 
+								                    <input type="button" id="registration" value="등록">
+								                    <!-- <input type="button" class="close" id="closeModal" value="X"> -->
+								                <!-- </form> -->
+				    						</div>
+				    					</div>
+				    					<hr>
+								        <ul id="placesList"></ul>
+								        <div id="pagination"></div>
+				    				</div>
+				    			</div>
+				    		</div>
+				    	</div>
+				    </td>
+				  </tr>
+				  <tr>
+				  </tr>
+				  <tr>
+				  </tr>
+				  <tr>
+				    <td class="tg-0lax" colspan="4" rowspan="2">제한인원수 
+					<select name="groupLimit">
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+					</select></td>
+				  </tr>
+				  <tr>
+				  </tr>
+				  <tr>
+				    <td class="tg-0lax" colspan="4" rowspan="2">성별제한
+					<select name="groupGender">
+						<option value="남자만">남자만</option>
+						<option value="여자만">여자만</option>
+						<option value="성별무관">성별무관</option>
+					</select></td>
+				  </tr>
+				  <tr>
+				  </tr>
+				</tbody>
+				<tr>
+				<th colspan="9">
+				<textarea style="resize:none;" name="groupContent" cols="50" rows="5" placeholder="내용입력"></textarea>
+				</th>
+				</tr>
+				
+				
+			<tr>
+				<th id="tg-0lax" colspan="9">
+				<input type="submit" value="등록">
+				<input type="reset" value="취소"></th>
+			</tr>
+				</table>			
+	</form>
+
 </body>
 <script>
-   var locationMap = document.getElementById("locationMap"); 
-   
-   // modal 창을 감춤
-   var closeRtn = function(){
-     var modal = document.getElementById('modal');
-     modal.style.display = 'none';
-   }
-   // 마커를 담을 배열입니다
-   var markers = [];
-   var curlat, curlong;
-   // modal 창을 보여줌
-   locationMap.onclick = function(){
-     var modal = document.getElementById('modal');
-     modal.style.display = 'block';
-   
-      
-      navigator.geolocation.getCurrentPosition(po=>{
-            curlat=po.coords.latitude;
-            curlong=po.coords.longitude;
-            createMap();
-         });
-   }
-   var ps,map,inforwindow;
-   function createMap(){
-      console.log(curlat,curlong);
-      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-       mapOption = {
-           center: new kakao.maps.LatLng(curlat, curlong), // 지도의 중심좌표
-           level: 3// 지도의 확대 레벨
-       };  
-   
-      // 지도를 생성합니다    
-      map = new kakao.maps.Map(mapContainer, mapOption); 
-   
-      // 장소 검색 객체를 생성합니다
-      ps = new kakao.maps.services.Places();  
-   
-      // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
-      infowindow = new kakao.maps.InfoWindow({zIndex:1});
-   
-      // 키워드로 장소를 검색합니다
-      searchPlaces();
+	var locationMap = document.getElementById("locationMap"); 
+	// modal 창을 감춤
+	
+	// 마커를 담을 배열입니다
+	var markers = [];
+	var curlat, curlong;
+	// modal 창을 보여줌
+	locationMap.onclick = function(){
+	  var modal = document.getElementById('modal');
+	  modal.style.display = 'block';
+	
+		navigator.geolocation.getCurrentPosition(po=>{
+				curlat=po.coords.latitude;
+				curlong=po.coords.longitude;
+				createMap();
+			});
+	}
+	
+	//시간낭비 close
+	/* closeModal.onclick = function(){
+		  var modal = document.getElementById('modal');
+		  modal.style.display = 'hidden';
+		} */
+
+	var ps,map,inforwindow;
+	function createMap(){
+		console.log(curlat,curlong);
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = {
+	        center: new kakao.maps.LatLng(curlat, curlong), // 지도의 중심좌표
+	        level: 3// 지도의 확대 레벨
+	    };  
+	
+		// 지도를 생성합니다    
+		map = new kakao.maps.Map(mapContainer, mapOption); 
+	
+		// 장소 검색 객체를 생성합니다
+		ps = new kakao.maps.services.Places();  
+	
+		// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+		infowindow = new kakao.maps.InfoWindow({zIndex:1});
+	
+		// 키워드로 장소를 검색합니다
+		searchPlaces();
 
    }
    /* // 마커를 담을 배열입니다

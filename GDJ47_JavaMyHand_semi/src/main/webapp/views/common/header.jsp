@@ -84,7 +84,6 @@
         			<input type="button" id="signup" value=""
                		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         	</div>
-        </div>
         </form>
         <%}else {%>
         <div class="hello">

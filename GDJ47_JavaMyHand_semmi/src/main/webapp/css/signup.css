@@ -1,5 +1,7 @@
 .signupbanner{
 	height: 650px;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-image: url(../images/signupbanner.png);
 }
 .text{
@@ -15,13 +17,18 @@ h5{
 }
 .tablecontainer{
 	height:969px;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-image: url(../images/signupback.png);
+	justify-content : center;
+}
+.tablecontainer input{
+	margin: 0px auto;
+	justify-items: center;
 }
 .signuptable{
-	margin-top: 80px;
-	margin-left: 730px;
+	margin: 47px auto;
 	border-spacing: 0 10px;
-
 }
 .signuptable tr, .signuptable td, .signuptable th{
 	height: 40px;
@@ -59,6 +66,10 @@ input:focus{
 	color: rgb(120,120,120);
 	padding-left: 8px;
 }
+.btn{
+	width: 500px;
+	margin: 0 auto;
+}
 #signUp, #cancel{
 	border: 0;
 	width: 225px;
@@ -68,9 +79,7 @@ input:focus{
 	font-weight: 500;
 	font-size: 18px;
 }
-#signUp{
-	margin-top: 40px;
-	margin-left: 732px;	
+#signUp{	
 	background-color: rgb(39, 113, 173);
 	cursor: pointer;
 }

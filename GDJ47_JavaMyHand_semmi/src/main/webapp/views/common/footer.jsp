@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <footer>
+<div class="footerwrap">
     <div id="footerlogo"><img src="<%=request.getContextPath() %>/images/footerlogo.png"></div>
     <div id="footertext">
         <h5>(주)자바마이핸드</h5>
@@ -18,6 +19,7 @@
         <img src="<%=request.getContextPath() %>/images/twit.png">&nbsp;
         <img src="<%=request.getContextPath() %>/images/google.png">
     </div>
+</div>
 </footer>
 </body>
 </html>

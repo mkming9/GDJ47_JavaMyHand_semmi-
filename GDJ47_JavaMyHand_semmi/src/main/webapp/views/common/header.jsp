@@ -60,6 +60,7 @@
         </div>
         <%if(loginMember==null) {%>
         <form action="<%=request.getContextPath()%>/member/login.do" method="post">
+        <div class="logintable">
         	<table class="logintable1">
         		<tr>
         			<td>
@@ -83,6 +84,7 @@
         			<input type="button" id="signup" value=""
                		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         	</div>
+        </div>
         </form>
         <%}else {%>
         <div class="hello">

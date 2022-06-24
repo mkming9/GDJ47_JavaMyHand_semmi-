@@ -73,13 +73,17 @@
 					</td>
 				</tr>
 			</table>
-		<input type="button" value="가입" id="signUp" onclick="signUps();" >
-		<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
-        </form>
-        <form name="signs">
-        	<input type="hidden" name="memberId">
-        </form>	
+			
+	        </form>
+	        <form name="signs">
+	        	<input type="hidden" name="memberId">
+	        </form>
+	        <div class="btn">
+				<input type="button" value="가입" id="signUp" onclick="signUps();" >
+				<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
+	    	</div>
 		</div>
+		
 		<!-- <div class="messenger">
     		<img src="./images/messenger.png">
     	</div> -->

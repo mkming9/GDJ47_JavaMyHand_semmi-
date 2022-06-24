@@ -1,9 +1,8 @@
-body {
-	overflow-x: hidden;
-}
 .donatebanner{
 	height: 650px;
 	background-image: url(../images/donatebanner.png);
+	background-position: center;
+	background-repeat: no-repeat;
 }
 #description{
 	margin-top: 90px;
@@ -43,11 +42,12 @@ body {
 	background-image: url(../images/org4.png);
 }
 .donatewrap{
-	margin-left: 435px;
+	width: 100%;
+	justify-content : center;
 	margin-bottom: 130px;
 }
 .donatebox{
-	margin-top: 120px;
+	margin: 120px auto;
 	width: 1050px;
 	height: 345px;
 	background-image: url(../images/donatebox.png);
@@ -94,7 +94,7 @@ body {
 	cursor: pointer;
 }
 .newsSlide{
-	margin-top: 35px;
+	margin: 35px auto;
 	background-color: lightslategray;
 	width: 1050px;
 	height: 600px;

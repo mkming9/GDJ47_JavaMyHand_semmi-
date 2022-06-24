@@ -1,4 +1,4 @@
-package com.jmh.Files.model.vo;
+package com.jmh.files.model.vo;
 
 import java.sql.Date;
 

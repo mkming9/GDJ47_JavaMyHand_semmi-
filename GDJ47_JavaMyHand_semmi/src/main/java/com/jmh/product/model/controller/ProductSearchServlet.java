@@ -35,8 +35,9 @@ public class ProductSearchServlet extends HttpServlet {
 		String type=request.getParameter("searchType");
 		String keyword=request.getParameter("searchKeyword");
 		
-//		System.out.println(type);
-//		System.out.println(keyword);
+		System.out.println(type);
+		System.out.println(keyword);
+		
 		
 		int cPage;
 		int numPerpage=5;

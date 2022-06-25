@@ -86,6 +86,7 @@
 <script>
 	function signUps() {
     	var id =document.getElementById("memberId_");
+    	var idCh=document.getElementById("idCheck");
     	var pw1 =document.getElementById("password1");
     	var pw2 =document.getElementById("password2");
     	var name =document.getElementById("memberName");
@@ -94,15 +95,12 @@
     	var phone =document.getElementById("phone");
     	var mail =document.getElementById("email");
     	
-    	 if(id.value.trim().length<4||id.value==""){
-    		alert("아이디를 4자 이상 입력하세요");
+    	var idd= /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
+    	 if(!idd.test(id.value)){
+    		alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다.");
     		id.focus();
     		return false;
-    	} /*else {
-    		alert("아이디 중복확인해주세요");
-    		$(".idCh").focus();
-    		return false;
-    	} */
+    	} 
     	
 		if(pw1.value==""){
 			alert("비밀번호를 입력하세요");
@@ -110,15 +108,15 @@
 			return false;
 		};
 		//최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자 정규식
+		if(pw2.value !==pw1.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			pw2.focus();
+			return false;
+		};
 		var pwCh = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 		if(!pwCh.test(pw1.value)){
 			alert("비밀번호를 최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자로 입력해주세요");
 			pw1.focus();
-			return false;
-		};
-		if(pw2.value !==pw1.value){
-			alert("비밀번호가 일치하지 않습니다.");
-			pw2.focus();
 			return false;
 		};
 		
@@ -172,7 +170,7 @@
 	   			
 	   		const memberId=$('#memberId_').val().trim();
    			if(memberId.length<4||memberId==""){
-	   			alert("아이디를 4글자 이상 입력해주세요");
+	   			alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다");
 	   			$("#memberId_").focus();
    			}else{
 	   			const url= "<%=request.getContextPath()%>/idCheck.do";

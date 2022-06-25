@@ -7,12 +7,13 @@
 <title>Insert title here</title>
  <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f2186691f6e3eb864c7d611c96937b93&libraries=services"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <link href="<%=request.getContextPath() %>/css/location.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/groups/groupsCreateEnd.do" method="post">
 		<table id="groupsFrm">
-						<table class="tg">
+			<table class="tg">		
 				<thead>
 				  <tr>
 				    <th class="tg-0lax" colspan="9" ><input type="text" name="groupTitle"  size="40" placeholder="그 룹 명"></th>
@@ -44,16 +45,16 @@
 				    	<div id="modal">
 				    		<div id="content">
 				    			<div class="map_wrap" style="width:410px;height:438px;">
-				    				<div id="map" style="width:520px;height:438px;position:relative;overflow:hidden;"></div>
+				    				<div id="map" style="width:700px;height:570px;position:relative;overflow:hidden;"></div>
 				    				
 				    				<div id="menu_wrap" class="bg_white">
 				    					<div class="option">
 				    						<div>
 				    							<!-- <form onsubmit="searchPlaces(); return false;"> -->
-								                    키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
+								                    키워드 : <input type="text" value="" id="keyword" size="15"> 
 								                    <button type="button" onclick="searchPlaces();">검색하기</button> 
 								                    <input type="button" id="registration" value="등록">
-								                    <!-- <input type="button" class="close" id="closeModal" value="X"> -->
+								                    <input type="button" id="cancel" value="취소">
 								                <!-- </form> -->
 				    						</div>
 				    					</div>
@@ -96,24 +97,23 @@
 				<textarea style="resize:none;" name="groupContent" cols="50" rows="5" placeholder="내용입력"></textarea>
 				</th>
 				</tr>
-				
-				
-			<tr>
-				<th id="tg-0lax" colspan="9">
-				<input type="submit" value="등록">
-				<input type="reset" value="취소"></th>
-			</tr>
-				</table>
-			
-					
-				
+				<tr>
+					<th id="tg-0lax" colspan="9">
+					<input type="submit" value="등록">
+					<input type="reset" value="취소"></th>
+				</tr>
+		</table>		
 	</form>
 </body>
+</html>
 <script>
 	var locationMap = document.getElementById("locationMap"); 
-	var closeModal = document.getElementById("closeModal");
-	// modal 창을 감춤
 	
+	// modal 창을 감춤
+	var closeRtn = function(){
+	  var modal = document.getElementById('modal');
+	  modal.style.display = 'none';
+	}
 	// 마커를 담을 배열입니다
 	var markers = [];
 	var curlat, curlong;
@@ -122,19 +122,13 @@
 	  var modal = document.getElementById('modal');
 	  modal.style.display = 'block';
 	
+		
 		navigator.geolocation.getCurrentPosition(po=>{
 				curlat=po.coords.latitude;
 				curlong=po.coords.longitude;
 				createMap();
 			});
 	}
-	
-	//시간낭비 close
-	/* closeModal.onclick = function(){
-		  var modal = document.getElementById('modal');
-		  modal.style.display = 'hidden';
-		} */
-
 	var ps,map,inforwindow;
 	function createMap(){
 		console.log(curlat,curlong);
@@ -157,6 +151,9 @@
 		searchPlaces();
 
 	}
+	
+	
+	
 	/* // 마커를 담을 배열입니다
 	var markers = [];
 
@@ -178,11 +175,20 @@
 	// 키워드로 장소를 검색합니다
 	searchPlaces(); */
 
-	// 키워드 검색을 요청하는 함수입니다
+	
 	function searchPlaces() {
 
-	    var keyword = document.getElementById('keyword').value;
-
+		// 키워드 검색을 요청하는 함수입니다
+		$("#keyword").on("click",function(){
+	 		  new daum.Postcode({
+	 		        oncomplete: function(data) {
+	 		            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+	 		            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+	 		            
+	 		        }
+	 		    }).open();
+	});
+			
 	    if (!keyword.replace(/^\s+|\s+$/g, '')) {
 	        alert('키워드를 입력해주세요!');
 	        return false;
@@ -373,7 +379,3 @@
 	    }
 	}
 </script>
-
-	
-
-</html>

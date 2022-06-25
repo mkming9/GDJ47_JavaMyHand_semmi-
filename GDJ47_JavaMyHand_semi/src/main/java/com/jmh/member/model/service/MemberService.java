@@ -50,4 +50,13 @@ public class MemberService {
 		return result;
 	}
 	
+	public int memberEdit(Member m) {
+		Connection conn = getConnection();
+		int result = dao.memberEdit(conn, m);
+		if(result>0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+	}
+	
 }

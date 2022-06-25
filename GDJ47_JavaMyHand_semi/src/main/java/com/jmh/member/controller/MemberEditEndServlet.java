@@ -31,36 +31,36 @@ public class MemberEditEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Member m = new Member();
-		m.setMemberId(request.getParameter("memberId"));
-		m.setMemberName(request.getParameter("memberName"));
-		m.setGender(request.getParameter("gender"));
-		m.setAge(Integer.parseInt(request.getParameter("age")));
-		m.setAddress(request.getParameter("address"));
-		m.setPhone(request.getParameter("phone"));
-		m.setEmail(request.getParameter("email"));
+//		Member m = new Member();
+//		m.setMemberId(request.getParameter("memberId"));
+//		m.setMemberName(request.getParameter("memberName"));
+//		m.setGender(request.getParameter("gender"));
+//		m.setAge(Integer.parseInt(request.getParameter("age")));
+//		m.setAddress(request.getParameter("address"));
+//		m.setPhone(request.getParameter("phone"));
+//		m.setEmail(request.getParameter("email"));
 
 		
-//		String memberId = request.getParameter("memberId");
-//		String password = request.getParameter("password");
-//		String memberName = request.getParameter("memberName");
-//		String gender = request.getParameter("gender");
-//		int age =Integer.parseInt(request.getParameter("age"));
-//		String address= request.getParameter("address");
-//		String phone = request.getParameter("phone");
-//		String email = request.getParameter("email");
-//		
-//		Member m = Member.builder().memberId(memberId)
-//				.password(password)
-//				.memberName(memberName)
-//				.gender(gender)
-//				.age(age)
-//				.address(address)
-//				.phone(phone)
-//				.point(0)
-//				.enrollDate(null)
-//				.email(email)
-//				.build();
+		String memberId = request.getParameter("memberId");
+		String password = request.getParameter("password");
+		String memberName = request.getParameter("memberName");
+		String gender = request.getParameter("gender");
+		int age =Integer.parseInt(request.getParameter("age"));
+		String address= request.getParameter("address");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+		
+		Member m = Member.builder().memberId(memberId)
+				.password(password)
+				.memberName(memberName)
+				.gender(gender)
+				.age(age)
+				.address(address)
+				.phone(phone)
+				.point(0)
+				.enrollDate(null)
+				.email(email)
+				.build();
 		
 		int result = new MemberService().memberEdit(m);
 		

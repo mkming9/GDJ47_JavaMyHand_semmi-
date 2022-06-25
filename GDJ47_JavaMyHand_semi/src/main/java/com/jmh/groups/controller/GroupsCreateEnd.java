@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpSession;
+
 import com.jmh.groups.model.service.GroupsService;
 import com.jmh.groups.model.vo.Groups;
 
@@ -48,6 +50,13 @@ public class GroupsCreateEnd extends HttpServlet {
 				.build();
 		
 		int result=new GroupsService().insertGroups(g);
+	
+		if(g!=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("result",result);
+		}
+			
+
 	}
 
 	/**

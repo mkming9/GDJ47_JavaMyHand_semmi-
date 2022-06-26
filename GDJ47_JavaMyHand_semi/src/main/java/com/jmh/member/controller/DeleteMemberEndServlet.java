@@ -1,7 +1,6 @@
 package com.jmh.member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +11,16 @@ import com.jmh.member.model.service.MemberService;
 import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class SignUpEndServlet
+ * Servlet implementation class DeleteMemberEndServlet
  */
-@WebServlet("/signupend.do")
-public class SignUpEndServlet extends HttpServlet {
+@WebServlet("/deleteMemberEnd.do")
+public class DeleteMemberEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignUpEndServlet() {
+    public DeleteMemberEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,48 +30,30 @@ public class SignUpEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//회원가입
 		String memberId = request.getParameter("memberId");
-		String password = request.getParameter("password");
-		String memberName = request.getParameter("memberName");
-		String gender = request.getParameter("gender");
-		int age =Integer.parseInt(request.getParameter("age"));
-		String address= request.getParameter("address");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
+		String oriPw = request.getParameter("password");
 		
-		
-		
-		System.out.println("아이디 : "+memberId+"\n비번 : "+password
-						+"\n이름 : "+memberName+"\n성별 : "+gender+"\n나이 : "+age
-						+"\n주소 : "+address+"\n번호 : "+phone+"\n이메일 : "+email);
-
 		Member m = Member.builder().memberId(memberId)
-						.password(password)
-						.memberName(memberName)
-						.gender(gender)
-						.age(age)
-						.address(address)
-						.phone(phone)
-						.point(0)
-						.enrollDate(null)
-						.email(email)
-						.build();
-	
-		int result =new MemberService().memberSignUp(m); 
-		System.out.println(result);
+				.password(oriPw)
+				.build();
 		
-		String msg="" ,loc="";
-		if(result>0) {
-			msg="회원가입을 성공하셨습니다";
-			loc="/";
+		String msg="", loc="";
+		if(m!=null) {
+			//맞는 비밀번호
+			int result = new MemberService().deleteMember(m);
+			
+			if(result>0) {
+				msg = "탈퇴가 정상적으로 되었습니다. 감사합니다.";
+				loc = "/index.jsp";
+			}else {
+				msg = "오류";
+			}
 		}else {
-			msg="회원가입을 실패했습니다 다시 시도하세요";
-			loc="/signup.do";
+			//틀린 비밀번호
+			msg="비밀번호가 일치하지 않습니다.";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);
-		
 		request.getRequestDispatcher("/views/common/msg.jsp")
 		.forward(request, response);
 	}

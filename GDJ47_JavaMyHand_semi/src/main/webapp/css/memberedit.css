@@ -70,6 +70,7 @@
 .pagecontent{
 	width: 100%;
 	display: table;
+	margin-left: 38px;
 }
 #currentjava{
 	width: 800px;
@@ -156,6 +157,9 @@
 	font-weight: 700;
 	font-size: 15px;
 }
+#memberId{
+	
+}
 #changePwBtn{
 	width: 47px;
 	height: 25px;
@@ -166,9 +170,23 @@
 }
 #detailUpdateBtn{
 	float: right;
-	margin-top: 150px;
+	margin-top: 90px;
 	margin-right: 80px;
 	border: 3px solid rgb(200,200,200);
+	width: 195px;
+	height: 55px;
+	font-family: "IBM Plex Sans KR";
+	font-weight: 500;
+	font-size: 18px;
+	background-color: white;
+	border-radius: 30px;
+	cursor: pointer;
+}
+#deleteBtn{
+	float: right;
+	margin-top: 7px;
+	margin-right: 80px;
+	border: 3px solid rgb(242,132,132);
 	width: 195px;
 	height: 55px;
 	font-family: "IBM Plex Sans KR";

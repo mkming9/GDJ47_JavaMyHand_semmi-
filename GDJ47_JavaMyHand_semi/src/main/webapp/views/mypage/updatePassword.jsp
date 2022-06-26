@@ -22,11 +22,7 @@
 		font-family: "Noto Sans KR";
 		color: rgb(50,50,50);
 		font-weight: 500;
-		margin-top: 27px;
 		float: left;
-	}
-	#password{
-		margin-top: 30px;
 	}
 	.form{
 		margin: 0 auto;
@@ -56,16 +52,28 @@
 
 
     <div id="pwWrap">
-		<form name="updatePwdFrm" action="<%=request.getContextPath() %>/deleteMemberEnd.do" method="post">
+		<form name="updatePwdFrm" action="<%=request.getContextPath() %>/updatePasswordEnd.do" method="post">
 			<table class="form">
 				<tr>
-					<th id="ths">비밀번호 입력</th>
+					<th id="ths">현재 비밀번호</th>
 					<td><input type="password" name="password" id="password" required></td>
 				</tr>
 				<tr>
+					<th id="ths">새 비밀번호</th>
+					<td>
+						<input type="password" name="password_new" id="password_new" required>
+					</td>
+				</tr>
+				<tr>
+					<th id="ths">비밀번호 확인</th>
+					<td>	
+						<input type="password" id="password_chk" required><br>
+					</td>
+				</tr>
+				<tr>
 					<td colspan="2">
-						<input type="submit" id="btns1" value="탈퇴" />&nbsp;
-						<input type="button" id="btns2" value="취소" />						
+						<input type="submit" id="btns1" value="변경" />&nbsp;
+						<input type="button" id="btns2" value="닫기" />						
 					</td>
 				</tr>
 			</table>

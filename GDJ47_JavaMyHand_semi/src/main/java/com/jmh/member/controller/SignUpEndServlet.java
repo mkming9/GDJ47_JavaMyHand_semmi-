@@ -31,7 +31,7 @@ public class SignUpEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-			//회원가입
+		//회원가입
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		String memberName = request.getParameter("memberName");

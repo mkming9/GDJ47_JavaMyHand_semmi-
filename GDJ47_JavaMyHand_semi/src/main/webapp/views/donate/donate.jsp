@@ -77,6 +77,7 @@
    </style>
    <script>
    $(".donbtn").click(e=>{
+	   
   		window.open("<%=request.getContextPath()%>/donate/donate.do","_blank","width=800, height=600, top=200, left=440");
   	});
    

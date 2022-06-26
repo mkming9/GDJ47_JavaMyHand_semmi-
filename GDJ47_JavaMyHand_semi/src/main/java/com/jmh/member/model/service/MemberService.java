@@ -49,7 +49,14 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
-	
+	public int UpdateDonate(int point,String memberId) {
+		Connection conn=getConnection();
+		int result=dao.UpdateDonate(conn, point, memberId);
+		if(result>0)commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+	}
 	public int memberEdit(Member m) {//회원 정보 수정
 		Connection conn = getConnection();
 		int result = dao.memberEdit(conn, m);

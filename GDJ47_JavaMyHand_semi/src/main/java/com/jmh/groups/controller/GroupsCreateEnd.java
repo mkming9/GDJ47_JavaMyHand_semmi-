@@ -40,6 +40,7 @@ public class GroupsCreateEnd extends HttpServlet {
 		String groupLocation=request.getParameter("groupLocation");
 		
 		System.out.println(groupTitle+" "+groupContent+" "+groupGender+" "+groupLimit+" "+groupLocation);
+		
 		Groups g=Groups.builder().gCode(gCode)
 				.groupTitle(groupTitle)
 				.groupContent(groupContent)
@@ -50,11 +51,7 @@ public class GroupsCreateEnd extends HttpServlet {
 		
 		int result=new GroupsService().insertGroups(g);
 	
-		if(g!=null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("result",result);
-		}
-			
+					
 	}
 
 	/**

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/header.jsp" %>
+
 <body>
 	<section id=enroll-container>
 		<div class="signupbanner"></div>	
@@ -68,11 +69,10 @@
 				<tr>
 					<th>이메일</th>
 					<td>	
-						<input type="email" placeholder="admin1@admin1.com" name="email" id="email" >
+						<input type="email" placeholder="email@gmail.com" name="email" id="email" >
 						<input type="button" value="이메일 인증" id="emailCheck" class="email" onclick="fn_emailDuplicate();"><br>
-						<input type="email" name="email" id="email" >
-						<input type="button" value="확인" id="emailCheck" class="email" onclick="fn_emailDuplicate();">
-
+						<input type="text" name="emailCheck" id="emailCheck" >
+						<input type="button" value="확인" id="emailChecks" class="email" onclick="fn_emailCheck();">
 					</td>
 				</tr>
 			</table>
@@ -100,6 +100,7 @@
     	var address =document.getElementById("address");
     	var phone =document.getElementById("phone");
     	var mail =document.getElementById("email");
+    	var emailCheck = document.getElementById("emailChecks");
     	
     	var idd= /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
     	 if(!idd.test(id.value)){
@@ -163,9 +164,8 @@
 			mail.focus();
 			return false;
 		}  
-			document.sign.submit();
+		document.sign.submit();
 	}
-		
 			 //아이디 중복확인 창
 	   		$("#idCheck").on("click",function(){
 	   			
@@ -191,20 +191,26 @@
 			let memberName = $('#memberName').val();
 			alert("인증번호를 해당 이메일로 발송했습니다. 확인해주세요!");
 			$.ajax ({
-			  url	: "${pageContext.request.contextPath}"+"/member/emailCertification.do",
+			  url	: "<%=request.getContextPath()%>/member/emailCertification.do", /* //"${pageContext.request.contextPath}"+"/member/emailCertification.do", */
 			  type	: "get",
 			  data  : {"email" : email, "memberId" : memberId, "memberName" : memberName}, 
 			  contentType : "application/json", 
 			  dataType    : "json",
 			  success : function(data, status, xhr) {
-				  
-			  },
+					
+			  }, 
 			  error	: function(xhr, status, error) {
 				  console.log(status);
 			  }
 			});
 		};
-   			
+		
+		function fn_emailCheck(){
+			
+		}
+		
+		
+		
 	</script>
 </body>
 <%@ include file="/views/common/footer.jsp" %>

@@ -6,35 +6,52 @@
 	
    List<Groups> groups=(List<Groups>)request.getAttribute("groups");
 %>
+<style>
+.info{
+	text-align:center;
+	border: solid 1px;
+}
+.info td{
+border: solid 1px;
 
+
+ </style>
 <body>
    <section>
    <div class="groupsbanner"></div>
-   <table>
+   <table class="info">
+	<tr>
+	
+      	 <td>게시판 번호&nbsp;&nbsp;</td>
+      	 <td>작성자 &nbsp;&nbsp; </td>
+      	 <td>행복한 제목&nbsp;&nbsp; </td>
+      	 <td>소모임 테마&nbsp;&nbsp; </td>
+      	 <td>작성일&nbsp;&nbsp; </td>
+      	 <td>선착순 &nbsp;&nbsp; </td>
+      	 <td>성별&nbsp;&nbsp; </td>
+      	 <!-- <td>소모임 내용&nbsp;&nbsp; </td> -->
+	</tr>
    <%if(!groups.isEmpty()) {
       for(Groups g : groups) {%>
-      <tr>
+      <tr class="info">
          <td><%=g.getGroupNo()%>&nbsp;&nbsp;</td>
          <td><%=g.getMemberId()%>&nbsp;&nbsp;</td> 
-         <td><%=g.getGroupTitle()%>&nbsp;&nbsp;</td>
+         <td><a href=""><%=g.getGroupTitle()%>&nbsp;&nbsp;</a></td>
          <td><%=g.getGCode()%>&nbsp;&nbsp;</td>
-         <td><%=g.getGroupLocation()%>&nbsp;&nbsp;</td>
-         <td><%=g.getGroupLimit()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupDate()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupJoin()%>/<%=g.getGroupLimit()%>&nbsp;&nbsp;</td>
          <td><%=g.getGroupGender()%>&nbsp;&nbsp;</td>
-         <td><%=g.getGroupContent()%>&nbsp;&nbsp;</td>
+         <%-- <td><%=g.getGroupContent()%>&nbsp;&nbsp;</td> --%>
       </tr>
      <%} 
      } %>
      </table>
      <button id="btn_createGroups">소모임 등록</button>
      <button id="btn_deleteGroups">소모임 삭제</button>
-     
-     <button onclick="requestPay();">포인트 충전</button>
-     
      <div id="payResult"></div>
    </section>
    
-     <script>
+   <%--   <script>
   
     function requestPay() {
       // IMP.request_pay(param, callback) 결제창 호출
@@ -79,7 +96,7 @@
           }
       });
     }
-  </script>
+  </script> --%>
   <script>
    $("#btn_createGroups").click(e=>{
 	   open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");

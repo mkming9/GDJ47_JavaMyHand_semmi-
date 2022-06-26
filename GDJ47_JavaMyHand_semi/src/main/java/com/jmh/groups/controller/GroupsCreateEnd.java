@@ -43,7 +43,7 @@ public class GroupsCreateEnd extends HttpServlet {
 		System.out.println(memberId+" "+groupTitle+" "+gCode+" "+groupLocation+" "
 		+groupLimit+" "+groupGender+" "+groupContent);
 		
-		Groups g=Groups.builder()
+		Groups g=Groups.builder().memberId(memberId)
 				.gCode(gCode)
 				.groupTitle(groupTitle)
 				.groupContent(groupContent)

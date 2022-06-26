@@ -9,6 +9,7 @@
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
         onsubmit="return signUp();" >
         <div class="tablecontainer">
+        <input type="hidden" id="chk" value="0" >
         	<div class="text">
         		<h3>회원가입을 위해 아래 정보를 입력해주세요.</h3>
         		<h5>입력한 정보는 회원가입 목적으로만 이용됩니다.</h5>
@@ -91,8 +92,7 @@
     </section>
 <script>
 	function signUps() {
-    	var id =document.getElementById("memberId_");
-<<<<<<< HEAD
+  /*  	var id =document.getElementById("memberId_");
     	var pw1 =document.getElementById("password1");
     	var pw2 =document.getElementById("password2");
     	var name =document.getElementById("memberName");
@@ -105,11 +105,7 @@
     		alert("아이디를 4자 이상 입력하세요");
     		id.focus();
     		return false;
-    	} /*else {
-    		alert("아이디 중복확인해주세요");
-    		$(".idCh").focus();
-    		return false;
-    	} */
+    	} 
     	
 		if(pw1.value==""){
 			alert("비밀번호를 입력하세요");
@@ -168,15 +164,9 @@
 		}  
 			document.sign.submit();
 	}
-		
-		
-			 //아이디 중복확인 창
-	   		$("#idCheck").on("click",function(){
-	   			
-	   		const memberId=$('#memberId_').val().trim();
-   			if(memberId.length<4||memberId==""){
-	   			alert("아이디를 4글자 이상 입력해주세요");
-=======
+		 */
+		 
+    	var id=document.getElementById("memberId_");
     	var idCh=document.getElementById("idCheck");
     	var pw1 =document.getElementById("password1");
     	var pw2 =document.getElementById("password2");
@@ -187,7 +177,7 @@
     	var mail =document.getElementById("email");
     	var emailCheck = document.getElementById("emailChecks");
     	var emailInput = document.getElementById("emailInput");
-    	
+
     	var idd= /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
     	 if(!idd.test(id.value)){
     		alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다.");
@@ -257,18 +247,19 @@
 		}
 		document.sign.submit();
 	}
+	
+	
 			 //아이디 중복확인 창
 	   		$("#idCheck").on("click",function(){
 	   			
 	   		const memberId=$('#memberId_').val().trim();
    			if(memberId.length<4||memberId==""){
 	   			alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다");
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 	   			$("#memberId_").focus();
    			}else{
 	   			const url= "<%=request.getContextPath()%>/idCheck.do";
    				const title="idCheck";
-   				open("",title,"width=400,height=400");
+   				open("",title,"width=400,height=200");
    				signs.memberId.value=memberId;
    				signs.method="post";
    				signs.action=url;
@@ -276,16 +267,18 @@
    				signs.submit();
 	   			}
 	   		}); 
+			 
+			 
 		let saveKey = "";		
 		function fn_emailDuplicate(){
 			let email = $('#email').val();
-			let memberId = $('#memberId').val();
+			let memberId = $('#memberId_').val();
 			let memberName = $('#memberName').val();
 			alert("인증번호를 해당 이메일로 발송했습니다. 확인해주세요!");
 			$.ajax ({
 			  url	: "<%=request.getContextPath()%>/member/emailCertification.do", /* //"${pageContext.request.contextPath}"+"/member/emailCertification.do", */
 			  type	: "get",
-			  data  : {"email" : email, "memberId" : memberId, "memberName" : memberName}, 
+			  data  : {"email" : email, "memberId_" : memberId, "memberName" : memberName}, 
 			  contentType : "application/json", 
 			  dataType    : "json",
 			  success:data=>{
@@ -294,6 +287,7 @@
 			  }
 			});
 		};
+		
 		let emailOk = false;
 		$("#emailChecks").click(e=>{
 			let emailInput = $('#emailInput').val();

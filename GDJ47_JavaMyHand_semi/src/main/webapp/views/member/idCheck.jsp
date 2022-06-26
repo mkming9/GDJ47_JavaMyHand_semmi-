@@ -12,11 +12,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
+
 <%-- <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script> --%>
-=======
+
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
+
 </head>
 <body>
 <style>

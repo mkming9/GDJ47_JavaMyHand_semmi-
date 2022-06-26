@@ -68,7 +68,7 @@
 				<tr>
 					<th>이메일</th>
 					<td>	
-						<input type="email" placeholder="admin1@admin1.com" name="email" id="email" >
+						<input type="email" placeholder="admin@naver.com" name="email" id="email" >
 						<input type="button" value="이메일 인증" id="emailCheck" >
 					</td>
 				</tr>

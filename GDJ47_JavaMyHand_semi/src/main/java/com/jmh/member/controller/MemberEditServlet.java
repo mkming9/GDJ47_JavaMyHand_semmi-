@@ -14,7 +14,7 @@ import com.jmh.member.model.vo.Member;
 /**
  * Servlet implementation class MemberEditServlet
  */
-@WebServlet("/mypage/memberEdit.do")
+@WebServlet("/memberedit.do")
 public class MemberEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

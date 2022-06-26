@@ -6,9 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf6a19ff42424627bc81b1b27852d206
-&libraries=services"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf6a19ff42424627bc81b1b27852d206&libraries=services"></script>
   <link href="<%=request.getContextPath() %>/css/location.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -41,33 +40,9 @@
 				  <tr>
 				    <!-- <td class="tg-0lax" colspan="4" rowspan="3"><input type="text" name="groupLocation" size="40" placeholder="위치정보"></td> -->
 				    <td>
-				    	<input type="text"  id="sample5_address" placeholder="주소">
-						<input type="button"  onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+				    	<input type="text" id="sample5_address" placeholder="주소">
+						<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 						<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
-						<div></div>
-				    	<div id="modal">
-				    		<div id="content">
-				    			<div class="map_wrap" style="width:410px;height:438px;">
-				    				<div id="map" style="width:700px;height:570px;position:relative;overflow:hidden;"></div>
-				    				
-				    				<div id="menu_wrap" class="bg_white">
-				    					<div class="option">
-				    						<div>
-				    							<!-- <form onsubmit="searchPlaces(); return false;"> -->
-								                    키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
-								                    <button type="button" onclick="searchPlaces();">검색하기</button> 
-								                    <input type="button" id="registration" value="등록">
-								                    <input type="button" id="cancel" value="취소">
-								                <!-- </form> -->
-				    						</div>
-				    					</div>
-				    					<hr>
-								        <ul id="placesList"></ul>
-								        <div id="pagination"></div>
-				    				</div>
-				    			</div>
-				    		</div>
-				    	</div>
 				    </td>
 				  </tr>
 				  <tr>

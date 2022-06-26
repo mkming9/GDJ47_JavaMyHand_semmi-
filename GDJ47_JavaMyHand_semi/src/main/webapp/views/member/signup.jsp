@@ -17,7 +17,7 @@
 				<tr>
 					<th>아이디(*)</th>
 					<td>
-						<input type="text" placeholder="4글자이상" name="memberId" id="memberId" >
+						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
 						<input type="button" value="중복확인" id="idCheck" name="idCh" >
 					</td>
 				</tr>
@@ -71,8 +71,8 @@
 					<td>	
 						<input type="email" placeholder="email@gmail.com" name="email" id="email" >
 						<input type="button" value="이메일 인증" id="emailCheck" class="email" onclick="fn_emailDuplicate();"><br>
-						<input type="text" name="emailCheck" id="emailCheck" >
-						<input type="button" value="확인" id="emailChecks" class="email" onclick="fn_emailCheck();">
+						<input type="text" name="emailInput" id="emailInput" >
+						<input type="button" value="확인" id="emailChecks">
 					</td>
 				</tr>
 			</table>
@@ -101,6 +101,7 @@
     	var phone =document.getElementById("phone");
     	var mail =document.getElementById("email");
     	var emailCheck = document.getElementById("emailChecks");
+    	var emailInput = document.getElementById("emailInput");
     	
     	var idd= /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
     	 if(!idd.test(id.value)){
@@ -164,6 +165,11 @@
 			mail.focus();
 			return false;
 		}  
+		if(emailOk==false){
+			alert("이메일인증이 필요합니다.");
+			emailInput.focus();
+			return false;
+		}
 		document.sign.submit();
 	}
 			 //아이디 중복확인 창
@@ -184,7 +190,7 @@
    				signs.submit();
 	   			}
 	   		}); 
-			 
+		let saveKey = "";		
 		function fn_emailDuplicate(){
 			let email = $('#email').val();
 			let memberId = $('#memberId').val();
@@ -196,19 +202,22 @@
 			  data  : {"email" : email, "memberId" : memberId, "memberName" : memberName}, 
 			  contentType : "application/json", 
 			  dataType    : "json",
-			  success : function(data, status, xhr) {
-					
-			  }, 
-			  error	: function(xhr, status, error) {
-				  console.log(status);
+			  success:data=>{
+				console.log(data);
+				saveKey = data;
 			  }
 			});
 		};
-		
-		function fn_emailCheck(){
-			
-		}
-		
+		let emailOk = false;
+		$("#emailChecks").click(e=>{
+			let emailInput = $('#emailInput').val();
+			if(saveKey==emailInput){
+				alert("인증이 완료되었습니다.");
+				emailOk = true;
+			}else{
+				alert("인증번호를 확인해주세요.");
+			}
+		})
 		
 		
 	</script>

@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 /**
  * Servlet implementation class EmailCertificationServlet
  */
@@ -109,8 +111,9 @@ public class EmailCertificationServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		HttpSession saveKey = request.getSession();
-		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
+		Gson gson=new Gson();
+		response.setContentType("application/json;charset=utf-8");
+	    gson.toJson(AuthenticationKey, response.getWriter());
 	}
 
 	/**

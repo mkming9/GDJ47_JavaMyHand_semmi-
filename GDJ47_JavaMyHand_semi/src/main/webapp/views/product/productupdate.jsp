@@ -47,12 +47,12 @@ crossorigin="anonymous">
    
      
 
-  <td><input type="text" name="ANA_NO" value="<%=p.getAna_No() %>" readonly></td>
-   <td><input type="text" name="MEMBER_ID" value="<%=p.getMember_Id() %>" readonly></td>
-   <td><input type="text" name="A_CODE" value="<%=p.getA_Code() %>"></td>
-   <td><input type="text" name="ANA_NAME" value="<%=p.getAna_Name() %>"></td>
-   <td><input type="text" name="ANA_PRICE" value="<%=p.getAna_Price() %>"></td>
-   <td><input type="text" name="ANA_CONTENT" value="<%=p.getAna_Content() %>"></td>
+  <td><input type="text" name="ANA_NO" value="<%=p.getAnaNo() %>" readonly></td>
+   <td><input type="text" name="MEMBER_ID" value="<%=p.getMemberId() %>" readonly></td>
+   <td><input type="text" name="A_CODE" value="<%=p.getACode() %>"></td>
+   <td><input type="text" name="ANA_NAME" value="<%=p.getAnaName() %>"></td>
+   <td><input type="text" name="ANA_PRICE" value="<%=p.getAnaPrice() %>"></td>
+   <td><input type="text" name="ANA_CONTENT" value="<%=p.getAnaContent() %>"></td>
 
       
       

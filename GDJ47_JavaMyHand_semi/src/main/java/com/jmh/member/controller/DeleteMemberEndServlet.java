@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jmh.member.model.service.MemberService;
 import com.jmh.member.model.vo.Member;
@@ -44,7 +45,8 @@ public class DeleteMemberEndServlet extends HttpServlet {
 			
 			if(result>0) {
 				msg = "탈퇴가 정상적으로 되었습니다. 감사합니다.";
-				loc = "/index.jsp";
+				String script = "close();";
+				request.setAttribute("script", script);
 			}else {
 				msg = "오류";
 			}

@@ -12,7 +12,7 @@
 <body>
 	<form action="<%=request.getContextPath()%>/groups/groupsCreateEnd.do" method="post">
 		<table id="groupsFrm">
-						<table class="tg">
+			<table class="tg">		
 				<thead>
 				  <tr>
 				    <th class="tg-0lax" colspan="9" ><input type="text" name="groupTitle"  size="40" placeholder="그 룹 명"></th>
@@ -39,12 +39,12 @@
 				  <tr>
 				    <!-- <td class="tg-0lax" colspan="4" rowspan="3"><input type="text" name="groupLocation" size="40" placeholder="위치정보"></td> -->
 				    <td>
-				    	<input type="button" class="location" id="locationMap" value="위치등록하기">
+				    	<input type="button" name="groupLocation" class="location" id="locationMap" value="위치등록하기">
 				
 				    	<div id="modal">
 				    		<div id="content">
 				    			<div class="map_wrap" style="width:410px;height:438px;">
-				    				<div id="map" style="width:520px;height:438px;position:relative;overflow:hidden;"></div>
+				    				<div id="map" style="width:700px;height:570px;position:relative;overflow:hidden;"></div>
 				    				
 				    				<div id="menu_wrap" class="bg_white">
 				    					<div class="option">
@@ -53,7 +53,7 @@
 								                    키워드 : <input type="text" value="구디아카데미" id="keyword" size="15"> 
 								                    <button type="button" onclick="searchPlaces();">검색하기</button> 
 								                    <input type="button" id="registration" value="등록">
-								                    <!-- <input type="button" class="close" id="closeModal" value="X"> -->
+								                    <input type="button" id="cancel" value="취소">
 								                <!-- </form> -->
 				    						</div>
 				    					</div>
@@ -96,24 +96,23 @@
 				<textarea style="resize:none;" name="groupContent" cols="50" rows="5" placeholder="내용입력"></textarea>
 				</th>
 				</tr>
-				
-				
-			<tr>
-				<th id="tg-0lax" colspan="9">
-				<input type="submit" value="등록">
-				<input type="reset" value="취소"></th>
-			</tr>
-				</table>
-			
-					
-				
+				<tr>
+					<th id="tg-0lax" colspan="9">
+					<input type="submit" value="등록">
+					<input type="reset" value="취소"></th>
+				</tr>
+		</table>		
 	</form>
 </body>
+</html>
 <script>
 	var locationMap = document.getElementById("locationMap"); 
-	var closeModal = document.getElementById("closeModal");
-	// modal 창을 감춤
 	
+	// modal 창을 감춤
+	var closeRtn = function(){
+	  var modal = document.getElementById('modal');
+	  modal.style.display = 'none';
+	}
 	// 마커를 담을 배열입니다
 	var markers = [];
 	var curlat, curlong;
@@ -122,19 +121,13 @@
 	  var modal = document.getElementById('modal');
 	  modal.style.display = 'block';
 	
+		
 		navigator.geolocation.getCurrentPosition(po=>{
 				curlat=po.coords.latitude;
 				curlong=po.coords.longitude;
 				createMap();
 			});
 	}
-	
-	//시간낭비 close
-	/* closeModal.onclick = function(){
-		  var modal = document.getElementById('modal');
-		  modal.style.display = 'hidden';
-		} */
-
 	var ps,map,inforwindow;
 	function createMap(){
 		console.log(curlat,curlong);
@@ -373,7 +366,3 @@
 	    }
 	}
 </script>
-
-	
-
-</html>

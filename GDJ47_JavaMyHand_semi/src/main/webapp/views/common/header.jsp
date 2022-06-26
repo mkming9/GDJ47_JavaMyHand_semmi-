@@ -84,6 +84,7 @@
         			<input type="button" id="signup" value=""
                		onclick="location.assign('<%=request.getContextPath()%>/signup.do')"/>
         	</div>
+        </div>
         </form>
         <%}else {%>
         <div class="hello">
@@ -96,20 +97,22 @@
         		<input type="button" id="chargebtn" value="충전하기" onclick="fn_pointChard()">
         	</div>
         	<div class="buttontable">
-				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/mypage/memberEdit.do?memberId=<%=loginMember.getMemberId()%>')">
+				<input type="button" id="mypage" value="마이페이지" onclick="location.assign('<%=request.getContextPath()%>/memberedit.do?memberId=<%=loginMember.getMemberId()%>')">
         		<input type="button" id="logout" onclick="fn_logout()" value="로그아웃">
             </div>
         </div>
      <%} %>
-     <script>
-     const fn_logout=()=>{
-          location.replace("<%=request.getContextPath()%>/member/logout.do");
-    		alert("로그아웃이 되었습니다.");
-     }
+    <script>
+    const fn_logout=()=>{
+        location.replace("<%=request.getContextPath()%>/member/logout.do");
+    	alert("로그아웃이 되었습니다.");
+    }
       
-   	  $("#chargebtn").click(e=>{
-   		  window.open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=1053, height=793, left=430");
-   	  });
+   	$("#chargebtn").click(e=>{
+   		window.open("<%=request.getContextPath()%>/member/memberPointCharge.do","_blank","width=930, height=640, top=200, left=440");
+   	});
+   	  
+	
      
      //소개 탭 이동
      /* jQuery(document).ready(function($){

@@ -5,18 +5,17 @@
     %>
     
     <%
-    
     Product p =(Product)request.getAttribute("product"); 
     Member loginMember = (Member)session.getAttribute("loginMember");
-	Cookie[] cookies = request.getCookies();
-	String saveId = null;
-	if(cookies != null){
-		for(Cookie c : cookies){
-			if(c.getName().equals("saveId")){
-				saveId = c.getValue();
-			}
-		}
-	}
+   	Cookie[] cookies = request.getCookies();
+   	String saveId = null;
+   	if(cookies != null){
+   		for(Cookie c : cookies){
+   			if(c.getName().equals("saveId")){
+   				saveId = c.getValue();
+   			}
+   		}
+   	}
     %>
 <!DOCTYPE html>
 <html>
@@ -25,13 +24,10 @@
 integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
 crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>상품등록중.....</title>
+<title>상품수정중.....</title>
 </head>
 <body>
-
-	<form action="<%=request.getContextPath() %>/ProductWriteEndServlet" 
-	method="post" enctype="multipart/form-data">
-
+	<form action="<%=request.getContextPath() %>/productupdateEndServlet.do" method="post">
 	<table class="table">
 	
   <thead>
@@ -42,25 +38,24 @@ crossorigin="anonymous">
       <th scope="col">상품이름</th>
       <th scope="col">가격</th>
       <th scope="col">내용</th>
-      <th>사진</th>
      
-
+     
     </tr>
   </thead>
   <tbody>
    <tr>
    
      
-      <td><input type="text" name="ANA_NO" readonly></td>
-      <td><input type="text" name="MEMBER_ID" value="<%=loginMember.getMemberId() %>" readonly></td>
-      <td><input type="text" name="A_CODE"></td>
-      <td><input type="text" name="ANA_NAME"></td>
-      <td><input type="text" name="ANA_PRICE"></td>
-      <td><input type="text" name="ANA_CONTENT"></td>
 
-      <td><input type="file" name="file"></td>
+  <td><input type="text" name="ANA_NO" value="<%=p.getAnaNo() %>" readonly></td>
+   <td><input type="text" name="MEMBER_ID" value="<%=p.getMemberId() %>" readonly></td>
+   <td><input type="text" name="A_CODE" value="<%=p.getACode() %>"></td>
+   <td><input type="text" name="ANA_NAME" value="<%=p.getAnaName() %>"></td>
+   <td><input type="text" name="ANA_PRICE" value="<%=p.getAnaPrice() %>"></td>
+   <td><input type="text" name="ANA_CONTENT" value="<%=p.getAnaContent() %>"></td>
+
       
-
+      
   </tbody>
  	<tr>
  	<th colspan="2">
@@ -68,11 +63,10 @@ crossorigin="anonymous">
 			<input type="reset" value="취소">
  	</th>
 </table>
- <%-- <button id="addProduct"
-	onclick="location.assign('<%=request.getContextPath() %>/ProductWriteServlet')" >상품등록</button>
+
 	
-	<button id="alterProduct" >상품수정</button>
-	<button id="alterProduct">상품삭제</button>	  --%>
+	
+	
 		
 </form>	
 </body>

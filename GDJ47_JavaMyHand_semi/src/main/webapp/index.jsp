@@ -54,7 +54,7 @@
 		                </div>
 		                <div id="fadein"></div>
 		            </a>
-		            <a href="<%=request.getContextPath()%>/productview.do">
+		            <a href="<%=request.getContextPath()%>/product/productList.do">
 		                <div id="box3">
 		                    <img src="images/picto3.png">
 		                    <h4>세상을 지키기</h4>

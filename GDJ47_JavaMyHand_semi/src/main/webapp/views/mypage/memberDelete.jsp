@@ -26,9 +26,9 @@
 	    	</div>
 	    	<div class="editWrap">
 	    		<div>
-	    			<p>자바마이핸드와 함께해주셔서 감사합니다</p>
+	    			<p>그동안 자바마이핸드와 함께해주셔서 감사합니다</p>
 	    			<p>회원 탈퇴 신청을 하시겠습니까?</p>
-	    			
+	    			<input type="button" id="deleteBtn" value="탈퇴하기" onclick="">
 	    		</div>
 	    	</div>
 	    </div>

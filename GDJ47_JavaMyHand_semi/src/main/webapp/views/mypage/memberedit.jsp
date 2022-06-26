@@ -15,6 +15,7 @@
 	        <a href="<%=request.getContextPath() %>/views/mypage/productHistory.jsp"><div id=pagebox><li>판매 구매 내역</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/memberDelete.jsp"><div id=pagebox><li>탈퇴하기</li></div></a>
 	    </ul>
+	    <form id="memberFrm" action="<%=request.getContextPath() %>/membereditend.do" method="post">
 	    <div class="pagecontent">
 	    	<div id="currentjava">
 	    		<p id="detail1">나의 보유잡아 :<p>
@@ -27,15 +28,17 @@
 	    	<div class="editWrap">
 	    		<div id="userDetail">
 	    		<p>내 정보 관리</p>
-	    		<form id="memberFrm" action="<%=request.getContextPath() %>/membereditend.do" method="post">
+	    		
 	    		<table>
 	    			<tr>
 						<th id="details">아이디</th>
-						<td id="detailUsers"><%=loginMember.getMemberId() %></td>
+						<td id="detailUsers">
+						<input type="text" name="memberId" id="memberId" required value="<%=m.getMemberId()%>"><br>
+						</td>
 					</tr>
 					<tr>
 						<th id="details">패스워드</th>
-						<td id="detailUsers"><button id="changePwBtn" onclick="updatePw();">수정</button></td>
+						<td id="detailUsers"><input type="button" id="changePwBtn" onclick="fn_updatePassword();" value="수정"></td>
 					</tr>
 					<tr>
 						<th id="details">이름</th>
@@ -100,8 +103,8 @@
 			//유효성검사 로직도 구성 할 수 있음.
 		}
 		
-		const updatePw = ()=>{
-			open("<%=request.getContextPath()%>/member/updatePassword.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=210, top=200, left=440");
+		const fn_updatePassword=()=>{
+			open("<%=request.getContextPath()%>/updatePassword.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=201, top=200, left=500");
 		}
 		
 		$("#pointCheck").click(function(e){

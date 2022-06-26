@@ -53,12 +53,13 @@ public class MemberDao {
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("memberSignUp"));
 			pstmt.setString(1, m.getMemberId());
-			pstmt.setString(2, m.getMemberName());
-			pstmt.setString(3, m.getGender());
-			pstmt.setInt(4, m.getAge());
-			pstmt.setString(5, m.getAddress());
-			pstmt.setString(6, m.getPhone());
-			pstmt.setString(7, m.getEmail());
+			pstmt.setString(2, m.getPassword());
+			pstmt.setString(3, m.getMemberName());
+			pstmt.setString(4, m.getGender());
+			pstmt.setInt(5, m.getAge());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, m.getPhone());
+			pstmt.setString(8, m.getEmail());
 			result =pstmt.executeUpdate();
 			
 		}catch(Exception e) {
@@ -115,18 +116,36 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(prop.getProperty("memberEdit"));
 			pstmt.setString(1, m.getMemberName());
 			pstmt.setString(2, m.getGender());
-			pstmt.setInt(3, m.getAge());	
-			pstmt.setString(4, m.getAddress());	
-			pstmt.setString(5, m.getPhone());	
+			pstmt.setInt(3, m.getAge());
+			pstmt.setString(4, m.getAddress());
+			pstmt.setString(5, m.getPhone());
 			pstmt.setString(6, m.getEmail());
 			pstmt.setString(7, m.getMemberId());
-			
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(pstmt);
-		}return result;
+		}
+		return result;
+	}
+	
+	public int updatePassword(Connection conn, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(prop.getProperty("updatePassword"));
+			pstmt.setString(1, m.getPassword());
+			pstmt.setString(2, m.getMemberId());
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		System.out.println(result);
+		return result;
+		
 	}
 	
 	public static Member getMember(ResultSet rs) throws SQLException{

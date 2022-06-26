@@ -46,11 +46,14 @@ public class DonateEndServlet extends HttpServlet {
 		m = new MemberService().memberIdCheck(saveId);
 		
 		if(m!=null) {
+			
 			session = request.getSession();
 			session.setAttribute("loginMember", m);
 			response.sendRedirect(request.getContextPath()+"/views/donate/donateeEnd.jsp");
-		}
+		} 
 			
+	
+		
 	}
 	
 	/**

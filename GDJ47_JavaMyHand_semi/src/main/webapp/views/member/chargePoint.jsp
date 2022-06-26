@@ -8,8 +8,6 @@
 <link href="<%=request.getContextPath() %>/css/chargepoint.css" rel="stylesheet" type="text/css"/>
 
 <div id="payResult">
-
-	
 	<p id="title">잡아 충전하기</p>
 	<p id="sub1">금액을 선택해주세요</p>
 	<div class="amount">
@@ -31,7 +29,6 @@
 		<button type="button" id="canclebtn">취소하기</button>
 		<!-- <button onclick="cancelPay()">환불</button> -->
 	</div>
-
 </div>
 
 <script>
@@ -42,7 +39,6 @@
         var money = $('input[name="cp_item"]:checked').val();
         console.log(money);
         var saveId = "<%=request.getParameter("saveId")%>"
-
         IMP.request_pay({
             pg: 'html5_inicis',
             merchant_uid: 'merchant_' + new Date().getTime(),
@@ -106,7 +102,3 @@
     } --%>
   	
 </script>
-
-
-
-

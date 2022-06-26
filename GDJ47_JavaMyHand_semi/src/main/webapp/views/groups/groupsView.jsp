@@ -3,7 +3,7 @@
 <%@ include file="/views/common/header.jsp" %>
 <%@ page import="java.util.List,com.jmh.groups.model.vo.Groups" %>
 <% 
-
+	
    List<Groups> groups=(List<Groups>)request.getAttribute("groups");
 %>
 
@@ -15,7 +15,7 @@
       for(Groups g : groups) {%>
       <tr>
          <td><%=g.getGroupNo()%>&nbsp;&nbsp;</td>
-         <td><%=g.getMemberId()%>&nbsp;&nbsp;</td>
+         <td><%=g.getMemberId()%>&nbsp;&nbsp;</td> 
          <td><%=g.getGroupTitle()%>&nbsp;&nbsp;</td>
          <td><%=g.getGCode()%>&nbsp;&nbsp;</td>
          <td><%=g.getGroupLocation()%>&nbsp;&nbsp;</td>
@@ -82,11 +82,11 @@
   </script>
   <script>
    $("#btn_createGroups").click(e=>{
-	   open("<%=request.getContextPath()%>/groups/groupsCreate.do?memberId=<%=loginMember.getMemberId()%>","_blank","width=521,height=440");
+	   open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");
    });
 
    $("#btn_deleteGroups").click(e=>{
-      open("<%=request.getContextPath()%>/groups/groupsDelete.do?memberId=<%=loginMember.getMemberId()%>","_blank","width=521,height=440");
+      open("<%=request.getContextPath()%>/groups/groupsDelete.do","_blank","width=521,height=440");
    });
 </script>
 </body>

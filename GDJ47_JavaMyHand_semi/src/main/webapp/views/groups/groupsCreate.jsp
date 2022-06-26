@@ -20,7 +20,7 @@
 			<table class="tg">		
 				<thead>
 				  <tr>
-				    <th colspan="9" ><input type="text" name="memberId" id="memberId_" size="15" value="<%=loginMember!=null?loginMember.getMemberId():""%>"readonly></th>
+				    <th colspan="9" ><input type="text" name="memberId" id="memberId" size="15" value="<%=loginMember!=null?loginMember.getMemberId():""%>"readonly></th>
 				  </tr>
 				  <tr>
 				    <th class="tg-0lax" colspan="9" ><input type="text" name="groupTitle"  size="40" placeholder="그 룹 명"></th>

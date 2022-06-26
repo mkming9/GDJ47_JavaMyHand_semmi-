@@ -13,6 +13,8 @@ import java.util.Properties;
 
 import com.jmh.member.model.vo.Member;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class MemberDao {
 
 	private Properties prop = new Properties();
@@ -102,6 +104,22 @@ public class MemberDao {
 			pstmt.setString(2, saveId);
 			result=pstmt.executeUpdate();
 		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public int UpdateDonate(Connection conn,int point,String memberId) {
+		PreparedStatement pstmt=null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("UpdateDonate"));
+			pstmt.setInt(1, point);
+			pstmt.setString(2, memberId);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(pstmt);

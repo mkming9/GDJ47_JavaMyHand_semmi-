@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/header.jsp" %>
+
 <body>
 	<section id=enroll-container>
 		<div class="signupbanner"></div>	
@@ -16,7 +17,7 @@
 				<tr>
 					<th>아이디(*)</th>
 					<td>
-						<input type="text" placeholder="4글자이상" name="memberId" id="memberId" >
+						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
 						<input type="button" value="중복확인" id="idCheck" name="idCh" >
 					</td>
 				</tr>
@@ -68,11 +69,10 @@
 				<tr>
 					<th>이메일</th>
 					<td>	
-						<input type="email" placeholder="admin1@admin1.com" name="email" id="email" >
+						<input type="email" placeholder="email@gmail.com" name="email" id="email" >
 						<input type="button" value="이메일 인증" id="emailCheck" class="email" onclick="fn_emailDuplicate();"><br>
-						<input type="email" name="email" id="email" >
-						<input type="button" value="확인" id="emailCheck" class="email" onclick="fn_emailDuplicate();">
-
+						<input type="text" name="emailInput" id="emailInput" >
+						<input type="button" value="확인" id="emailChecks">
 					</td>
 				</tr>
 			</table>
@@ -92,6 +92,91 @@
 <script>
 	function signUps() {
     	var id =document.getElementById("memberId_");
+<<<<<<< HEAD
+    	var pw1 =document.getElementById("password1");
+    	var pw2 =document.getElementById("password2");
+    	var name =document.getElementById("memberName");
+    	var age =document.getElementById("age");
+    	var address =document.getElementById("address");
+    	var phone =document.getElementById("phone");
+    	var mail =document.getElementById("email");
+    	
+    	 if(id.value.trim().length<4||id.value==""){
+    		alert("아이디를 4자 이상 입력하세요");
+    		id.focus();
+    		return false;
+    	} /*else {
+    		alert("아이디 중복확인해주세요");
+    		$(".idCh").focus();
+    		return false;
+    	} */
+    	
+		if(pw1.value==""){
+			alert("비밀번호를 입력하세요");
+			pw1.focus();
+			return false;
+		};
+		//최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자 정규식
+		var pwCh = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+		if(!pwCh.test(pw1.value)){
+			alert("비밀번호를 최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자로 입력해주세요");
+			pw1.focus();
+			return false;
+		};
+		if(pw2.value !==pw1.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			pw2.focus();
+			return false;
+		};
+		
+		if(name.value==""){
+			alert("이름을 입력하세요");
+			name.focus();
+			return false;
+		};
+		if(age.value==""){
+			alert("나이를 입력하세요");
+			age.focus();
+			return false;
+		};
+		if(address.value==""){
+			alert("주소를 입력하세요");
+			address.focus();
+			return false;
+		};
+		if(phone.value==''){
+			alert("전화번호를 입력하세요.");
+			phone.focus();
+			return false;
+		};
+		var reg=/^[0-9]+/g //숫자만 입력하는 정규식
+		if(!reg.test(phone.value)){
+			alert("전화번호는 숫자만 입력할 수 있습니다.");
+			phone.focus();
+			return false;
+		};
+		if(mail.value== ""){
+			alert("이메일 주소를 입력하세요");
+			mail.focus();
+			return false;
+		} 
+		var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		if(!regExp.test(mail.value)){
+			alert("이메일 양식에 맞춰서 입력해주세요");
+			mail.focus();
+			return false;
+		}  
+			document.sign.submit();
+	}
+		
+		
+			 //아이디 중복확인 창
+	   		$("#idCheck").on("click",function(){
+	   			
+	   		const memberId=$('#memberId_').val().trim();
+   			if(memberId.length<4||memberId==""){
+	   			alert("아이디를 4글자 이상 입력해주세요");
+=======
     	var idCh=document.getElementById("idCheck");
     	var pw1 =document.getElementById("password1");
     	var pw2 =document.getElementById("password2");
@@ -100,6 +185,8 @@
     	var address =document.getElementById("address");
     	var phone =document.getElementById("phone");
     	var mail =document.getElementById("email");
+    	var emailCheck = document.getElementById("emailChecks");
+    	var emailInput = document.getElementById("emailInput");
     	
     	var idd= /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
     	 if(!idd.test(id.value)){
@@ -163,15 +250,20 @@
 			mail.focus();
 			return false;
 		}  
-			document.sign.submit();
+		if(emailOk==false){
+			alert("이메일인증이 필요합니다.");
+			emailInput.focus();
+			return false;
+		}
+		document.sign.submit();
 	}
-		
 			 //아이디 중복확인 창
 	   		$("#idCheck").on("click",function(){
 	   			
 	   		const memberId=$('#memberId_').val().trim();
    			if(memberId.length<4||memberId==""){
 	   			alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다");
+>>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
 	   			$("#memberId_").focus();
    			}else{
 	   			const url= "<%=request.getContextPath()%>/idCheck.do";
@@ -184,27 +276,36 @@
    				signs.submit();
 	   			}
 	   		}); 
-			 
+		let saveKey = "";		
 		function fn_emailDuplicate(){
 			let email = $('#email').val();
 			let memberId = $('#memberId').val();
 			let memberName = $('#memberName').val();
 			alert("인증번호를 해당 이메일로 발송했습니다. 확인해주세요!");
 			$.ajax ({
-			  url	: "${pageContext.request.contextPath}"+"/member/emailCertification.do",
+			  url	: "<%=request.getContextPath()%>/member/emailCertification.do", /* //"${pageContext.request.contextPath}"+"/member/emailCertification.do", */
 			  type	: "get",
 			  data  : {"email" : email, "memberId" : memberId, "memberName" : memberName}, 
 			  contentType : "application/json", 
 			  dataType    : "json",
-			  success : function(data, status, xhr) {
-				  
-			  },
-			  error	: function(xhr, status, error) {
-				  console.log(status);
+			  success:data=>{
+				console.log(data);
+				saveKey = data;
 			  }
 			});
 		};
-   			
+		let emailOk = false;
+		$("#emailChecks").click(e=>{
+			let emailInput = $('#emailInput').val();
+			if(saveKey==emailInput){
+				alert("인증이 완료되었습니다.");
+				emailOk = true;
+			}else{
+				alert("인증번호를 확인해주세요.");
+			}
+		})
+		
+		
 	</script>
 </body>
 <%@ include file="/views/common/footer.jsp" %>

@@ -12,16 +12,16 @@ import com.jmh.member.model.service.MemberService;
 import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class DeleteMemberEndServlet
+ * Servlet implementation class DonateEndServlet
  */
-@WebServlet("/deleteMemberEnd.do")
-public class DeleteMemberEndServlet extends HttpServlet {
+@WebServlet("/donate/donateEnd.do")
+public class DonateEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteMemberEndServlet() {
+    public DonateEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,38 +30,32 @@ public class DeleteMemberEndServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String memberId = request.getParameter("memberId");
-		String oriPw = request.getParameter("password");
+		// TODO Auto-generated method stub
 		
-		Member m = Member.builder().memberId(memberId)
-				.password(oriPw)
-				.build();
+		HttpSession session = request.getSession();
 		
-		String msg="", loc="";
+		request.setCharacterEncoding("UTF-8");
+		
+		
+		String memberId=request.getParameter("memberId");
+		int point =Integer.parseInt(request.getParameter("point"));
+		
+		String saveId = (String) session.getAttribute("saveId");
+		Member m = new MemberService().memberIdCheck(saveId);
+		int result=new MemberService().UpdateDonate(point, memberId);
+		m = new MemberService().memberIdCheck(saveId);
+		
 		if(m!=null) {
-			//맞는 비밀번호
-			int result = new MemberService().deleteMember(m);
 			
-			if(result>0) {
-				msg = "탈퇴가 정상적으로 되었습니다. 감사합니다.";
-				String script = "close();";
-				request.setAttribute("script", script);
-				
-				loc="/index.jsp";
-			}else {
-				msg = "오류";
-			}
-		}else {
-			//틀린 비밀번호
-			msg="비밀번호가 일치하지 않습니다.";
-		}
-		request.setAttribute("msg", msg);
-		request.setAttribute("loc", loc);
-		request.getRequestDispatcher("/views/common/msg.jsp")
-		.forward(request, response);
+			session = request.getSession();
+			session.setAttribute("loginMember", m);
+			response.sendRedirect(request.getContextPath()+"/views/donate/donateeEnd.jsp");
+		} 
+			
+	
+		
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

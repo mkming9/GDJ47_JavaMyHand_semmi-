@@ -8,7 +8,6 @@ import lombok.Data;
 @Data
 @Builder
 public class Product {
-	
 	private int anaNo;
 	private String memberId;
 	private String aCode;
@@ -18,5 +17,4 @@ public class Product {
 	private Date anaDate;
 	private String fileType;
 	private int anaView;
-	
 }

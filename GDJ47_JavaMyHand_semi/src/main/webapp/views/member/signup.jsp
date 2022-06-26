@@ -8,6 +8,7 @@
         <form name="sign" action="<%=request.getContextPath()%>/signupend.do" method="post" 
         onsubmit="return signUp();" >
         <div class="tablecontainer">
+        <input type="hidden" id="chk" value="0" >
         	<div class="text">
         		<h3>회원가입을 위해 아래 정보를 입력해주세요.</h3>
         		<h5>입력한 정보는 회원가입 목적으로만 이용됩니다.</h5>
@@ -16,7 +17,7 @@
 				<tr>
 					<th>아이디(*)</th>
 					<td>
-						<input type="text" placeholder="4글자이상" name="memberId" id="memberId" >
+						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
 						<input type="button" value="중복확인" id="idCheck" name="idCh" >
 					</td>
 				</tr>
@@ -100,10 +101,18 @@
     	var address =document.getElementById("address");
     	var phone =document.getElementById("phone");
     	var mail =document.getElementById("email");
+    	var chk =document.getElementById("chk");
+    	
     	
     	var idd= /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
     	 if(!idd.test(id.value)){
     		alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다.");
+    		id.focus();
+    		return false;
+    	} 
+    	 
+    	 if(chk.value=="0"){
+    		alert("아이디중복체크를 해주세요");
     		id.focus();
     		return false;
     	} 
@@ -173,10 +182,11 @@
    			if(memberId.length<4||memberId==""){
 	   			alert("4글자이상 영문 소문자, 숫자만 사용 가능합니다");
 	   			$("#memberId_").focus();
+	   			var idOk =false;
    			}else{
 	   			const url= "<%=request.getContextPath()%>/idCheck.do";
    				const title="idCheck";
-   				open("",title,"width=400,height=400");
+   				open("",title,"width=400,height=200");
    				signs.memberId.value=memberId;
    				signs.method="post";
    				signs.action=url;
@@ -187,13 +197,13 @@
 			 
 		function fn_emailDuplicate(){
 			let email = $('#email').val();
-			let memberId = $('#memberId').val();
+			let memberId = $('#memberId_').val();
 			let memberName = $('#memberName').val();
 			alert("인증번호를 해당 이메일로 발송했습니다. 확인해주세요!");
 			$.ajax ({
 			  url	: "${pageContext.request.contextPath}"+"/member/emailCertification.do",
 			  type	: "get",
-			  data  : {"email" : email, "memberId" : memberId, "memberName" : memberName}, 
+			  data  : {"email" : email, "memberId_" : memberId, "memberName" : memberName}, 
 			  contentType : "application/json", 
 			  dataType    : "json",
 			  success : function(data, status, xhr) {

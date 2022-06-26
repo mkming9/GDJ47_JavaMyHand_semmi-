@@ -101,3 +101,13 @@
 	display: none;
 	/* box-shadow: 8px 8px 15px 0px gray; */
 }
+.newsSlide>table{
+    width: 100%;
+	border-collapse: collapse;
+}
+
+.newsSlide td{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid lightgray;
+}

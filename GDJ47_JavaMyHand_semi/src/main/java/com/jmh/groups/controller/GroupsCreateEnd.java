@@ -44,7 +44,7 @@ public class GroupsCreateEnd extends HttpServlet {
 				
 			
 		
-		Groups g=Groups.builder()
+		Groups g=Groups.builder().memberId(memberId)
 				.gCode(gCode)
 				.groupTitle(groupTitle)
 				.groupContent(groupContent)

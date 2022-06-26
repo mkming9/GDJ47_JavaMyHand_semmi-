@@ -83,12 +83,12 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
+	        	 const tr=$("<tr>");
 	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
+	             const td=$("<td>");
+	             const link=$("<a>").attr({"href":v["link"]});
 	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
+	             tr.append(title).append(td).append(link).append(td).append(img);
 	             table.append(tr);
 	          })
 	          $("#crolling5").append(table);
@@ -104,10 +104,10 @@
 	          data.forEach(v=>{
 	             const tr=$("<tr>");
 	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
+	             const td=$("<td>");
+	             const link=$("<a>").attr({"href":v["link"]});
 	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
+	             tr.append(title).append(td).append(link).append(td).append(img);
 	             table.append(tr);
 	          })
 	          $("#crolling6").append(table);
@@ -121,12 +121,12 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
+	        	 const tr=$("<tr>");
 	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
+	             const td=$("<td>");
+	             const link=$("<a>").attr({"href":v["link"]});
 	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
+	             tr.append(title).append(td).append(link).append(td).append(img);
 	             table.append(tr);
 	          })
 	          $("#crolling7").append(table);
@@ -140,12 +140,12 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
+	        	 const tr=$("<tr>");
 	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
+	             const td=$("<td>");
+	             const link=$("<a>").attr({"href":v["link"]});
 	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
+	             tr.append(title).append(td).append(link).append(td).append(img);
 	             table.append(tr);
 	          })
 	          $("#crolling8").append(table);
@@ -153,8 +153,8 @@
 	   });
 	   
        $("#newsbtn1").click(e=>{
-         // console.log("클릭함");
-          $(e.target).parent().next().slideToggle(1000);
+          // console.log("클릭함");
+          // $(e.target).parent().next().slideToggle(1000);
           $(e.target).parent().next().next().slideToggle(1000);
        });
        

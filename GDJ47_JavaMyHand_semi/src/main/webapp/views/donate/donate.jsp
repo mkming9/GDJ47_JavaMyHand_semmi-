@@ -25,7 +25,7 @@
             <h1>우크라이나 전쟁 지원 캠페인<br>
                <span>유엔난민기구</span>와 평화를 지켜요
             </h1>
-            <input type='button' class="donbtn" value='기부하기' onclick="location.assign('<%=request.getContextPath()%>/donate/donate.do')">
+            <input type='button' class="donbtn" value='기부하기' onclick="fn_Donate">
             <input type='button' class="newsbtn" id="newsbtn1" value='소식보기'/>
          </div>
          <div class="newsSlide" id="crolling1">
@@ -76,6 +76,11 @@
       }
    </style>
    <script>
+   $(".donbtn").click(e=>{
+	   
+  		window.open("<%=request.getContextPath()%>/donate/donate.do","_blank","width=800, height=600, top=200, left=440");
+  	});
+   
 	   $.ajax({
 	       url:"<%=request.getContextPath()%>/donate/donateNews1.do",
 	       dataType:"json",
@@ -83,12 +88,13 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
+	        	 const tr=$("<tr>");
 	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
+	             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+	             const linktd=$("<td>").append(link);
 	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
+	             const imgtd=$("<td>").append(img);
+	             tr.append(linktd).append(title).append(imgtd);
 	             table.append(tr);
 	          })
 	          $("#crolling5").append(table);
@@ -102,13 +108,14 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
-	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
-	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
-	             table.append(tr);
+	        	  const tr=$("<tr>");
+		             const title=$("<td>").text(v["title"]);
+		             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+		             const linktd=$("<td>").append(link);
+		             const img=$("<img>").attr({"src":v["img"]});
+		             const imgtd=$("<td>").append(img);
+		             tr.append(linktd).append(title).append(imgtd);
+		             table.append(tr);
 	          })
 	          $("#crolling6").append(table);
 	       }
@@ -121,13 +128,14 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
-	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
-	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
-	             table.append(tr);
+	        	  const tr=$("<tr>");
+		             const title=$("<td>").text(v["title"]);
+		             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+		             const linktd=$("<td>").append(link);
+		             const img=$("<img>").attr({"src":v["img"]});
+		             const imgtd=$("<td>").append(img);
+		             tr.append(linktd).append(title).append(imgtd);
+		             table.append(tr);
 	          })
 	          $("#crolling7").append(table);
 	       }
@@ -140,21 +148,22 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
-	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
-	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
-	             table.append(tr);
+	        	  const tr=$("<tr>");
+		             const title=$("<td>").text(v["title"]);
+		             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+		             const linktd=$("<td>").append(link);
+		             const img=$("<img>").attr({"src":v["img"]});
+		             const imgtd=$("<td>").append(img);
+		             tr.append(linktd).append(title).append(imgtd);
+		             table.append(tr);
 	          })
 	          $("#crolling8").append(table);
 	       }
 	   });
 	   
        $("#newsbtn1").click(e=>{
-         // console.log("클릭함");
-          $(e.target).parent().next().slideToggle(1000);
+          // console.log("클릭함");
+          // $(e.target).parent().next().slideToggle(1000);
           $(e.target).parent().next().next().slideToggle(1000);
        });
        
@@ -163,7 +172,7 @@
         // $(e.target).parent().next().slideToggle(1000);
         $(e.target).parent().next().next().slideToggle(1000);
       });
-       
+      
       $("#newsbtn3").click(e=>{
         // console.log("클릭함");
         // $(e.target).parent().next().slideToggle(1000);

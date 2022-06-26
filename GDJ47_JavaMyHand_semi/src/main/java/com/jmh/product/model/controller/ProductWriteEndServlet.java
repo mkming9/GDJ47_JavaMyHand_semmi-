@@ -37,7 +37,7 @@ public class ProductWriteEndServlet extends HttpServlet {
      */
     public ProductWriteEndServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stubmf 
     }
 
 	/**
@@ -45,51 +45,51 @@ public class ProductWriteEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Part file= request.getPart("file");
-		//사용자가 업로드한 파일 이름 알아오기
-		String originName=file.getSubmittedFileName();
-		//사용자가 업로드한 파일에 input 스트림연결
-		InputStream fis = file.getInputStream();
-		//저장할 경로
-		String realPath=request.getServletContext().getRealPath("/upload/productImg");
-		//파일 경로 
-		String filePath=realPath + File.separator+originName;
-		System.out.println(filePath);
-		System.out.println(file);
-		//파일 저장
-		FileOutputStream fos=new FileOutputStream(filePath);
-		
-		byte[] buf=new byte[1024];
-		int size=0;
-		while((size = fis.read(buf)) !=-1) {
-			fos.write(buf,0,size);
-		}
-		fis.close();
-		fos.close();
-		
-		request.setAttribute("path", "LostArk.png");
-		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
-		
-		
-		if(!ServletFileUpload.isMultipartContent(request)) {
-			request.setAttribute("msg","상품등록 오류");
-			request.setAttribute("loc", "/ProductWriteEndServlet");
-			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-			
-		}else {
-			String path=request.getServletContext().getRealPath("/upload/product/");
-			
-			int maxSize=1024*1024*10;
-			
-			String encoding="UTF-8";
-			
-			DefaultFileRenamePolicy dfp=new DefaultFileRenamePolicy();
-			
-			MultipartRequest mr = new MultipartRequest(request, path,maxSize,encoding,dfp);
-			
-			
-		}
-		
+//		Part file= request.getPart("file");
+//		//사용자가 업로드한 파일 이름 알아오기
+//		String originName=file.getSubmittedFileName();
+//		//사용자가 업로드한 파일에 input 스트림연결
+//		InputStream fis = file.getInputStream();
+//		//저장할 경로
+//		String realPath=request.getServletContext().getRealPath("/upload");
+//		//파일 경로 
+//		String filePath=realPath + File.separator+originName;
+//		System.out.println(filePath);
+//		System.out.println(file);
+//		//파일 저장
+//		FileOutputStream fos=new FileOutputStream(filePath);
+//		
+//		byte[] buf=new byte[1024];
+//		int size=0;
+//		while((size = fis.read(buf)) !=-1) {
+//			fos.write(buf,0,size);
+//		}
+//		fis.close();
+//		fos.close();
+//		
+//		request.setAttribute("path", "LostArk.png");
+//		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
+//		
+//		
+//		if(!ServletFileUpload.isMultipartContent(request)) {
+//			request.setAttribute("msg","상품등록 오류");
+//			request.setAttribute("loc", "/ProductWriteEndServlet");
+//			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+//			
+//		}else {
+//			String path=request.getServletContext().getRealPath("/upload");
+//			
+//			int maxSize=1024*1024*10;
+//			
+//			String encoding="UTF-8";
+//			
+//			DefaultFileRenamePolicy dfp=new DefaultFileRenamePolicy();
+//			
+//			MultipartRequest mr = new MultipartRequest(request, path,maxSize,encoding,dfp);
+//			
+//			
+//		}
+
 		
 		
 		
@@ -98,6 +98,7 @@ public class ProductWriteEndServlet extends HttpServlet {
 		String ANA_NAME=request.getParameter("ANA_NAME");
 		int ANA_PRICE=Integer.parseInt(request.getParameter("ANA_PRICE"));
 		String ANA_CONTENT=request.getParameter("ANA_CONTENT");
+	
 		
 		
 //		System.out.println(ANA_NO+" "+MEMBER_ID+" "+A_CODE+" "+ANA_NAME+" "+ANA_PRICE+" "+ANA_CONTENT);
@@ -106,7 +107,7 @@ public class ProductWriteEndServlet extends HttpServlet {
 				.a_Code(A_CODE)
 				.ana_Name(ANA_NAME)
 				.ana_Price(ANA_PRICE)				
-				.ana_Content(ANA_CONTENT)
+				.ana_Content(ANA_CONTENT)				
 				.build();
 		int result=new ProductService().insertProduct(p);
 		//System.out.println(result);

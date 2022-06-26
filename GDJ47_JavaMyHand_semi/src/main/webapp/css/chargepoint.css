@@ -4,11 +4,10 @@ body{
 }
 #payResult{
 	width: 100%;
-	height: 509px;
-	background-image: url(../images/chargeback.png);
+	height: 450px;
+	background-image: url(../images/donback.png);
 	font-size: 10px;
 	padding-top: 130px;
-	
 }
 #title{
 	font-family: "IBM Plex Sans KR";
@@ -16,9 +15,9 @@ body{
 	font-weight: 700;
 	width: 200px;
 	margin-top: 1px;
-	margin-left: 380px;
+	margin-left: 355px;
 	color: rgb(50, 50, 50);
-	margin-bottom: 67px;
+	margin-bottom: 52px;
 }
 .amount{
 	font-family: "Noto Sans KR";
@@ -36,17 +35,26 @@ body{
 	font-family: "Noto Sans KR";
 	font-weight: 700;
 	font-size: 15px;
-	margin-left: 180px;
+	margin-left: 204px;
 }
-#sub2{
+#title2{
+	font-family: "IBM Plex Sans KR";
+	font-size: 30px;
+	font-weight: 700;
+	width: 200px;
+	margin-top: 1px;
+	margin-left: 346px;
+	color: rgb(50, 50, 50);
+	margin-bottom: 90px;
+}
+#sub{
 	font-family: "Noto Sans KR";
-	font-weight: 300;
-	font-size: 11px;
-	float: right;
-	margin-right: 180px;
+	font-weight: 700;
+	font-size: 15px;
+	margin-left: 291px;
 }
 #payResult button{
-	margin-top: 50px;
+	margin-top: 5px;
 	border: 0;
 	width: 195px;
 	height: 55px;
@@ -57,11 +65,16 @@ body{
 }
 .chargebtn{
 	width: 470px;
-	margin-left: 260px;
+	margin-left: 94px;
+}
+.chargebtn2{
+	width: 470px;
+	margin-left: 200px;
 }
 #payment_txt_amount{
 	background-color: rgb(39, 113, 173);
 	cursor: pointer;
+	margin-left: 110px;
 }
 #canclebtn{
 	position: absolute;

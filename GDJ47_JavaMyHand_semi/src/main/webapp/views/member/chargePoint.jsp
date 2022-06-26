@@ -39,7 +39,6 @@
         var money = $('input[name="cp_item"]:checked').val();
         console.log(money);
         var saveId = "<%=request.getParameter("saveId")%>"
-
         IMP.request_pay({
             pg: 'html5_inicis',
             merchant_uid: 'merchant_' + new Date().getTime(),
@@ -103,7 +102,3 @@
     } --%>
   	
 </script>
-
-
-
-

@@ -28,13 +28,10 @@
      </table>
      <button id="btn_createGroups">소모임 등록</button>
      <button id="btn_deleteGroups">소모임 삭제</button>
-     
-     <button onclick="requestPay();">포인트 충전</button>
-     
      <div id="payResult"></div>
    </section>
    
-     <script>
+   <%--   <script>
   
     function requestPay() {
       // IMP.request_pay(param, callback) 결제창 호출
@@ -79,7 +76,7 @@
           }
       });
     }
-  </script>
+  </script> --%>
   <script>
    $("#btn_createGroups").click(e=>{
 	   open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");

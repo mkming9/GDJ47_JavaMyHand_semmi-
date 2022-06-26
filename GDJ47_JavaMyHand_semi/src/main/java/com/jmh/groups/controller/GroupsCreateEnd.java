@@ -41,8 +41,6 @@ public class GroupsCreateEnd extends HttpServlet {
 		String memberId=request.getParameter("memberId");
 		System.out.println(memberId+" "+groupTitle+" "+gCode+" "+groupLocation+" "
 		+groupLimit+" "+groupGender+" "+groupContent);
-				
-			
 		
 		Groups g=Groups.builder()
 				.gCode(gCode)

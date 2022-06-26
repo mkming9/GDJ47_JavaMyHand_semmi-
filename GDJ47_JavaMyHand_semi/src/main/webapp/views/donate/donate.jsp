@@ -167,7 +167,7 @@
         // $(e.target).parent().next().slideToggle(1000);
         $(e.target).parent().next().next().slideToggle(1000);
       });
-       
+      
       $("#newsbtn3").click(e=>{
         // console.log("클릭함");
         // $(e.target).parent().next().slideToggle(1000);

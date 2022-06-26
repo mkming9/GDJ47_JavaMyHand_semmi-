@@ -21,14 +21,14 @@ import com.jmh.donate.model.vo.News;
 /**
  * Servlet implementation class DonateNewsServlet
  */
-@WebServlet("/donate/donateNews.do")
-public class DonateNewsServlet extends HttpServlet {
+@WebServlet("/donate/donateNews1.do")
+public class DonateNewsServleta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DonateNewsServlet() {
+    public DonateNewsServleta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -51,14 +51,14 @@ public class DonateNewsServlet extends HttpServlet {
 		Elements imgElements=doc.getElementsByAttributeValue("class", "dsc_thumb");
 		Elements imgs=imgElements.select("img");
 		
-		for(int i=0; i<8; i++) {
+		for(int i=0; i<5; i++) {
 			Element e = aElements.get(i);
 			Element eimg = imgs.get(i);
 			String newsTitle=e.attr("title");
 			String newsLink=e.attr("href");
 			String imgLink=eimg.attr("src");
 			
-			System.out.println((i+1)+". 제목 : "+newsTitle+", 링크 : " + newsLink+", 사진링크 : "+imgLink);
+			// System.out.println((i+1)+". 제목 : "+newsTitle+", 링크 : " + newsLink+", 사진링크 : "+imgLink);
 			
 			News n =News.builder().title(newsTitle).link(newsLink).img(imgLink).build();
 			
@@ -70,7 +70,7 @@ public class DonateNewsServlet extends HttpServlet {
 		response.setContentType("application/json;charset=utf-8");
 		gson.toJson(news, response.getWriter());
 		
-		System.out.println(news);
+		// System.out.println(news);
 	}
 
 	/**

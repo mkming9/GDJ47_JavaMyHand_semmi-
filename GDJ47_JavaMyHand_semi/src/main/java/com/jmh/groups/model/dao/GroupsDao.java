@@ -50,7 +50,7 @@ public class GroupsDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("insertGroups"));
-			pstmt.setString(1, "admin1");
+			pstmt.setString(1, g.getMemberId());
 			pstmt.setString(2, g.getGCode());
 			pstmt.setString(3, g.getGroupTitle());
 			pstmt.setString(4, g.getGroupContent());

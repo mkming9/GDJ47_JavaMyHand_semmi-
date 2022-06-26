@@ -1,4 +1,4 @@
-package com.jmh.donate.controller;
+package com.jmh.member.controller;
 
 import java.io.IOException;
 

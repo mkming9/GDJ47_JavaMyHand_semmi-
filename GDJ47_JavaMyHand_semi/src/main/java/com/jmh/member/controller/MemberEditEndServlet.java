@@ -31,16 +31,6 @@ public class MemberEditEndServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		Member m = new Member();
-//		m.setMemberId(request.getParameter("memberId"));
-//		m.setMemberName(request.getParameter("memberName"));
-//		m.setGender(request.getParameter("gender"));
-//		m.setAge(Integer.parseInt(request.getParameter("age")));
-//		m.setAddress(request.getParameter("address"));
-//		m.setPhone(request.getParameter("phone"));
-//		m.setEmail(request.getParameter("email"));
-
-		
 		String memberId = request.getParameter("memberId");
 		String memberName = request.getParameter("memberName");
 		String gender = request.getParameter("gender");

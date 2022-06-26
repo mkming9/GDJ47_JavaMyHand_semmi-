@@ -16,11 +16,9 @@ Member loginMember = (Member)session.getAttribute("loginMember");
 
 	
 <div id="payResult">
-	<p id="title">기부완료!</p>
-	<p id="sub1"><%=loginMember.getMemberId() %>님</p>
-	
-	<p id="sub1">기부해주셔서 갑사합니다.</p>
-	<p id="sub1">완료버튼을 눌러주세요!</p>
+	<p id="title2">기부완료!</p>
+	<p id="sub"><%=loginMember.getMemberId() %>님 기부해주셔서 감사합니다.</p>
+	<p id="sub">완료버튼을 눌러주세요!</p>
 		
 	
 	

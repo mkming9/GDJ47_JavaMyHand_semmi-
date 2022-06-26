@@ -16,13 +16,11 @@ Member loginMember = (Member)session.getAttribute("loginMember");
 	method="post">
 <div id="payResult">
 	<p id="title">기부하기</p>
-	<p id="sub1">회원이름:&nbsp;<input  type="text" name="memberId" value="<%=loginMember.getMemberId() %>" readonly>
+	<p id="sub1">회원이름 : &nbsp;<input  type="text" name="memberId" value="<%=loginMember.getMemberId() %>" readonly>
 	<p id="sub1" >보유금액 : <%=loginMember.getPoint()%></p>
 	<p id="sub1">기부금액 입력</p>
 	<input type="text" id="sub1" name="point" class="name" placeholder="보유금액초과불가"></p>
-		
-	
-	
+			
 	<div class="chargebtn">
 		<button type="submit"class="btn btn-lg btn-block btn-custom" id="payment_txt_amount"  >기부하기</button>
 		<button type="button" id="canclebtn" onclick="fn_close()">취소하기</button>

@@ -2,6 +2,8 @@ package com.jmh.product.model.vo;
 
 import java.sql.Date;
 
+import javax.servlet.http.Part;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,9 +19,17 @@ public class Product {
 	private String ana_Content;
 	private Date ana_Date;
 	private int ana_View;
+	private String fileOriginalFilename;
+	private String fileRenamedFilename;
+	private String fileType;
 	//private String gdsThumbImg;
+	
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Product(int ana_No, String member_Id, String a_Code, String ana_Name, int ana_Price, String ana_Content,
-			Date ana_Date, int ana_View) {
+			Date ana_Date, int ana_View, String fileOriginalFilename, String fileRenamedFilename, String fileType) {
 		super();
 		this.ana_No = ana_No;
 		this.member_Id = member_Id;
@@ -29,12 +39,17 @@ public class Product {
 		this.ana_Content = ana_Content;
 		this.ana_Date = ana_Date;
 		this.ana_View = ana_View;
+		this.fileOriginalFilename = fileOriginalFilename;
+		this.fileRenamedFilename = fileRenamedFilename;
+		this.fileType = fileType;
 	}
+
 	@Override
 	public String toString() {
 		return "Product [ana_No=" + ana_No + ", member_Id=" + member_Id + ", a_Code=" + a_Code + ", ana_Name="
 				+ ana_Name + ", ana_Price=" + ana_Price + ", ana_Content=" + ana_Content + ", ana_Date=" + ana_Date
-				+ ", ana_View=" + ana_View + "]";
+				+ ", ana_View=" + ana_View + ", fileOriginalFilename=" + fileOriginalFilename + ", fileRenamedFilename="
+				+ fileRenamedFilename + ", fileType=" + fileType + "]";
 	}
 	
 	

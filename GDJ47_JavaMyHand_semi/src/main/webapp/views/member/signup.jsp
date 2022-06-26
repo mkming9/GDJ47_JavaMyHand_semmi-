@@ -16,7 +16,7 @@
 				<tr>
 					<th>아이디(*)</th>
 					<td>
-						<input type="text" placeholder="4글자이상" name="memberId" id="memberId_" >
+						<input type="text" placeholder="4글자이상" name="memberId" id="memberId" >
 						<input type="button" value="중복확인" id="idCheck" name="idCh" >
 					</td>
 				</tr>
@@ -69,7 +69,9 @@
 					<th>이메일</th>
 					<td>	
 						<input type="email" placeholder="admin1@admin1.com" name="email" id="email" >
-						<input type="button" value="이메일 인증" id="emailCheck" >
+						<input type="button" value="이메일 인증" id="emailCheck" class="email" onclick="fn_emailDuplicate();"><br>
+						<input type="email" name="email" id="email" >
+						<input type="button" value="확인" id="emailCheck" class="email" onclick="fn_emailDuplicate();">
 					</td>
 				</tr>
 			</table>
@@ -77,6 +79,9 @@
 	        <form name="signs">
 	        	<input type="hidden" name="memberId">
 	        </form>
+	        <form name="emailDuplicate">
+         		<input id="ducheck" type="hidden" name="email">
+         	</form>
 	        <div class="btn">
 				<input type="button" value="가입" id="signUp" onclick="signUps();" >
 				<input type="reset" value="취소" id="cancel" onclick="location.assign('<%=request.getContextPath()%>/index.jsp')"/> 
@@ -161,11 +166,6 @@
 		}  
 			document.sign.submit();
 	}
-	
-	
-	
-	
-		
 		
 			 //아이디 중복확인 창
 	   		$("#idCheck").on("click",function(){
@@ -185,6 +185,26 @@
    				signs.submit();
 	   			}
 	   		}); 
+			 
+		function fn_emailDuplicate(){
+			let email = $('#email').val();
+			let memberId = $('#memberId').val();
+			let memberName = $('#memberName').val();
+			alert("인증번호를 해당 이메일로 발송했습니다. 확인해주세요!");
+			$.ajax ({
+			  url	: "${pageContext.request.contextPath}"+"/member/emailCertification.do",
+			  type	: "get",
+			  data  : {"email" : email, "memberId" : memberId, "memberName" : memberName}, 
+			  contentType : "application/json", 
+			  dataType    : "json",
+			  success : function(data, status, xhr) {
+				  
+			  },
+			  error	: function(xhr, status, error) {
+				  console.log(status);
+			  }
+			});
+		};
    			
 	</script>
 </body>

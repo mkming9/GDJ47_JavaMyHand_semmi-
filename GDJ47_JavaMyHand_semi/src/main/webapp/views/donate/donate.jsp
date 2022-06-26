@@ -87,12 +87,13 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
+	        	 const tr=$("<tr>");
 	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
+	             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+	             const linktd=$("<td>").append(link);
 	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
+	             const imgtd=$("<td>").append(img);
+	             tr.append(linktd).append(title).append(imgtd);
 	             table.append(tr);
 	          })
 	          $("#crolling5").append(table);
@@ -106,13 +107,14 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
-	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
-	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
-	             table.append(tr);
+	        	  const tr=$("<tr>");
+		             const title=$("<td>").text(v["title"]);
+		             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+		             const linktd=$("<td>").append(link);
+		             const img=$("<img>").attr({"src":v["img"]});
+		             const imgtd=$("<td>").append(img);
+		             tr.append(linktd).append(title).append(imgtd);
+		             table.append(tr);
 	          })
 	          $("#crolling6").append(table);
 	       }
@@ -125,13 +127,14 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
-	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
-	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
-	             table.append(tr);
+	        	  const tr=$("<tr>");
+		             const title=$("<td>").text(v["title"]);
+		             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+		             const linktd=$("<td>").append(link);
+		             const img=$("<img>").attr({"src":v["img"]});
+		             const imgtd=$("<td>").append(img);
+		             tr.append(linktd).append(title).append(imgtd);
+		             table.append(tr);
 	          })
 	          $("#crolling7").append(table);
 	       }
@@ -144,21 +147,22 @@
 	          // console.log(data);
 	          const table=$("<table>");
 	          data.forEach(v=>{
-	             const tr=$("<tr>");
-	             const title=$("<td>").text(v["title"]);
-	             const link=$("<td>").text(v["link"]);
-	             const imgTd=$("<td>");
-	             const img=$("<img>").attr({"src":v["img"]});
-	             tr.append(title).append(link).append(imgTd).append(img);
-	             table.append(tr);
+	        	  const tr=$("<tr>");
+		             const title=$("<td>").text(v["title"]);
+		             const link=$("<a>").text("뉴스보기 > ").attr({"href":v["link"]});
+		             const linktd=$("<td>").append(link);
+		             const img=$("<img>").attr({"src":v["img"]});
+		             const imgtd=$("<td>").append(img);
+		             tr.append(linktd).append(title).append(imgtd);
+		             table.append(tr);
 	          })
 	          $("#crolling8").append(table);
 	       }
 	   });
 	   
        $("#newsbtn1").click(e=>{
-         // console.log("클릭함");
-          $(e.target).parent().next().slideToggle(1000);
+          // console.log("클릭함");
+          // $(e.target).parent().next().slideToggle(1000);
           $(e.target).parent().next().next().slideToggle(1000);
        });
        
@@ -167,7 +171,7 @@
         // $(e.target).parent().next().slideToggle(1000);
         $(e.target).parent().next().next().slideToggle(1000);
       });
-       
+      
       $("#newsbtn3").click(e=>{
         // console.log("클릭함");
         // $(e.target).parent().next().slideToggle(1000);

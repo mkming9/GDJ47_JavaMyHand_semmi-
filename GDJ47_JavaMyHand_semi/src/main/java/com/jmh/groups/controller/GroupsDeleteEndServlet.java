@@ -35,6 +35,21 @@ public class GroupsDeleteEndServlet extends HttpServlet {
 		int result=new GroupsService().deleteGroups(groupTitle);
 		
 		System.out.println(result);
+	
+		String msg="" ,loc="";
+		if(result>0) {
+			msg="삭제에 성공하셨습니다";
+			loc="/views/groups/groupsCreate.jsp";
+		}else {
+			msg="삭제에 실패했습니다 다시 시도하세요";
+			loc="/views/groups/groupsCreate.jsp";
+		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("loc", loc);
+		
+		request.getRequestDispatcher("/views/common/msg.jsp")
+		.forward(request, response);
+	
 	}
 
 	/**

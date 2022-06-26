@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ page import="com.jmh.groups.model.vo.Groups,java.util.List,com.jmh.member.model.vo.Member" %>
+   <%
+   Member loginMember = (Member)session.getAttribute("loginMember");
+%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +19,9 @@
 		<table id="groupsFrm">
 			<table class="tg">		
 				<thead>
+				  <tr>
+				    <th colspan="9" ><input type="text" name="memberId" id="memberId_" size="15" value="<%=loginMember!=null?loginMember.getMemberId():""%>"readonly></th>
+				  </tr>
 				  <tr>
 				    <th class="tg-0lax" colspan="9" ><input type="text" name="groupTitle"  size="40" placeholder="그 룹 명"></th>
 				  </tr>
@@ -40,7 +47,7 @@
 				  <tr>
 				    <!-- <td class="tg-0lax" colspan="4" rowspan="3"><input type="text" name="groupLocation" size="40" placeholder="위치정보"></td> -->
 				    <td>
-				    	<input type="text" id="sample5_address" placeholder="주소">
+				    	<input type="text" name="groupLocation"id="sample5_address" placeholder="주소">
 						<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 						<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
 				    </td>

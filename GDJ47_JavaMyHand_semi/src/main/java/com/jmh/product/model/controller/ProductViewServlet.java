@@ -18,7 +18,7 @@ import com.jmh.product.model.vo.Product;
 /**
  * Servlet implementation class ProductViewServlet
  */
-@WebServlet("/product/productview.do")
+@WebServlet("/product/productView.do")
 public class ProductViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -65,7 +65,7 @@ public class ProductViewServlet extends HttpServlet {
 		request.setAttribute("product", new ProductService().selectProductview(ana_No,isRead));
 		
 		System.out.println(isRead);
-		request.getRequestDispatcher("/views/Product/productview.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/product/productView.jsp").forward(request, response);
 		
 	}
 

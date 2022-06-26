@@ -47,10 +47,6 @@ public class ProductDao {
 		}return result;
 	}
 	
-	
-	
-	
-	
 	public  List<Product> selectProductList(Connection conn,int cPage, int numPerpage){
 		PreparedStatement pstmt = null;
 		List<Product>list=new ArrayList();
@@ -111,13 +107,12 @@ public class ProductDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("insertProduct"));
-			
-			
-			pstmt.setString(1,p.getMember_Id());
-			pstmt.setString(2, p.getA_Code());
-			pstmt.setString(3, p.getAna_Name());
-			pstmt.setInt(4, p.getAna_Price());
-			pstmt.setString(5, p.getAna_Content());
+			pstmt.setString(1, p.getMemberId());
+			pstmt.setString(2, p.getACode());
+			pstmt.setString(3, p.getAnaName());
+			pstmt.setInt(4, p.getAnaPrice());
+			pstmt.setString(5, p.getAnaContent());
+			pstmt.setString(6, p.getFileType());
 			result=pstmt.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -152,11 +147,11 @@ public class ProductDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("updateProduct"));
-			pstmt.setString(1, p.getA_Code());
-			pstmt.setString(2, p.getAna_Name());
-			pstmt.setInt(3,p.getAna_Price());
-			pstmt.setString(4, p.getAna_Content());
-			pstmt.setInt(5, p.getAna_No());
+			pstmt.setString(1, p.getACode());
+			pstmt.setString(2, p.getAnaName());
+			pstmt.setInt(3,p.getAnaPrice());
+			pstmt.setString(4, p.getAnaContent());
+			pstmt.setInt(5, p.getAnaNo());
 			result=pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -217,14 +212,14 @@ public class ProductDao {
 	
 	private static Product getProduct(ResultSet rs)throws SQLException{
 		return Product.builder()
-				.ana_No(rs.getInt("ana_No"))
-				.member_Id(rs.getString("member_Id"))
-				.a_Code(rs.getString("a_Code"))
-				.ana_Name(rs.getString("ana_Name"))
-				.ana_Price(rs.getInt("ana_Price"))
-				.ana_Content(rs.getString("ana_Content"))
-				.ana_Date(rs.getDate("ana_Date"))
-				.ana_View(rs.getInt("ana_View"))
+				.anaNo(rs.getInt("ana_No"))
+				.memberId(rs.getString("member_Id"))
+				.aCode(rs.getString("a_Code"))
+				.anaName(rs.getString("ana_Name"))
+				.anaPrice(rs.getInt("ana_Price"))
+				.anaContent(rs.getString("ana_Content"))
+				.anaDate(rs.getDate("ana_Date"))
+				.anaView(rs.getInt("ana_View"))
 				.build();
 	}
 	

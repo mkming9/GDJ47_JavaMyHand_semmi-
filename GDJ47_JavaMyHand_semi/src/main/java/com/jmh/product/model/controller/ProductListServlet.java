@@ -16,7 +16,7 @@ import com.jmh.product.model.vo.Product;
 /**
  * Servlet implementation class ProductListServlet
  */
-@WebServlet("/product/productlist.do")
+@WebServlet("/product/productList.do")
 public class ProductListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -84,8 +84,7 @@ public class ProductListServlet extends HttpServlet {
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("products", products);
 		
-		request.getRequestDispatcher("/views/Product/productlist.jsp")
-		.forward(request, response);
+		request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);
 	}
 
 	/**

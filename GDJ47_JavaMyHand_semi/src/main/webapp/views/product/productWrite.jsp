@@ -29,11 +29,9 @@ crossorigin="anonymous">
 </head>
 <body>
 
-	<form action="<%=request.getContextPath() %>/ProductWriteEndServlet" 
+	<form action="<%=request.getContextPath() %>/product/productWriteEnd.do" 
 	method="post" enctype="multipart/form-data">
-
 	<table class="table">
-	
   <thead>
     <tr>
       <th scope="col">상품번호</th>
@@ -42,39 +40,31 @@ crossorigin="anonymous">
       <th scope="col">상품이름</th>
       <th scope="col">가격</th>
       <th scope="col">내용</th>
-
       <th>사진</th>
-     
-
     </tr>
   </thead>
   <tbody>
-   <tr>
-   
-     
-      <td><input type="text" name="ANA_NO" readonly></td>
-      <td><input type="text" name="MEMBER_ID" value="<%=loginMember.getMemberId() %>" readonly></td>
-      <td><input type="text" name="A_CODE"></td>
-      <td><input type="text" name="ANA_NAME"></td>
-      <td><input type="text" name="ANA_PRICE"></td>
-      <td><input type="text" name="ANA_CONTENT"></td>
-
-      <td><input type="file" name="file"></td>
-      
-
-  </tbody>
+  	<tr>
+      <td><input type="text" name="anaNo" readonly></td>
+      <td><input type="text" name="memberId" value="<%=loginMember.getMemberId() %>" readonly></td>
+      <td><input type="text" name="aCode"></td>
+      <td><input type="text" name="anaName"></td>
+      <td><input type="number" name="anaPrice"></td>
+      <td><input type="text" name="anaContent"></td>
+      <td><input type="file" name="upFile"></td>
  	<tr>
- 	<th colspan="2">
- 			<input type="submit" value="등록" >
-			<input type="reset" value="취소">
- 	</th>
+ 	<td colspan="2">
+ 		<input type="submit" value="등록" >
+		<input type="reset" value="취소">
+ 	</td>
+ </tbody>
 </table>
+</form>
  <%-- <button id="addProduct"
 	onclick="location.assign('<%=request.getContextPath() %>/ProductWriteServlet')" >상품등록</button>
 	
 	<button id="alterProduct" >상품수정</button>
 	<button id="alterProduct">상품삭제</button>	  --%>
 		
-</form>	
 </body>
 </html>

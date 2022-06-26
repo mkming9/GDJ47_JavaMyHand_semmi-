@@ -6,10 +6,60 @@ div#pageBar{margin-top:10px; text-align:center;}
 	background-image: url(../images/productbanner.png);
 }
 
- div#search-container {margin:0 0 10px 0; padding:3px; 
-    }
+ div#search-container {margin:0 0 10px 0; padding:3px; }
     div#search-A_CODE{display:inline-block;}
     div#search-ANA_NAME{display:none;}
     
     div#numPerpage-container{float:right;}
     form#numperPageFrm{display:inline;}
+    
+section#content{
+    /* border: 1px solid red; */
+    /* padding: 30px; */
+    display: flex; /*자손태그를 flexible box로 변환하는 설정 * 수평 수직 정렬을 편하게 할 수 있음*/
+    /* justify-content: space-around; */ /*패딩값 포함*/
+    /* justify-content: space-between; */  /*패딩값 무시*/
+    justify-content: space-evenly;
+    /* justify-content: left;
+    justify-content: center; */
+    /* justify-content: right; */
+    align-items: flex-start;
+    width: 100%;
+    height: Auto;
+}
+section#content div{
+    border: 1px solid blue;
+    width: 150px;
+    /* height: auto; */
+    /* display: inline-block; */
+    /* margin-left: 50px; */
+}
+
+section#content div.pic>img{
+    /* border: 1px solid yellow; */
+    width: 150px;
+    height: 150px;
+    /* margin-left: 25%; */
+}
+
+section#content div.description>h3{
+    /* border: 1px solid green; */
+    text-align: center;
+}
+
+section#content div.description>p{
+    /* border: 1px solid green; */
+    display: inline-block;
+    text-align: right;
+}
+section#content div.description>p:first-of-type{
+    width: 55%;
+}
+section#content div.description>p:last-child{
+    width: 40%;
+    font-weight: bold;
+}
+/* *{
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+} */

@@ -10,7 +10,12 @@
 	<form action="<%=request.getContextPath()%>/groups/groupsDeleteEnd.do" method="post">
 		<input type="text" name="groupTitle" placeholder="삭제할 그룹명 입력" required>
 		<input type="submit" value="확인">
-		<input type="reset" value="취소">
+		<button value="취소" onclick="cancel();">취소</button>
 	</form>
+	<script>
+	const cancel = ()=>{
+	close();
+	}
+	</script>
 </body>
 </html>

@@ -148,6 +148,23 @@ public class MemberDao {
 		
 	}
 	
+	public int memberDelete(Connection conn, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(prop.getProperty("memberDelete"));
+			pstmt.setString(1, m.getMemberId());
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		System.out.println(result);
+		return result;
+		
+	}
+	
 	public static Member getMember(ResultSet rs) throws SQLException{
 		return Member.builder()
 					.memberId(rs.getString("member_id"))

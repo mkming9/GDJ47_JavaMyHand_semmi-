@@ -9,11 +9,11 @@
 	<div id="mypagemenu">
 		<ul id="menuwrap">
 			<div id=profile><li><span id=profilename><%=loginMember.getMemberName() %></span> 님<br><span id="profileid"><%=loginMember.getMemberId() %></span></li></div>
-	    	<a href="<%=request.getContextPath() %>/memberedit.jsp"><div id=pagebox1><li>내 정보</li></div></a>
+	    	<div id=pagebox1><li>내 정보</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/donateHistory.jsp"><div id=pagebox><li>후원 내역</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/groupsHistory.jsp"><div id=pagebox><li>참여중인 소모임</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/productHistory.jsp"><div id=pagebox><li>판매 구매 내역</li></div></a>
-	        <a href="<%=request.getContextPath() %>/views/mypage/memberDelete.jsp"><div id=pagebox><li>탈퇴하기</li></div></a>
+	        <a href="<%=request.getContextPath() %>/views/mypage/inquire.jsp"><div id=pagebox><li>문의</li></div></a>
 	    </ul>
 	    <form id="memberFrm" action="<%=request.getContextPath() %>/membereditend.do" method="post">
 	    <div class="pagecontent">
@@ -25,6 +25,8 @@
 	    			<input type="button" id="chargebtn2" value="충전하기" onclick="fn_pointChard()">
 	    		</div>
 	    	</div>
+	    	
+	    	
 	    	<div class="editWrap">
 	    		<div id="userDetail">
 	    		<p>내 정보 관리</p>
@@ -33,7 +35,7 @@
 	    			<tr>
 						<th id="details">아이디</th>
 						<td id="detailUsers">
-						<input type="text" name="memberId" id="memberId" required value="<%=m.getMemberId()%>"><br>
+							<input type="text" name="memberId" id="memberId" required value="<%=m.getMemberId()%>"><br>
 						</td>
 					</tr>
 					<tr>
@@ -92,8 +94,11 @@
 				</table>
 				</form>
 				<input type="button" id="detailUpdateBtn" value="수정하기" onclick="fn_frmsubmit();">
+				<input type="button" id="deleteBtn" value="탈퇴하기" onclick="fn_delete();">
 	    		</div>
 	    	</div>
+	    	
+	    	
 	    </div>
     </div>
 	</section>
@@ -105,6 +110,10 @@
 		
 		const fn_updatePassword=()=>{
 			open("<%=request.getContextPath()%>/updatePassword.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=201, top=200, left=500");
+		}
+		
+		const fn_delete=()=>{
+			open("<%=request.getContextPath()%>/deleteMember.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=201, top=200, left=440");
 		}
 		
 		$("#pointCheck").click(function(e){
@@ -120,6 +129,7 @@
 		const fn_frmsubmit=()=>{
 			$("#memberFrm").submit();
 		}
+		
 	</script>
 		
 

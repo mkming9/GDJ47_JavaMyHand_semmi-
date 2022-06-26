@@ -26,7 +26,7 @@
 	    	</div>
 	    	<div class="editWrap">
 	    		<div>
-	    			<p>소모임 내역</p>
+	    			<p>문의하기</p>
 	    		</div>
 	    	</div>
 	    </div>

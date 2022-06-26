@@ -13,7 +13,7 @@
 	        <a href="<%=request.getContextPath() %>/views/mypage/donateHistory.jsp"><div id=pagebox><li>후원 내역</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/groupsHistory.jsp"><div id=pagebox><li>참여중인 소모임</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/productHistory.jsp"><div id=pagebox1><li>판매 구매 내역</li></div></a>
-	        <a href="<%=request.getContextPath() %>/views/mypage/memberDelete.jsp"><div id=pagebox><li>탈퇴하기</li></div></a>
+	        <a href="<%=request.getContextPath() %>/views/mypage/inquire.jsp"><div id=pagebox><li>문의</li></div></a>
 	    </ul>
 	    <div class="pagecontent">
 	    	<div id="currentjava">

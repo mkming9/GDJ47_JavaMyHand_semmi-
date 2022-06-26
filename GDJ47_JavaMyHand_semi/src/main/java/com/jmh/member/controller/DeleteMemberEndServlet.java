@@ -47,6 +47,8 @@ public class DeleteMemberEndServlet extends HttpServlet {
 				msg = "탈퇴가 정상적으로 되었습니다. 감사합니다.";
 				String script = "close();";
 				request.setAttribute("script", script);
+				
+				loc="/index.jsp";
 			}else {
 				msg = "오류";
 			}

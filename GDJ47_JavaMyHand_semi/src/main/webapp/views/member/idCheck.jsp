@@ -17,6 +17,9 @@
 </head>
 <body>
 <style>
+	body{
+		background-color:yellow;
+	}
 	div#checkId-container{
 		text-align : center;
 		padding-top : 50px;

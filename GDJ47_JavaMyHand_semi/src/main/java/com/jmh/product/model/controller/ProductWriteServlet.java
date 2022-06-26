@@ -12,7 +12,7 @@ import com.jmh.product.model.vo.Product;
 /**
  * Servlet implementation class ProductWriteServlet
  */
-@WebServlet("/ProductWriteServlet")
+@WebServlet("/product/productWrite.do")
 public class ProductWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,10 +29,8 @@ public class ProductWriteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		
-		
-		request.getRequestDispatcher("/views/Product/productWrite.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/product/productWrite.jsp").forward(request, response);
 
 		
 	}

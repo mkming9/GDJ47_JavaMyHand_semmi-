@@ -26,14 +26,14 @@ public class ProductService {
 		return result;
 	}
 	
-	public Product selectProductview(int ana_No,boolean isRead) {
+	public Product selectProductview(int ana_No, boolean isRead) {
 		Connection conn=getConnection();
-		Product p=dao.selectProduct(conn,ana_No);
+		Product p=dao.selectProduct(conn, ana_No);
 		if(p!=null&&!isRead) {
-			int result=dao.upDateReadCount(conn,ana_No);
+			int result=dao.upDateReadCount(conn, ana_No);
 			if(result>0) {
 				commit(conn);
-				p.setAna_View(p.getAna_View()+1);
+				p.setAnaView(p.getAnaView()+1);
 			}else 
 				rollback(conn);
 			

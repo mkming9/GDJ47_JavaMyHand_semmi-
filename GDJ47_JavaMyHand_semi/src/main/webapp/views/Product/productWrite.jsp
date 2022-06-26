@@ -42,7 +42,6 @@ crossorigin="anonymous">
       <th scope="col">상품이름</th>
       <th scope="col">가격</th>
       <th scope="col">내용</th>
-
       <th>사진</th>
      
 

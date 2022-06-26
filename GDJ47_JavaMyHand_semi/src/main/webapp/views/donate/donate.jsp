@@ -25,7 +25,7 @@
             <h1>우크라이나 전쟁 지원 캠페인<br>
                <span>유엔난민기구</span>와 평화를 지켜요
             </h1>
-            <input type='button' class="donbtn" value='기부하기' onclick="location.assign('<%=request.getContextPath()%>/donate/donate.do')">
+            <input type='button' class="donbtn" value='기부하기' onclick="fn_Donate">
             <input type='button' class="newsbtn" id="newsbtn1" value='소식보기'/>
          </div>
          <div class="newsSlide" id="crolling1">
@@ -76,6 +76,11 @@
       }
    </style>
    <script>
+   $(".donbtn").click(e=>{
+	   
+  		window.open("<%=request.getContextPath()%>/donate/donate.do","_blank","width=800, height=600, top=200, left=440");
+  	});
+   
 	   $.ajax({
 	       url:"<%=request.getContextPath()%>/donate/donateNews1.do",
 	       dataType:"json",

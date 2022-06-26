@@ -9,12 +9,13 @@
 	<div id="mypagemenu">
 		<ul id="menuwrap">
 			<div id=profile><li><span id=profilename><%=loginMember.getMemberName() %></span> 님<br><span id="profileid"><%=loginMember.getMemberId() %></span></li></div>
-	    	<a href="<%=request.getContextPath() %>/memberedit.jsp"><div id=pagebox1><li>내 정보</li></div></a>
+	    	<div id=pagebox1><li>내 정보</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/donateHistory.jsp"><div id=pagebox><li>후원 내역</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/groupsHistory.jsp"><div id=pagebox><li>참여중인 소모임</li></div></a>
 	        <a href="<%=request.getContextPath() %>/views/mypage/productHistory.jsp"><div id=pagebox><li>판매 구매 내역</li></div></a>
-	        <a href="<%=request.getContextPath() %>/views/mypage/memberDelete.jsp"><div id=pagebox><li>탈퇴하기</li></div></a>
+	        <a href="<%=request.getContextPath() %>/views/mypage/inquire.jsp"><div id=pagebox><li>문의</li></div></a>
 	    </ul>
+	    <form id="memberFrm" action="<%=request.getContextPath() %>/membereditend.do" method="post">
 	    <div class="pagecontent">
 	    	<div id="currentjava">
 	    		<p id="detail1">나의 보유잡아 :<p>
@@ -24,18 +25,22 @@
 	    			<input type="button" id="chargebtn2" value="충전하기" onclick="fn_pointChard()">
 	    		</div>
 	    	</div>
+	    	
+	    	
 	    	<div class="editWrap">
 	    		<div id="userDetail">
 	    		<p>내 정보 관리</p>
-	    		<form id="memberFrm" action="<%=request.getContextPath() %>/membereditend.do" method="post">
+	    		
 	    		<table>
 	    			<tr>
 						<th id="details">아이디</th>
-						<td id="detailUsers"><%=loginMember.getMemberId() %></td>
+						<td id="detailUsers">
+							<input type="text" name="memberId" id="memberId" required value="<%=m.getMemberId()%>"><br>
+						</td>
 					</tr>
 					<tr>
 						<th id="details">패스워드</th>
-						<td id="detailUsers"><button id="changePwBtn" onclick="updatePw();">수정</button></td>
+						<td id="detailUsers"><input type="button" id="changePwBtn" onclick="fn_updatePassword();" value="수정"></td>
 					</tr>
 					<tr>
 						<th id="details">이름</th>
@@ -89,8 +94,11 @@
 				</table>
 				</form>
 				<input type="button" id="detailUpdateBtn" value="수정하기" onclick="fn_frmsubmit();">
+				<input type="button" id="deleteBtn" value="탈퇴하기" onclick="fn_delete();">
 	    		</div>
 	    	</div>
+	    	
+	    	
 	    </div>
     </div>
 	</section>
@@ -100,8 +108,12 @@
 			//유효성검사 로직도 구성 할 수 있음.
 		}
 		
-		const updatePw = ()=>{
-			open("<%=request.getContextPath()%>/member/updatePassword.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=210, top=200, left=440");
+		const fn_updatePassword=()=>{
+			open("<%=request.getContextPath()%>/updatePassword.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=201, top=200, left=500");
+		}
+		
+		const fn_delete=()=>{
+			open("<%=request.getContextPath()%>/deleteMember.do?memberId=<%=m.getMemberId()%>","_blank","width=400, height=201, top=200, left=440");
 		}
 		
 		$("#pointCheck").click(function(e){
@@ -117,6 +129,7 @@
 		const fn_frmsubmit=()=>{
 			$("#memberFrm").submit();
 		}
+		
 	</script>
 		
 

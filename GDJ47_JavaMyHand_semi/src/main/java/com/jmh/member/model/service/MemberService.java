@@ -50,11 +50,38 @@ public class MemberService {
 		return result;
 	}
 	
-	public int memberEdit(Member m) {
+	public int memberEdit(Member m) {//회원 정보 수정
 		Connection conn = getConnection();
 		int result = dao.memberEdit(conn, m);
-		if(result>0) commit(conn);
-		else rollback(conn);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	public int updatePassword(Member m) {//비밀번호 수정
+		Connection conn = getConnection();
+		int result = dao.updatePassword(conn, m);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	public int deleteMember(Member m) {//회원 탈퇴
+		Connection conn = getConnection();
+		int result = dao.memberDelete(conn, m);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return result;
 	}

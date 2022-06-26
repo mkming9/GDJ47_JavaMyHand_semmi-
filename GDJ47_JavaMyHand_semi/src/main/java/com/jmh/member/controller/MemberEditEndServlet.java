@@ -42,7 +42,6 @@ public class MemberEditEndServlet extends HttpServlet {
 
 		
 		String memberId = request.getParameter("memberId");
-		String password = request.getParameter("password");
 		String memberName = request.getParameter("memberName");
 		String gender = request.getParameter("gender");
 		int age =Integer.parseInt(request.getParameter("age"));
@@ -50,8 +49,10 @@ public class MemberEditEndServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		
+		System.out.println("아이디 : "+memberId+"\n이름 : "+memberName+"\n성별 : "+gender+"\n나이 : "+age
+				+"\n주소 : "+address+"\n번호 : "+phone+"\n이메일 : "+email);
+		
 		Member m = Member.builder().memberId(memberId)
-				.password(password)
 				.memberName(memberName)
 				.gender(gender)
 				.age(age)
@@ -61,11 +62,14 @@ public class MemberEditEndServlet extends HttpServlet {
 				.enrollDate(null)
 				.email(email)
 				.build();
+
 		
 		int result = new MemberService().memberEdit(m);
+		System.out.println(result);
 		
 		String msg="", loc="";
-//		loc = "/memberedit.do?memberId=" + m.getMemberId();		
+		
+		loc = "/memberedit.do?memberId=" + m.getMemberId();		
 		if(result>0) {
 			msg = "정상적으로 수정되었습니다";
 		}else {

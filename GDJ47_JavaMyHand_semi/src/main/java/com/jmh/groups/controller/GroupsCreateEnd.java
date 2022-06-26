@@ -33,28 +33,40 @@ public class GroupsCreateEnd extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String groupTitle=request.getParameter("groupTitle");
-		String groupContent=request.getParameter("groupContent");
 		String gCode=request.getParameter("gCode");
+		String groupLocation=request.getParameter("groupLocation");
 		int groupLimit=Integer.parseInt(request.getParameter("groupLimit"));
 		String groupGender=request.getParameter("groupGender");
-		String groupLocation=request.getParameter("groupLocation");
+		String groupContent=request.getParameter("groupContent");
+		String memberId=request.getParameter("memberId");
+		System.out.println(memberId+" "+groupTitle+" "+gCode+" "+groupLocation+" "
+		+groupLimit+" "+groupGender+" "+groupContent);
 		
-		System.out.println(groupTitle+" "+groupContent+" "+groupGender+" "+groupLimit+" "+groupLocation);
-		Groups g=Groups.builder().gCode(gCode)
+		Groups g=Groups.builder()
+				.gCode(gCode)
 				.groupTitle(groupTitle)
 				.groupContent(groupContent)
-				.groupGender(groupGender)
 				.groupLimit(groupLimit)
+				.groupGender(groupGender)
 				.groupLocation(groupLocation)
 				.build();
-		
+		System.out.println(g);
 		int result=new GroupsService().insertGroups(g);
-	
-		if(g!=null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("result",result);
+		String msg="" ,loc="";
+		if(result>0) {
+			msg="등록에 성공하셨습니다";
+			loc="/";
+		}else {
+			msg="등록에 실패했습니다 다시 시도하세요";
+			loc="/views/groups/groupsCreate.jsp";
 		}
-			
+		request.setAttribute("msg", msg);
+		request.setAttribute("loc", loc);
+		
+		request.getRequestDispatcher("/views/common/msg.jsp")
+		.forward(request, response);
+	
+					
 	}
 
 	/**

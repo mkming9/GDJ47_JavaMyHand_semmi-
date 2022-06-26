@@ -24,7 +24,7 @@
                 </li>
             </ul>  
             <p class="controller"> 
-                <span class="left">&lang;</span>  
+                <span class="left">&lang;</span>
                 <span class="right">&rang;</span>
             </p>
         </div>

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/views/common/header.jsp" %>
 <%@ page import="java.util.List,com.jmh.groups.model.vo.Groups" %>
 <% 
+	
    List<Groups> groups=(List<Groups>)request.getAttribute("groups");
 %>
 
-<%@ include file="/views/common/header.jsp" %>
 <body>
    <section>
    <div class="groupsbanner"></div>
@@ -13,9 +14,14 @@
    <%if(!groups.isEmpty()) {
       for(Groups g : groups) {%>
       <tr>
-         <td><%=g.getGroupNo()%></td>
-         <td><%=g.getGroupTitle()%></td>
-         <td><%=g.getGroupContent()%></td>
+         <td><%=g.getGroupNo()%>&nbsp;&nbsp;</td>
+         <td><%=g.getMemberId()%>&nbsp;&nbsp;</td> 
+         <td><%=g.getGroupTitle()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGCode()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupLocation()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupLimit()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupGender()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupContent()%>&nbsp;&nbsp;</td>
       </tr>
      <%} 
      } %>
@@ -76,11 +82,11 @@
   </script>
   <script>
    $("#btn_createGroups").click(e=>{
-      open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");
+	   open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");
    });
 
    $("#btn_deleteGroups").click(e=>{
-      open("<%=request.getContextPath()%>/groups/groupsDelete.do","_blank","width=300,height=200");
+      open("<%=request.getContextPath()%>/groups/groupsDelete.do","_blank","width=521,height=440");
    });
 </script>
 </body>

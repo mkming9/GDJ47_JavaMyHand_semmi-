@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 /**
  * Servlet implementation class EmailCertificationServlet
  */
@@ -38,21 +40,12 @@ public class EmailCertificationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String memberId = request.getParameter("memberId");
 		String memberName = request.getParameter("memberName");
 		String email = request.getParameter("email");
 		System.out.println("memberId :: " + memberId);
 		System.out.println("memberName :: " + memberName);
 		System.out.println("email :: " + email);
-		// 먼저 아이디로 회원정보를 받아오고 가져온 데이터에서 email값을 비교하여 존재하지 않으면 인증메일 보내지 못함
-		/*
-		 * Member m = new MemberService().memberLogin(memberId); if (m == null ||
-		 * !m.getEmail().equals(email)) { request.setAttribute("msg",
-		 * "아이디나 이메일 정보가 맞지 않습니다"); request.setAttribute("loc", "/member/searchPw");
-		 * request.getRequestDispatcher("/views/common/msg.jsp").forward(request,
-		 * response); return; }
-		 */
 
 		// mail server 설정
 		String host = "smtp.naver.com";
@@ -93,7 +86,7 @@ public class EmailCertificationServlet extends HttpServlet {
 			}
 		}
 		String AuthenticationKey = temp.toString();
-		System.out.println(AuthenticationKey);
+		System.out.println("AuthenticationKey : " + AuthenticationKey);
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
@@ -116,13 +109,11 @@ public class EmailCertificationServlet extends HttpServlet {
 			System.out.println("이메일 전송 : " + AuthenticationKey);
 
 		} catch (Exception e) {
-			e.printStackTrace();// TODO: handle exception
+			e.printStackTrace();
 		}
-		HttpSession saveKey = request.getSession();
-		saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
-		
-		
-		
+		Gson gson=new Gson();
+		response.setContentType("application/json;charset=utf-8");
+	    gson.toJson(AuthenticationKey, response.getWriter());
 	}
 
 	/**

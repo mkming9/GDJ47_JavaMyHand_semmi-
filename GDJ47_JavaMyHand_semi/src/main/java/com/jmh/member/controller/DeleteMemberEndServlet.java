@@ -1,7 +1,6 @@
 package com.jmh.member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +11,16 @@ import com.jmh.member.model.service.MemberService;
 import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class MemberEditServlet
+ * Servlet implementation class DeleteMemberEndServlet
  */
-@WebServlet("/memberedit.do")
-public class MemberEditServlet extends HttpServlet {
+@WebServlet("/deleteMemberEnd.do")
+public class DeleteMemberEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberEditServlet() {
+    public DeleteMemberEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,13 +29,32 @@ public class MemberEditServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String memberId = request.getParameter("memberId");
+		String oriPw = request.getParameter("password");
 		
-		Member m = new MemberService().memberIdCheck(memberId);
+		Member m = Member.builder().memberId(memberId)
+				.password(oriPw)
+				.build();
 		
-		request.setAttribute("member", m);
-		
-		request.getRequestDispatcher("/views/mypage/memberedit.jsp")
+		String msg="", loc="";
+		if(m!=null) {
+			//맞는 비밀번호
+			int result = new MemberService().deleteMember(m);
+			
+			if(result>0) {
+				msg = "탈퇴가 정상적으로 되었습니다. 감사합니다.";
+				loc = "/index.jsp";
+			}else {
+				msg = "오류";
+			}
+		}else {
+			//틀린 비밀번호
+			msg="비밀번호가 일치하지 않습니다.";
+		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("loc", loc);
+		request.getRequestDispatcher("/views/common/msg.jsp")
 		.forward(request, response);
 	}
 

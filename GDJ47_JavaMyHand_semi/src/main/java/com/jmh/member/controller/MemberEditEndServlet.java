@@ -12,16 +12,16 @@ import com.jmh.member.model.service.MemberService;
 import com.jmh.member.model.vo.Member;
 
 /**
- * Servlet implementation class SignUpEndServlet
+ * Servlet implementation class MemberDetailEditServlet
  */
-@WebServlet("/signupend.do")
-public class SignUpEndServlet extends HttpServlet {
+@WebServlet("/membereditend.do")
+public class MemberEditEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignUpEndServlet() {
+    public MemberEditEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,10 +30,18 @@ public class SignUpEndServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+//		Member m = new Member();
+//		m.setMemberId(request.getParameter("memberId"));
+//		m.setMemberName(request.getParameter("memberName"));
+//		m.setGender(request.getParameter("gender"));
+//		m.setAge(Integer.parseInt(request.getParameter("age")));
+//		m.setAddress(request.getParameter("address"));
+//		m.setPhone(request.getParameter("phone"));
+//		m.setEmail(request.getParameter("email"));
 
-		//회원가입
+		
 		String memberId = request.getParameter("memberId");
-		String password = request.getParameter("password");
 		String memberName = request.getParameter("memberName");
 		String gender = request.getParameter("gender");
 		int age =Integer.parseInt(request.getParameter("age"));
@@ -41,34 +49,31 @@ public class SignUpEndServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		
+		System.out.println("아이디 : "+memberId+"\n이름 : "+memberName+"\n성별 : "+gender+"\n나이 : "+age
+				+"\n주소 : "+address+"\n번호 : "+phone+"\n이메일 : "+email);
 		
-		
-		System.out.println("아이디 : "+memberId+"\n비번 : "+password
-						+"\n이름 : "+memberName+"\n성별 : "+gender+"\n나이 : "+age
-						+"\n주소 : "+address+"\n번호 : "+phone+"\n이메일 : "+email);
-
 		Member m = Member.builder().memberId(memberId)
-						.password(password)
-						.memberName(memberName)
-						.gender(gender)
-						.age(age)
-						.address(address)
-						.phone(phone)
-						.point(0)
-						.enrollDate(null)
-						.email(email)
-						.build();
-	
-		int result =new MemberService().memberSignUp(m); 
+				.memberName(memberName)
+				.gender(gender)
+				.age(age)
+				.address(address)
+				.phone(phone)
+				.point(0)
+				.enrollDate(null)
+				.email(email)
+				.build();
+
+		
+		int result = new MemberService().memberEdit(m);
 		System.out.println(result);
 		
-		String msg="" ,loc="";
+		String msg="", loc="";
+		
+		loc = "/memberedit.do?memberId=" + m.getMemberId();		
 		if(result>0) {
-			msg="회원가입을 성공하셨습니다";
-			loc="/";
+			msg = "정상적으로 수정되었습니다";
 		}else {
-			msg="회원가입을 실패했습니다 다시 시도하세요";
-			loc="/signup.do";
+			msg = "수정을 실패했습니다";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);

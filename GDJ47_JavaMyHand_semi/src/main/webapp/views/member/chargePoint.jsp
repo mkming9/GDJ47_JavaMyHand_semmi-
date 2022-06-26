@@ -4,42 +4,34 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;500;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/css/chargepoint.css" rel="stylesheet" type="text/css"/>
 
 <div id="payResult">
-<<<<<<< HEAD
-	<p>KG이니시스 현재 사용가능</p>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="1000"><span>1,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="45000"><span>45,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-	<p>KG이니시스의 최소 충전금액은 1000원이며, 최대 충전금액은 50,000원 입니다.</p>
-	<button type="button" class="btn btn-lg btn-block btn-custom" id="payment_txt_amount">충 전 하 기</button>
-=======
-	<p>잡아 충전하기</p>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="1000"><span>1,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="45000"><span>45,000원</span></label>
-	<label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-	<p>KG이니시스의 최소 충전금액은 1000원이며, 최대 충전금액은 50,000원 입니다.</p>
-	<button type="button" class="btn btn-lg btn-block btn-custom" id="payment_txt_amount">충전하기</button>
-	<button type="button">취소하기</button>
->>>>>>> branch 'javamyhand' of https://github.com/mkming9/GDJ47_JavaMyHand_semmi-.git
-	<!-- <button onclick="cancelPay()">환불</button> -->
+
+	
+	<p id="title">잡아 충전하기</p>
+	<p id="sub1">금액을 선택해주세요</p>
+	<div class="amount">
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="1000"><span> 1,000 원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span> 5,000 원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label><br>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label><br>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="45000"><span>45,000원</span></label>
+		<label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
+	</div>
+	<p id="sub2">최소 충전금액은 1000원이며, 최대 충전금액은 50,000원 입니다.</p>
+	<div class="chargebtn">
+		<button type="button" class="btn btn-lg btn-block btn-custom" id="payment_txt_amount">충전하기</button>
+		<button type="button" id="canclebtn">취소하기</button>
+		<!-- <button onclick="cancelPay()">환불</button> -->
+	</div>
+
 </div>
 
 <script>

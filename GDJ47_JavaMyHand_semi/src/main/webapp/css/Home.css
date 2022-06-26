@@ -53,6 +53,7 @@ header{
 .logintable{
 	margin-left: 90px;
 	width: 430px;
+	margin-top: 15px;
 }
 .logintable1{
 	border-spacing: 0 5px;
@@ -60,7 +61,6 @@ header{
 }
 .logintable2{
 	width:1000px;
-	margin-top : 20px;
 	margin-left: 10px;
 	border-spacing: 0 5px;
 	/* float: left; */
@@ -280,21 +280,12 @@ label{
     margin-left: 60px;
     margin-top: 105px;
 }
-#box1{
-    
-}
 #box1>img{
     margin-top: 60px;
 
 }
-#box2{
-	
-}
 #box2>img{
     margin-top: 45px;
-}
-#box3{
-    
 }
 #box3>img{
     margin-top: 62px;
@@ -344,7 +335,7 @@ label{
 #footertext{
     width: 500px;
     height: 30px;
-    margin-top: 37px;
+    margin-top: 28px;
     margin-left: 50px;
     font-family: "Noto Sans KR";
 }
@@ -359,16 +350,17 @@ label{
     font-size: 12px;
 }
 #sns{
-    margin-top: 42px;
+    margin-top: 39px;
 }
 #sns>p{
     font-family: "Noto Sans KR";
     font-weight:500;
     color: rgb(192, 192, 192);
     font-size: 13px;
+    margin-bottom: 10px;
 }
 #sns>img{
-    margin-top: 10px;
+    cursor: pointer;
 }
 /* .messenger>img{
 	position: fixed;

@@ -1,3 +1,71 @@
+body{
+	margin: 0;
+	padding: 0;
+}
 #payResult{
+	width: 100%;
+	height: 509px;
+	background-image: url(../images/chargeback.png);
 	font-size: 10px;
+	padding-top: 130px;
+	
+}
+#title{
+	font-family: "IBM Plex Sans KR";
+	font-size: 30px;
+	font-weight: 700;
+	width: 200px;
+	margin-top: 1px;
+	margin-left: 380px;
+	color: rgb(50, 50, 50);
+	margin-bottom: 67px;
+}
+.amount{
+	font-family: "Noto Sans KR";
+	font-size: 17px;
+	font-weight: 700;
+	width: 690px;
+	height: 80px;
+	margin: 0 auto;
+	color: rgb(8,89,169);
+}
+.box-radio-input{
+	margin-left: 60px;
+}
+#sub1{
+	font-family: "Noto Sans KR";
+	font-weight: 700;
+	font-size: 15px;
+	margin-left: 180px;
+}
+#sub2{
+	font-family: "Noto Sans KR";
+	font-weight: 300;
+	font-size: 11px;
+	float: right;
+	margin-right: 180px;
+}
+#payResult button{
+	margin-top: 50px;
+	border: 0;
+	width: 195px;
+	height: 55px;
+	font-family: "IBM Plex Sans KR";
+	color: white;
+	font-weight: 500;
+	font-size: 18px;
+}
+.chargebtn{
+	width: 470px;
+	margin-left: 260px;
+}
+#payment_txt_amount{
+	background-color: rgb(39, 113, 173);
+	cursor: pointer;
+}
+#canclebtn{
+	position: absolute;
+	background-color: rgb(137, 178, 211);
+	margin-left: 20px;
+	cursor: pointer;
 }

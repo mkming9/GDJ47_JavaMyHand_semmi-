@@ -47,7 +47,7 @@
 	margin-bottom: 130px;
 }
 .donatebox{
-	margin: 120px auto;
+	margin: 90px auto;
 	width: 1050px;
 	height: 345px;
 	background-image: url(../images/donatebox.png);
@@ -94,10 +94,10 @@
 	cursor: pointer;
 }
 .newsSlide{
-	margin: 35px auto;
-	background-color: lightslategray;
+	margin: 25px auto;
+	/* background-color: lightslategray; */
 	width: 1050px;
 	height: auto;
 	display: none;
-	box-shadow: 8px 8px 15px 0px gray;
+	/* box-shadow: 8px 8px 15px 0px gray; */
 }

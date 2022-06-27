@@ -7,6 +7,9 @@
 <body>
 
 <div class="productbanner"></div>
+<div>
+	<button id="addProduct" onclick="location.assign('<%=request.getContextPath()%>/product/productWrite.do')" >글쓰기</button>
+</div>
  <section id="content">
  	<%if(products.isEmpty()) { %>
       <h3>조회된결과가 없습니다!</h3>
@@ -25,7 +28,7 @@
         <% }
 	 } %>  
   </section>
-
+  
 <div id="pageBar">
 	<%=request.getAttribute("pageBar") %>
 </div>

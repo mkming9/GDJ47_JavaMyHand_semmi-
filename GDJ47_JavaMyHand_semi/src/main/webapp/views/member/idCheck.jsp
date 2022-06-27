@@ -18,9 +18,15 @@
 </head>
 <body>
 <style>
+	body{
+		background-color:gray;
+		border: solid 1px;
+		padding-bottom:110px;
+	}
 	div#checkId-container{
+		margin-top : 60px;
 		text-align : center;
-		padding-top : 50px;
+		border:1px;
 	}
 	span#idCheck{
 		color : red;
@@ -29,17 +35,19 @@
 </style>
 	<div id="checkId-container">
 		<%if(result) {%>
-			[<span><%=request.getParameter("memberId")%></span>]는 사용가능합니다.	
+			<strong>[<span style="color:lightgreen"><%=request.getParameter("memberId")%></span>]는 사용가능합니다.</strong>	
 			<br><br>
 			<button type="button" onclick="close();">닫기</button>
 			<br>
 		<%} else{%>
-			[<span id="idCheck"><%=request.getParameter("memberId")%></span>]는 사용중입니다.
+			<strong>[<span id="idCheck"><%=request.getParameter("memberId")%></span>]는 중복된 아이디입니다.</strong>
 			<br><br>
 			
 			<form action="<%=request.getContextPath() %>/idCheck.do" method="post">
 				<input type="text" name="memberId" id="memberId">
 				<input type="submit" value="중복검사" >
+					<br><br>
+				<button type="button" onclick="close();">닫기</button>
 			</form>
 		<%} %>
 	</div>	

@@ -15,12 +15,12 @@
       <h3>조회된결과가 없습니다!</h3>
 	<%} else {
 		for(Product p : products) {%>
-        <div class="post">
+        <div class="post" OnClick="location.href ='<%=request.getContextPath()%>/product/productView.do?no=<%=p.getAnaNo()%>'" style="cursor:pointer;">
             <div class="pic">
                 <img src="<%=request.getContextPath()%>/images/noimage.jpg">
             </div>
             <div class="description">
-                <h3><a href="<%=request.getContextPath()%>/product/productView.do?no=<%=p.getAnaNo()%>"><%=p.getAnaName()%></a></h3>
+                <h3><%=p.getAnaName()%></h3>
                 <p><%=p.getAnaContent()%></p>
                 <p><%=p.getAnaPrice()%> 원</p>
             </div>

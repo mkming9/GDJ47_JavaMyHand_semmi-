@@ -32,7 +32,7 @@
 </div>
 
 <script>
-    $('#payment_txt_amount').click(function () {
+    $('#payment_txt_amount0').click(function () {
         // getter
         var IMP = window.IMP;
         IMP.init('imp90081232');

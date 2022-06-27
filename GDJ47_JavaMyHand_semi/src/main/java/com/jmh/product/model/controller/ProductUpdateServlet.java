@@ -36,7 +36,7 @@ public class ProductUpdateServlet extends HttpServlet {
 		
 		request.setAttribute("product", new ProductService().selectProduct(ANA_NO));
 		
-		request.getRequestDispatcher("/views/Product/productupdate.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/product/productupdate.jsp").forward(request, response);
 	}	
 	
 

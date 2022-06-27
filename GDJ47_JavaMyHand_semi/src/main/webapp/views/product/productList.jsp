@@ -17,7 +17,7 @@
                 <img src="<%=request.getContextPath()%>/images/noimage.jpg">
             </div>
             <div class="description">
-                <h3><%=p.getAnaName()%></h3>
+                <h3><a href="<%=request.getContextPath()%>/product/productView.do?no=<%=p.getAnaNo()%>"><%=p.getAnaName()%></a></h3>
                 <p><%=p.getAnaContent()%></p>
                 <p><%=p.getAnaPrice()%> 원</p>
             </div>

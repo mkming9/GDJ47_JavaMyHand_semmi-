@@ -19,7 +19,7 @@
             <div class="description">
                 <h3><%=p.getAnaName()%></h3>
                 <p><%=p.getAnaContent()%></p>
-                <p><%=p.getAnaPrice()%>원</p>
+                <p><%=p.getAnaPrice()%> 원</p>
             </div>
         </div>
         <% }

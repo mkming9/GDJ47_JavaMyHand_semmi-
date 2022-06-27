@@ -1,4 +1,8 @@
 div#pageBar{margin-top:10px; text-align:center;}
+
+body{
+}
+
 .productbanner{
 	height: 650px;
 	background-position: center;
@@ -14,6 +18,7 @@ div#pageBar{margin-top:10px; text-align:center;}
     form#numperPageFrm{display:inline;}
     
 section#content{
+	margin: 60px auto;
     /* border: 1px solid red; */
     /* padding: 30px; */
     display: flex; /*자손태그를 flexible box로 변환하는 설정 * 수평 수직 정렬을 편하게 할 수 있음*/
@@ -24,21 +29,27 @@ section#content{
     justify-content: center; */
     /* justify-content: right; */
     align-items: flex-start;
-    width: 100%;
+    flex-wrap: wrap;
+    width: 1500px;
     height: Auto;
 }
 section#content div{
-    border: 1px solid blue;
-    width: 150px;
+    border: 1px solid lightgray;
+    width: 300px;
+    /* padding: 50px; */
     /* height: auto; */
     /* display: inline-block; */
     /* margin-left: 50px; */
 }
 
+section#content div.post {
+	margin-bottom: 30px;
+}
+
 section#content div.pic>img{
     /* border: 1px solid yellow; */
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     /* margin-left: 25%; */
 }
 

@@ -93,7 +93,7 @@ function initfunction() {
   slides.style.left = -(slideWidth + slideMargin) + 'px';
 }
 next.addEventListener('click', function () {
-  //다음 버튼 눌렀을때
+  //다음 버튼 눌렀을때ㄴ
   if (currentIdx <= slideCount - 1) {
     //슬라이드이동
     slides.style.left = -(currentIdx + 2) * (slideWidth + slideMargin) + 'px';

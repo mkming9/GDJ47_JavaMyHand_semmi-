@@ -32,12 +32,63 @@ public class GroupsListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Groups> groups=new GroupsService().selectGroupsAll();
+		int cPage;
+		int numPerpage;
+		try {
+			cPage=Integer.parseInt(request.getParameter("cPage"));
+		}catch(NumberFormatException e) {
+			cPage=1;
+		}
+		try {
+			numPerpage=Integer.parseInt(request.getParameter("numPerPage"));
+		}catch(NumberFormatException e) {
+			numPerpage=5;
+		}
+		List<Groups> groups=new GroupsService().selectGroupsList(cPage, numPerpage);
+		List<Groups> group=new GroupsService().selectGroupsAll();
+		request.setAttribute("groups", groups);
 		
+		int totalBoard=new GroupsService().selectGroupsCount();
+		int totalPage=(int)Math.ceil((double)totalBoard/numPerpage);
+		
+		int pageBarSize=5;
+		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
+		int pageEnd=pageNo+pageBarSize-1;
+		
+		String pageBar="";
+		if(pageNo==1) {
+			pageBar+="<span>[이전]</span>";
+		}else {
+			pageBar+="<a href="+request.getRequestURL()
+					+"?cPage="+(pageNo-1)
+					+"&numPerpage="+numPerpage+">[이전]</a>";
+		}
+		
+		while(!(pageNo>pageEnd||pageNo>totalPage)) {
+			if(cPage==pageNo) {
+				pageBar+="<span>"+pageNo+"</span>";
+			}else {
+				pageBar+="<a href="+request.getRequestURL()
+				+"?cPage="+(pageNo)
+				+"&numPerpage="+numPerpage+">"+pageNo+"</a>";
+			}
+			pageNo++;
+		}
+		
+		if(pageNo>totalPage) {
+			pageBar+="<span>[다음]</span>";
+		}else {
+			pageBar+="<a href="+request.getRequestURL()
+			+"?cPage="+(pageNo)
+			+"&numPerpage="+numPerpage+">[다음]</a>";
+		}
+		
+		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("groups", groups);
 		
 		request.getRequestDispatcher("/views/groups/groupsView.jsp").forward(request, response);
-	}
+	
+}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

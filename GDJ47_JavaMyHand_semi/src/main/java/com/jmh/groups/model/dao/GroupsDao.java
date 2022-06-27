@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import com.jmh.groups.model.vo.Groups;
 import com.jmh.notice.model.vo.NoticeBoard;
+import com.jmh.product.model.vo.Product;
 
 public class GroupsDao {
 	private Properties prop=new Properties();
@@ -30,19 +31,55 @@ public class GroupsDao {
 	public List<Groups> selectGroupsAll(Connection conn) {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		List<Groups> groups=new ArrayList();
+		List<Groups> group=new ArrayList();
 		try {
 			pstmt=conn.prepareStatement(prop.getProperty("selectGroupsList"));
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				groups.add(getGroups(rs));
+				group.add(getGroups(rs));
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstmt);
-		} return groups;
+		} return group;
+	}
+	
+	public  List<Groups> selectGroupsList(Connection conn,int cPage, int numPerpage){
+		PreparedStatement pstmt = null;
+		List<Groups>groups=new ArrayList();
+		ResultSet rs = null;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("SELECTGROUPS"));
+			pstmt.setInt(1, (cPage-1)*numPerpage+1);
+			pstmt.setInt(2, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				groups.add(getGroups(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return groups;
+	}
+	
+	public int selectGroupsCount(Connection conn) {
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("SELECTGROUPSCOUNT"));
+			rs=pstmt.executeQuery();
+			if(rs.next())result=rs.getInt(1);
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
 	}
 	
 	public int insertGroups(Connection conn, Groups g) {

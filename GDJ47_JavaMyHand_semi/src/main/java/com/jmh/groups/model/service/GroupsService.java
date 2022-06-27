@@ -16,9 +16,21 @@ public class GroupsService {
 	
 	public List<Groups> selectGroupsAll() {
 		Connection conn=getConnection();
-		List<Groups> groups=dao.selectGroupsAll(conn);
+		List<Groups> group=dao.selectGroupsAll(conn);
+		close(conn);
+		return group;
+	}
+	public List<Groups> selectGroupsList(int cPage, int numPerpage) {
+		Connection conn=getConnection();
+		List<Groups> groups=dao.selectGroupsList(conn,cPage,numPerpage);
 		close(conn);
 		return groups;
+	}
+	public int selectGroupsCount() {
+		Connection conn=getConnection();
+		int result=dao.selectGroupsCount(conn);
+		close(conn);
+		return result;
 	}
 	
 	public int insertGroups(Groups g) {

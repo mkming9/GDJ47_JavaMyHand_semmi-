@@ -43,7 +43,7 @@ public class ProductListServlet extends HttpServlet {
 		try {
 			numPerpage=Integer.parseInt(request.getParameter("numPerPage"));
 		}catch(NumberFormatException e) {
-			numPerpage=5;
+			numPerpage=25;
 		}
 		List<Product> products=new ProductService().selectProductList(cPage, numPerpage);
 		int totalBoard=new ProductService().selectProductCount();

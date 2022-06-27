@@ -7,25 +7,28 @@
 <body>
 
 <div class="productbanner"></div>
+<div>
+	<button id="addProduct" onclick="location.assign('<%=request.getContextPath()%>/product/productWrite.do')" >글쓰기</button>
+</div>
  <section id="content">
  	<%if(products.isEmpty()) { %>
       <h3>조회된결과가 없습니다!</h3>
 	<%} else {
 		for(Product p : products) {%>
-        <div class="post">
+        <div class="post" OnClick="location.href ='<%=request.getContextPath()%>/product/productView.do?no=<%=p.getAnaNo()%>'" style="cursor:pointer;">
             <div class="pic">
                 <img src="<%=request.getContextPath()%>/images/noimage.jpg">
             </div>
             <div class="description">
                 <h3><%=p.getAnaName()%></h3>
                 <p><%=p.getAnaContent()%></p>
-                <p><%=p.getAnaPrice()%>원</p>
+                <p><%=p.getAnaPrice()%> 원</p>
             </div>
         </div>
         <% }
 	 } %>  
   </section>
-
+  
 <div id="pageBar">
 	<%=request.getAttribute("pageBar") %>
 </div>

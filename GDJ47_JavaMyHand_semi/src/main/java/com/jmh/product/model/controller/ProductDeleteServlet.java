@@ -41,10 +41,10 @@ public class ProductDeleteServlet extends HttpServlet {
 		String loc="";
 		if(result>0) {
 			msg="삭제실패";
-			loc="/product/productlist.do";		
+			loc="/product/productList.do";		
 		}else {
 			msg="삭제완료";
-			loc="/product/productlist.do";
+			loc="/product/productList.do";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);

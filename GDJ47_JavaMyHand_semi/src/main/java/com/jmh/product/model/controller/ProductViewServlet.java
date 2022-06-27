@@ -36,7 +36,7 @@ public class ProductViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int ana_No=Integer.parseInt(request.getParameter("no"));
+		int anaNo=Integer.parseInt(request.getParameter("no"));
 		
 		boolean isRead=false;
 		String preProduct="";
@@ -47,7 +47,7 @@ public class ProductViewServlet extends HttpServlet {
 				String value=c.getValue();
 				if(name.equals("readproduct")) {
 					preProduct=value;
-					if(preProduct.contains("|"+ana_No+"|")) {
+					if(preProduct.contains("|"+anaNo+"|")) {
 						isRead=true;
 						break;
 					}
@@ -55,14 +55,14 @@ public class ProductViewServlet extends HttpServlet {
 			}
 		}
 		if(!isRead) {
-			Cookie c=new Cookie("readproduct",preProduct+"|"+ana_No+"|");
+			Cookie c=new Cookie("readproduct",preProduct+"|"+anaNo+"|");
 			c.setMaxAge(24*60*60);
 			response.addCookie(c);
 		}
 		
 		
 		//System.out.println(ANA_NO);				
-		request.setAttribute("product", new ProductService().selectProductview(ana_No,isRead));
+		request.setAttribute("product", new ProductService().selectProductview(anaNo,isRead));
 		
 		System.out.println(isRead);
 		request.getRequestDispatcher("/views/product/productView.jsp").forward(request, response);

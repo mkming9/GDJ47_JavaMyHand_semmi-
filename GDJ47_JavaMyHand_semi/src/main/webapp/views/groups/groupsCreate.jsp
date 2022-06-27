@@ -85,13 +85,17 @@
 				<tr>
 					<th id="tg-0lax" colspan="9">
 					<input type="submit" value="등록">
-					<input type="reset" value="취소"></th>
+					<input type="button" id="cancel" value="취소"></th>
 				</tr>
 		</table>		
 	</form>
 </body>
 </html>
 <script>
+$("#cancel").on("click",function(){
+	close();
+});
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = {
     center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표

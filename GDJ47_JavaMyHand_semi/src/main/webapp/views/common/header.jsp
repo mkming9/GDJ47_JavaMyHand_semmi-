@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
+<%@ page import = "java.util.List,com.jmh.groups.model.vo.Groups,com.jmh.product.model.vo.Product,java.util.List,com.jmh.member.model.vo.Member" %>
 <%
 	String searchType=request.getParameter("searchType");
 	String keyword=request.getParameter("searchKeyword");
+	List<Groups> groups=(List<Groups>)request.getAttribute("groups");
 	List<Product> products=(List<Product>)request.getAttribute("products"); 
 	String pageBar=(String)request.getAttribute("pageBar");
 	Member loginMember = (Member)session.getAttribute("loginMember");

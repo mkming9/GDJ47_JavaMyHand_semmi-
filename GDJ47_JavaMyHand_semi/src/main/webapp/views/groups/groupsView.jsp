@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/header.jsp" %>
 <%@ page import="java.util.List,com.jmh.groups.model.vo.Groups" %>
-<% 
-	
-   List<Groups> groups=(List<Groups>)request.getAttribute("groups");
-%>
 <style>
+#hea{
+	background-color:lightblue;
+}
 .info{
 	text-align:center;
 	border: solid 1px;
@@ -20,15 +19,15 @@ border: solid 1px;
    <section>
    <div class="groupsbanner"></div>
    <table class="info">
-	<tr>
-	
+	<tr id="hea" >
       	 <td>게시판 번호&nbsp;&nbsp;</td>
       	 <td>작성자 &nbsp;&nbsp; </td>
-      	 <td>행복한 제목&nbsp;&nbsp; </td>
+      	 <td>행복한 주제&nbsp;&nbsp; </td>
       	 <td>소모임 테마&nbsp;&nbsp; </td>
-      	 <td>작성일&nbsp;&nbsp; </td>
+      	 <td>행복을 전하는 곳 &nbsp;&nbsp; </td>
       	 <td>선착순 &nbsp;&nbsp; </td>
       	 <td>성별&nbsp;&nbsp; </td>
+      	 <td>작성일&nbsp;&nbsp; </td>
       	 <!-- <td>소모임 내용&nbsp;&nbsp; </td> -->
 	</tr>
    <%if(!groups.isEmpty()) {
@@ -38,9 +37,10 @@ border: solid 1px;
          <td><%=g.getMemberId()%>&nbsp;&nbsp;</td> 
          <td><a href=""><%=g.getGroupTitle()%>&nbsp;&nbsp;</a></td>
          <td><%=g.getGCode()%>&nbsp;&nbsp;</td>
-         <td><%=g.getGroupDate()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupLocation()%>&nbsp;&nbsp;</td>
          <td><%=g.getGroupJoin()%>/<%=g.getGroupLimit()%>&nbsp;&nbsp;</td>
          <td><%=g.getGroupGender()%>&nbsp;&nbsp;</td>
+         <td><%=g.getGroupDate()%>&nbsp;&nbsp;</td>
          <%-- <td><%=g.getGroupContent()%>&nbsp;&nbsp;</td> --%>
       </tr>
      <%} 
@@ -48,8 +48,22 @@ border: solid 1px;
      </table>
      <button id="btn_createGroups">소모임 등록</button>
      <button id="btn_deleteGroups">소모임 삭제</button>
-     <div id="payResult"></div>
-   </section>
+     <div id="pageBar">
+	<%=request.getAttribute("pageBar") %>
+</div>
+
+<script>
+	$(()=>{
+        $("#searchType").change(e=>{
+            /* alert("type이 변경됨");  */
+            const type=$(e.target).val();
+             /* console.log(type); */
+            $("#search-container>div[id!=search-]").hide();
+              
+        	$("#search-"+type).css("display","inline-block");
+    	});
+        $("#searchType").change();
+	})      
    
    <%--   <script>
   
@@ -97,7 +111,6 @@ border: solid 1px;
       });
     }
   </script> --%>
-  <script>
    $("#btn_createGroups").click(e=>{
 	   open("<%=request.getContextPath()%>/groups/groupsCreate.do","_blank","width=521,height=440");
    });
